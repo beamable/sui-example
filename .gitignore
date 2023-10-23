@@ -1,0 +1,21 @@
+.vs
+.vscode
+.idea
+.DS_Store
+
+node_modules
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Bb]in/
+[Oo]bj/
+
+.idea
+
+/user-token.json
+/beamoLocalRuntime.json
