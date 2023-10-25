@@ -17,5 +17,9 @@ x86/
 
 .idea
 
-/user-token.json
-/beamoLocalRuntime.json
+*.local
+
+Move/**/build
+
+user-token.json
+beamoLocalRuntime.json

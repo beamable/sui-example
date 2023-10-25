@@ -8,6 +8,8 @@ WORKDIR /subsrc/SuiFederationServiceCommon
 COPY SuiFederationServiceCommon/. .
 # <BEAM-CLI-INSERT-FLAG:COPY_COMMON> do not delete this line. It is used by the beam CLI to insert custom actions
 
+WORKDIR /subsrc/SuiFederationStorage
+COPY SuiFederationStorage/. .
 # <BEAM-CLI-INSERT-FLAG:COPY> do not delete this line. It is used by the beam CLI to insert custom actions
 
 # copy in required files

@@ -24,7 +24,7 @@
         <!-- Advanced C# Features are disabled by default. The Unity SDK does not support these features. 
              If you enable them, it will be harder to copy/paste code between the service and Unity. -->
         <ImplicitUsings>disable</ImplicitUsings>
-        <Nullable>disable</Nullable>
+        <Nullable>enable</Nullable>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
 
         <!-- Warning 1591 is about missing XML comments on methods. Beamable suggests disabling this warning. 
@@ -83,15 +83,18 @@
         <PackageReference Include="Microsoft.OpenApi.Readers" Version="1.3.2" />
         <PackageReference Include="NetMQ" Version="4.0.1.11" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.*" />
+        <PackageReference Include="Rijndael256v2" Version="1.0.0" />
         <PackageReference Include="Serilog" Version="2.10.*" />
         <PackageReference Include="Serilog.Formatting.Compact" Version="1.1.*" />
         <PackageReference Include="Serilog.Sinks.Console" Version="3.1.*" />
         <PackageReference Include="System.CommandLine" Version="2.0.0-beta3.22114.*" />
         <PackageReference Include="System.ServiceModel.Primitives" Version="4.9.*" />
         <PackageReference Include="System.Threading.RateLimiting" Version="7.0.0" />
+        <PackageReference Include="HDWallet.Ed25519" Version="0.10.0" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\SuiFederationServiceCommon\SuiFederationServiceCommon.csproj" />
+      <ProjectReference Include="..\SuiFederationStorage\SuiFederationStorage.csproj" />
     </ItemGroup>
 
 </Project>
