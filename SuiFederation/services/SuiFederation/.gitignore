@@ -1,0 +1,6 @@
+obj/
+bin/
+.beamable/user-tokens.json
+.env
+js/
+node_modules/
