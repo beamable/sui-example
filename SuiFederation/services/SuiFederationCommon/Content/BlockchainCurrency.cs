@@ -13,7 +13,7 @@ namespace SuiFederationCommon.Content
         [SerializeField] private string _coinModule;
 
         /// <summary>
-        /// CoinModule
+        /// CoinModule Name
         /// </summary>
         public string CoinModule => _coinModule;
     }

@@ -28,7 +28,4 @@ MonoBehaviour:
   _name: CAshield
   _description: CAshield desc
   _image: https://i.imgur.com/vdASgUo.jpeg
-  _level: 1
-  _customProperties:
-    keys: []
-    values: []
+  _itemModule: game_item

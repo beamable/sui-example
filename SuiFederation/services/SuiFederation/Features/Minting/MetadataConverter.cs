@@ -14,7 +14,18 @@ internal static class MetadataConverter
         {
             Name = contentDefinition?.Name ?? request.ContentId,
             Description = contentDefinition?.Description ?? "",
-            ImageURL = contentDefinition?.Image ?? ""
+            ImageURL = contentDefinition?.Image ?? "",
+            ModuleName = contentDefinition?.ItemModule ?? ""
+        };
+    }
+
+    public static CurrencyItem ToCurrencyItem(this MintRequest request, BlockchainCurrency? contentDefinition)
+    {
+        return new CurrencyItem()
+        {
+            Name = contentDefinition?.CoinModule ?? "",
+            Amount = request.Amount,
+            ModuleName = contentDefinition?.CoinModule ?? ""
         };
     }
 

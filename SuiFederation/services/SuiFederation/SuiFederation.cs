@@ -96,7 +96,7 @@ namespace Beamable.SuiFederation
 							ContentId = c.Key,
 							Amount = (uint)c.Value,
 							Properties = new Dictionary<string, string>()
-						}).SingleOrDefault();
+						});
 
 					var itemMints = newItems.Select(i => new MintRequest
 					{
@@ -105,7 +105,7 @@ namespace Beamable.SuiFederation
 						Properties = i.properties
 					});
 
-					await _mintingService.Mint(Context.UserId, id, transaction, itemMints.Concat(new[] { currencyMints }).ToList());
+					await _mintingService.Mint(Context.UserId, id, transaction, currencyMints.Union(itemMints).ToList());
 				}
 				return await GetInventoryState(id);
 			});

@@ -28,9 +28,6 @@ public class Configuration : IService
         });
     }
 
-    public string GameAdminCap { get; set; }
-    public string TreasuryCap { get; set; }
-
     /// <summary>
     /// CONFIG VALUES
     /// To configure an explicit configuration values, visit the Beamable portal and add an configuration under Operate -> Config.
@@ -40,9 +37,7 @@ public class Configuration : IService
     public ValueTask<string> SuiEnvironment => GetValue(nameof(SuiEnvironment), "devnet");
     public ValueTask<int> AuthenticationChallengeTtlSec => GetValue(nameof(AuthenticationChallengeTtlSec), 600);
     public ValueTask<string> PackageId => GetValue(nameof(PackageId), "");
-    public ValueTask<string> SecretKey => GetValue(nameof(SecretKey), "");
-    public ValueTask<string> ItemModule => GetValue(nameof(ItemModule), "game_item");
-    public ValueTask<string> CoinModule => GetValue(nameof(CoinModule), "coin_item");
+    public ValueTask<string> PrivateKey => GetValue(nameof(PrivateKey), "");
 
     private async ValueTask<T> GetValue<T>(string key, T defaultValue) where T : IConvertible
     {

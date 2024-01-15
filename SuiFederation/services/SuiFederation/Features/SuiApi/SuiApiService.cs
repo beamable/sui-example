@@ -60,9 +60,9 @@ public class SuiApiService : IService
         }
     }
 
-    public async Task<SuiBalance> GetBalance(string address, string coinModule)
+    public async Task<SuiBalance> GetBalance(string address, string[] coinModules)
     {
-        using (new Measure($"Sui.GetBalance: {address}"))
+        using (new Measure($"Sui.GetBalance: {address} for -> {string.Join(',', coinModules)}"))
         {
             try
             {
@@ -71,9 +71,8 @@ public class SuiApiService : IService
                 var response = await StaticNodeJSService.InvokeFromFileAsync<string>(
                     BridgeModulePath,
                 "getBalance",
-                    new object[] { address, packageId, coinModule, environment });
+                    new object[] { address, packageId, coinModules, environment });
                 return JsonConvert.DeserializeObject<SuiBalance>(response);
-                ;
             }
             catch (Exception ex)
             {
@@ -106,7 +105,7 @@ public class SuiApiService : IService
         }
     }
 
-    public async Task<SuiCapObject> InitializeObjects()
+    public async Task<SuiCapObjects> InitializeObjects()
     {
         using (new Measure("Sui.Initialize"))
         {
@@ -114,15 +113,13 @@ public class SuiApiService : IService
             {
                 var environment = await _configuration.SuiEnvironment;
                 var packageId = await _configuration.PackageId;
-                var coinModule = await _configuration.CoinModule;
-                var itemModule = await _configuration.ItemModule;
-                var secretKey = await _configuration.SecretKey;
+                var secretKey = await _configuration.PrivateKey;
                 var result = await StaticNodeJSService.InvokeFromFileAsync<string>(
                     BridgeModulePath,
                     "getCapObjects",
-                    new object[] { secretKey, packageId, itemModule, coinModule, environment });
+                    new object[] { secretKey, packageId, environment });
 
-                return JsonConvert.DeserializeObject<SuiCapObject>(result);
+                return JsonConvert.DeserializeObject<SuiCapObjects>(result);
             }
             catch (Exception ex)
             {
@@ -134,22 +131,18 @@ public class SuiApiService : IService
 
     public async Task<SuiTransactionResult> MintInventoryItems(string token, InventoryMintRequest request)
     {
-        using (new Measure($"Sui.MintInventoryItems: for {token} -> {string.Join(',', request.GameItems.Select(x => x.Name))} -> Currency: {request.CurrencyItem?.Amount}"))
+        using (new Measure($"Sui.MintInventoryItems: for {token} -> {string.Join(',', request.GameItems.Select(x => x.Name))} -> Currency: {string.Join(',', request.CurrencyItems.Select(x => x.Name))}"))
         {
             try
             {
                 var environment = await _configuration.SuiEnvironment;
                 var packageId = await _configuration.PackageId;
-                var itemModule = await _configuration.ItemModule;
-                var coinModule = await _configuration.CoinModule;
-                var gameAdminCap = _configuration.GameAdminCap;
-                var treasuryCap = _configuration.TreasuryCap;
-                var secretKey = await _configuration.SecretKey;
+                var secretKey = await _configuration.PrivateKey;
                 var mintRequestJson = JsonConvert.SerializeObject(request);
                 var result =  await StaticNodeJSService.InvokeFromFileAsync<string>(
                     BridgeModulePath,
                     "mintInventory",
-                    new object[] { packageId, itemModule, coinModule, gameAdminCap, treasuryCap, token, mintRequestJson, secretKey, environment });
+                    new object[] { packageId, token, mintRequestJson, secretKey, environment });
                 return JsonConvert.DeserializeObject<SuiTransactionResult>(result);;
             }
             catch (Exception ex)

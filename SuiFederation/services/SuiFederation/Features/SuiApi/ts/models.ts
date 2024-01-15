@@ -2,6 +2,9 @@ import {SuiParsedData} from "@mysten/sui.js/client";
 import {DisplayFieldsResponse} from "@mysten/sui.js/src/client/types/generated";
 
 export class SuiBalance {
+    coins: SuiCoinBalance[] = [];
+}
+export class SuiCoinBalance {
     coinType: string;
     total: number;
     public constructor(coinType: string, total: number) {
@@ -69,31 +72,40 @@ export class SuiTransactionResult {
     error: string | undefined;
 }
 
-export class SuiCapObject {
-    gameAdminCap: string;
-    treasuryCap: string;
-    public constructor(gameAdminCap: string, treasuryCap: string) {
-        this.gameAdminCap = gameAdminCap;
-        this.treasuryCap = treasuryCap;
-    }
-}
-
 export interface GameItem {
     Name: string;
     Description: string;
     ImageURL: string;
+    GameAdminCap: string;
+    ModuleName: string;
 }
 
 export interface CurrencyItem {
+    Name: string;
     Amount: number;
+    TreasuryCap: string;
+    ModuleName: string;
 }
 
 export interface  InventoryMintRequest {
-    CurrencyItem: CurrencyItem | undefined;
+    CurrencyItems: CurrencyItem[] | undefined;
     GameItems: GameItem[] | undefined;
 }
 
 export class SuiKeys {
     Public: string | undefined;
     Private: string | undefined;
+}
+
+export class SuiCapObject {
+    Id: String
+    Name: String
+    public constructor(id: string, name: string) {
+        this.Id = id;
+        this.Name = name;
+    }
+}
+export class SuiCapObjects {
+    GameAdminCaps: SuiCapObject[] = [];
+    TreasuryCaps: SuiCapObject[] = [];
 }

@@ -19,6 +19,8 @@ public class WalletService : IService
     private readonly Configuration _configuration;
     private readonly VaultCollection _vaultCollection;
 
+    private SuiCapObjects _capObjects = new();
+
     public WalletService(SuiApiService suiApiServiceService, Configuration configuration, VaultCollection vaultCollection)
     {
         _suiApiServiceService = suiApiServiceService;
@@ -26,16 +28,24 @@ public class WalletService : IService
         _vaultCollection = vaultCollection;
     }
 
-    public async Task<SuiCapObject> InitializeObjects()
+    public async Task InitializeObjects()
     {
-        if (string.IsNullOrWhiteSpace(await _configuration.PackageId) || string.IsNullOrWhiteSpace(await _configuration.SecretKey))
+        if (string.IsNullOrWhiteSpace(await _configuration.PackageId) || string.IsNullOrWhiteSpace(await _configuration.PrivateKey))
         {
-            throw new ConfigurationException($"Couldn't initialize cap objects, publish the smart contract and store the packageId and secret key in the realm config.");
+            throw new ConfigurationException($"Couldn't initialize cap objects, publish the smart contract and store the packageId and private key in the realm config.");
         }
         var caps = await _suiApiServiceService.InitializeObjects();
-        _configuration.GameAdminCap = caps.GameAdminCap;
-        _configuration.TreasuryCap = caps.TreasuryCap;
-        return caps;
+        _capObjects = caps;
+    }
+
+    public SuiCapObject? GetGameCap(string name)
+    {
+        return _capObjects.GameAdminCaps.SingleOrDefault(x => x.Name == name);
+    }
+
+    public SuiCapObject? GetTreasuryCap(string name)
+    {
+        return _capObjects.TreasuryCaps.SingleOrDefault(x => x.Name == name);
     }
 
     public async Task<SuiWallet> GetOrCreateWallet(string userId)
@@ -89,17 +99,11 @@ public class WalletService : IService
 
     public async Promise<FederatedInventoryProxyState> GetInventoryState(string id)
     {
-        var coinModule = await _configuration.CoinModule;
-        var coinBalance = await _suiApiServiceService.GetBalance(id, coinModule);
+        var coinBalance = await _suiApiServiceService.GetBalance(id, _capObjects.TreasuryCaps.Select(x => x.Name).ToArray());
         var suiObjects = await _suiApiServiceService.GetOwnedObjects(id);
 
         var items = new List<(string, FederatedItemProxy)>();
-        var currencies = new Dictionary<string, long>
-        {
-            {
-                coinModule, coinBalance.total
-            }
-        };
+        var currencies = coinBalance.coins?.ToDictionary(coin => coin.coinType, coin => coin.total);
 
         foreach (var suiObject in suiObjects)
         {

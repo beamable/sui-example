@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Beamable.SuiFederation.Features.Minting.Models;
 using Beamable.SuiFederation.Features.SuiApi;
@@ -8,6 +7,7 @@ using SuiFederationCommon.Content;
 using Beamable.Server.Content;
 using Beamable.SuiFederation.Features.Transactions;
 using Beamable.SuiFederation.Features.Transactions.Storage.Models;
+using SuiFederation.Features.Wallets;
 
 namespace Beamable.SuiFederation.Features.Minting;
 
@@ -15,15 +15,15 @@ public class MintingService : IService
 {
     private readonly ContentService _contentService;
     private readonly SuiApiService _suiApiServiceService;
-    private readonly Configuration _configuration;
     private readonly TransactionManager _transactionManager;
+    private readonly WalletService _walletService;
 
-    public MintingService(ContentService contentService, SuiApiService suiApiServiceService, Configuration configuration, TransactionManager transactionManager)
+    public MintingService(ContentService contentService, SuiApiService suiApiServiceService, TransactionManager transactionManager, WalletService walletService)
     {
         _contentService = contentService;
         _suiApiServiceService = suiApiServiceService;
-        _configuration = configuration;
         _transactionManager = transactionManager;
+        _walletService = walletService;
     }
 
     public async Task Mint(long userId, string toWalletAddress, string inventoryTransactionId, ICollection<MintRequest> requests)
@@ -34,10 +34,7 @@ public class MintingService : IService
             return;
         }
 
-        var mintRequest = new InventoryMintRequest
-        {
-            GameItems = new List<GameItem>()
-        };
+        var mintRequest = new InventoryMintRequest();
 
         foreach (var request in requests)
         {
@@ -46,16 +43,22 @@ public class MintingService : IService
             switch (contentDefinition)
             {
                 case BlockchainCurrency blockchainCurrency:
-                    if (blockchainCurrency.CoinModule == await _configuration.CoinModule)
+                    var currencyItem = request.ToCurrencyItem(blockchainCurrency);
+                    var treasuryCap = _walletService.GetTreasuryCap(currencyItem.ModuleName);
+                    if (treasuryCap is not null)
                     {
-                        mintRequest.CurrencyItem = new CurrencyItem
-                        {
-                            Amount = request.Amount
-                        };
+                        currencyItem.TreasuryCap = treasuryCap.Id;
+                        mintRequest.CurrencyItems.Add(currencyItem);
                     }
                     break;
                 case BlockchainItem blockchainItem:
-                    mintRequest.GameItems.Add(request.ToGameItem(blockchainItem));
+                    var inventoryItem = request.ToGameItem(blockchainItem);
+                    var gameCap = _walletService.GetGameCap(inventoryItem.ModuleName);
+                    if (gameCap is not null)
+                    {
+                        inventoryItem.GameAdminCap = gameCap.Id;
+                        mintRequest.GameItems.Add(inventoryItem);
+                    }
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(contentDefinition));
