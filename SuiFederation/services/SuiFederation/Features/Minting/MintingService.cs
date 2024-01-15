@@ -1,10 +1,10 @@
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Beamable.SuiFederation.Features.Minting.Models;
 using Beamable.SuiFederation.Features.SuiApi;
 using SuiFederationCommon.Content;
 using Beamable.Server.Content;
+using Beamable.SuiFederation.Features.Minting.Exceptions;
 using Beamable.SuiFederation.Features.Transactions;
 using Beamable.SuiFederation.Features.Transactions.Storage.Models;
 using SuiFederation.Features.Wallets;
@@ -61,7 +61,7 @@ public class MintingService : IService
                     }
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(contentDefinition));
+                    throw new UndefinedItemException(nameof(contentDefinition));
             }
         }
 

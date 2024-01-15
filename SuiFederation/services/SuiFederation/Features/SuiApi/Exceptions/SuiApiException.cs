@@ -5,7 +5,7 @@ namespace Beamable.SuiFederation.Features.SuiApi.Exceptions;
 
 public class SuiApiException : MicroserviceException
 {
-    public SuiApiException(string message) : base((int)HttpStatusCode.InternalServerError, "SuiApiException",
+    public SuiApiException(string message) : base((int)HttpStatusCode.BadRequest, "SuiApiException",
         message)
     {
     }
