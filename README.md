@@ -47,11 +47,10 @@ You can override the values using the realm configuration.
 | sui           | SuiEnvironment   | devnet           | SUI network name (mainnet, testnet, devnet, localnet)  |
 | sui           | SecretKey        | -                | SUI client private key in HEX format                   |
 | sui           | PackageId        | -                | ObjectID of the published smart contract (Move package)|
-| sui           | ItemModule       | game_item        | Name of the Move package module for minting NFTs       |
-| sui           | CoinModule       | coin_item        | Name of the Move package module for minting coins      |
 
 ### Deploying Move package
 Before the microservice can interact with the SUI network, Move package must be built and deployed.  
+One Move package can house definitions/modules for multiple NFTs and custom coins. 
 Source for example Move package can be found under the ```/Move/beamable_sui_example/sources``` directory.
 Every Move package has a package manifest in the form of a Move.toml file. Dependencies section in the Move.toml file defines a GitHub 
 branch against witch the code will be built. For development purposes you can use ```framework/devnet``` and for production ```main```.
