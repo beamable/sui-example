@@ -15,7 +15,7 @@ internal static class MetadataConverter
             Name = contentDefinition?.Name ?? request.ContentId,
             Description = contentDefinition?.Description ?? "",
             ImageURL = contentDefinition?.Image ?? "",
-            ModuleName = contentDefinition?.ItemModule ?? ""
+            ContentName = contentDefinition?.ContentName
         };
     }
 
@@ -23,9 +23,8 @@ internal static class MetadataConverter
     {
         return new CurrencyItem()
         {
-            Name = contentDefinition?.CoinModule ?? "",
+            Name = contentDefinition?.ContentName,
             Amount = request.Amount,
-            ModuleName = contentDefinition?.CoinModule ?? ""
         };
     }
 

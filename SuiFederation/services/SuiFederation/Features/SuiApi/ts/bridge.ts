@@ -111,14 +111,13 @@ async function mintInventory(callback: Callback<string>, packageId: string, toke
     const result = new SuiTransactionResult();
     try {
         const mintRequest: InventoryMintRequest = JSON.parse(items);
-
         const keypair = Ed25519Keypair.fromSecretKey(fromHEX(secretKey));
         const txb = new TransactionBlock();
         txb.setGasBudget(MIN_GAS_BUDGET);
 
         if (mintRequest.CurrencyItems != null) {
             mintRequest.CurrencyItems.forEach((coinItem) => {
-                const coinTarget: `${string}::${string}::${string}` = `${packageId}::${coinItem.ModuleName.toLowerCase()}::mint`;
+                const coinTarget: `${string}::${string}::${string}` = `${packageId}::${coinItem.Name.toLowerCase()}::mint`;
                 txb.moveCall({
                     target: coinTarget,
                     arguments: [
@@ -131,7 +130,7 @@ async function mintInventory(callback: Callback<string>, packageId: string, toke
 
         if (mintRequest.GameItems != null) {
             mintRequest.GameItems.forEach((gameItem) => {
-                const itemTarget: `${string}::${string}::${string}` = `${packageId}::${gameItem.ModuleName.toLowerCase()}::mint`;
+                const itemTarget: `${string}::${string}::${string}` = `${packageId}::${gameItem.ContentName.toLowerCase()}::mint`;
                 txb.moveCall({
                     target: itemTarget,
                     arguments: [

@@ -14,7 +14,6 @@ namespace SuiFederationCommon.Content
         [SerializeField] private string _name;
         [SerializeField][TextArea(10, 10)] private string _description;
         [SerializeField] private string _image;
-        [SerializeField] private string _itemModule;
 
         /// <summary>
         /// NFT name
@@ -30,11 +29,6 @@ namespace SuiFederationCommon.Content
         /// NFT image
         /// </summary>
         public string Image => _image;
-
-        /// <summary>
-        /// ItemModule Name
-        /// </summary>
-        public string ItemModule => _itemModule;
 
         /// <summary>
         /// Creates a JSON string that represents the NFT metadata

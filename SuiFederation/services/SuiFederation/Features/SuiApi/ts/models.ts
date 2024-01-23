@@ -82,15 +82,13 @@ export interface GameItem {
     Description: string;
     ImageURL: string;
     GameAdminCap: string;
-    ModuleName: string;
-    ContentId: string;
+    ContentName: string;
 }
 
 export interface CurrencyItem {
     Name: string;
     Amount: number;
     TreasuryCap: string;
-    ModuleName: string;
 }
 
 export interface  InventoryMintRequest {

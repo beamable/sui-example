@@ -6,5 +6,5 @@ public class GameItem
     public string Description { get; set; }
     public string ImageURL { get; set; }
     public string GameAdminCap { get; set; }
-    public string ModuleName { get; set; }
+    public string ContentName { get; set; }
 }

@@ -44,7 +44,7 @@ public class MintingService : IService
             {
                 case BlockchainCurrency blockchainCurrency:
                     var currencyItem = request.ToCurrencyItem(blockchainCurrency);
-                    var treasuryCap = _walletService.GetTreasuryCap(currencyItem.ModuleName);
+                    var treasuryCap = _walletService.GetTreasuryCap(currencyItem.Name);
                     if (treasuryCap is not null)
                     {
                         currencyItem.TreasuryCap = treasuryCap.Id;
@@ -53,7 +53,7 @@ public class MintingService : IService
                     break;
                 case BlockchainItem blockchainItem:
                     var inventoryItem = request.ToGameItem(blockchainItem);
-                    var gameCap = _walletService.GetGameCap(inventoryItem.ModuleName);
+                    var gameCap = _walletService.GetGameCap(inventoryItem.ContentName);
                     if (gameCap is not null)
                     {
                         inventoryItem.GameAdminCap = gameCap.Id;
