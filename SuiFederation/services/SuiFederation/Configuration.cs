@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Beamable.Common;
 using Beamable.Server;
 using Beamable.Server.Api.RealmConfig;
+using SuiFederation.Features.Wallets;
 
 namespace Beamable.SuiFederation;
 

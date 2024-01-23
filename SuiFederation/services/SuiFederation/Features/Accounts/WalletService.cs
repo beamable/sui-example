@@ -2,6 +2,9 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Beamable.Common;
+using Beamable.Common.Content;
+using Beamable.Server;
+using Beamable.Server.Content;
 using Beamable.SuiFederation;
 using Beamable.SuiFederation.Features.Minting;
 using Beamable.SuiFederation.Features.SuiApi;
@@ -18,14 +21,21 @@ public class WalletService : IService
     private readonly SuiApiService _suiApiServiceService;
     private readonly Configuration _configuration;
     private readonly VaultCollection _vaultCollection;
+    private readonly ContentService _contentService;
 
     private SuiCapObjects _capObjects = new();
 
-    public WalletService(SuiApiService suiApiServiceService, Configuration configuration, VaultCollection vaultCollection)
+    public WalletService(SuiApiService suiApiServiceService, Configuration configuration, VaultCollection vaultCollection, ContentService contentService, SocketRequesterContext socketRequesterContext)
     {
         _suiApiServiceService = suiApiServiceService;
         _configuration = configuration;
         _vaultCollection = vaultCollection;
+        _contentService = contentService;
+
+        socketRequesterContext.Subscribe<object>(Constants.Features.Services.REALM_CONFIG_UPDATE_EVENT, async _ =>
+        {
+            await InitializeObjects();
+        });
     }
 
     public async Task InitializeObjects()
@@ -36,6 +46,7 @@ public class WalletService : IService
         }
         var caps = await _suiApiServiceService.InitializeObjects();
         _capObjects = caps;
+        BeamableLogger.Log("Initialized CAP objects for package {PackageId}", await _configuration.PackageId);
     }
 
     public SuiCapObject? GetGameCap(string name)
@@ -102,12 +113,14 @@ public class WalletService : IService
         var coinBalance = await _suiApiServiceService.GetBalance(id, _capObjects.TreasuryCaps.Select(x => x.Name).ToArray());
         var suiObjects = await _suiApiServiceService.GetOwnedObjects(id);
 
+        var manifest = await _contentService.GetManifest();
+
         var items = new List<(string, FederatedItemProxy)>();
-        var currencies = coinBalance.coins?.ToDictionary(coin => coin.coinType, coin => coin.total);
+        var currencies = coinBalance.coins?.ToDictionary(coin => GetFullContentName(manifest, coin.coinType), coin => coin.total);
 
         foreach (var suiObject in suiObjects)
         {
-            items.Add((suiObject.name,
+            items.Add((GetFullContentName(manifest, suiObject.type),
                     new FederatedItemProxy
                     {
                         proxyId = suiObject.objectId,
@@ -125,5 +138,17 @@ public class WalletService : IService
             currencies = currencies,
             items = itemGroups
         };
+    }
+
+    private string GetFullContentName(ClientManifest manifest, string type)
+    {
+        foreach (var entry in manifest.entries)
+        {
+            if (entry.contentId.EndsWith(type))
+            {
+                return entry.contentId;
+            }
+        }
+        return type;
     }
 }

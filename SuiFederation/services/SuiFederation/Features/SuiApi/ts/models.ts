@@ -32,7 +32,12 @@ export class SuiObject {
 
         switch (this.content?.dataType) {
             case 'moveObject':
-                viewObject.type = this.content?.type;
+                const typeParts = this.content?.type.split("::");
+                if (typeParts.length >= 3) {
+                    viewObject.type = typeParts[1];
+                } else {
+                    viewObject.type = this.content?.type;
+                }
                 const displayData = this.display?.data;
                 if (displayData != null) {
                     viewObject.name = displayData["name"];
@@ -78,6 +83,7 @@ export interface GameItem {
     ImageURL: string;
     GameAdminCap: string;
     ModuleName: string;
+    ContentId: string;
 }
 
 export interface CurrencyItem {
