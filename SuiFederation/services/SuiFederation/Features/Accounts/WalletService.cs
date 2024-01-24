@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Beamable.Common;
-using Beamable.Common.Content;
 using Beamable.Server;
 using Beamable.Server.Content;
 using Beamable.SuiFederation;
@@ -21,16 +20,14 @@ public class WalletService : IService
     private readonly SuiApiService _suiApiServiceService;
     private readonly Configuration _configuration;
     private readonly VaultCollection _vaultCollection;
-    private readonly ContentService _contentService;
 
     private SuiCapObjects _capObjects = new();
 
-    public WalletService(SuiApiService suiApiServiceService, Configuration configuration, VaultCollection vaultCollection, ContentService contentService, SocketRequesterContext socketRequesterContext)
+    public WalletService(SuiApiService suiApiServiceService, Configuration configuration, VaultCollection vaultCollection, SocketRequesterContext socketRequesterContext)
     {
         _suiApiServiceService = suiApiServiceService;
         _configuration = configuration;
         _vaultCollection = vaultCollection;
-        _contentService = contentService;
 
         socketRequesterContext.Subscribe<object>(Constants.Features.Services.REALM_CONFIG_UPDATE_EVENT, async _ =>
         {
@@ -113,14 +110,12 @@ public class WalletService : IService
         var coinBalance = await _suiApiServiceService.GetBalance(id, _capObjects.TreasuryCaps.Select(x => x.Name).ToArray());
         var suiObjects = await _suiApiServiceService.GetOwnedObjects(id);
 
-        var manifest = await _contentService.GetManifest();
-
         var items = new List<(string, FederatedItemProxy)>();
-        var currencies = coinBalance.coins?.ToDictionary(coin => GetFullContentName(manifest, coin.coinType), coin => coin.total);
+        var currencies = coinBalance.coins?.ToDictionary(coin => GetCurrencyContenId(coin.coinType), coin => coin.total);
 
         foreach (var suiObject in suiObjects)
         {
-            items.Add((GetFullContentName(manifest, suiObject.type),
+            items.Add((GetItemContenId(suiObject.type),
                     new FederatedItemProxy
                     {
                         proxyId = suiObject.objectId,
@@ -140,15 +135,13 @@ public class WalletService : IService
         };
     }
 
-    private string GetFullContentName(ClientManifest manifest, string type)
+    private string GetItemContenId(string itemName)
     {
-        foreach (var entry in manifest.entries)
-        {
-            if (entry.contentId.EndsWith(type))
-            {
-                return entry.contentId;
-            }
-        }
-        return type;
+        return $"items.blockchain_item.{itemName}";
+    }
+
+    private string GetCurrencyContenId(string currencyName)
+    {
+        return $"currency.blockchain_currency.{currencyName}";
     }
 }
