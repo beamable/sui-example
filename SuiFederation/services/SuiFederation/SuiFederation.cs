@@ -115,5 +115,11 @@ namespace Beamable.SuiFederation
 		{
 			return await _walletService.GetInventoryState(id);
 		}
+
+		[ClientCallable]
+		public async Task<string> GetSuiEnvironment()
+		{
+			return await _configuration.SuiEnvironment;
+		}
 	}
 }
