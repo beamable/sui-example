@@ -16,7 +16,6 @@ import { retrievePaginatedData } from "./utils";
 
 type Callback<T> = (error: any, result: T | null) => void;
 type Environment = 'mainnet' | 'testnet' | 'devnet' | 'localnet';
-const MIN_GAS_BUDGET = 10000000;
 
 async function exportSecret(callback: Callback<string>) {
     let error = null;
@@ -113,7 +112,6 @@ async function mintInventory(callback: Callback<string>, packageId: string, toke
         const mintRequest: InventoryMintRequest = JSON.parse(items);
         const keypair = Ed25519Keypair.fromSecretKey(fromHEX(secretKey));
         const txb = new TransactionBlock();
-        txb.setGasBudget(MIN_GAS_BUDGET);
 
         if (mintRequest.CurrencyItems != null) {
             mintRequest.CurrencyItems.forEach((coinItem) => {

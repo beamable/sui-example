@@ -1,6 +1,7 @@
 [package]
 name = "beamable_sui_example"
 version = "0.0.1"
+published-at = "0xf04c7c6b5ad226c49983d8d145417fa26fff3161b1dd5363b88e416b5697d90d"
 
 [dependencies]
 Sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-framework", rev = "framework/devnet" }
