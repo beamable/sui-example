@@ -152,4 +152,28 @@ public class SuiApiService : IService
             }
         }
     }
+
+    public async Task<string> Update(string gap)
+    {
+        using (new Measure("Sui.Update"))
+        {
+            try
+            {
+                var environment = await _configuration.SuiEnvironment;
+                var packageId = await _configuration.PackageId;
+                var secretKey = await _configuration.PrivateKey;
+                var result = await StaticNodeJSService.InvokeFromFileAsync<string>(
+                    BridgeModulePath,
+                    "update",
+                    new object[] { packageId, secretKey, gap, environment });
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                BeamableLogger.LogWarning("Can't Update. Error: {error}", ex.Message);
+                throw new SuiApiException(ex.Message);
+            }
+        }
+    }
 }

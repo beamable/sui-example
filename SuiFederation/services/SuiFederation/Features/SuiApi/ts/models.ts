@@ -77,12 +77,18 @@ export class SuiTransactionResult {
     error: string | undefined;
 }
 
+export interface Attribute {
+    Name: string;
+    Value: string;
+}
+
 export interface GameItem {
     Name: string;
     Description: string;
     ImageURL: string;
     GameAdminCap: string;
     ContentName: string;
+    Attributes: Attribute[]
 }
 
 export interface CurrencyItem {

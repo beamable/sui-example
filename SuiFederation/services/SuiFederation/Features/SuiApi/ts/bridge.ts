@@ -1,6 +1,6 @@
 import { verifyPersonalMessage } from '@mysten/sui.js/verify';
 import { getFullnodeUrl,GetOwnedObjectsParams, PaginatedObjectsResponse, SuiClient } from '@mysten/sui.js/client';
-import { fromHEX, SUI_FRAMEWORK_ADDRESS } from '@mysten/sui.js/utils';
+import { fromHEX, SUI_FRAMEWORK_ADDRESS, fromB64 } from '@mysten/sui.js/utils';
 import { TransactionBlock } from '@mysten/sui.js/transactions';
 import { Ed25519Keypair } from '@mysten/sui.js/keypairs/ed25519';
 import {
@@ -13,10 +13,32 @@ import {
     SuiTransactionResult
 } from './models';
 import { retrievePaginatedData } from "./utils";
+import { bech32 } from 'bech32';
 
 type Callback<T> = (error: any, result: T | null) => void;
 type Environment = 'mainnet' | 'testnet' | 'devnet' | 'localnet';
+const SUI_PRIVATE_KEY_PREFIX = 'suiprivkey';
 
+function decodeSuiPrivateKey(value: string) {
+    if (value.startsWith("0x")) {
+        return fromHEX(value);
+    }
+    if (value.startsWith(SUI_PRIVATE_KEY_PREFIX)) {
+        const { prefix, words } = bech32.decode(value);
+        const extendedSecretKey = new Uint8Array(bech32.fromWords(words));
+        return extendedSecretKey.slice(1);
+    }
+    if (!value.startsWith(SUI_PRIVATE_KEY_PREFIX) && value.length == 60) {
+        const pk_with_prefix = SUI_PRIVATE_KEY_PREFIX + value;
+        const { prefix, words } = bech32.decode(pk_with_prefix);
+        const extendedSecretKey = new Uint8Array(bech32.fromWords(words));
+        return extendedSecretKey.slice(1);
+    }
+    if (!value.startsWith(SUI_PRIVATE_KEY_PREFIX) && value.length == 44) {
+        return fromB64(value);
+    }
+    throw new Error('invalid private key value');
+}
 async function exportSecret(callback: Callback<string>) {
     let error = null;
     const keys= new SuiKeys()
@@ -128,7 +150,8 @@ async function mintInventory(callback: Callback<string>, packageId: string, toke
 
         if (mintRequest.GameItems != null) {
             mintRequest.GameItems.forEach((gameItem) => {
-                const itemTarget: `${string}::${string}::${string}` = `${packageId}::${gameItem.ContentName.toLowerCase()}::mint`;
+                const itemTarget: `${string}::${string}::${string}` = `${packageId}::${gameItem.ContentName.toLowerCase()}::create`;
+
                 txb.moveCall({
                     target: itemTarget,
                     arguments: [
@@ -136,7 +159,9 @@ async function mintInventory(callback: Callback<string>, packageId: string, toke
                         txb.pure.address(token),
                         txb.pure.string(gameItem.Name),
                         txb.pure.string(gameItem.Description),
-                        txb.pure.string(gameItem.ImageURL)
+                        txb.pure.string(gameItem.ImageURL),
+                        txb.pure(gameItem.Attributes.map(attribute => attribute.Name)),
+                        txb.pure(gameItem.Attributes.map(attribute => attribute.Value))
                     ]});
             });
         }
@@ -168,7 +193,7 @@ async function getCapObjects(callback: Callback<string>, secretKey: string, pack
     const suiCaps: SuiCapObjects = new SuiCapObjects();
     try {
         const suiClient = new SuiClient({url: getFullnodeUrl(environment)});
-        const keypair = Ed25519Keypair.fromSecretKey(fromHEX(secretKey));
+        const keypair = Ed25519Keypair.fromSecretKey(decodeSuiPrivateKey(secretKey));
         const inputParams: GetOwnedObjectsParams = {
             owner: keypair.toSuiAddress(),
             cursor: null,

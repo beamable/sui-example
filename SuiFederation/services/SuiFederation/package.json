@@ -17,6 +17,7 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
-    "@mysten/sui.js": "^0.47.0"
+    "@mysten/sui.js": "^0.47.0",
+    "bech32": "2.0.0"
   }
 }

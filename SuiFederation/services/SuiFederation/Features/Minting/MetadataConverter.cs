@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Beamable.SuiFederation.Features.Minting.Models;
 using SuiFederationCommon.Content;
 using Beamable.Common.Api.Inventory;
@@ -15,7 +16,13 @@ internal static class MetadataConverter
             Name = contentDefinition?.Name ?? request.ContentId,
             Description = contentDefinition?.Description ?? "",
             ImageURL = contentDefinition?.Image ?? "",
-            ContentName = contentDefinition?.ContentName
+            ContentName = contentDefinition?.ContentName,
+            Attributes = contentDefinition?.CustomProperties
+                .Select(kv => new Attribute
+                {
+                    Name = kv.Key,
+                    Value = kv.Value
+                }).ToArray()
         };
     }
 

@@ -7,4 +7,11 @@ public class GameItem
     public string ImageURL { get; set; }
     public string GameAdminCap { get; set; }
     public string ContentName { get; set; }
+    public Attribute[] Attributes { get; set; }
+}
+
+public class Attribute
+{
+    public string Name { get; set; }
+    public string Value { get; set; }
 }
