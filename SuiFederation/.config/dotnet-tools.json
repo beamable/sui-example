@@ -3,10 +3,11 @@
   "isRoot": true,
   "tools": {
     "beamable.tools": {
-      "version": "1.19.8",
+      "version": "2.0.1",
       "commands": [
         "beam"
-      ]
+      ],
+      "rollForward": false
     }
   }
 }
