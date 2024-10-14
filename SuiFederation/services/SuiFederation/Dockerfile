@@ -21,8 +21,11 @@ WORKDIR /
 
 RUN dotnet publish ${BEAM_CSPROJ_PATH} -c release -o /beamApp
 
+COPY SuiFederation/js/. /beamApp/js
+
 # use the dotnet runtime as the final stage
 FROM mcr.microsoft.com/dotnet/runtime:7.0-alpine
+RUN apk add --no-cache nodejs npm
 WORKDIR /beamApp
 
 # expose the health port
@@ -36,4 +39,3 @@ ENTRYPOINT ["dotnet", "/beamApp/SuiFederation.dll"]
 
 # Swap entrypoints if the container is exploding and you want to keep it alive indefinitely so you can go look into it.
 #ENTRYPOINT ["tail", "-f", "/dev/null"]
-
