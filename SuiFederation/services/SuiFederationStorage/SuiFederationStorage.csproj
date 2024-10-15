@@ -1,14 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+    <PropertyGroup Label="Beamable Settings">
+        <!-- All StorageObjects must have the value, "storage" -->
+        <BeamProjectType>storage</BeamProjectType>
+    </PropertyGroup>
+    
     <PropertyGroup>
         <TargetFramework>net7.0</TargetFramework>
     </PropertyGroup>
 
-    <ItemGroup>
-        <PackageReference Include="Beamable.Microservice.Runtime" Version="1.19.8"/>
-        <PackageReference Include="MongoDB.Driver" Version="2.19.1"/>
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.*"/>
-        <PackageReference Include="System.CommandLine" Version="2.0.0-beta3.22114.*"/>
+    <ItemGroup Label="Nuget References">
+        <PackageReference Include="Beamable.Microservice.Runtime" Version="2.0.1" />
+        <PackageReference Include="MongoDB.Driver" Version="2.19.1" />
     </ItemGroup>
 
 </Project>

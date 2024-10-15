@@ -1,3 +1,4 @@
-/user-token.json
-/beamoLocalRuntime.json
-/config-defaults.json
+/connection-auth.json
+/local-services-runtime-cache.json
+temp/
+connection-configuration.json

@@ -20,6 +20,7 @@ You should have the following tools installed on your development machine.
 3. [Net7](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
 4. [Git](https://git-scm.com/downloads)
 5. [Sui CLI](https://docs.sui.io/guides/developer/getting-started/sui-install)
+6. [NodeJS/NPM](https://nodejs.org/en/download)
 
 ## Repository structure
 - /SuiFederationService - Beamable standalone microservice that implements federation features and communicates with
