@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -352348745, guid: 32b87407b979e3f4db5da06355f57a44, type: 3}
+  m_Name: star
+  m_EditorClassIdentifier: 
+  _tags: []
+  icon:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  clientPermission:
+    writeSelf: 0
+  startingAmount: 0
+  federation:
+    HasValue: 1
+    Value:
+      Service: SuiFederation
+      Namespace: SuiIdentity
+  name: Star coin
+  symbol: STR
+  decimals: 0
+  image: https://cdn.pixabay.com/photo/2016/03/31/17/33/icons-1293736_1280.png
+  description: Star game coin
+  initialSupply: 0

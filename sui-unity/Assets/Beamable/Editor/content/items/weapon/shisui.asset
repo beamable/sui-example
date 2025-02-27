@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -406860628, guid: 32b87407b979e3f4db5da06355f57a44, type: 3}
+  m_Name: shisui
+  m_EditorClassIdentifier: 
+  _tags:
+  - base
+  icon:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  clientPermission:
+    writeSelf: 0
+  federation:
+    HasValue: 1
+    Value:
+      Service: SuiFederation
+      Namespace: SuiIdentity
+  name: Shisui
+  description: This sword is said to have the power to control water.
+  image: https://cdn.pixabay.com/photo/2019/04/05/15/01/katana-4105189_1280.png
+  customProperties:
+    keys: []
+    values: []
