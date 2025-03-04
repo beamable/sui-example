@@ -1,0 +1,28 @@
+{
+  "name": "wallet-integration",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "npx http-server -p 8080"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@mysten/dapp-kit": "^0.14.50",
+    "@mysten/wallet-standard": "^0.13.26",
+    "@mysten/zksend": "^0.12.16",
+    "http-server": "^14.1.1",
+    "eslint": "^9.19.0",
+    "ts-loader": "^9.5.2",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.3",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-merge": "^6.0.1"
+  }
+}

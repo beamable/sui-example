@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sui Wallet Standard</title>
+</head>
+<body>
+    <h1>Sui Wallet Integration</h1>
+    <label for="wallets">Select a Wallet:</label>
+    <select id="wallets"></select>
+    <button id="connectWallet">Connect Wallet</button>
+    <button id="disconnectWallet">Disconnect Wallet</button>
+    <p id="walletAddress"></p>
+    <p id="walletBalance"></p>
+
+    <input type="text" id="messageInput" placeholder="Enter a message to sign" />
+    <button id="signMessage">Sign Message</button>
+    <p id="signedMessage"></p>
+    
+    <script type="module">
+        import {
+            loadWallets,
+            connectWallet,
+            disconnectWallet,
+            signMessage
+            } from './dist/bridge.js';
+
+            async function updateWalletList() {
+                const walletSelect = document.getElementById("wallets");
+                const wallets = await loadWallets();
+                walletSelect.innerHTML = "";
+                if (wallets.length === 0) {
+                    walletSelect.innerHTML = "<option>No wallets found</option>";
+                }
+
+                wallets.forEach(wallet => {
+                    const option = document.createElement("option");
+                    option.value = wallet;
+                    option.textContent = wallet;
+                    walletSelect.appendChild(option);
+                });
+            }
+
+            async function connectSelectedWallet() {
+                const walletSelect = document.getElementById("wallets");
+                const selectedWalletName = walletSelect.value;
+                const address = await connectWallet(selectedWalletName);
+                document.getElementById("walletAddress").textContent = `Connected Address: ${address}`;
+            }
+
+            async function disconnectSelectedWallet() {
+                const walletSelect = document.getElementById("wallets");
+                const selectedWalletName = walletSelect.value;
+                const address = await disconnectWallet(selectedWalletName);
+                document.getElementById("walletAddress").textContent = "";
+                document.getElementById("signedMessage").textContent = "";
+                document.getElementById("messageInput").value = "";
+            }
+
+            async function signWithSelectedWallet() {
+                const messageInput = document.getElementById("messageInput").value.trim();
+                const walletSelect = document.getElementById("wallets");
+                const selectedWalletName = walletSelect.value;
+                const signedMessage = await signMessage(selectedWalletName, messageInput);
+                document.getElementById("signedMessage").textContent = signedMessage;
+            }
+
+            
+            document.addEventListener("DOMContentLoaded", () => {
+                updateWalletList();
+                document.getElementById("connectWallet").addEventListener("click", connectSelectedWallet);
+                document.getElementById("disconnectWallet").addEventListener("click", disconnectSelectedWallet);
+                document.getElementById("signMessage").addEventListener("click", signWithSelectedWallet);
+            });
+    </script>
+</body>
+</html>
