@@ -19,20 +19,21 @@ using Beamable.SuiFederation.Features.Transactions.Storage.Models;
 
 namespace Beamable.SuiFederation.Features.Content.Handlers;
 
-public class RegularCoinHandler(
+public class GameCoinHandler(
     ContractService contractService,
     SuiApiService suiApiService,
     AccountsService accountsService,
     TransactionManagerFactory transactionManagerFactory,
     MintCollection mintCollection) : IService, IContentHandler
 {
-    public async  Task<BaseMessage?> ConstructMessage(string transaction, string wallet, InventoryRequest inventoryRequest, IContentObject contentObject) =>
+    public async Task<BaseMessage?> ConstructMessage(string transaction, string wallet, InventoryRequest inventoryRequest,
+        IContentObject contentObject) =>
         inventoryRequest.Amount switch
-        {
-            > 0 => await PositiveAmountMessage(transaction, wallet, "mint", inventoryRequest),
-            < 0 => await NegativeAmountMessage(transaction, wallet, "burn", inventoryRequest),
-            _ => null
-        };
+    {
+        > 0 => await PositiveAmountMessage(transaction, wallet, "mint", inventoryRequest),
+        < 0 => await NegativeAmountMessage(transaction, wallet, "burn", inventoryRequest),
+        _ => null
+    };
 
     public Task<BaseMessage?> ConstructMessage(string transaction, string wallet, InventoryRequestUpdate inventoryRequest,
         IContentObject contentObject)
@@ -40,42 +41,46 @@ public class RegularCoinHandler(
         throw new NotImplementedException();
     }
 
-    private async Task<RegularCoinMintMessage> PositiveAmountMessage(string transaction, string wallet, string function, InventoryRequest inventoryRequest)
+    private async Task<GameCoinMintMessage> PositiveAmountMessage(string transaction, string wallet, string function, InventoryRequest inventoryRequest)
     {
-        var contract = await contractService.GetByContentId<CoinContract>(inventoryRequest.ContentId);
-        return new RegularCoinMintMessage(
+        var contract = await contractService.GetByContentId<GameCoinContract>(inventoryRequest.ContentId);
+        return new GameCoinMintMessage(
             inventoryRequest.ContentId,
             contract.PackageId,
             contract.Module,
             function,
             wallet,
             contract.AdminCap,
-            contract.TreasuryCap,
+            contract.TokenPolicyCap,
+            contract.TokenPolicy,
+            contract.Store,
             inventoryRequest.Amount);
     }
 
-    private async Task<RegularCoinBurnMessage?> NegativeAmountMessage(string transaction, string wallet, string function, InventoryRequest inventoryRequest)
+    private async Task<GameCoinBurnMessage?> NegativeAmountMessage(string transaction, string wallet, string function, InventoryRequest inventoryRequest)
     {
         var transactionManager = transactionManagerFactory.Create(transaction);
-        var contract = await contractService.GetByContentId<CoinContract>(inventoryRequest.ContentId);
+        var contract = await contractService.GetByContentId<GameCoinContract>(inventoryRequest.ContentId);
         var playerAccount = await accountsService.GetAccountByAddress(wallet);
         var balance = await suiApiService.GetCoinBalance(wallet, new CoinBalanceRequest(contract.PackageId, contract.Module));
         if (balance.Total >= Math.Abs(inventoryRequest.Amount))
-            return new RegularCoinBurnMessage(
+            return new GameCoinBurnMessage(
                 inventoryRequest.ContentId,
                 contract.PackageId,
                 contract.Module,
                 function,
                 wallet,
-                contract.TreasuryCap,
+                contract.AdminCap,
+                contract.TokenPolicyCap,
+                contract.TokenPolicy,
+                contract.Store,
                 Math.Abs(inventoryRequest.Amount),
-                playerAccount!.PrivateKey
-                );
+                playerAccount!.PrivateKey);
 
         await transactionManager.AddChainTransaction(new ChainTransaction
         {
             Error = $"Insufficient funds for {inventoryRequest.ContentId}, balance is {balance.Total}, requested is {Math.Abs(inventoryRequest.Amount)}",
-            Function = $"{nameof(RegularCoinHandler)}.{nameof(NegativeAmountMessage)}",
+            Function = $"{nameof(GameCoinHandler)}.{nameof(NegativeAmountMessage)}",
             Status = "rejected",
         });
         return null;
@@ -85,8 +90,8 @@ public class RegularCoinHandler(
     {
         if (messages.Count == 0) return;
 
-        var mintMessages = messages.OfType<RegularCoinMintMessage>().ToList();
-        var burnMessages = messages.OfType<RegularCoinBurnMessage>().ToList();
+        var mintMessages = messages.OfType<GameCoinMintMessage>().ToList();
+        var burnMessages = messages.OfType<GameCoinBurnMessage>().ToList();
 
         var tasks = new List<Task>();
 
@@ -103,24 +108,24 @@ public class RegularCoinHandler(
         await Task.WhenAll(tasks);
     }
 
-    private async Task SendPositiveAmountMessage(string transaction, List<RegularCoinMintMessage> messages)
+    private async Task SendPositiveAmountMessage(string transaction, List<GameCoinMintMessage> messages)
     {
         var transactionManager = transactionManagerFactory.Create(transaction);
         try
         {
-            var result = await suiApiService.MintRegularCurrency(messages);
+            var result = await suiApiService.MintGameCurrency(messages);
             await transactionManager.AddChainTransaction(new ChainTransaction
             {
                 Digest = result.digest,
                 Error = result.error,
-                Function = $"{nameof(RegularCoinHandler)}.{nameof(SendPositiveAmountMessage)}",
+                Function = $"{nameof(GameCoinHandler)}.{nameof(SendPositiveAmountMessage)}",
                 GasUsed = result.gasUsed,
                 Data = messages.SerializeSelected(),
                 Status = result.status,
             });
             if (result.status != "success")
             {
-                var message = $"{nameof(RegularCoinHandler)}.{nameof(SendPositiveAmountMessage)} failed with status {result.status}";
+                var message = $"{nameof(GameCoinHandler)}.{nameof(SendPositiveAmountMessage)} failed with status {result.status}";
                 BeamableLogger.LogError(message);
                 await transactionManager.TransactionError(transaction, new Exception(message));
             }
@@ -141,30 +146,30 @@ public class RegularCoinHandler(
         catch (Exception e)
         {
             var message =
-                $"{nameof(RegularCoinHandler)}.{nameof(SendPositiveAmountMessage)} failed with error {e.Message}";
+                $"{nameof(GameCoinHandler)}.{nameof(SendPositiveAmountMessage)} failed with error {e.Message}";
             BeamableLogger.LogError(message);
             await transactionManager.TransactionError(transaction, new Exception(message));
         }
     }
 
-    private async Task SendNegativeMessage(string transaction, List<RegularCoinBurnMessage> messages)
+    private async Task SendNegativeMessage(string transaction, List<GameCoinBurnMessage> messages)
     {
         var transactionManager = transactionManagerFactory.Create(transaction);
         try
         {
-            var result = await suiApiService.BurnRegularCurrency(messages);
+            var result = await suiApiService.BurnGameCurrency(messages);
             await transactionManager.AddChainTransaction(new ChainTransaction
             {
                 Digest = result.digest,
                 Error = result.error,
-                Function = $"{nameof(RegularCoinHandler)}.{nameof(SendNegativeMessage)}",
+                Function = $"{nameof(GameCoinHandler)}.{nameof(SendNegativeMessage)}",
                 GasUsed = result.gasUsed,
                 Data = messages.SerializeSelected(),
                 Status = result.status,
             });
             if (result.status != "success")
             {
-                var message = $"{nameof(RegularCoinHandler)}.{nameof(SendNegativeMessage)} failed with status {result.status}";
+                var message = $"{nameof(GameCoinHandler)}.{nameof(SendNegativeMessage)} failed with status {result.status}";
                 BeamableLogger.LogError(message);
                 await transactionManager.TransactionError(transaction, new Exception(message));
             }
@@ -172,7 +177,7 @@ public class RegularCoinHandler(
         catch (Exception e)
         {
             var message =
-                $"{nameof(RegularCoinHandler)}.{nameof(SendNegativeMessage)} failed with error {e.Message}";
+                $"{nameof(GameCoinHandler)}.{nameof(SendNegativeMessage)} failed with error {e.Message}";
             BeamableLogger.LogError(message);
             await transactionManager.TransactionError(transaction, new Exception(message));
         }
@@ -180,8 +185,8 @@ public class RegularCoinHandler(
 
     public async Task<IFederatedState> GetState(string wallet, string contentId)
     {
-        var contract = await contractService.GetByContentId<CoinContract>(contentId);
-        var balance = await suiApiService.GetCoinBalance(wallet, new CoinBalanceRequest(contract.PackageId, contract.Module));
+        var contract = await contractService.GetByContentId<GameCoinContract>(contentId);
+        var balance = await suiApiService.GetGameCoinBalance(wallet, new GameCoinBalanceRequest(contract.PackageId, contract.Module));
         return new CurrenciesState
         {
             Currencies = new Dictionary<string, long>

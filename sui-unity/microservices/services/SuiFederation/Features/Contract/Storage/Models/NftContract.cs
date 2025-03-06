@@ -6,4 +6,5 @@ namespace Beamable.SuiFederation.Features.Contract.Storage.Models;
 public class NftContract : ContractBase
 {
     public required string AdminCap { get; init; }
+    public required string OwnerInfo { get; init; }
 }

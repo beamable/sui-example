@@ -33,6 +33,25 @@ public class InventoryService(
         }
     }
 
+    public async Task UpdateItems(string transaction, string id, IEnumerable<InventoryRequestUpdate> updateItemsRequest)
+    {
+        var messageRequests = await updateItemsRequest.ParallelGroupByAsync(
+            async request =>
+            {
+                var contentObject = await contentService.GetContent(request.ContentId);
+                var handler = contentHandlerFactory.GetHandler(contentObject);
+                return await handler.ConstructMessage(transaction, id, request, contentObject);
+            },
+            message => message.GetType()
+        );
+
+        foreach (var request in messageRequests)
+        {
+            var handler = contentHandlerFactory.GetHandler(request.Key);
+            await handler.SendMessages(transaction, request.Value);
+        }
+    }
+
     public async Task<FederatedInventoryProxyState> GetLastKnownState(string id)
     {
         var lastKnownState = await inventoryStateCollection.Get(id.ToLower());

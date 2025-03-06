@@ -4,7 +4,7 @@ using Beamable.Common;
 
 namespace Beamable.SuiFederation.Features.Common;
 
-internal class Measure : IDisposable
+internal readonly struct Measure : IDisposable
 {
     private readonly string _operationName;
     private readonly long _startTime;

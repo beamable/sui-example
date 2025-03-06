@@ -1,4 +1,5 @@
 import {InputParams, PaginatedResult} from "./models";
+import {GasCostSummary} from "@mysten/sui/client";
 
 export async function retrievePaginatedData<T, V>(getData: ((input: T) => Promise<V>), input: T) {
     let allResults: V[] = [];
@@ -45,4 +46,19 @@ export async function retrievePaginatedData<T, V>(getData: ((input: T) => Promis
         }
     }
     return allResults;
+}
+
+export function calculateTotalCost(gasSummary: GasCostSummary): string {
+    const computationCost = parseFloat(gasSummary.computationCost) || 0;
+    const storageCost = parseFloat(gasSummary.storageCost) || 0;
+    const storageRebate = parseFloat(gasSummary.storageRebate) || 0;
+    const totalCost = computationCost + storageCost - storageRebate;
+    return totalCost.toString();
+}
+export function stringToNumber(str: string): number {
+    const num = Number(str);
+    if (isNaN(num) || !Number.isSafeInteger(num)) {
+        return 0;
+    }
+    return num;
 }

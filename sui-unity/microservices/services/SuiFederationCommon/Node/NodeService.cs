@@ -71,7 +71,37 @@ namespace SuiFederationCommon.Node
         {
             return await StaticNodeJSService.InvokeFromFileAsync<string>(
                 BridgeModulePath,
-                "burnCoins",
+                "burnRegularCoin",
+                new object[] { mintRequestJson, realmAccountPrivateKey, environment });
+        }
+
+        /// <summary>
+        /// Mint game coin
+        /// </summary>
+        /// <param name="mintRequestJson"></param>
+        /// <param name="realmAccountPrivateKey"></param>
+        /// <param name="environment"></param>
+        /// <returns></returns>
+        public static async Task<string> MintGameCoin(string mintRequestJson, string realmAccountPrivateKey, string environment)
+        {
+            return await StaticNodeJSService.InvokeFromFileAsync<string>(
+                BridgeModulePath,
+                "mintGameCoin",
+                new object[] { mintRequestJson, realmAccountPrivateKey, environment });
+        }
+
+        /// <summary>
+        /// Burn game coin
+        /// </summary>
+        /// <param name="mintRequestJson"></param>
+        /// <param name="realmAccountPrivateKey"></param>
+        /// <param name="environment"></param>
+        /// <returns></returns>
+        public static async Task<string> BurnGameCoin(string mintRequestJson, string realmAccountPrivateKey, string environment)
+        {
+            return await StaticNodeJSService.InvokeFromFileAsync<string>(
+                BridgeModulePath,
+                "burnGameCoin",
                 new object[] { mintRequestJson, realmAccountPrivateKey, environment });
         }
 
@@ -87,6 +117,21 @@ namespace SuiFederationCommon.Node
             return await StaticNodeJSService.InvokeFromFileAsync<string>(
                 BridgeModulePath,
                 "getBalance",
+                new object[] { wallet, requestJson, environment });
+        }
+
+        /// <summary>
+        /// GetGameCoinBalance
+        /// </summary>
+        /// <param name="wallet"></param>
+        /// <param name="requestJson"></param>
+        /// <param name="environment"></param>
+        /// <returns></returns>
+        public static async Task<string> GetGameCoinBalance(string wallet, string requestJson, string environment)
+        {
+            return await StaticNodeJSService.InvokeFromFileAsync<string>(
+                BridgeModulePath,
+                "getGameCoinBalance",
                 new object[] { wallet, requestJson, environment });
         }
 
@@ -118,6 +163,36 @@ namespace SuiFederationCommon.Node
                 BridgeModulePath,
                 "getOwnedObjects",
                 new object[] { wallet, packageId, environment });
+        }
+
+        /// <summary>
+        /// UpdateNfts
+        /// </summary>
+        /// <param name="updateRequestJson"></param>
+        /// <param name="realmAccountPrivateKey"></param>
+        /// <param name="environment"></param>
+        /// <returns></returns>
+        public static async Task<string> UpdateNfts(string updateRequestJson, string realmAccountPrivateKey, string environment)
+        {
+            return await StaticNodeJSService.InvokeFromFileAsync<string>(
+                BridgeModulePath,
+                "updateNft",
+                new object[] { updateRequestJson, realmAccountPrivateKey, environment });
+        }
+
+        /// <summary>
+        /// SetNftContractOwner
+        /// </summary>
+        /// <param name="requestJson"></param>
+        /// <param name="realmAccountPrivateKey"></param>
+        /// <param name="environment"></param>
+        /// <returns></returns>
+        public static async Task<string> SetNftContractOwner(string requestJson, string realmAccountPrivateKey, string environment)
+        {
+            return await StaticNodeJSService.InvokeFromFileAsync<string>(
+                BridgeModulePath,
+                "setNftContractOwner",
+                new object[] { requestJson, realmAccountPrivateKey, environment });
         }
     }
 }

@@ -6,8 +6,7 @@ using Beamable.Common;
 using Beamable.SuiFederation.Features.Accounts;
 using Beamable.SuiFederation.Features.Common;
 using Beamable.SuiFederation.Features.Content.FunctionMessages;
-using Beamable.SuiFederation.Features.Contract.Storage.Models;
-using Beamable.SuiFederation.Features.Inventory.Models;
+using Beamable.SuiFederation.Features.Contract.FunctionMesseges;
 using Beamable.SuiFederation.Features.SuiApi.Exceptions;
 using Beamable.SuiFederation.Features.SuiApi.Models;
 using SuiFederationCommon.Node;
@@ -125,6 +124,44 @@ public class SuiApiService(
         }
     }
 
+    public async Task<SuiTransactionResult> MintGameCurrency(List<GameCoinMintMessage> mintMessages)
+    {
+        using (new Measure($"Sui.MintGameCurrency"))
+        {
+            try
+            {
+                var environment = await configuration.SuiEnvironment;
+                var realmAccount = await accountsService.GetOrCreateRealmAccount();
+                var mintRequestJson = JsonSerializer.Serialize(mintMessages);
+                var result = await NodeService.MintGameCoin(mintRequestJson, realmAccount.PrivateKey, environment);
+                return JsonSerializer.Deserialize<SuiTransactionResult>(result) ?? throw new Exception();
+            }
+            catch (Exception ex)
+            {
+                throw new SuiApiException($"MintGameCurrency: {ex.Message}");
+            }
+        }
+    }
+
+    public async Task<SuiTransactionResult> BurnGameCurrency(List<GameCoinBurnMessage> mintMessages)
+    {
+        using (new Measure($"Sui.BurnGameCurrency"))
+        {
+            try
+            {
+                var environment = await configuration.SuiEnvironment;
+                var realmAccount = await accountsService.GetOrCreateRealmAccount();
+                var mintRequestJson = JsonSerializer.Serialize(mintMessages);
+                var result = await NodeService.BurnGameCoin(mintRequestJson, realmAccount.PrivateKey, environment);
+                return JsonSerializer.Deserialize<SuiTransactionResult>(result) ?? throw new Exception();
+            }
+            catch (Exception ex)
+            {
+                throw new SuiApiException($"BurnGameCurrency: {ex.Message}");
+            }
+        }
+    }
+
     public async Task<CoinBalanceResponse> GetCoinBalance(string wallet, CoinBalanceRequest request)
     {
         using (new Measure($"Sui.GetCoinBalance"))
@@ -139,6 +176,24 @@ public class SuiApiService(
             catch (Exception ex)
             {
                 throw new SuiApiException($"GetCoinBalance: {ex.Message}");
+            }
+        }
+    }
+
+    public async Task<GameCoinBalanceResponse> GetGameCoinBalance(string wallet, GameCoinBalanceRequest request)
+    {
+        using (new Measure($"Sui.GetGameCoinBalance"))
+        {
+            try
+            {
+                var environment = await configuration.SuiEnvironment;
+                var requestJson = JsonSerializer.Serialize(request);
+                var result = await NodeService.GetGameCoinBalance(wallet, requestJson, environment);
+                return JsonSerializer.Deserialize<GameCoinBalanceResponse>(result) ?? throw new Exception();
+            }
+            catch (Exception ex)
+            {
+                throw new SuiApiException($"GetGameCoinBalance: {ex.Message}");
             }
         }
     }
@@ -175,6 +230,44 @@ public class SuiApiService(
             catch (Exception ex)
             {
                 throw new SuiApiException($"GetOwnedObjects: {ex.Message}");
+            }
+        }
+    }
+
+    public async Task<SuiTransactionResult> UpdateNft(List<NftUpdateMessage> request)
+    {
+        using (new Measure($"Sui.UpdateNft"))
+        {
+            try
+            {
+                var environment = await configuration.SuiEnvironment;
+                var realmAccount = await accountsService.GetOrCreateRealmAccount();
+                var mintRequestJson = JsonSerializer.Serialize(request);
+                var result = await NodeService.UpdateNfts(mintRequestJson, realmAccount.PrivateKey, environment);
+                return JsonSerializer.Deserialize<SuiTransactionResult>(result) ?? throw new Exception();
+            }
+            catch (Exception ex)
+            {
+                throw new SuiApiException($"UpdateNft: {ex.Message}");
+            }
+        }
+    }
+
+    public async Task<SuiTransactionResult> SetNftContractOwner(SetOwnerMessage message)
+    {
+        using (new Measure($"Sui.SetNftContractOwner"))
+        {
+            try
+            {
+                var environment = await configuration.SuiEnvironment;
+                var realmAccount = await accountsService.GetOrCreateRealmAccount();
+                var mintRequestJson = JsonSerializer.Serialize(message);
+                var result = await NodeService.SetNftContractOwner(mintRequestJson, realmAccount.PrivateKey, environment);
+                return JsonSerializer.Deserialize<SuiTransactionResult>(result) ?? throw new Exception();
+            }
+            catch (Exception ex)
+            {
+                throw new SuiApiException($"SetNftContractOwner: {ex.Message}");
             }
         }
     }

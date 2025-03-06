@@ -112,11 +112,5 @@ namespace Beamable.SuiFederation
 			return await Provider.GetService<StartInventoryTransactionEndpoint>()
 				.StartInventoryTransaction(id, transaction, currencies, newItems, deleteItems, updateItems);
 		}
-
-		[ClientCallable]
-		public async Promise Test()
-		{
-			await Provider.GetService<TestService>().Test();
-		}
 	}
 }

@@ -11,9 +11,9 @@ public record NftContentItem(
     string Url,
     string Description,
     string ContentId,
-    NftAttributes[] Attributes);
+    NftAttribute[] Attributes);
 
-public record NftAttributes(string Name, string Value);
+public record NftAttribute(string Name, string Value);
 
 public static class NftContentItemExtensions
 {
@@ -24,7 +24,7 @@ public static class NftContentItemExtensions
         var image = requestProperties.FirstOrDefault(kv => kv.Key.StartsWith("$image", StringComparison.OrdinalIgnoreCase)).Value ?? nftBase.Image;
         var description = requestProperties.FirstOrDefault(kv => kv.Key.StartsWith("$description", StringComparison.OrdinalIgnoreCase)).Value ?? nftBase.Description;
         var attributes = GetAttributes(requestProperties, nftBase.CustomProperties);
-        return new NftContentItem(name,image,description,inventoryRequest.ContentId,attributes.Select(kv => new NftAttributes(kv.Key, kv.Value)).ToArray());
+        return new NftContentItem(name,image,description,inventoryRequest.ContentId,attributes.Select(kv => new NftAttribute(kv.Key, kv.Value)).ToArray());
     }
 
     private static Dictionary<string, string> GetAttributes(Dictionary<string, string> dynamicProperties, Dictionary<string, string> staticProperties)

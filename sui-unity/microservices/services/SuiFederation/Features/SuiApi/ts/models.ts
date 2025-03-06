@@ -2,8 +2,9 @@ import {SuiParsedData} from "@mysten/sui/client";
 import {DisplayFieldsResponse,MoveValue,MoveStruct} from "@mysten/sui/src/client/types/generated";
 
 export class CreateWalletResponse {
-    PublicKey: string | undefined;
+    Address: string | undefined;
     PrivateKey: string | undefined;
+    PublicKey: string | undefined;
 }
 
 export class SuiTransactionResult {
@@ -34,7 +35,36 @@ export interface RegularCoinBurnMessage {
     PlayerWalletKey: string;
 }
 
+export interface GameCoinMintMessage {
+    PackageId: string;
+    Module: string;
+    Function: string;
+    PlayerWalletAddress: string;
+    AdminCap: string;
+    TokenPolicy: string;
+    TokenPolicyCap: string;
+    Store: string;
+    Amount: number;
+}
+
+export interface GameCoinBurnMessage {
+    PackageId: string;
+    Module: string;
+    Function: string;
+    PlayerWalletAddress: string;
+    TokenPolicy: string;
+    TokenPolicyCap: string;
+    Store: string;
+    Amount: number;
+    PlayerWalletKey: string;
+}
+
 export interface CoinBalanceRequest {
+    PackageId: string;
+    ModuleName: string;
+}
+
+export interface RegularCoinBalanceRequest {
     PackageId: string;
     ModuleName: string;
 }
@@ -58,6 +88,13 @@ export interface NftMintMessage {
     NftContentItem: NftContentItem;
 }
 
+export interface SetNftOwnerMessage {
+    PackageId: string;
+    Module: string;
+    Function: string;
+    AdminCap: string;
+}
+
 export interface NftContentItem {
     Name: string;
     Url: string;
@@ -69,6 +106,17 @@ export interface NftContentItem {
 export interface Attribute {
     Name: string;
     Value: string;
+}
+
+export interface NftUpdateMessage {
+    ProxyId: string;
+    PackageId: string;
+    Module: string;
+    Function: string;
+    PlayerWalletKey: string;
+    PlayerWalletAddress: string;
+    OwnerObjectId: string;
+    Attributes: Attribute[]
 }
 
 export interface PaginatedResult<T> {

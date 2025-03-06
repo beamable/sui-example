@@ -25,7 +25,8 @@ public class NftHandler(
     ContractService contractService,
     SuiApiService suiApiService,
     TransactionManagerFactory transactionManagerFactory,
-    MintCollection mintCollection) : IService, IContentHandler
+    MintCollection mintCollection,
+    AccountsService accountsService) : IService, IContentHandler
 {
     public async Task<BaseMessage?> ConstructMessage(string transaction, string wallet, InventoryRequest inventoryRequest, IContentObject contentObject)
     {
@@ -41,32 +42,104 @@ public class NftHandler(
             nftItem);
     }
 
+    public async Task<BaseMessage?> ConstructMessage(string transaction, string wallet, InventoryRequestUpdate inventoryRequest,
+        IContentObject contentObject)
+    {
+        var contract = await contractService.GetByContentId<NftContract>(inventoryRequest.ToNftType());
+        var playerAccount = await accountsService.GetAccountByAddress(wallet);
+        return new NftUpdateMessage(
+            inventoryRequest.ContentId,
+            contract.PackageId,
+            contract.Module,
+            "update",
+            wallet,
+            inventoryRequest.ProxyId,
+            contract.OwnerInfo,
+            playerAccount!.PrivateKey,
+            inventoryRequest.Properties
+                .Select(kvp => new NftAttribute(kvp.Key, kvp.Value))
+                .ToArray()
+        );
+    }
+
     public async Task SendMessages(string transaction, List<BaseMessage> messages)
     {
-        var transactionManager = transactionManagerFactory.Create(transaction);
+        if (messages.Count == 0) return;
+
         var mintMessages = messages.OfType<NftMintMessage>().ToList();
+        var updateMessages = messages.OfType<NftUpdateMessage>().ToList();
+
+        var tasks = new List<Task>();
+
+        if (mintMessages.Count > 0)
+        {
+            tasks.Add(SendMintMessages(transaction, mintMessages));
+        }
+
+        if (updateMessages.Count > 0)
+        {
+            tasks.Add(SendUpdateMessages(transaction, updateMessages));
+        }
+
+        await Task.WhenAll(tasks);
+    }
+
+    private async Task SendUpdateMessages(string transaction, List<NftUpdateMessage> messages)
+    {
+        var transactionManager = transactionManagerFactory.Create(transaction);
         try
         {
-            var result = await suiApiService.MintNfts(mintMessages);
+            var result = await suiApiService.UpdateNft(messages);
             await transactionManager.AddChainTransaction(new ChainTransaction
             {
                 Digest = result.digest,
                 Error = result.error,
-                Function = $"{nameof(NftHandler)}.{nameof(SendMessages)}",
+                Function = $"{nameof(NftHandler)}.{nameof(SendUpdateMessages)}",
                 GasUsed = result.gasUsed,
-                Data = mintMessages.SerializeSelected(),
+                Data = messages.SerializeSelected(),
                 Status = result.status,
             });
             if (result.status != "success")
             {
-                var message = $"{nameof(NftHandler)}.{nameof(SendMessages)} failed with status {result.status}";
+                var message = $"{nameof(NftHandler)}.{nameof(SendUpdateMessages)} failed with status {result.status}";
+                BeamableLogger.LogError(message);
+                await transactionManager.TransactionError(transaction, new Exception(message));
+            }
+        }
+        catch (Exception e)
+        {
+            var message =
+                $"{nameof(NftHandler)}.{nameof(SendUpdateMessages)} failed with error {e.Message}";
+            BeamableLogger.LogError(message);
+            await transactionManager.TransactionError(transaction, new Exception(message));
+        }
+    }
+
+    public async Task SendMintMessages(string transaction, List<NftMintMessage> messages)
+    {
+        var transactionManager = transactionManagerFactory.Create(transaction);
+        try
+        {
+            var result = await suiApiService.MintNfts(messages);
+            await transactionManager.AddChainTransaction(new ChainTransaction
+            {
+                Digest = result.digest,
+                Error = result.error,
+                Function = $"{nameof(NftHandler)}.{nameof(SendMintMessages)}",
+                GasUsed = result.gasUsed,
+                Data = messages.SerializeSelected(),
+                Status = result.status,
+            });
+            if (result.status != "success")
+            {
+                var message = $"{nameof(NftHandler)}.{nameof(SendMintMessages)} failed with status {result.status}";
                 BeamableLogger.LogError(message);
                 await transactionManager.TransactionError(transaction, new Exception(message));
             }
             else
             {
                 await mintCollection.InsertMints(
-                    mintMessages.Select(m => new Mint
+                    messages.Select(m => new Mint
                     {
                         PackageId = m.PackageId,
                         Module = m.Module,
@@ -80,7 +153,7 @@ public class NftHandler(
         catch (Exception e)
         {
             var message =
-                $"{nameof(NftHandler)}.{nameof(SendMessages)} failed with error {e.Message}";
+                $"{nameof(NftHandler)}.{nameof(SendMintMessages)} failed with error {e.Message}";
             BeamableLogger.LogError(message);
             await transactionManager.TransactionError(transaction, new Exception(message));
         }

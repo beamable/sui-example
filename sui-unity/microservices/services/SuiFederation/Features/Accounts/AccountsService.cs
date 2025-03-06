@@ -141,9 +141,9 @@ public class AccountsService : IService
     {
         var keys = await SuiApiService.CreateWallet();
         var privateKeyEncrypted = EncryptionService.Encrypt(keys.PrivateKey, _configuration.RealmSecret);
-        var newAccount = new Account(accountName, keys.PublicKey, keys.PrivateKey);
+        var newAccount = new Account(accountName, keys.Address, keys.PrivateKey);
 
-        return await _vaultCollection.TryInsertVault(new Vault(accountName, newAccount.Address, privateKeyEncrypted))
+        return await _vaultCollection.TryInsertVault(new Vault(accountName, newAccount.Address, privateKeyEncrypted, keys.PublicKey))
             ? newAccount
             : null;
     }
@@ -152,9 +152,9 @@ public class AccountsService : IService
     {
         var keys = await SuiApiService.ImportPrivateKey(privateKey);
         var privateKeyEncrypted = EncryptionService.Encrypt(keys.PrivateKey, _configuration.RealmSecret);
-        var newAccount = new Account(accountName, keys.PublicKey, keys.PrivateKey);
+        var newAccount = new Account(accountName, keys.Address, keys.PrivateKey);
 
-        return await _vaultCollection.TryInsertVault(new Vault(accountName, newAccount.Address, privateKeyEncrypted))
+        return await _vaultCollection.TryInsertVault(new Vault(accountName, newAccount.Address, privateKeyEncrypted, keys.PublicKey))
             ? newAccount
             : null;
     }

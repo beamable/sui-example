@@ -27,6 +27,11 @@ public class StartInventoryTransactionEndpoint(
             var currencyRequest = currencies.Select(c => new InventoryRequest(requestContext.UserId, c.Key, c.Value, new Dictionary<string, string>()));
             var itemsRequest = newItems.Select(i => new InventoryRequest(requestContext.UserId, i.contentId, 1, i.properties));
             await inventoryService.NewItems(transactionId.ToString(), id, currencyRequest.Union(itemsRequest));
+
+            // UPDATE ITEMS
+            var updateItemsRequest = updateItems.Select(i => new InventoryRequestUpdate(requestContext.UserId, i.contentId, i.proxyId, i.properties));
+            await inventoryService.UpdateItems(transactionId.ToString(), id, updateItemsRequest);
+
             await updatePlayerStateService.Update(new InventoryTransactionNotification
             {
                 InventoryTransactionId = transaction

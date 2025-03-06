@@ -5,12 +5,15 @@ using System.Threading.Tasks;
 using Beamable.Common;
 using Beamable.Common.Content;
 using Beamable.Common.Inventory;
+using Beamable.SuiFederation.Features.Accounts;
 using Beamable.SuiFederation.Features.Common;
 using Beamable.SuiFederation.Features.Contract.Exceptions;
+using Beamable.SuiFederation.Features.Contract.FunctionMesseges;
 using Beamable.SuiFederation.Features.Contract.Handlers.Models;
 using Beamable.SuiFederation.Features.Contract.Storage.Models;
 using Beamable.SuiFederation.Features.Contract.SuiClientWrapper;
 using Beamable.SuiFederation.Features.Contract.SuiClientWrapper.Models;
+using Beamable.SuiFederation.Features.SuiApi;
 using HandlebarsDotNet;
 using SuiFederationCommon.Extensions;
 
@@ -18,7 +21,9 @@ namespace Beamable.SuiFederation.Features.Contract.Handlers;
 
 public class NftContractHandler(
     ContractService contractService,
-    SuiClient suiClient) : IService, IContentContractHandler
+    SuiClient suiClient,
+    SuiApiService suiApiService,
+    AccountsService accountsService) : IService, IContentContractHandler
 {
     public async Task HandleContract(IContentObject clientContentInfo)
     {
@@ -37,12 +42,15 @@ public class NftContractHandler(
 
             var deployOutput = await suiClient.CompileAndPublish(moduleName);
 
+            var ownerObjectId = await CreateContractOwnerObject(deployOutput.GetPackageId(), moduleName, GetAdminCap(deployOutput, moduleName));
+
             await contractService.InsertContract(new NftContract
             {
                 PackageId = deployOutput.GetPackageId(),
                 Module = moduleName,
                 ContentId = itemContent!.ContentType,
                 AdminCap = GetAdminCap(deployOutput, moduleName),
+                OwnerInfo = ownerObjectId
             });
 
             BeamableLogger.Log($"Created contract for {moduleName}");
@@ -50,6 +58,20 @@ public class NftContractHandler(
         catch (Exception e)
         {
             throw new ContractException($"Error in creating contract for {clientContentInfo.GetType()}, exception: {e.Message}");
+        }
+    }
+
+    private async Task<string> CreateContractOwnerObject(string packageId, string moduleName, string adminCap)
+    {
+        try
+        {
+            var realmAccount = await accountsService.GetOrCreateRealmAccount();
+            var result = await suiApiService.SetNftContractOwner(new SetOwnerMessage(packageId, moduleName, "set_owner", realmAccount.Address, adminCap));
+            return result.objectIds[0];
+        }
+        catch (Exception e)
+        {
+            throw new ContractException($"Error in creating owner info for {moduleName}, exception: {e.Message}");
         }
     }
 
