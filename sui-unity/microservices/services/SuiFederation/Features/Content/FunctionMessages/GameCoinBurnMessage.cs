@@ -37,12 +37,4 @@ public static class GameCoinBurnMessageExtensions
 {
     public static string SerializeSelected(this List<GameCoinBurnMessage> messages)
         => string.Join(",",messages.Select(m => m.SerializeSelected()));
-
-    public static Dictionary<string, string> ToMetadata(this GameCoinBurnMessage message)
-    {
-        return new Dictionary<string, string>
-        {
-            { nameof(message.Amount), message.Amount.ToString() }
-        };
-    }
 }

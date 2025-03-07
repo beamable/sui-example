@@ -38,7 +38,7 @@ public class GameCoinHandler(
     public Task<BaseMessage?> ConstructMessage(string transaction, string wallet, InventoryRequestUpdate inventoryRequest,
         IContentObject contentObject)
     {
-        throw new NotImplementedException();
+        return Task.FromResult<BaseMessage?>(EmptyMessageExtensions.Create());
     }
 
     private async Task<GameCoinMintMessage> PositiveAmountMessage(string transaction, string wallet, string function, InventoryRequest inventoryRequest)

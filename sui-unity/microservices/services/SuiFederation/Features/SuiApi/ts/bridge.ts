@@ -17,7 +17,7 @@ import {
     GameCoinBurnMessage,
     RegularCoinBalanceRequest,
     NftUpdateMessage,
-    SetNftOwnerMessage
+    SetNftOwnerMessage, CoinToken
 } from './models';
 import { retrievePaginatedData,calculateTotalCost,stringToNumber } from "./utils";
 import {MoveValue} from "@mysten/sui/src/client/types/generated";
@@ -506,6 +506,8 @@ async function burnGameCoin(callback: Callback<string>, request: string, realmKe
     let error = null;
     const burnRequests: GameCoinBurnMessage[] = JSON.parse(request);
     let result = new SuiTransactionResult();
+    const coinTokens: CoinToken[] = [];
+
     try {
         const suiClient = getSuiClientInstance(environment);
         const gameKeypair = Ed25519Keypair.fromSecretKey(realmKey);
@@ -514,95 +516,104 @@ async function burnGameCoin(callback: Callback<string>, request: string, realmKe
         const gameWallet = gameKeypair.toSuiAddress();
         const txb = new Transaction();
 
-        for (const coinItem of burnRequests) {
-            const coins = await suiClient.getCoins({
-                owner: coinItem.PlayerWalletAddress,
-                coinType: `${coinItem.PackageId}::${coinItem.Module.toLowerCase()}::${coinItem.Module.toUpperCase()}`
+        for (const tokenItem of burnRequests) {
+            const objects: SuiObject[] = [];
+
+
+            const coinType = `0x2::token::Token<${tokenItem.PackageId}::${tokenItem.Module.toLowerCase()}::${tokenItem.Module.toUpperCase()}>`;
+            const inputParams: GetOwnedObjectsParams = {
+                owner: playerWallet,
+                cursor: null,
+                options: {
+                    showType: true,
+                    showContent: true,
+                    showDisplay: false
+                },
+                filter: {
+                    StructType: coinType
+                }
+            };
+            const handleData = async (input: GetOwnedObjectsParams) => {
+                return await suiClient.getOwnedObjects(input);
+            };
+
+            const results = await retrievePaginatedData<GetOwnedObjectsParams, PaginatedObjectsResponse>(handleData, inputParams);
+
+            results.forEach(result => {
+                result.data.forEach(element => {
+                    if (element.data != undefined)  {
+                        const suiObject = new SuiObject(
+                            element.data.objectId,
+                            element.data.digest,
+                            element.data.version,
+                            element.data.content,
+                            null // NO display
+                        );
+                        objects.push(suiObject);
+                    }
+                });
+            });
+            objects.forEach(obj => {
+                switch (obj.Content?.dataType) {
+                    case 'moveObject':
+                        const contentFields = obj.Content?.fields;
+                        if (contentFields != null) {
+                            const balanceStr = (contentFields as { [key: string]: MoveValue })["balance"] as string;
+                            const balance = stringToNumber(balanceStr);
+                            const idValue = (contentFields as { [key: string]: MoveValue })["id"] as { id: string };
+                            const idStr = idValue.id;
+                            coinTokens.push(new CoinToken(idStr, balance));
+                        }
+                }
             });
 
-            // Sort coins by balance (descending)
-            const sortedCoins = coins.data.sort((a, b) => Number(b.balance) - Number(a.balance));
+            const sortedCoins = coinTokens.sort((a, b) => a.Balance - b.Balance);
 
-            // Select coins whose total balance matches the amount to burn
-            let totalBalance = 0;
-            const selectedCoins = [];
-            for (const coin of sortedCoins) {
-                if (totalBalance >= coinItem.Amount) break;
-                selectedCoins.push(coin);
-                totalBalance += Number(coin.balance);
-            }
-
-            let remainingAmount = coinItem.Amount;
-            const coinsToBurn = [];
-            for (const coin of selectedCoins) {
-                const coinBalance = Number(coin.balance);
-                if (coinBalance <= remainingAmount) {
-                    // Use the entire coin
-                    coinsToBurn.push(coin.coinObjectId);
-                    remainingAmount -= coinBalance;
-                } else {
-                    // Split the coin to get the exact amount needed
-                    const splitCoin = txb.splitCoins(txb.object(coin.coinObjectId), [txb.pure.u64(remainingAmount)]);
-                    coinsToBurn.push(splitCoin);
-                    remainingAmount = 0;
-                }
-                if (remainingAmount === 0) break;
-            }
-            const coinTarget: `${string}::${string}::${string}` = `${coinItem.PackageId}::${coinItem.Module}::${coinItem.Function}`;
-            for (const coinId of coinsToBurn) {
-                txb.moveCall({
-                    target: coinTarget,
-                    arguments: [
-                        txb.object(coinItem.Store),
-                        txb.object(coinId),
-                    ],
-                });
-            }
         }
 
-        let payment: SuiObjectRef[] = [];
-        const coins = await suiClient.getCoins({ owner: gameWallet, limit: 1 });
-        if (coins.data.length > 0) {
-            payment = coins.data.map((coin) => ({
-                objectId: coin.coinObjectId,
-                version: coin.version,
-                digest: coin.digest,
-            }));
-        } else {
-            throw new Error(`Can't find gas coins from sponsor ${gameWallet}.`);
-        }
-
-        const kindBytes = await txb.build({ onlyTransactionKind: true, client: suiClient });
-        const sponsoredTxb = Transaction.fromKind(kindBytes);
-        sponsoredTxb.setSender(playerWallet);
-        sponsoredTxb.setGasOwner(gameWallet);
-        sponsoredTxb.setGasPayment(payment);
-        const sponsoredBytes = await sponsoredTxb.build({ client: suiClient });
-        const developerSignature = await gameKeypair!.signTransaction(sponsoredBytes);
-        const playerSignature = await playerKeypair!.signTransaction(sponsoredBytes);
-
-        const response = await suiClient.executeTransactionBlock({
-            transactionBlock: sponsoredBytes,
-            signature: [developerSignature.signature, playerSignature.signature],
-            options: {
-                showEffects: true,
-                showEvents: true,
-                showObjectChanges: true,
-            },
-        });
-
-        if (response.effects != null) {
-            result.status = response.effects.status.status;
-            result.gasUsed = calculateTotalCost(response.effects.gasUsed);
-            result.digest = response.effects.transactionDigest;
-            result.objectIds = response.effects.created?.map(o => o.reference.objectId);
-            result.error = response.effects.status.error;
-        }
+        // let payment: SuiObjectRef[] = [];
+        // const coins = await suiClient.getCoins({ owner: gameWallet, limit: 1 });
+        // if (coins.data.length > 0) {
+        //     payment = coins.data.map((coin) => ({
+        //         objectId: coin.coinObjectId,
+        //         version: coin.version,
+        //         digest: coin.digest,
+        //     }));
+        // } else {
+        //     throw new Error(`Can't find gas coins from sponsor ${gameWallet}.`);
+        // }
+        //
+        // const kindBytes = await txb.build({ onlyTransactionKind: true, client: suiClient });
+        // const sponsoredTxb = Transaction.fromKind(kindBytes);
+        // sponsoredTxb.setSender(playerWallet);
+        // sponsoredTxb.setGasOwner(gameWallet);
+        // sponsoredTxb.setGasPayment(payment);
+        // const sponsoredBytes = await sponsoredTxb.build({ client: suiClient });
+        // const developerSignature = await gameKeypair!.signTransaction(sponsoredBytes);
+        // const playerSignature = await playerKeypair!.signTransaction(sponsoredBytes);
+        //
+        // const response = await suiClient.executeTransactionBlock({
+        //     transactionBlock: sponsoredBytes,
+        //     signature: [developerSignature.signature, playerSignature.signature],
+        //     options: {
+        //         showEffects: true,
+        //         showEvents: true,
+        //         showObjectChanges: true,
+        //     },
+        // });
+        //
+        // if (response.effects != null) {
+        //     result.status = response.effects.status.status;
+        //     result.gasUsed = calculateTotalCost(response.effects.gasUsed);
+        //     result.digest = response.effects.transactionDigest;
+        //     result.objectIds = response.effects.created?.map(o => o.reference.objectId);
+        //     result.error = response.effects.status.error;
+        // }
 
     } catch (ex) {
         error = ex;
     }
-    callback(error, JSON.stringify(result));
+    callback(error, JSON.stringify(coinTokens));
 }
 async function updateNft(callback: Callback<string>, request: string, realmKey: string, environment: Environment) {
     let error = null;

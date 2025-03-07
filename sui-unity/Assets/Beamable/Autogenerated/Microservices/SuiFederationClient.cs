@@ -86,6 +86,16 @@ namespace Beamable.Server.Clients
             System.Collections.Generic.Dictionary<string, object> serializedFields = new System.Collections.Generic.Dictionary<string, object>();
             return this.Request<string>("SuiFederation", "InitializeContentContracts", serializedFields);
         }
+        
+        /// <summary>
+        /// Call the ImportAccount method on the SuiFederation microservice
+        /// <see cref="Beamable.SuiFederation.SuiFederation.ImportAccount"/>
+        /// </summary>
+        public Beamable.Common.Promise<Beamable.Common.Unit> ImportAccount()
+        {
+            System.Collections.Generic.Dictionary<string, object> serializedFields = new System.Collections.Generic.Dictionary<string, object>();
+            return this.Request<Beamable.Common.Unit>("SuiFederation", "ImportAccount", serializedFields);
+        }
     }
     
     internal sealed class MicroserviceParametersSuiFederationClient

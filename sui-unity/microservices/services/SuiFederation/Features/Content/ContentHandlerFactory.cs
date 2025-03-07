@@ -3,7 +3,6 @@ using Beamable.Common.Content;
 using Beamable.Common.Dependencies;
 using Beamable.SuiFederation.Features.Content.FunctionMessages;
 using Beamable.SuiFederation.Features.Content.Handlers;
-using Beamable.SuiFederation.Features.Contract.Handlers;
 using Microsoft.Extensions.DependencyInjection;
 using SuiFederationCommon.FederationContent;
 using SuiFederationCommon.Models;
@@ -13,15 +12,6 @@ namespace Beamable.SuiFederation.Features.Content;
 public class ContentHandlerFactory(
     IDependencyProvider serviceProvider) : IService
 {
-    // public IContentHandler GetHandler(string contentId)
-    // {
-    //     return contentId switch
-    //     {
-    //         not null when contentId.StartsWith($"{FederationContentExtensions.RegularCoinPrefix}") => serviceProvider.GetRequiredService<RegularCoinHandler>(),
-    //         _ => throw new NotSupportedException($"ContentId '{contentId}' is not supported.")
-    //     };
-    // }
-
     public IContentHandler GetHandler(IContentObject contentObject)
     {
         return contentObject switch

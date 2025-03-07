@@ -37,7 +37,7 @@ public class RegularCoinHandler(
     public Task<BaseMessage?> ConstructMessage(string transaction, string wallet, InventoryRequestUpdate inventoryRequest,
         IContentObject contentObject)
     {
-        throw new NotImplementedException();
+        return Task.FromResult<BaseMessage?>(EmptyMessageExtensions.Create());
     }
 
     private async Task<RegularCoinMintMessage> PositiveAmountMessage(string transaction, string wallet, string function, InventoryRequest inventoryRequest)

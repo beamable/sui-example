@@ -53,6 +53,18 @@ namespace SuiFederationCommon.FederationContent
         /// initialSupply
         /// </summary>
         [SerializeField] public long initialSupply;
+        /// <summary>
+        /// allowSpending
+        /// </summary>
+        [SerializeField] public bool allowSpending = true;
+        /// <summary>
+        /// allowSpending
+        /// </summary>
+        [SerializeField] public bool allowBuying = true;
+        /// <summary>
+        /// allowSpending
+        /// </summary>
+        [SerializeField] public bool allowTransfers;
 
         /// <summary>
         /// name
@@ -78,6 +90,18 @@ namespace SuiFederationCommon.FederationContent
         /// initialSupply
         /// </summary>
         public long InitialSupply => initialSupply;
+        /// <summary>
+        /// allowSpending
+        /// </summary>
+        public bool AllowSpending => allowSpending;
+        /// <summary>
+        /// allowSpending
+        /// </summary>
+        public bool AllowBuying => allowBuying;
+        /// <summary>
+        /// allowTransfers
+        /// </summary>
+        public bool AllowTransfers => allowTransfers;
     }
 
     /// <summary>

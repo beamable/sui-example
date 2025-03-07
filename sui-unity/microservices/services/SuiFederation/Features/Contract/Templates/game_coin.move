@@ -1,4 +1,4 @@
-#[allow(unused_use)]
+#[allow(unused_use,duplicate_alias,unused_variable,unused_let_mut)]
 module {{toLowerCase Name}}_package::{{toLowerCase Name}} {
     use std::ascii::{ Self };
     use std::{option::none, string::{Self, String}};
@@ -20,7 +20,7 @@ module {{toLowerCase Name}}_package::{{toLowerCase Name}} {
     #[allow(lint(coin_field))]
     public struct {{toStructName Name}}Store has key {
         id: UID,
-        {{toLowerCase Name}}_treasury: TreasuryCap<GOLD>,
+        {{toLowerCase Name}}_treasury: TreasuryCap<{{toUpperCase Name}}>,
         profits: Balance<SUI>,
     }
 
@@ -37,18 +37,25 @@ module {{toLowerCase Name}}_package::{{toLowerCase Name}} {
         {{/if}}
 
         {{#if InitialSupply}}
-        let (mut treasury_cap, metadata) = coin::create_currency(otw, decimal, symbol, name, desc, image, ctx);
+            let (mut treasury_cap, metadata) = coin::create_currency(otw, decimal, symbol, name, desc, image, ctx);
         {{else}}
-        let (treasury_cap, metadata) = coin::create_currency(otw, decimal, symbol, name, desc, image, ctx);
+            let (treasury_cap, metadata) = coin::create_currency(otw, decimal, symbol, name, desc, image, ctx);
         {{/if}}
 
         {{#if InitialSupply}}
-        coin::mint_and_transfer(&mut treasury_cap, {{InitialSupply}}, tx_context::sender(ctx), ctx,);
+            coin::mint_and_transfer(&mut treasury_cap, {{InitialSupply}}, tx_context::sender(ctx), ctx,);
         {{/if}}
 
         let (mut policy, cap) = token::new_policy(&treasury_cap, ctx);
-        token::allow(&mut policy, &cap, buy_action(), ctx);
-        token::allow(&mut policy, &cap, token::spend_action(), ctx);
+        {{#if AllowSpending}}
+            token::allow(&mut policy, &cap, token::spend_action(), ctx);
+        {{/if}}
+        {{#if AllowBuying}}
+            token::allow(&mut policy, &cap, buy_action(), ctx);
+        {{/if}}
+        {{#if AllowTransfers}}
+            token::allow(&mut policy, &cap, token::transfer_action(), ctx);
+        {{/if}}
 
         transfer::share_object({{toStructName Name}}Store {
             id: object::new(ctx),
@@ -62,9 +69,12 @@ module {{toLowerCase Name}}_package::{{toLowerCase Name}} {
         token::share_policy(policy);
     }
 
-    public fun buy_action(): String { string::utf8(b"buy") }
+    {{#if AllowBuying}}
+        public fun buy_action(): String { string::utf8(b"buy") }
+    {{/if}}
 
-    /// Mint a coin
+
+    /// Mint a token
     public entry fun mint(
         _: &AdminCap,
         store: &mut {{toStructName Name}}Store,
@@ -77,12 +87,11 @@ module {{toLowerCase Name}}_package::{{toLowerCase Name}} {
         token::confirm_with_treasury_cap(&mut store.{{toLowerCase Name}}_treasury, req, ctx);
     }
 
-    /// Burn a coin
-    public entry fun burn(
-    store: &mut {{toStructName Name}}Store,
-    coin: coin::Coin<{{toUpperCase Name}}>,
-    ) {
-    coin::burn(&mut store.{{toLowerCase Name}}_treasury, coin);
+    /// Burn a token
+    public fun burn(
+        token: Token<{{toUpperCase Name}}>,
+        store: &mut {{toStructName Name}}Store,
+        ctx: &mut TxContext):() {
+        token::burn(&mut store.{{toLowerCase Name}}_treasury, token);
     }
-
 }

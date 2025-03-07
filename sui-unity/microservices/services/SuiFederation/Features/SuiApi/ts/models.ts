@@ -119,6 +119,15 @@ export interface NftUpdateMessage {
     Attributes: Attribute[]
 }
 
+export class CoinToken {
+    Id: string;
+    Balance: number;
+    public constructor(Id: string, Balance: number) {
+        this.Id = Id;
+        this.Balance = Balance;
+    }
+}
+
 export interface PaginatedResult<T> {
     data: T[];
     hasNextPage: boolean;
