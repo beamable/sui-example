@@ -35,11 +35,9 @@ namespace Beamable.SuiFederation
 					throw new ConfigurationException($"{nameof(Configuration.SuiEnvironment)} is not defined in realm config. Please apply the configuration and restart the service to make it operational.");
 				}
 
-				var realmAccount = await initializer.Provider.GetService<AccountsService>().GetRealmAccount();
-				if (realmAccount is null)
-				{
-					throw new ConfigurationException($"Realm account does not exist. Create one by calling {nameof(GenerateRealmAccount)} or import existing one with {nameof(ImportRealmAccount)}.");
-				}
+				//Generate Realm account
+				await initializer.Provider.GetService<AccountsService>().GetOrCreateRealmAccount();
+
 #if !DEBUG
 				await initializer.GetService<Features.Contract.ContractService>().InitializeContentContracts();
 #endif
@@ -111,13 +109,6 @@ namespace Beamable.SuiFederation
 		{
 			return await Provider.GetService<StartInventoryTransactionEndpoint>()
 				.StartInventoryTransaction(id, transaction, currencies, newItems, deleteItems, updateItems);
-		}
-
-		[ClientCallable]
-		public async Promise Test()
-		{
-			await Provider.GetService<TestService>()
-				.Test();
 		}
 	}
 }

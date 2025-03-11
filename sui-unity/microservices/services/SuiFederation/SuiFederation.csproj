@@ -45,6 +45,12 @@
         </None>
         <None Update="Features\SuiApi\sui_config\move_setup.sh">
           <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>        
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="SuiTools\" />
+        <None Include="SuiTools\**\*">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
     </ItemGroup>
 

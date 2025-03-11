@@ -2,10 +2,6 @@
 FROM mcr.microsoft.com/dotnet/runtime:${BEAM_DOTNET_VERSION} as base
 RUN apt-get update && apt-get install -y nodejs npm
 
-RUN apt-get install -y mc
-
-FROM mysten/sui-tools:ci as sui-tools
-
 FROM base AS final
 
 # These args are provided by the Beam CLI
@@ -31,16 +27,15 @@ WORKDIR /beamApp
 # expose the health port
 EXPOSE 6565
 
-ENV SUI_PATH="/usr/local/bin/sui"
-COPY --from=sui-tools /usr/local/bin $SUI_PATH
-RUN chmod +x ${SUI_PATH}/sui
-ENV PATH="${SUI_PATH}:$PATH"
-
 # copy general supporting files
 COPY $BEAM_SUPPORT_SRC_PATH .
 
 # copy specific application code
 COPY $BEAM_APP_SRC_PATH .
+
+ENV SUI_PATH="/usr/local/bin/sui"
+RUN cp SuiTools/sui $SUI_PATH
+RUN chmod +x ${SUI_PATH}
 
 # ensure that the application is runnable
 RUN chmod +x $BEAM_APP_DEST
