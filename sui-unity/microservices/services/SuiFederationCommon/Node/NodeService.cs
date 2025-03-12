@@ -194,5 +194,19 @@ namespace SuiFederationCommon.Node
                 "setNftContractOwner",
                 new object[] { requestJson, realmAccountPrivateKey, environment });
         }
+
+        /// <summary>
+        /// ObjectExists
+        /// </summary>
+        /// <param name="objectId"></param>
+        /// <param name="environment"></param>
+        /// <returns></returns>
+        public static async Task<string> ObjectExists(string objectId, string environment)
+        {
+            return await StaticNodeJSService.InvokeFromFileAsync<string>(
+                BridgeModulePath,
+                "objectExists",
+                new object[] { objectId, environment });
+        }
     }
 }

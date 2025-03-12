@@ -703,6 +703,24 @@ async function updateNft(callback: Callback<string>, request: string, realmKey: 
     }
     callback(error, JSON.stringify(result));
 }
+async function objectExists(callback: Callback<string>, itemId: string, environment: Environment) {
+    let error = null;
+    let result = true;
+    try {
+        const suiClient = getSuiClientInstance(environment);
+        const objectResult = await suiClient.getObject({
+            id: itemId,
+        });
+
+        if (objectResult.error !== undefined && objectResult.error !== null) {
+            result = false;
+        }
+
+    } catch (ex) {
+        error = ex;
+    }
+    callback(error, JSON.stringify(result));
+}
 
 module.exports = {
     createWallet,
@@ -717,5 +735,6 @@ module.exports = {
     burnGameCoin,
     getGameCoinBalance,
     setNftContractOwner,
-    updateNft
+    updateNft,
+    objectExists
 };

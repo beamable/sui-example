@@ -84,6 +84,11 @@ public class ContractService : IService
         return contract;
     }
 
+    public async Task<TContract?> GetByContent<TContract>(string contentId) where TContract : ContractBase
+    {
+        return await _contractCollection.GetByContentId<TContract>(contentId);
+    }
+
     public async Task<bool> ContractExists<TContract>(string contentId) where TContract : ContractBase
     {
         return await _contractCollection.GetByContentId<TContract>(contentId) != null;
@@ -92,6 +97,11 @@ public class ContractService : IService
     public async Task<bool> InsertContract<TContract>(TContract contract) where TContract : ContractBase
     {
         return await _contractCollection.TryInsert(contract);
+    }
+
+    public async Task<bool> UpsertContract<TContract>(TContract contract, string id) where TContract : ContractBase
+    {
+        return await _contractCollection.TryUpsert(contract, id);
     }
 
     public async IAsyncEnumerable<IContentObject> FetchFederationContent()

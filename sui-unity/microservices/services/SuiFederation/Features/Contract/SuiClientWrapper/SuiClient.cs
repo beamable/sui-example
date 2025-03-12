@@ -42,7 +42,7 @@ public class SuiClient(
                 await Execute(SuiExecutable, $"client switch --address {realmAccount.Address}");
                 _initialized = true;
 
-                if (suiEnvironment is "devnet" or "testnet")
+                if (suiEnvironment is "devnet")
                 {
                     var balanceJson = await Execute(SuiExecutable, $"client gas --json", ignoreOutputError: true);
                     var gasBalances = JsonSerializer.Deserialize<List<GasBalanceItem>>(balanceJson) ?? [];

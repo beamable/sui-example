@@ -9,6 +9,7 @@ using Beamable.SuiFederation.Features.Contract.Exceptions;
 using Beamable.SuiFederation.Features.Contract.Storage.Models;
 using Beamable.SuiFederation.Features.Contract.SuiClientWrapper;
 using Beamable.SuiFederation.Features.Contract.SuiClientWrapper.Models;
+using Beamable.SuiFederation.Features.SuiApi;
 using HandlebarsDotNet;
 using SuiFederationCommon.Extensions;
 using SuiFederationCommon.FederationContent;
@@ -17,14 +18,20 @@ namespace Beamable.SuiFederation.Features.Contract.Handlers;
 
 public class GameCurrencyHandler(
     ContractService contractService,
-    SuiClient suiClient) : IService, IContentContractHandler
+    SuiClient suiClient,
+    SuiApiService suiApiService) : IService, IContentContractHandler
 {
     public async Task HandleContract(IContentObject clientContentInfo)
     {
         try
         {
-            if (await contractService.ContractExists<GameCoinContract>(clientContentInfo.Id))
-                return;
+            var contract = await contractService.GetByContent<GameCoinContract>(clientContentInfo.Id);
+            if (contract != null)
+            {
+                var objectExists = await suiApiService.ObjectExists(contract.PackageId);
+                if (objectExists)
+                    return;
+            }
 
             if (clientContentInfo is not InGameCurrency coinCurrency)
                 throw new ContractException($"{clientContentInfo.Id} is not a {nameof(GameCoinContract)}");
@@ -37,7 +44,7 @@ public class GameCurrencyHandler(
 
             var deployOutput = await suiClient.CompileAndPublish(coinCurrency.ToModuleName());
 
-            await contractService.InsertContract(new GameCoinContract
+            await contractService.UpsertContract(new GameCoinContract
             {
                 PackageId = deployOutput.GetPackageId(),
                 Module = coinCurrency.ToModuleName(),
@@ -46,7 +53,7 @@ public class GameCurrencyHandler(
                 TokenPolicy = GetTokenPolicy(deployOutput),
                 TokenPolicyCap = GetTokenPolicyCap(deployOutput),
                 Store = GetStore(deployOutput, coinCurrency.ToModuleName())
-            });
+            }, coinCurrency.Id);
 
             BeamableLogger.Log($"Created contract for {coinCurrency.Id}");
         }

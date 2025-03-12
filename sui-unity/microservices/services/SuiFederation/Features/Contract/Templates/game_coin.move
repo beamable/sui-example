@@ -43,7 +43,9 @@ module {{toLowerCase Name}}_package::{{toLowerCase Name}} {
         {{/if}}
 
         {{#if InitialSupply}}
-            coin::mint_and_transfer(&mut treasury_cap, {{InitialSupply}}, tx_context::sender(ctx), ctx,);
+            let initialToken = token::mint(&mut treasury_cap, {{InitialSupply}}, ctx);
+            let initialreq = token::transfer(initialToken, tx_context::sender(ctx), ctx);
+            token::confirm_with_treasury_cap(&mut treasury_cap, initialreq, ctx);
         {{/if}}
 
         let (mut policy, cap) = token::new_policy(&treasury_cap, ctx);

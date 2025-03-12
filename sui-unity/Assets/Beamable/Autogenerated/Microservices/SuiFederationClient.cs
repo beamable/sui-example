@@ -15,7 +15,7 @@ namespace Beamable.Server.Clients
     
     
     /// <summary> A generated client for <see cref="Beamable.SuiFederation.SuiFederation"/> </summary
-    public sealed class SuiFederationClient : MicroserviceClient, Beamable.Common.IHaveServiceName, Beamable.Common.ISupportsFederatedLogin<SuiFederationCommon.SuiWeb3Identity>, Beamable.Common.ISupportsFederatedInventory<SuiFederationCommon.SuiWeb3Identity>
+    public sealed class SuiFederationClient : MicroserviceClient, Beamable.Common.IHaveServiceName
     {
         
         public SuiFederationClient(BeamContext context = null) : 
@@ -88,13 +88,13 @@ namespace Beamable.Server.Clients
         }
         
         /// <summary>
-        /// Call the Test method on the SuiFederation microservice
-        /// <see cref="Beamable.SuiFederation.SuiFederation.Test"/>
+        /// Call the GetSuiEnvironment method on the SuiFederation microservice
+        /// <see cref="Beamable.SuiFederation.SuiFederation.GetSuiEnvironment"/>
         /// </summary>
-        public Beamable.Common.Promise<Beamable.Common.Unit> Test()
+        public Beamable.Common.Promise<string> GetSuiEnvironment()
         {
             System.Collections.Generic.Dictionary<string, object> serializedFields = new System.Collections.Generic.Dictionary<string, object>();
-            return this.Request<Beamable.Common.Unit>("SuiFederation", "Test", serializedFields);
+            return this.Request<string>("SuiFederation", "GetSuiEnvironment", serializedFields);
         }
     }
     

@@ -9,6 +9,7 @@ using Beamable.SuiFederation.Features.Contract.Exceptions;
 using Beamable.SuiFederation.Features.Contract.Storage.Models;
 using Beamable.SuiFederation.Features.Contract.SuiClientWrapper;
 using Beamable.SuiFederation.Features.Contract.SuiClientWrapper.Models;
+using Beamable.SuiFederation.Features.SuiApi;
 using HandlebarsDotNet;
 using SuiFederationCommon.Extensions;
 using SuiFederationCommon.FederationContent;
@@ -17,14 +18,20 @@ namespace Beamable.SuiFederation.Features.Contract.Handlers;
 
 public class CoinCurrencyHandler(
     ContractService contractService,
-    SuiClient suiClient) : IService, IContentContractHandler
+    SuiClient suiClient,
+    SuiApiService suiApiService) : IService, IContentContractHandler
 {
     public async Task HandleContract(IContentObject clientContentInfo)
     {
         try
         {
-            if (await contractService.ContractExists<CoinContract>(clientContentInfo.Id))
-                return;
+            var contract = await contractService.GetByContent<CoinContract>(clientContentInfo.Id);
+            if (contract != null)
+            {
+                var objectExists = await suiApiService.ObjectExists(contract.PackageId);
+                if (objectExists)
+                    return;
+            }
 
             if (clientContentInfo is not CoinCurrency coinCurrency)
                 throw new ContractException($"{clientContentInfo.Id} is not a {nameof(CoinCurrency)}");
@@ -37,14 +44,14 @@ public class CoinCurrencyHandler(
 
             var deployOutput = await suiClient.CompileAndPublish(coinCurrency.ToModuleName());
 
-            await contractService.InsertContract(new CoinContract
+            await contractService.UpsertContract(new CoinContract
             {
                 PackageId = deployOutput.GetPackageId(),
                 Module = coinCurrency.ToModuleName(),
                 ContentId = coinCurrency.Id,
                 TreasuryCap = GetCurrencyTreasuryCap(deployOutput),
                 AdminCap = GetAdminCap(deployOutput, coinCurrency.ToModuleName())
-            });
+            }, coinCurrency.Id);
 
             BeamableLogger.Log($"Created contract for {coinCurrency.Id}");
         }

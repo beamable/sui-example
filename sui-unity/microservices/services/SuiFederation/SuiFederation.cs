@@ -110,5 +110,12 @@ namespace Beamable.SuiFederation
 			return await Provider.GetService<StartInventoryTransactionEndpoint>()
 				.StartInventoryTransaction(id, transaction, currencies, newItems, deleteItems, updateItems);
 		}
+
+		[Callable]
+		public async Promise<string> GetSuiEnvironment()
+		{
+			return await Provider.GetService<Configuration>()
+				.SuiEnvironment;
+		}
 	}
 }

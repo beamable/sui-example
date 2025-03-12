@@ -271,4 +271,23 @@ public class SuiApiService(
             }
         }
     }
+
+    public async Task<bool> ObjectExists(string objectId)
+    {
+        using (new Measure($"Sui.ObjectExists"))
+        {
+            try
+            {
+                var environment = await configuration.SuiEnvironment;
+                var result = await NodeService.ObjectExists(objectId, environment);
+                if (bool.TryParse(result, out var exists))
+                    return exists;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw new SuiApiException($"ObjectExists: {ex.Message}");
+            }
+        }
+    }
 }

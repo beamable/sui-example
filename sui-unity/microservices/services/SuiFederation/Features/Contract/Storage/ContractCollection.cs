@@ -58,6 +58,15 @@ public class ContractCollection(IStorageObjectConnectionProvider storageObjectCo
         }
     }
 
+    public async Task<bool> TryUpsert<TContract>(TContract contract, string id) where TContract : ContractBase
+    {
+        var collection = await Get<TContract>();
+        var filter = Builders<TContract>.Filter.Eq("_id", id);
+        var options = new ReplaceOptions { IsUpsert = true };
+        var result = await collection.ReplaceOneAsync(filter, contract, options);
+        return result.IsAcknowledged;
+    }
+
     public async Task<TContract?> GetByContentId<TContract>(string contentId) where TContract : ContractBase
     {
         var collection = await Get<TContract>();

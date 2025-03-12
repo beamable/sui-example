@@ -31,8 +31,13 @@ public class NftContractHandler(
         {
             var itemContent = clientContentInfo as ItemContent;
             var moduleName = FederationContentExtensions.SanitizeModuleName(itemContent!.ToModuleName());
-            if (await contractService.ContractExists<NftContract>(itemContent!.ContentType))
-                return;
+            var contract = await contractService.GetByContent<NftContract>(itemContent!.ContentType);
+            if (contract != null)
+            {
+                var objectExists = await suiApiService.ObjectExists(contract.PackageId);
+                if (objectExists)
+                    return;
+            }
 
             var itemTemplate = await File.ReadAllTextAsync("Features/Contract/Templates/nft.move");
             var template = Handlebars.Compile(itemTemplate);
@@ -44,14 +49,14 @@ public class NftContractHandler(
 
             var ownerObjectId = await CreateContractOwnerObject(deployOutput.GetPackageId(), moduleName, GetAdminCap(deployOutput, moduleName));
 
-            await contractService.InsertContract(new NftContract
+            await contractService.UpsertContract(new NftContract
             {
                 PackageId = deployOutput.GetPackageId(),
                 Module = moduleName,
                 ContentId = itemContent!.ContentType,
                 AdminCap = GetAdminCap(deployOutput, moduleName),
                 OwnerInfo = ownerObjectId
-            });
+            }, itemContent!.ContentType);
 
             BeamableLogger.Log($"Created contract for {moduleName}");
         }
