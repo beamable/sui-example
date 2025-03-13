@@ -1,0 +1,1235 @@
+fileFormatVersion: 2
+guid: a301849e08ef57c4bab0c71de4e3ac21
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8415379486617367960
+    second: chara_bat_0
+  - first:
+      213: 4295760229848222337
+    second: chara_bat_1
+  - first:
+      213: -4372440793481522421
+    second: chara_bat_2
+  - first:
+      213: 3455608814143426710
+    second: chara_bat_3
+  - first:
+      213: -6576889826375366742
+    second: chara_bat_4
+  - first:
+      213: 5872580218432535892
+    second: chara_bat_5
+  - first:
+      213: 7918570739660552403
+    second: chara_bat_6
+  - first:
+      213: 6431745453946796175
+    second: chara_bat_7
+  - first:
+      213: -1324731360545456315
+    second: chara_bat_8
+  - first:
+      213: -5180803793080817930
+    second: chara_bat_9
+  - first:
+      213: 5339340700595067846
+    second: chara_bat_10
+  - first:
+      213: 524806052352304509
+    second: chara_bat_11
+  - first:
+      213: 381799501158558763
+    second: chara_bat_12
+  - first:
+      213: -3233724261239987695
+    second: chara_bat_13
+  - first:
+      213: 6700700140601325154
+    second: chara_bat_14
+  - first:
+      213: -8491226218536051505
+    second: chara_bat_15
+  - first:
+      213: 472367624743254892
+    second: chara_bat_16
+  - first:
+      213: -5441420139995046185
+    second: chara_bat_17
+  - first:
+      213: 8977325065252296783
+    second: chara_bat_18
+  - first:
+      213: -5425536640722729093
+    second: chara_bat_19
+  - first:
+      213: 2453987836001279894
+    second: chara_bat_20
+  - first:
+      213: -7018456626587447489
+    second: chara_bat_21
+  - first:
+      213: -6816481532065454158
+    second: chara_bat_22
+  - first:
+      213: -946768854907274965
+    second: chara_bat_23
+  - first:
+      213: 3548932723167866760
+    second: chara_bat_24
+  - first:
+      213: 3148188858742099367
+    second: chara_bat_25
+  - first:
+      213: -7994518649739325172
+    second: chara_bat_26
+  - first:
+      213: -4897064272580729543
+    second: chara_bat_27
+  - first:
+      213: -7348967789859705520
+    second: chara_bat_28
+  - first:
+      213: 3634823730449222849
+    second: chara_bat_29
+  - first:
+      213: 8669057762874525084
+    second: chara_bat_30
+  - first:
+      213: 4372733253322119093
+    second: chara_bat_31
+  - first:
+      213: 4806716827439707034
+    second: chara_bat_32
+  - first:
+      213: 4143436274651778415
+    second: chara_bat_33
+  - first:
+      213: 8097932570682912826
+    second: chara_bat_34
+  - first:
+      213: 1191603730903293812
+    second: chara_bat_35
+  - first:
+      213: -7357260282951218604
+    second: chara_bat_36
+  - first:
+      213: -4726792610746635614
+    second: chara_bat_37
+  - first:
+      213: -7972192587232648566
+    second: chara_bat_38
+  - first:
+      213: 7885423723524792242
+    second: chara_bat_39
+  - first:
+      213: 5209646224266903783
+    second: chara_bat_40
+  - first:
+      213: -7991802647844882413
+    second: chara_bat_41
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: chara_bat_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 495
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86a001a81f0963b80800000000000000
+      internalID: -8415379486617367960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 495
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18a8a5c4b2b9d9b30800000000000000
+      internalID: 4295760229848222337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_2
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 495
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b035b17b348f153c0800000000000000
+      internalID: -4372440793481522421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_3
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 447
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6905ab968e9c4ff20800000000000000
+      internalID: 3455608814143426710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_4
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 447
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa7040c7c813ab4a0800000000000000
+      internalID: -6576889826375366742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_5
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 447
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45d38aa28989f7150800000000000000
+      internalID: 5872580218432535892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_6
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 399
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d8f442222a64ed60800000000000000
+      internalID: 7918570739660552403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_7
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 399
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f887b3cd966224950800000000000000
+      internalID: 6431745453946796175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_8
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 399
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54f3ed7a8db9d9de0800000000000000
+      internalID: -1324731360545456315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_9
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 399
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f6eb6636661a18b0800000000000000
+      internalID: -5180803793080817930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_10
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 351
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cb11c10416291a40800000000000000
+      internalID: 5339340700595067846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_11
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 351
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d752f66f25c784700800000000000000
+      internalID: 524806052352304509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_12
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 351
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2c2af99f9c6c4500800000000000000
+      internalID: 381799501158558763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_13
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 351
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1126a3bdae08f13d0800000000000000
+      internalID: -3233724261239987695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_14
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 303
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 266b3faa64badfc50800000000000000
+      internalID: 6700700140601325154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_15
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 303
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fccdca02eba192a80800000000000000
+      internalID: -8491226218536051505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_16
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 303
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6b773c1adf2e8600800000000000000
+      internalID: 472367624743254892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_17
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 303
+        width: 21
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7de50f966313c74b0800000000000000
+      internalID: -5441420139995046185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_18
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 257
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f48d29b359dd59c70800000000000000
+      internalID: 8977325065252296783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_19
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 246
+        width: 13
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b770bd5cb2f94b4b0800000000000000
+      internalID: -5425536640722729093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_20
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 247
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69f5cff5fe05e0220800000000000000
+      internalID: 2453987836001279894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_21
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 255
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3fc4cc22ee699e90800000000000000
+      internalID: -7018456626587447489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_22
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 207
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b76a3f692ef661a0800000000000000
+      internalID: -6816481532065454158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_23
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 207
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2939de1eb66cd2f0800000000000000
+      internalID: -946768854907274965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_24
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 207
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88f2e283287504130800000000000000
+      internalID: 3548932723167866760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_25
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 207
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ad4a23561d90bb20800000000000000
+      internalID: 3148188858742099367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_26
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 157
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c015d0415a3cd0190800000000000000
+      internalID: -7994518649739325172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_27
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 161
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 935a1966df12a0cb0800000000000000
+      internalID: -4897064272580729543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_28
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 161
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05def9b4bb8330a90800000000000000
+      internalID: -7348967789859705520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_29
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 159
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cc069abcec717230800000000000000
+      internalID: 3634823730449222849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_30
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 111
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c958a7dca1eae4870800000000000000
+      internalID: 8669057762874525084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_31
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 112
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b79dc5e9b11fac30800000000000000
+      internalID: 4372733253322119093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_32
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 112
+        width: 21
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a93bf6bcc73e4b240800000000000000
+      internalID: 4806716827439707034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_33
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 111
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6d4614c651708930800000000000000
+      internalID: 4143436274651778415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_34
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 63
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a30fe92b4c2a16070800000000000000
+      internalID: 8097932570682912826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_35
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 63
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47f5585a74d698010800000000000000
+      internalID: 1191603730903293812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_36
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 63
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45a4a9ac0c2c5e990800000000000000
+      internalID: -7357260282951218604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_37
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 63
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2aa61850a2f076eb0800000000000000
+      internalID: -4726792610746635614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_38
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 15
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a82eef494151d5190800000000000000
+      internalID: -7972192587232648566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_39
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 14
+        width: 19
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bf12280917ae6d60800000000000000
+      internalID: 7885423723524792242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_40
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 14
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e042ea93a16c4840800000000000000
+      internalID: 5209646224266903783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_bat_41
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 15
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 318fd2c85d9671190800000000000000
+      internalID: -7991802647844882413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      chara_bat_0: -8415379486617367960
+      chara_bat_1: 4295760229848222337
+      chara_bat_10: 5339340700595067846
+      chara_bat_11: 524806052352304509
+      chara_bat_12: 381799501158558763
+      chara_bat_13: -3233724261239987695
+      chara_bat_14: 6700700140601325154
+      chara_bat_15: -8491226218536051505
+      chara_bat_16: 472367624743254892
+      chara_bat_17: -5441420139995046185
+      chara_bat_18: 8977325065252296783
+      chara_bat_19: -5425536640722729093
+      chara_bat_2: -4372440793481522421
+      chara_bat_20: 2453987836001279894
+      chara_bat_21: -7018456626587447489
+      chara_bat_22: -6816481532065454158
+      chara_bat_23: -946768854907274965
+      chara_bat_24: 3548932723167866760
+      chara_bat_25: 3148188858742099367
+      chara_bat_26: -7994518649739325172
+      chara_bat_27: -4897064272580729543
+      chara_bat_28: -7348967789859705520
+      chara_bat_29: 3634823730449222849
+      chara_bat_3: 3455608814143426710
+      chara_bat_30: 8669057762874525084
+      chara_bat_31: 4372733253322119093
+      chara_bat_32: 4806716827439707034
+      chara_bat_33: 4143436274651778415
+      chara_bat_34: 8097932570682912826
+      chara_bat_35: 1191603730903293812
+      chara_bat_36: -7357260282951218604
+      chara_bat_37: -4726792610746635614
+      chara_bat_38: -7972192587232648566
+      chara_bat_39: 7885423723524792242
+      chara_bat_4: -6576889826375366742
+      chara_bat_40: 5209646224266903783
+      chara_bat_41: -7991802647844882413
+      chara_bat_5: 5872580218432535892
+      chara_bat_6: 7918570739660552403
+      chara_bat_7: 6431745453946796175
+      chara_bat_8: -1324731360545456315
+      chara_bat_9: -5180803793080817930
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -12,37 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d2ee21ac3448598f8393734871c187, type: 3}
   m_Name: CoreConfiguration
   m_EditorClassIdentifier: 
-  PreventCodeStripping: 1
-  PreventAddressableCodeStripping: 1
   DefaultUncaughtPromiseHandlerConfiguration: 0
-  EnableInfiniteContextRetries: 1
-  ContextRetryDelays:
-  - 2
-  - 2
-  - 4
-  - 5
-  - 6
-  - 6
-  - 7
-  - 7
-  - 8
-  - 8
-  - 9
-  - 9
-  - 10
-  UseOfflineCache: 1
-  SendHeartbeat: 1
   InventoryOfflineMode: 0
-  CommerceListingRefreshSecondsMinimum: 60
   EnablePlayModeWarning: 1
-  BeamableMenuItemsPath:
-  - Assets/Beamable/Editor/Toolbar/MenuItems
-  - Packages/com.beamable/Editor/Toolbar/MenuItems
-  - Packages/com.beamable.server/Editor/Toolbar/MenuItems
-  BeamableToolbarButtonsPaths:
-  - Assets/Beamable/Editor/Toolbar/ToolbarButtons
-  - Packages/com.beamable/Editor/Toolbar/ToolbarButtons
-  - Packages/com.beamable.server/Editor/Toolbar/ToolbarButtons
+  BeamableAssistantMenuItemsPath:
+  - Assets/Beamable/Editor/Assistant/MenuItems
+  - Packages/com.beamable/Editor/BeamableAssistant/MenuItems
+  - Packages/com.beamable.server/Editor/BeamableAssistant/MenuItems
+  BeamableAssistantToolbarButtonsPaths:
+  - Assets/Beamable/Editor/Assistant/ToolbarButtons
+  - Packages/com.beamable/Editor/BeamableAssistant/ToolbarButtons
+  - Packages/com.beamable.server/Editor/BeamableAssistant/ToolbarButtons
+  BeamableAssistantHintDetailConfigPaths:
+  - Assets/Beamable/Assistant/Hint/HintDetails
+  - Packages/com.beamable/Editor/BeamableAssistant/BeamHints/BeamHintDetailConfigs
+  - Packages/com.beamable.server/Editor/BeamableAssistant/BeamHints/BeamHintDetailConfigs
+  - Assets/Beamable/Editor/Assistant/Hint/HintDetails
   ReflectionSystemPaths:
   - Assets/Beamable/Editor/ReflectionCache/UserSystems
   - Packages/com.beamable/Editor/ReflectionCache/UserSystems
@@ -52,15 +37,11 @@ MonoBehaviour:
   - Assembly-CSharp-Editor
   - Assembly-CSharp-Editor-firstpass
   - Assembly-CSharp-firstpass
-  - Beamable.Commands
   - Beamable.Config
   - Beamable.ConsoleCommands
   - Beamable.Coroutines
   - Beamable.Editor.Input
-  - Beamable.Endel.NativeWebsocket
   - Beamable.Extensions
-  - Beamable.Installer
-  - Beamable.Installer.SmallerJSON
   - Beamable.JsonSerializable
   - Beamable.Platform
   - Beamable.Pooling
@@ -70,33 +51,13 @@ MonoBehaviour:
   - Beamable.SmallerJSON
   - Beamable.Spew
   - Beamable.UnityUIExtensions
-  - PsdPlugin
   - PubNub
-  - Unity.2D.Animation.Editor
-  - Unity.2D.Animation.Runtime
-  - Unity.2D.Aseprite.Common
-  - Unity.2D.Aseprite.Editor
-  - Unity.2D.Common.Editor
-  - Unity.2D.Common.Path.Editor
-  - Unity.2D.Common.Runtime
-  - Unity.2D.IK.Editor
-  - Unity.2D.IK.Runtime
-  - Unity.2D.PixelPerfect
-  - Unity.2D.PixelPerfect.Editor
-  - Unity.2D.Psdimporter.Editor
-  - Unity.2D.Sprite.Editor
-  - Unity.2D.SpriteShape.Editor
-  - Unity.2D.SpriteShape.Runtime
-  - Unity.2D.Tilemap.Editor
-  - Unity.2D.Tilemap.Extras
-  - Unity.2D.Tilemap.Extras.Editor
   - Unity.Addressables
   - Unity.Addressables.Editor
   - Unity.Analytics.DataPrivacy
   - Unity.Beamable
   - Unity.Beamable.Editor
   - Unity.Beamable.Editor.Server
-  - Unity.Beamable.LightBeams
   - Unity.Beamable.Purchasing
   - Unity.Beamable.Runtime.Common
   - Unity.Beamable.Runtime.UserMicroService.cachedependentms
@@ -105,53 +66,19 @@ MonoBehaviour:
   - Unity.Beamable.Samples.Editor
   - Unity.Beamable.Samples.Runtime
   - Unity.Beamable.Server.Runtime
-  - Unity.Beamable.Server.Runtime.Common
-  - Unity.Beamable.Server.Runtime.Mocks
   - Unity.Beamable.Server.Runtime.Shared
   - Unity.Beamable.Server.Runtime.Tests
-  - Unity.Beamable.Server.Templates
   - Unity.Beamable.Tests
   - Unity.Beamable.Tests.Editor
-  - Unity.Burst
-  - Unity.Burst.CodeGen
-  - Unity.Burst.Editor
   - Unity.CollabProxy.Editor
-  - Unity.Collections
-  - Unity.Collections.BurstCompatibilityGen
-  - Unity.Collections.DocCodeSamples
-  - Unity.EditorCoroutines.Editor
-  - Unity.InternalAPIEditorBridge.001
-  - Unity.InternalAPIEngineBridge.001
-  - Unity.Mathematics
-  - Unity.Mathematics.Editor
   - Unity.PackageManagerUI.Editor
-  - Unity.PerformanceTesting
-  - Unity.PerformanceTesting.Editor
-  - Unity.PlasticSCM.Editor
   - Unity.ResourceManager
-  - Unity.Rider.Editor
   - Unity.ScriptableBuildPipeline
   - Unity.ScriptableBuildPipeline.Editor
   - Unity.TextMeshPro
   - Unity.TextMeshPro.Editor
-  - Unity.Timeline
-  - Unity.Timeline.Editor
-  - Unity.VisualScripting.Core
-  - Unity.VisualScripting.Core.Editor
-  - Unity.VisualScripting.Flow
-  - Unity.VisualScripting.Flow.Editor
-  - Unity.VisualScripting.SettingsProvider.Editor
-  - Unity.VisualScripting.Shared.Editor
-  - Unity.VisualScripting.State
-  - Unity.VisualScripting.State.Editor
-  - Unity.VisualStudio.Editor
   - UnityEditor.CacheServer
   - UnityEditor.Purchasing
-  - UnityEditor.TestRunner
-  - UnityEditor.UI
   - UnityEngine.Purchasing
-  - UnityEngine.TestRunner
-  - UnityEngine.UI
   - VirtualList
   - VirtualList.Editor
-  enableTokenAnalytics: 0

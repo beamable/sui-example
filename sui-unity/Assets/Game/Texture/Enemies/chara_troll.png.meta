@@ -1,0 +1,1235 @@
+fileFormatVersion: 2
+guid: b6a0d23170957194b8a00ec4e08acd36
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2632095094453260432
+    second: chara_troll_0
+  - first:
+      213: -7319197342883830985
+    second: chara_troll_1
+  - first:
+      213: 4013365794362527445
+    second: chara_troll_2
+  - first:
+      213: -900929204673500723
+    second: chara_troll_3
+  - first:
+      213: -6797643115584907848
+    second: chara_troll_4
+  - first:
+      213: -817687241300710681
+    second: chara_troll_5
+  - first:
+      213: -8296270678301889775
+    second: chara_troll_6
+  - first:
+      213: 108598309288349045
+    second: chara_troll_7
+  - first:
+      213: -2297946655869044507
+    second: chara_troll_8
+  - first:
+      213: 3241037511119517651
+    second: chara_troll_9
+  - first:
+      213: 352123724775670487
+    second: chara_troll_10
+  - first:
+      213: -5774189151874577484
+    second: chara_troll_11
+  - first:
+      213: 456107861976985612
+    second: chara_troll_12
+  - first:
+      213: -180946073951865187
+    second: chara_troll_13
+  - first:
+      213: -3695094142504331748
+    second: chara_troll_14
+  - first:
+      213: 2882385503792308871
+    second: chara_troll_15
+  - first:
+      213: 1386603884690267604
+    second: chara_troll_16
+  - first:
+      213: -4361760892980889170
+    second: chara_troll_17
+  - first:
+      213: 6137504664941816840
+    second: chara_troll_18
+  - first:
+      213: 2232627724800000778
+    second: chara_troll_19
+  - first:
+      213: 1218324263399134963
+    second: chara_troll_20
+  - first:
+      213: 6739719818053311575
+    second: chara_troll_21
+  - first:
+      213: 2731714419015299418
+    second: chara_troll_22
+  - first:
+      213: -5140529157724035527
+    second: chara_troll_23
+  - first:
+      213: -916527446583604914
+    second: chara_troll_24
+  - first:
+      213: -4310818664387097719
+    second: chara_troll_25
+  - first:
+      213: 8632883460662684207
+    second: chara_troll_26
+  - first:
+      213: -8536123432271093839
+    second: chara_troll_27
+  - first:
+      213: -8430807676539581796
+    second: chara_troll_28
+  - first:
+      213: 5789134022847138766
+    second: chara_troll_29
+  - first:
+      213: 9054591849396816116
+    second: chara_troll_30
+  - first:
+      213: -3561713193726224143
+    second: chara_troll_31
+  - first:
+      213: 3483449329685689820
+    second: chara_troll_32
+  - first:
+      213: -4557622174542067241
+    second: chara_troll_33
+  - first:
+      213: -1488229431086832551
+    second: chara_troll_34
+  - first:
+      213: -1649647703515117310
+    second: chara_troll_35
+  - first:
+      213: -7026501397212479171
+    second: chara_troll_36
+  - first:
+      213: 6721308794026151178
+    second: chara_troll_37
+  - first:
+      213: -3887149327784002870
+    second: chara_troll_38
+  - first:
+      213: 1962405880112917675
+    second: chara_troll_39
+  - first:
+      213: -7704076285991443470
+    second: chara_troll_40
+  - first:
+      213: -5572028722510390945
+    second: chara_troll_41
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: chara_troll_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 495
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07fa010057be87bd0800000000000000
+      internalID: -2632095094453260432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_1
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 495
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7332d60abccfc6a90800000000000000
+      internalID: -7319197342883830985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_2
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 495
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5de8eae1de652b730800000000000000
+      internalID: 4013365794362527445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_3
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 447
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc929a369a14f73f0800000000000000
+      internalID: -900929204673500723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_4
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 447
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b59ea11a9be9a1a0800000000000000
+      internalID: -6797643115584907848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_5
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 447
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7eae6ec49cdf6a4f0800000000000000
+      internalID: -817687241300710681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_6
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 399
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11ba35b06c9bddc80800000000000000
+      internalID: -8296270678301889775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_7
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 399
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57d07504691d18100800000000000000
+      internalID: 108598309288349045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_8
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 399
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e8f02801bd0c10e0800000000000000
+      internalID: -2297946655869044507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_9
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 399
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d7bef1d17a7afc20800000000000000
+      internalID: 3241037511119517651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_10
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 351
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d2cd3c79aef2e400800000000000000
+      internalID: 352123724775670487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_11
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 351
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bb0a903f85fddfa0800000000000000
+      internalID: -5774189151874577484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_12
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 351
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c00b6641fab645600800000000000000
+      internalID: 456107861976985612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_13
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 351
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d96f89221862d7df0800000000000000
+      internalID: -180946073951865187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_14
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 303
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c161760747368bcc0800000000000000
+      internalID: -3695094142504331748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_15
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 303
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 782a64b185a400820800000000000000
+      internalID: 2882385503792308871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_16
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 303
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ddd327f2e43e3310800000000000000
+      internalID: 1386603884690267604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_17
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 303
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea9fea2d399e773c0800000000000000
+      internalID: -4361760892980889170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_18
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 256
+        width: 23
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80ce82199fbcc2550800000000000000
+      internalID: 6137504664941816840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_19
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 245
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0384643613ebfe10800000000000000
+      internalID: 2232627724800000778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_20
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 254
+        width: 27
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f6152d667b58e010800000000000000
+      internalID: 1218324263399134963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_21
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 254
+        width: 27
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75c5ab8477b488d50800000000000000
+      internalID: 6739719818053311575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_22
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 207
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5138357acff8e520800000000000000
+      internalID: 2731714419015299418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_23
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 202
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 936225c77fb29a8b0800000000000000
+      internalID: -5140529157724035527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_24
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 207
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e490d7fa427d743f0800000000000000
+      internalID: -916527446583604914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_25
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 207
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98b4512b345ec24c0800000000000000
+      internalID: -4310818664387097719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_26
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 158
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2ae42cb4c92ec770800000000000000
+      internalID: 8632883460662684207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_27
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 160
+        width: 29
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bfd794f6f8998980800000000000000
+      internalID: -8536123432271093839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_28
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 160
+        width: 25
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9ac8362611cffa80800000000000000
+      internalID: -8430807676539581796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_29
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 160
+        width: 25
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecb8eecb8b2275050800000000000000
+      internalID: 5789134022847138766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_30
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 111
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f8c171505f58ad70800000000000000
+      internalID: 9054591849396816116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_31
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 112
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f8502898b0429ec0800000000000000
+      internalID: -3561713193726224143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_32
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 111
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd5fcf095b2b75030800000000000000
+      internalID: 3483449329685689820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_33
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 111
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d90af197c210c0c0800000000000000
+      internalID: -4557622174542067241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_34
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 63
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 954a9c7a73fb85be0800000000000000
+      internalID: -1488229431086832551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_35
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 63
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 209417367264b19e0800000000000000
+      internalID: -1649647703515117310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_36
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 63
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d314d5d053adc7e90800000000000000
+      internalID: -7026501397212479171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_37
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 63
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0d43a5bcb2e64d50800000000000000
+      internalID: 6721308794026151178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_38
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 15
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aca398808421e0ac0800000000000000
+      internalID: -3887149327784002870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_39
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 14
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baca44d20cddb3b10800000000000000
+      internalID: 1962405880112917675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_40
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 15
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f328f29f6f951590800000000000000
+      internalID: -7704076285991443470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_troll_41
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 15
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f599e74166d2ca2b0800000000000000
+      internalID: -5572028722510390945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      chara_troll_0: -2632095094453260432
+      chara_troll_1: -7319197342883830985
+      chara_troll_10: 352123724775670487
+      chara_troll_11: -5774189151874577484
+      chara_troll_12: 456107861976985612
+      chara_troll_13: -180946073951865187
+      chara_troll_14: -3695094142504331748
+      chara_troll_15: 2882385503792308871
+      chara_troll_16: 1386603884690267604
+      chara_troll_17: -4361760892980889170
+      chara_troll_18: 6137504664941816840
+      chara_troll_19: 2232627724800000778
+      chara_troll_2: 4013365794362527445
+      chara_troll_20: 1218324263399134963
+      chara_troll_21: 6739719818053311575
+      chara_troll_22: 2731714419015299418
+      chara_troll_23: -5140529157724035527
+      chara_troll_24: -916527446583604914
+      chara_troll_25: -4310818664387097719
+      chara_troll_26: 8632883460662684207
+      chara_troll_27: -8536123432271093839
+      chara_troll_28: -8430807676539581796
+      chara_troll_29: 5789134022847138766
+      chara_troll_3: -900929204673500723
+      chara_troll_30: 9054591849396816116
+      chara_troll_31: -3561713193726224143
+      chara_troll_32: 3483449329685689820
+      chara_troll_33: -4557622174542067241
+      chara_troll_34: -1488229431086832551
+      chara_troll_35: -1649647703515117310
+      chara_troll_36: -7026501397212479171
+      chara_troll_37: 6721308794026151178
+      chara_troll_38: -3887149327784002870
+      chara_troll_39: 1962405880112917675
+      chara_troll_4: -6797643115584907848
+      chara_troll_40: -7704076285991443470
+      chara_troll_41: -5572028722510390945
+      chara_troll_5: -817687241300710681
+      chara_troll_6: -8296270678301889775
+      chara_troll_7: 108598309288349045
+      chara_troll_8: -2297946655869044507
+      chara_troll_9: 3241037511119517651
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

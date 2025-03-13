@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 32b4177230cb4f2e94a748a5740662ea
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - xpGainData: {fileID: 11400000, guid: 9dd17c67606a3874d905928ab8c7722e, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,31 +1,35 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beamable.Installer.SmallerJSON", "Beamable.Installer.SmallerJSON.csproj", "{a5345e34-0855-5e42-4047-614bf6574206}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{002370ef-2cb4-3bbe-00c9-0a682d1f4797}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{f28200e9-2df0-34f2-9b60-f807048a5881}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beamable.Installer", "Beamable.Installer.csproj", "{b9764831-c567-e329-ae27-ab3fd87a8551}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beamable.Installer.SmallerJSON", "Beamable.Installer.SmallerJSON.csproj", "{a5345e34-0855-5e42-4047-614bf6574206}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Beamable.Customer.MicroserviceClients", "Unity.Beamable.Customer.MicroserviceClients.csproj", "{21b58302-de98-0c06-0dba-c33091f16a4f}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Beamable.Customer.Common", "Unity.Beamable.Customer.Common.csproj", "{d8e5032d-f17d-03e3-a8b8-0d6bce51c1e3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{002370ef-2cb4-3bbe-00c9-0a682d1f4797}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{a5345e34-0855-5e42-4047-614bf6574206}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{a5345e34-0855-5e42-4047-614bf6574206}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{002370ef-2cb4-3bbe-00c9-0a682d1f4797}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{002370ef-2cb4-3bbe-00c9-0a682d1f4797}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{f28200e9-2df0-34f2-9b60-f807048a5881}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{f28200e9-2df0-34f2-9b60-f807048a5881}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{b9764831-c567-e329-ae27-ab3fd87a8551}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{b9764831-c567-e329-ae27-ab3fd87a8551}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{a5345e34-0855-5e42-4047-614bf6574206}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{a5345e34-0855-5e42-4047-614bf6574206}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21b58302-de98-0c06-0dba-c33091f16a4f}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{21b58302-de98-0c06-0dba-c33091f16a4f}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{d8e5032d-f17d-03e3-a8b8-0d6bce51c1e3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{d8e5032d-f17d-03e3-a8b8-0d6bce51c1e3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{002370ef-2cb4-3bbe-00c9-0a682d1f4797}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{002370ef-2cb4-3bbe-00c9-0a682d1f4797}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
