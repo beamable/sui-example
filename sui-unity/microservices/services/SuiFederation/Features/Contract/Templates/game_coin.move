@@ -10,6 +10,7 @@ module {{toLowerCase Name}}_package::{{toLowerCase Name}} {
         token::{Self, Token, ActionRequest},
         tx_context::sender
     };
+    use std::vector as vec;
 
     /// Type that marks Capability to create new item
     public struct AdminCap has key { id: UID }
@@ -90,10 +91,26 @@ module {{toLowerCase Name}}_package::{{toLowerCase Name}} {
     }
 
     /// Burn a token
-    public fun burn(
-        token: Token<{{toUpperCase Name}}>,
-        store: &mut {{toStructName Name}}Store,
-        ctx: &mut TxContext):() {
+    // public fun burn(
+    //     tokens: &mut vector<Token<{{toUpperCase Name}}>>,
+    //     store: &mut {{toStructName Name}}Store,
+    //     ctx: &mut TxContext):() {
+    //     let len = vec::length(tokens);
+    //     let mut i = 0;
+    //     while (i < len) {
+    //         let token = vector::pop_back(tokens);
+    //         token::burn(&mut store.{{toLowerCase Name}}_treasury, token);
+    //         i = i + 1;
+    //     };
+    // }
+
+    public fun burn(token: Token<{{toUpperCase Name}}>, store: &mut {{toStructName Name}}Store, ctx: &mut TxContext) {
         token::burn(&mut store.{{toLowerCase Name}}_treasury, token);
     }
+
+    public fun splitBurn(token: &mut Token<{{toUpperCase Name}}>, store: &mut {{toStructName Name}}Store, amount: u64,ctx: &mut TxContext) {
+        let newToken = token::split(token, amount, ctx);
+        token::burn(&mut store.{{toLowerCase Name}}_treasury, newToken);
+    }
+
 }

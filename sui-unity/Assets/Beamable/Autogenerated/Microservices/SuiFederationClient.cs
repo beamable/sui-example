@@ -15,7 +15,7 @@ namespace Beamable.Server.Clients
     
     
     /// <summary> A generated client for <see cref="Beamable.SuiFederation.SuiFederation"/> </summary
-    public sealed class SuiFederationClient : MicroserviceClient, Beamable.Common.IHaveServiceName
+    public sealed class SuiFederationClient : MicroserviceClient, Beamable.Common.IHaveServiceName, Beamable.Common.ISupportsFederatedLogin<SuiFederationCommon.SuiWeb3Identity>, Beamable.Common.ISupportsFederatedInventory<SuiFederationCommon.SuiWeb3Identity>
     {
         
         public SuiFederationClient(BeamContext context = null) : 
