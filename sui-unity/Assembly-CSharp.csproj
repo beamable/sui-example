@@ -920,6 +920,9 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>C:\Program Files\Unity\Hub\Editor\6000.0.38f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.2D.Runtime">
+      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.2D.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="Beamable.Runtime.Input">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Beamable.Runtime.Input.dll</HintPath>
     </Reference>
@@ -935,6 +938,9 @@
     <Reference Include="Unity.Rider.Editor">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Searcher.Editor">
+      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="PsdPlugin">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\PsdPlugin.dll</HintPath>
     </Reference>
@@ -949,6 +955,9 @@
     </Reference>
     <Reference Include="PubNub">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\PubNub.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.IK.Editor">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.2D.IK.Editor.dll</HintPath>
@@ -968,8 +977,20 @@
     <Reference Include="Unity.2D.SpriteShape.Runtime">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.2D.SpriteShape.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime.Shared">
+      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.Shared.dll</HintPath>
+    </Reference>
     <Reference Include="UniTask.TextMeshPro">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\UniTask.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ShaderGraph.Editor">
+      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Editor.Shared">
+      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Shaders">
+      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Beamable.Editor.Server">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.Beamable.Editor.Server.dll</HintPath>
@@ -1010,8 +1031,14 @@
     <Reference Include="Unity.Mathematics.Editor">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="Beamable.Platform">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Beamable.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.GPUDriven.Runtime">
+      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.RenderPipelines.GPUDriven.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Cinemachine">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.Cinemachine.dll</HintPath>
@@ -1031,6 +1058,9 @@
     <Reference Include="Unity.Collections">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.Collections.dll</HintPath>
     </Reference>
+    <Reference Include="PPv2URPConverters">
+      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\PPv2URPConverters.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Beamable.Editor">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.Beamable.Editor.dll</HintPath>
     </Reference>
@@ -1039,6 +1069,9 @@
     </Reference>
     <Reference Include="Unity.2D.PixelPerfect.Editor">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.2D.PixelPerfect.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Rendering.LightTransport.Editor">
+      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.Rendering.LightTransport.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Beamable.Endel.NativeWebsocket">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Beamable.Endel.NativeWebsocket.dll</HintPath>
@@ -1069,6 +1102,12 @@
     </Reference>
     <Reference Include="Unity.Beamable.Server.Runtime.Common">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.Beamable.Server.Runtime.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Config.Runtime">
+      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Config.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Editor">
+      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Animation.Runtime">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.2D.Animation.Runtime.dll</HintPath>
@@ -1112,6 +1151,9 @@
     <Reference Include="Unity.TextMeshPro">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.EditorCoroutines.Editor">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
     </Reference>
@@ -1129,6 +1171,12 @@
     </Reference>
     <Reference Include="Unity.Mathematics">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Editor">
+      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
@@ -1174,6 +1222,12 @@
     </Reference>
     <Reference Include="VirtualList.Editor">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\VirtualList.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Rendering.LightTransport.Runtime">
+      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.Rendering.LightTransport.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InputSystem">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>

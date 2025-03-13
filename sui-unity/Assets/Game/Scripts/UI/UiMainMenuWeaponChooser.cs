@@ -95,11 +95,12 @@ namespace MoeBeam.Game.Scripts.UI
 
         private async void OnSelectWeapons()
         {
+            //TODO debug
             try
             {
                 selectButton.SwitchText(false, "Selecting...");
-                await InventoryManager.Instance.AddItemToInventory(_selectedMeleeCard.CurrentWeapon);
-                await InventoryManager.Instance.AddItemToInventory(_selectedRangedCard.CurrentWeapon);
+                //await InventoryManager.Instance.AddItemToInventory(_selectedMeleeCard.CurrentWeapon);
+                //await InventoryManager.Instance.AddItemToInventory(_selectedRangedCard.CurrentWeapon);
                 UiMainMenuManager.Instance.PlayPanelStatus(true);
                 selectButton.ButtonCurrent.interactable = false;
             }
