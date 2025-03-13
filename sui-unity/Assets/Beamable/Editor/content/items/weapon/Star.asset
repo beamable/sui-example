@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -406860628, guid: 32b87407b979e3f4db5da06355f57a44, type: 3}
+  m_Name: Star
+  m_EditorClassIdentifier: 
+  _tags: []
+  icon:
+    m_AssetGUID: 03da7715b0e5224409e499a9b6a31ced
+    m_SubObjectName: Star_1
+    m_SubObjectGUID: 
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1
+  clientPermission:
+    writeSelf: 0
+  federation:
+    HasValue: 1
+    Value:
+      Service: SuiFederation
+      Namespace: SuiIdentity
+  name: Day Star
+  description: Let them see the stars during day light.
+  image: https://cdn.pixabay.com/photo/2019/04/05/15/01/katana-4105189_1280.png
+  customProperties:
+    keys:
+    - Damage
+    - AttackSpeed
+    - AttackType
+    values:
+    - 20
+    - 1
+    - 2

@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -406860628, guid: 32b87407b979e3f4db5da06355f57a44, type: 3}
+  m_Name: Spear
+  m_EditorClassIdentifier: 
+  _tags: []
+  icon:
+    m_AssetGUID: 2e2e0076e56517e4d8d587dc14815641
+    m_SubObjectName: Spear_1
+    m_SubObjectGUID: 
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1
+  clientPermission:
+    writeSelf: 0
+  federation:
+    HasValue: 1
+    Value:
+      Service: SuiFederation
+      Namespace: SuiIdentity
+  name: Spear of Grace
+  description: Impale them with your grace
+  image: https://cdn.pixabay.com/photo/2012/04/15/20/07/light-35144_1280.png
+  customProperties:
+    keys:
+    - Damage
+    - AttackSpeed
+    - AttackType
+    values:
+    - 10
+    - 0.75
+    - 1

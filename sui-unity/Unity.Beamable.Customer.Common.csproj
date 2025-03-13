@@ -412,7 +412,7 @@
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\PackageCache\com.unity.visualscripting@7dcdc439b230\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\PackageCache\com.beamable.server@37e3e0bda9a4\Editor\ThirdParty\ICSharpCode.SharpZipLib.dll</HintPath>
+      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\PackageCache\com.beamable.server@8d839eed99fc\Editor\ThirdParty\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Collections.LowLevel.ILSupport">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\PackageCache\com.unity.collections@56bff8827a7e\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>

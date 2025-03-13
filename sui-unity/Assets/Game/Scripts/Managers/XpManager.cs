@@ -83,6 +83,7 @@ namespace MoeBeam.Game.Scripts.Managers
                 }
             }
             weapon.MetaData.Update(0, nextLevel, newDamage, newSpeed);
+            await BeamManager.BeamContext.Api.InventoryService.UpdateItem(weapon.ContentId, weapon.InstanceId, weapon.MetaData.ToDictionary());
             //TODO: Fix updating weapon meta data
             //await BeamManager.SkullClient.UpdateWeaponMetaData(weapon.ContentId, weapon.InstanceId, weapon.MetaData.ToDictionary());
         }

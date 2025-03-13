@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using MoeBeam.Game.Scripts.Data;
 using MoeBeam.Game.Scripts.Managers;
+using SuiFederationCommon.FederationContent;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -13,7 +14,7 @@ namespace MoeBeam.Game.Scripts.Beam
     {
         #region EXPOSED_VARIABLES
         
-        [SerializeField] List<WeaponsRef> weaponsRefs;
+        [SerializeField] List<WeaponItemRef> weaponsRefs;
 
         #endregion
 
@@ -65,10 +66,19 @@ namespace MoeBeam.Game.Scripts.Beam
             {
                 var resolvedW = await weapon.Resolve();
                 var icon = await GetSpriteAsync(resolvedW.icon);
-                var bulletIcon = await GetSpriteAsync(resolvedW.BulletIcon);
-                var metaData = new WeaponMetaData(0, 1, resolvedW.Damage, resolvedW.AttackSpeed);
+                Sprite bulletIcon = null;
+                
+                resolvedW.CustomProperties.TryGetValue(GameData.DamageKey, out var damageValue);
+                int.TryParse(damageValue, out var damage);
+                resolvedW.CustomProperties.TryGetValue(GameData.AttackSpeedKey, out var attackSpeedValue);
+                float.TryParse(attackSpeedValue, out var attackSpeed);
+                resolvedW.CustomProperties.TryGetValue(GameData.AttackTypeKey, out var attackTypeValue);
+                int.TryParse(attackTypeValue, out var attackType);
+                var type = GameData.ToAttackType(attackType);
+                
+                var metaData = new WeaponMetaData(0, 1, damage, attackSpeed);
                 var weaponInstance = new WeaponInstance(icon, bulletIcon, 0, resolvedW.Id, resolvedW.name, 
-                    resolvedW.WeaponDescription, resolvedW.AttackType, metaData);
+                   resolvedW.Description, type, metaData);
                 WeaponContents.Add(weaponInstance);
             }
         }

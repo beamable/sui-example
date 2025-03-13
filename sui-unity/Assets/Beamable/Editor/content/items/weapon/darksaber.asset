@@ -16,6 +16,7 @@ MonoBehaviour:
   icon:
     m_AssetGUID: 
     m_SubObjectName: 
+    m_SubObjectGUID: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   clientPermission:
@@ -29,5 +30,11 @@ MonoBehaviour:
   description: An ancient lightsaber created by Tarre Vizsla
   image: https://cdn.pixabay.com/photo/2012/04/15/20/07/light-35144_1280.png
   customProperties:
-    keys: []
-    values: []
+    keys:
+    - Damage
+    - AttackSpeed
+    - AttackType
+    values:
+    - 25
+    - 0.75
+    - 0
