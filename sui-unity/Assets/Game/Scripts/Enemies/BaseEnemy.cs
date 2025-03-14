@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using MoeBeam.Game.Scripts.Data;
+using MoeBeam.Game.Scripts.Helpers;
 using MoeBeam.Game.Scripts.Interfaces;
 using MoeBeam.Game.Scripts.Managers;
 using Unity.VisualScripting;
@@ -16,6 +17,7 @@ namespace MoeBeam.Game.Scripts.Enemies
         [SerializeField] private SpriteRenderer mainRenderer;
         [SerializeField] protected Animator enemyAnimator;
         [SerializeField] protected EnemyAttacker enemyAttacker;
+        [SerializeField] protected DamageFlasher damageFlasher;
         #endregion
 
         #region PRIVATE_VARIABLES
@@ -102,6 +104,7 @@ namespace MoeBeam.Game.Scripts.Enemies
                 enemyAnimator.SetTrigger(InjuredHash);
                 _lastWeaponInstanceId = instanceId;
                 _currentHealth -= damage;
+                damageFlasher.Flash();
                 yield return _injuredWait;
                 _isInjured = false;
                 _injuredCoroutine = null;
