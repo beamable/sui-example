@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -406860628, guid: 32b87407b979e3f4db5da06355f57a44, type: 3}
-  m_Name: shisui
+  m_Name: Shiv
   m_EditorClassIdentifier: 
   _tags: []
   icon:
-    m_AssetGUID: 
-    m_SubObjectName: 
+    m_AssetGUID: 4e7f451284ec95347b9b3dca3c4e79c2
+    m_SubObjectName: Shivs_1
     m_SubObjectGUID: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1
   clientPermission:
     writeSelf: 0
   federation:
@@ -26,15 +27,15 @@ MonoBehaviour:
     Value:
       Service: SuiFederation
       Namespace: SuiIdentity
-  name: Shisui
-  description: This sword is said to have the power to control water.
-  image: https://cdn.pixabay.com/photo/2019/04/05/15/01/katana-4105189_1280.png
+  name: Shiv
+  description: 'Basic but deadly. '
+  image: https://cdn.pixabay.com/photo/2012/04/15/20/07/light-35144_1280.png
   customProperties:
     keys:
     - Damage
     - AttackSpeed
     - AttackType
     values:
-    - 30
-    - 1
+    - 15
+    - 0.65
     - 2

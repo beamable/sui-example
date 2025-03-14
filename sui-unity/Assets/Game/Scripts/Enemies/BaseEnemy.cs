@@ -32,7 +32,7 @@ namespace MoeBeam.Game.Scripts.Enemies
         private Vector2 _moveDirection = Vector2.zero;
         
         private Coroutine _injuredCoroutine;
-        private WaitForSeconds _injuredWait = new WaitForSeconds(0.5f);
+        private WaitForSeconds _injuredWait = new WaitForSeconds(1f);
         protected EnemyData.EnemyAttackType CurrentAttackType => enemyData.AttackType;
         protected Player.Player CurrentPlayer;
         protected Rigidbody2D Rb2D;
@@ -69,6 +69,7 @@ namespace MoeBeam.Game.Scripts.Enemies
 
         private void FixedUpdate()
         {
+            if(_isDead || Rb2D is null ) return;
             Rb2D.linearVelocity = _moveDirection * enemyData.MoveSpeed;
         }
 
@@ -98,13 +99,15 @@ namespace MoeBeam.Game.Scripts.Enemies
                 enemyAnimator.SetTrigger(InjuredHash);
                 _lastWeaponInstanceId = instanceId;
                 _currentHealth -= damage;
-                if (_currentHealth <= 0)
-                {
-                    Die();
-                }
                 yield return _injuredWait;
                 _isInjured = false;
                 _injuredCoroutine = null;
+                if (_currentHealth <= 0)
+                {
+                    _isDead = true;
+                    yield return new WaitForEndOfFrame();
+                    Die();
+                }
             }
         }
 
@@ -114,13 +117,12 @@ namespace MoeBeam.Game.Scripts.Enemies
         
         private void CalculateDistanceToPlayer()
         {
-            if (CurrentAttackType == EnemyData.EnemyAttackType.None) return;
             _distanceToPlayer = Vector2.Distance(transform.position, CurrentPlayer.transform.position);
         }
 
         private void CheckCanMove()
         {
-            _canMove = !(_distanceToPlayer <= enemyData.AttackRange) || _isAttacking || _isInjured || _isDead;
+            _canMove = !(_distanceToPlayer <= enemyData.AttackRange) || !_isAttacking || !_isInjured || !_isDead;
             enemyAnimator.SetBool(MoveHash, _canMove);
         }
         
@@ -153,7 +155,6 @@ namespace MoeBeam.Game.Scripts.Enemies
         
         protected virtual void Die()
         {
-            _isDead = true;
             var deathData = new EnemyKilledData(enemyData.XpValue, _lastWeaponInstanceId);
             EventCenter.InvokeEvent(GameData.OnEnemyKillReward, deathData);
             //TODO: Implement death animation

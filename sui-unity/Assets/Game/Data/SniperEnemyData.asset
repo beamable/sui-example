@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 879d2dfd838446978a5a8e3f242f2385, type: 3}
-  m_Name: BatEnemyData
+  m_Name: SniperEnemyData
   m_EditorClassIdentifier: 
-  <MoveSpeed>k__BackingField: 4
+  <MoveSpeed>k__BackingField: 3
   <MaxHealth>k__BackingField: 50
-  <XpValue>k__BackingField: 25
-  <AttackPower>k__BackingField: 5
-  <AttackRange>k__BackingField: 1.1
-  <AttackCooldown>k__BackingField: 0.75
+  <XpValue>k__BackingField: 20
+  <AttackPower>k__BackingField: 15
+  <AttackRange>k__BackingField: 7.5
+  <AttackCooldown>k__BackingField: 1.5
   <IsMiniBoss>k__BackingField: 0
-  <AttackType>k__BackingField: 2
+  <AttackType>k__BackingField: 3

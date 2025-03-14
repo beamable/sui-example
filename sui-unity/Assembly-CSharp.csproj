@@ -55,6 +55,7 @@
     <Compile Include="Assets\Game\Scripts\Enemies\BatEnemy.cs" />
     <Compile Include="Assets\Game\Scripts\Data\EnemyKilledData.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
+    <Compile Include="Assets\Game\Scripts\Enemies\Spawner\OrcEnemy.cs" />
     <Compile Include="Assets\Game\Scripts\Interfaces\IDamagable.cs" />
     <Compile Include="Assets\Game\Input\BeamInputActions.cs" />
     <Compile Include="Assets\Game\Input\InputReader.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Assets\Game\Scripts\Data\WeaponMetaData.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\Game\Scripts\Player\PlayerAttack.cs" />
+    <Compile Include="Assets\Game\Scripts\Enemies\SniperBullet.cs" />
     <Compile Include="Assets\Game\Scripts\Data\XpGainData.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
@@ -106,6 +108,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
+    <Compile Include="Assets\Game\Scripts\Enemies\SniperEnemy.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Game\Scripts\Items\Weapons.cs" />
     <Compile Include="Assets\Game\Scripts\Helpers\BeamButton.cs" />
@@ -935,11 +938,11 @@
     <Reference Include="UnityEditor.UI">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Searcher.Editor">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="PsdPlugin">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\PsdPlugin.dll</HintPath>
@@ -959,23 +962,26 @@
     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Shaders">
+      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.2D.IK.Editor">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.2D.IK.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.IK.Runtime">
-      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ResourceManager">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.ResourceManager.dll</HintPath>
     </Reference>
-    <Reference Include="Beamable.Extensions">
-      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Beamable.Extensions.dll</HintPath>
+    <Reference Include="Unity.2D.IK.Runtime">
+      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Cinemachine.Editor">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.Cinemachine.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.SpriteShape.Runtime">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.2D.SpriteShape.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Beamable.Extensions">
+      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Beamable.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime.Shared">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.Shared.dll</HintPath>
@@ -989,9 +995,6 @@
     <Reference Include="Unity.RenderPipelines.Core.Editor.Shared">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.Shared.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.RenderPipelines.Universal.Shaders">
-      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Beamable.Editor.Server">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.Beamable.Editor.Server.dll</HintPath>
     </Reference>
@@ -1000,6 +1003,9 @@
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
@@ -1030,9 +1036,6 @@
     </Reference>
     <Reference Include="Unity.Mathematics.Editor">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
-      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Beamable.Platform">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Beamable.Platform.dll</HintPath>
@@ -1094,8 +1097,8 @@
     <Reference Include="Unity.2D.Tilemap.Editor">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.2D.Aseprite.Common">
-      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.2D.Aseprite.Common.dll</HintPath>
+    <Reference Include="Unity.RenderPipelines.Universal.Config.Runtime">
+      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Config.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Splines.Editor">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.Splines.Editor.dll</HintPath>
@@ -1103,8 +1106,8 @@
     <Reference Include="Unity.Beamable.Server.Runtime.Common">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.Beamable.Server.Runtime.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.RenderPipelines.Universal.Config.Runtime">
-      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Config.Runtime.dll</HintPath>
+    <Reference Include="Unity.2D.Aseprite.Common">
+      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.2D.Aseprite.Common.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Editor">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
@@ -1148,11 +1151,11 @@
     <Reference Include="Unity.VisualScripting.Flow.Editor">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.EditorCoroutines.Editor">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
@@ -1184,14 +1187,14 @@
     <Reference Include="Unity.2D.SpriteShape.Editor">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.2D.SpriteShape.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Beamable.LightBeams">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.Beamable.LightBeams.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Beamable.Server.Templates">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.Beamable.Server.Templates.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UniTask.Addressables">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\UniTask.Addressables.dll</HintPath>

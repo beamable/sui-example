@@ -37,5 +37,5 @@ MonoBehaviour:
     - AttackType
     values:
     - 20
-    - 1
+    - 0.75
     - 2

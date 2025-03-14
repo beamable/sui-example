@@ -4,15 +4,6 @@ using UnityEngine;
 
 namespace MoeBeam.Game.Scripts.Managers
 {
-    /// <summary>
-    /// A single manager that pools multiple MonoBehaviour script types.
-    /// You register each script type with a specific prefab.
-    /// Then call Get<T>() and Return<T>() without any string keys.
-    /// 
-    /// Limitations:
-    ///  - Only one prefab per script type T.
-    ///  - If you need multiple prefabs for the same script, you'll need a more advanced scheme.
-    /// </summary>
     public class GenericPoolManager : GenericSingleton<GenericPoolManager>
     {
         // Internal data about each pool registration
@@ -23,7 +14,6 @@ namespace MoeBeam.Game.Scripts.Managers
             public Queue<MonoBehaviour> ObjectQueue;
         }
 
-        // We store each registered pool in this dictionary, keyed by Type of the script.
         private static Dictionary<Type, PoolData> _pools = new();
 
 
@@ -65,7 +55,7 @@ namespace MoeBeam.Game.Scripts.Managers
         /// If the pool is empty and canExpand == true, we instantiate a new one.
         /// Returns null if the pool doesn't exist or can't expand.
         /// </summary>
-        public T Get<T>() where T : MonoBehaviour
+        public T Get<T>(Vector3 position) where T : MonoBehaviour
         {
             var type = typeof(T);
             if (!_pools.TryGetValue(type, out var data))
@@ -79,7 +69,8 @@ namespace MoeBeam.Game.Scripts.Managers
                 if (data.CanExpand)
                 {
                     // Expand by creating a new instance
-                    var newObj = Instantiate(data.Prefab, transform) as T;
+                    var newObj = Instantiate(data.Prefab, position, Quaternion.identity, transform) as T;
+                    newObj.transform.position = position;
                     newObj.gameObject.SetActive(true);
                     return newObj;
                 }
@@ -92,9 +83,45 @@ namespace MoeBeam.Game.Scripts.Managers
 
             // Dequeue an existing instance
             var pooledObj = data.ObjectQueue.Dequeue() as T;
+            pooledObj.transform.position = position;
             pooledObj.gameObject.SetActive(true);
             return pooledObj;
         }
+        
+        // Overload that accepts a prefab
+        public T Get<T>(T prefab, Vector3 position) where T : MonoBehaviour
+        {
+            var type = typeof(T);
+            if (!_pools.TryGetValue(type, out var data))
+            {
+                Debug.LogWarning($"No pool registered for {type}. Did you forget to call Register()?");
+                return Instantiate(prefab, position, Quaternion.identity, transform);
+            }
+
+            if (data.ObjectQueue.Count == 0)
+            {
+                if (data.CanExpand)
+                {
+                    // Expand by creating a new instance of the passed prefab
+                    var newObj = Instantiate(prefab, position, Quaternion.identity, transform);
+                    newObj.transform.position = position;
+                    newObj.gameObject.SetActive(true);
+                    return newObj;
+                }
+                else
+                {
+                    Debug.LogWarning($"Pool for {type} is empty and can't expand.");
+                    return null;
+                }
+            }
+
+            // Dequeue an existing instance
+            var pooledObj = data.ObjectQueue.Dequeue() as T;
+            pooledObj.transform.position = position;
+            pooledObj.gameObject.SetActive(true);
+            return pooledObj;
+        }
+        
 
         /// <summary>
         /// Return an instance of script type T to the pool.

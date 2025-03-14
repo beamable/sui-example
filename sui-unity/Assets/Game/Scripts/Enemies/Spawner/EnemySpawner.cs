@@ -24,6 +24,7 @@ namespace MoeBeam.Game.Scripts.Enemies.Spawner
         [SerializeField] private float spawnInterval = 3f; 
 
         [Header("MiniBoss Settings")] 
+        [SerializeField] private int miniBossInterval = 15;
         [SerializeField] private float miniBossChance = 0.05f; 
         
         private int _enemiesSpawned = 0;
@@ -43,7 +44,7 @@ namespace MoeBeam.Game.Scripts.Enemies.Spawner
             {
                 if (_enemiesAlive < maxEnemiesAtOnce)
                 {
-                    if (_enemiesSpawned == totalEnemiesToSpawn - 1) // Last enemy is Boss
+                    if (_enemiesSpawned == totalEnemiesToSpawn - 1 && _enemiesAlive == 0) // Last enemy is Boss
                     {
                         SpawnBoss();
                         yield break;
@@ -64,17 +65,16 @@ namespace MoeBeam.Game.Scripts.Enemies.Spawner
             var spawnLocation = GetRandomPointInArea(spawnZone);
 
             BaseEnemy enemyPrefab;
-            if (_enemiesSpawned < 15) // First 15 are always Enemy A
-                enemyPrefab = enemyPrefabs[0]; // Enemy A
-            else
-                enemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)]; // Random enemy
+            enemyPrefab = _enemiesSpawned < 15 ? enemyPrefabs[0] :
+                // First 15 are always Enemy 0
+                enemyPrefabs[Random.Range(0, enemyPrefabs.Length)]; 
 
-            var enemyInstance = GenericPoolManager.Instance.Get<BaseEnemy>();
+            var enemyInstance = GenericPoolManager.Instance.Get(enemyPrefab, spawnLocation);
             _enemiesSpawned++;
             _enemiesAlive++;
 
             // Handle MiniBoss logic after 15th enemy
-            if (_enemiesSpawned > 15 && Random.value < miniBossChance)
+            if (_enemiesSpawned > miniBossInterval && Random.value < miniBossChance)
             {
                 enemyInstance.EnemyData.SetMiniBoss(true);
             }
@@ -86,6 +86,7 @@ namespace MoeBeam.Game.Scripts.Enemies.Spawner
 
         private void SpawnBoss()
         {
+            //TODO: add some sort of effects or animations
             var bossInstance = Instantiate(finalBossPrefab, bossSpawnPoint.position, Quaternion.identity);
             Debug.Log("Final Boss Spawned!");
         }

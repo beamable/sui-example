@@ -1,23 +1,20 @@
-﻿using System;
-using MoeBeam.Game.Scripts.Enemies;
-using MoeBeam.Game.Scripts.Interfaces;
-using MoeBeam.Game.Scripts.Managers;
+﻿using MoeBeam.Game.Scripts.Managers;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace MoeBeam.Game.Scripts.Player
+namespace MoeBeam.Game.Scripts.Enemies
 {
-    public class Bullet : MonoBehaviour
+    public class SniperBullet : MonoBehaviour
     {
         #region EXPOSED_VARIABLES
         
         [SerializeField] private float speed = 10f;
         [SerializeField] private float lifeTime = 2f;
-        [FormerlySerializedAs("bulleetRenderer")] [SerializeField] private SpriteRenderer bulletRenderer;
+        [SerializeField] private SpriteRenderer bulleetRenderer;
         #endregion
 
         #region PRIVATE_VARIABLES
         
+        private int _currentDamage;
         private float _currentLifeTime = 0f;
         private bool _isLaunched = false;
         private WeaponInstance _currentWeapon;
@@ -59,9 +56,9 @@ namespace MoeBeam.Game.Scripts.Player
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (!other.TryGetComponent(out BaseEnemy enemy)) return;
+            if (!other.TryGetComponent(out Player.Player enemy)) return;
             
-            enemy.TakeDamage(_currentWeapon.MetaData.CurrentDamage, _currentWeapon.InstanceId);
+            //enemy.TakeDamage(_currentWeapon.MetaData.CurrentDamage, _currentWeapon.InstanceId);
             GenericPoolManager.Instance.Return(this);
         }
 
@@ -69,10 +66,10 @@ namespace MoeBeam.Game.Scripts.Player
 
         #region PUBLIC_METHODS
         
-        public void Launch(WeaponInstance rangedWeapon)
+        public void Launch(int damage)
         {
-            _currentWeapon = rangedWeapon;
-            bulletRenderer.sprite = _currentWeapon.Icon;
+            _currentDamage = damage;
+            bulleetRenderer.sprite = _currentWeapon.BulletIcon;
             _isLaunched = true;
         }
 
@@ -81,7 +78,5 @@ namespace MoeBeam.Game.Scripts.Player
         #region PRIVATE_METHODS
 
         #endregion
-
-        
     }
 }

@@ -93,8 +93,7 @@ namespace MoeBeam.Game.Scripts.Player
             if (Time.time < _nextShootTime) return;
             
             _nextShootTime = Time.time + _rangedWeapon.MetaData.CurrentAttackSpeed;
-            var bullet = GenericPoolManager.Instance.Get<Bullet>();
-            bullet.transform.position = shootPoint.position;
+            var bullet = GenericPoolManager.Instance.Get<Bullet>(shootPoint.position);
             bullet.transform.rotation = shootPoint.rotation;
             bullet.Launch(_rangedWeapon);
         }

@@ -181,10 +181,10 @@ GameObject:
   - component: {fileID: 6652716946301003931}
   - component: {fileID: 7383804628261123267}
   - component: {fileID: 7201931716611977732}
-  - component: {fileID: 8350735206647267706}
   - component: {fileID: 4267349866784077440}
+  - component: {fileID: -2140646501972333115}
   m_Layer: 0
-  m_Name: Bat Enemy
+  m_Name: Sniper Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -228,14 +228,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2258720049466692652}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -293,7 +293,7 @@ Animator:
   m_GameObject: {fileID: 2258720049466692652}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 409d116fc5248c845a1901703bf0b132, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7ea082ac8b4d99b4fa22aa752b19a3f6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -305,22 +305,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8350735206647267706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2258720049466692652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 571fad6d11e04e5cbfcb7cec3d7daee1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: 89511401843c0104193edea642678080, type: 2}
-  mainRenderer: {fileID: 8794303488732716276}
-  enemyAnimator: {fileID: 7201931716611977732}
-  enemyAttacker: {fileID: 2621505175279369087}
 --- !u!212 &4267349866784077440
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -365,7 +349,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8415379486617367960, guid: a301849e08ef57c4bab0c71de4e3ac21, type: 3}
+  m_Sprite: {fileID: 88669602436066072, guid: 4967633059a54ed408ccf162269034a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -376,6 +360,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-2140646501972333115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2258720049466692652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a4b05a654d4681896cdf8316b1ae93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: 3d938e646258e0c42a3fc93054ee9b33, type: 2}
+  mainRenderer: {fileID: 8794303488732716276}
+  enemyAnimator: {fileID: 7201931716611977732}
+  enemyAttacker: {fileID: 2621505175279369087}
+  shootPoint: {fileID: 8282704627264165315}
 --- !u!1 &4353296921834988339
 GameObject:
   m_ObjectHideFlags: 0
