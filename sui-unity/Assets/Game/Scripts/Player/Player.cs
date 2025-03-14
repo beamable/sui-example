@@ -18,19 +18,16 @@ namespace MoeBeam.Game.Scripts.Player
         [SerializeField] private float rotationSpeed = 180f;
         [SerializeField] private float lookOffset = 0f;
         
-        [Header("Health")]
-        [SerializeField] private int maxHealth = 100;
         
         [Header("References")]
         [SerializeField] private InputReader inputReader;
         [SerializeField] private PlayerAttack playerAttack;
         [SerializeField] private Rigidbody2D rb2D;
-        
+        [SerializeField] private PlayerHealth playerHealth;        
         #endregion
 
         #region PRIVATE_VARIABLES
 
-        private int _currentHealth;
         private Vector2 _moveDirection = Vector2.zero;
         
         //rotation
@@ -75,7 +72,6 @@ namespace MoeBeam.Game.Scripts.Player
         private void Start()
         {
             playerAttack.Init();
-            _currentHealth = maxHealth;
         }
 
         private void LateUpdate()
@@ -92,16 +88,7 @@ namespace MoeBeam.Game.Scripts.Player
 
         #region PUBLIC_METHODS
         
-        public void TakeDamage(float damage)
-        {
-            _currentHealth -= (int)damage;
-            EventCenter.InvokeEvent(GameData.OnPlayerInjuredEvent, _currentHealth);
-            if (_currentHealth <= 0)
-            {
-                _currentHealth = 0;
-                Die();
-            }
-        }
+        
 
         #endregion
 
@@ -134,11 +121,7 @@ namespace MoeBeam.Game.Scripts.Player
                 rotationSpeed * Time.deltaTime
             );
         }
-
-        private void Die()
-        {
-            EventCenter.InvokeEvent(GameData.OnPlayerDiedEvent);
-        }
+        
         
         #endregion
 

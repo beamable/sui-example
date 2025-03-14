@@ -1,5 +1,6 @@
 ﻿using System;
 using DG.Tweening;
+using MoeBeam.Game.Scripts.Beam;
 using MoeBeam.Game.Scripts.Data;
 using MoeBeam.Game.Scripts.Managers;
 using UnityEngine;
@@ -17,10 +18,23 @@ namespace Game.Scripts.UI
         [SerializeField] private float fadeTime = 1f;
         [SerializeField] private CanvasGroup loadingCanvasGroup;
         [SerializeField] private Slider loadingSlider;
+        
+        [Header("Player Health")]
+        [SerializeField] private Image healthBar;
+        [SerializeField] private Image healthBarTrail;
+        [SerializeField] private float drainSpeed = 0.25f;
+        [SerializeField] private float trailDelay = 0.4f;
+
+        [Header("Player Icons")]
+        [SerializeField] private Image meleeWeapon;
+        [SerializeField] private Image rangedWeapon;
+
 
         #endregion
 
         #region PRIVATE_VARIABLES
+        
+        private float _trailTimer;
 
         #endregion
 
@@ -35,6 +49,12 @@ namespace Game.Scripts.UI
         private void Start()
         {
             StartLoading();
+            healthBar.fillAmount = 1f;
+            healthBarTrail.fillAmount = 1f;
+            
+            SetPlayerIcons();
+            
+            EventCenter.Subscribe(GameData.OnPlayerInjuredEvent, UpdateHealthBar);
         }
 
         #endregion
@@ -44,6 +64,14 @@ namespace Game.Scripts.UI
         #endregion
 
         #region PRIVATE_METHODS
+
+        private void SetPlayerIcons()
+        {
+            var melee = WeaponContentManager.Instance.GetOwnedMeleeWeapon().Icon;
+            var ranged = WeaponContentManager.Instance.GetOwnedRangedWeapon().Icon;
+            meleeWeapon.sprite = melee;
+            rangedWeapon.sprite = ranged;
+        }
         
         private void StartLoading()
         {
@@ -56,6 +84,17 @@ namespace Game.Scripts.UI
                     EventCenter.InvokeEvent(GameData.OnDemoLoadingScreenFinished);
                 });
             });
+        }
+        
+        private void UpdateHealthBar(object currentHealth)
+        {
+            var ratio = (int)currentHealth / 100f;
+            var sequence = DOTween.Sequence();
+            sequence.Append(healthBar.DOFillAmount(ratio, drainSpeed)).SetEase(Ease.InOutSine);
+            sequence.AppendInterval(trailDelay);
+            sequence.Append(healthBarTrail.DOFillAmount(ratio, drainSpeed)).SetEase(Ease.InOutSine);
+            
+            sequence.Play();
         }
 
         #endregion

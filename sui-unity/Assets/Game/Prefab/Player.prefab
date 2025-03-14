@@ -191,6 +191,7 @@ GameObject:
   - component: {fileID: 2998500200083439600}
   - component: {fileID: 4228255185028777965}
   - component: {fileID: 9027491545959305308}
+  - component: {fileID: 3646957007322767106}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -332,6 +333,7 @@ MonoBehaviour:
   inputReader: {fileID: 11400000, guid: 536157a03cd7d574bbed3d73959ca955, type: 2}
   playerAttack: {fileID: 9027491545959305308}
   rb2D: {fileID: 943919608743628471}
+  playerHealth: {fileID: 3646957007322767106}
 --- !u!114 &4228255185028777965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,6 +363,19 @@ MonoBehaviour:
   playerMelee: {fileID: 6735865986438360288}
   rangedWeaponSpriteRenderer: {fileID: 4337596077761004957}
   shootPoint: {fileID: 484798215802198607}
+--- !u!114 &3646957007322767106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3923285669370233821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b1307ad2afe4987be03a60b1e2948cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!1 &5183438545581412238
 GameObject:
   m_ObjectHideFlags: 0

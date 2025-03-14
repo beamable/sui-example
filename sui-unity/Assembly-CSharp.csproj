@@ -57,6 +57,7 @@
     <Compile Include="Assets\Game\Scripts\Helpers\DamageFlasher.cs" />
     <Compile Include="Assets\Game\Scripts\Data\EnemyKilledData.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
+    <Compile Include="Assets\Game\Scripts\Player\PlayerHealth.cs" />
     <Compile Include="Assets\Game\Scripts\Interfaces\IDamagable.cs" />
     <Compile Include="Assets\Game\Input\BeamInputActions.cs" />
     <Compile Include="Assets\Game\Input\InputReader.cs" />
@@ -132,6 +133,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\Beamable\Resources\config-defaults.txt" />
+    <None Include="Assets\Game\Texture\UI\Lisence.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\SDFFunctions.hlsl" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />

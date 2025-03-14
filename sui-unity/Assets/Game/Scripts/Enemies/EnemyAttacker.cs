@@ -26,7 +26,7 @@ namespace MoeBeam.Game.Scripts.Enemies
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (!_canAttack) return;
-            if (other.CompareTag(GameData.PlayerTag) && other.TryGetComponent(out Player.Player player))
+            if (other.CompareTag(GameData.PlayerTag) && other.TryGetComponent(out Player.PlayerHealth player))
             {
                 player.TakeDamage(_damageAmount);
                 _canAttack = false;
