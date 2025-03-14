@@ -7,6 +7,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Object = UnityEngine.Object;
 
 namespace Game.Scripts.UI
 {
@@ -32,20 +33,29 @@ namespace Game.Scripts.UI
 
         [Header("Other")] 
         [SerializeField] private TextMeshProUGUI enemiesKilledText;
-
-
+        
+        [Header("Death Screen")]
+        [SerializeField] private GameObject deathScreen;
+        [SerializeField] private Button restartButton;
+        [SerializeField] private Button quitButton;
+        [SerializeField] private Button deathMarketButton;
+        
+        [Header("Win Screen")]
+        [SerializeField] private GameObject winScreen;
+        [FormerlySerializedAs("winRestartButton")] [SerializeField] private Button winQuitButton;
+        [SerializeField] private Button marketButton;
+        
         #endregion
 
         #region PRIVATE_VARIABLES
         
         private float _trailTimer;
+        private const string SuiUrl = "https://suiscan.xyz/devnet/account/";
 
         #endregion
 
         #region PUBLIC_VARIABLES
         
-        public event Action OnLoadingScreenFinished;
-
         #endregion
 
         #region UNITY_CALLS
@@ -60,6 +70,8 @@ namespace Game.Scripts.UI
             
             EventCenter.Subscribe(GameData.OnPlayerInjuredEvent, UpdateHealthBar);
             EventCenter.Subscribe(GameData.OnEnemyDiedEvent, UpdateEnemiesKilled);
+            EventCenter.Subscribe(GameData.OnPlayerDiedEvent, OnPlayerDied);
+            EventCenter.Subscribe(GameData.OnBossDiedEvent, OnBossDied);
         }
         
 
@@ -70,6 +82,12 @@ namespace Game.Scripts.UI
         #endregion
 
         #region PRIVATE_METHODS
+        
+        private void OpenExternalLink()
+        {
+            var url = SuiUrl + AccountManager.Instance.CurrentAccount.ExternalIdentities[0].userId;
+            Application.OpenURL("https://www.google.com");
+        }
 
         private void SetPlayerIcons()
         {
@@ -106,6 +124,31 @@ namespace Game.Scripts.UI
         private void UpdateEnemiesKilled(object obj)
         {
             enemiesKilledText.text = $"{GameManager.Instance.EnemiesKilled}";
+        }
+
+        private void OnPlayerDied(object _)
+        {
+            deathScreen.SetActive(true);
+            restartButton.onClick.AddListener(OnRestart);
+            quitButton.onClick.AddListener(OnQuit);
+            deathMarketButton.onClick.AddListener(OpenExternalLink);
+        }
+        
+        private void OnBossDied(object obj)
+        {
+            winScreen.SetActive(true);
+            winQuitButton.onClick.AddListener(OnQuit);
+            marketButton.onClick.AddListener(OpenExternalLink);
+        }
+        
+        private void OnRestart()
+        {
+            SceneController.Instance.LoadScene(SceneController.ScenesEnum.Game);
+        }
+
+        private void OnQuit()
+        {
+            SceneController.Instance.LoadScene(SceneController.ScenesEnum.MainMenu);
         }
 
         #endregion

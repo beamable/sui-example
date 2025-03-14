@@ -1,4 +1,6 @@
-﻿using MoeBeam.Game.Scripts.Enemies;
+﻿using MoeBeam.Game.Scripts.Data;
+using MoeBeam.Game.Scripts.Enemies;
+using MoeBeam.Game.Scripts.Managers;
 
 namespace Game.Scripts.Enemies
 {
@@ -25,6 +27,12 @@ namespace Game.Scripts.Enemies
         #endregion
 
         #region PRIVATE_METHODS
+
+        protected override void Die()
+        {
+            base.Die();
+            EventCenter.InvokeEvent(GameData.OnBossDiedEvent);
+        }
 
         #endregion
 

@@ -76,6 +76,7 @@ namespace MoeBeam.Game.Scripts.Player
 
         private void LateUpdate()
         {
+            if(GameManager.Instance.GameEnded) return;
             RotateTowardsMouse();
         }
 
@@ -96,7 +97,7 @@ namespace MoeBeam.Game.Scripts.Player
         
         private void OnMove(Vector2 direction)
         {
-            if(!GameManager.Instance.HasGameStarted) return;
+            if(!GameManager.Instance.HasGameStarted || GameManager.Instance.GameEnded) return;
             _moveDirection = direction;
         }
 

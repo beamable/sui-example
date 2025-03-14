@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using MoeBeam.Game.Scripts.Beam;
 using MoeBeam.Game.Scripts.Data;
 using MoeBeam.Game.Scripts.Helpers;
@@ -101,7 +102,7 @@ namespace MoeBeam.Game.Scripts.UI
                 selectButton.SwitchText(false, "Adding weapons to your inventory...");
                 await InventoryManager.Instance.AddItemToInventory(_selectedMeleeCard.CurrentWeapon);
                 await InventoryManager.Instance.AddItemToInventory(_selectedRangedCard.CurrentWeapon);
-                UiMainMenuManager.Instance.PlayPanelStatus(true);
+                UiMainMenuManager.Instance.SetFinalId().Forget();
                 selectButton.ButtonCurrent.interactable = false;
             }
             catch (Exception e)

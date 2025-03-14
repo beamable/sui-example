@@ -18,11 +18,18 @@ namespace MoeBeam.Game.Scripts.UI
         [SerializeField] private GameObject mainMenuPanel;
         [SerializeField] private GameObject createNewAccountPanel;
         [SerializeField] private GameObject chooseWeaponsPanel;
+        [SerializeField] private GameObject weaponsContainer;
         [SerializeField] private GameObject playPanel;
         
         [Header("Create User")]
         [SerializeField] private BeamButton createNewAccountBeamButton;
         [SerializeField] private TMP_InputField changeNameInputField;
+        
+        [Header("Final ID")]
+        [SerializeField] private GameObject finalIdContainer;
+        [SerializeField] private TextMeshProUGUI aliasText;
+        [SerializeField] private TextMeshProUGUI gamerTagText;
+        [SerializeField] private TextMeshProUGUI externalIdText;
         
 
         private bool _hasCreatedNewUser;
@@ -56,7 +63,7 @@ namespace MoeBeam.Game.Scripts.UI
         
         private void Update()
         {
-            if(_hasCreatedNewUser) return;
+            if(_hasCreatedNewUser || !createNewAccountBeamButton.gameObject.activeInHierarchy) return;
             createNewAccountBeamButton.ButtonCurrent.interactable = changeNameInputField.text.Length >= 3;
         }
 
@@ -64,6 +71,16 @@ namespace MoeBeam.Game.Scripts.UI
 
         #region PUBLIC_METHODS
         
+        public async UniTask SetFinalId()
+        {
+            weaponsContainer.SetActive(false);
+            aliasText.text = "Username: " + AccountManager.Instance.CurrentAccount.Alias;
+            gamerTagText.text = "Gamer Tag: " + AccountManager.Instance.CurrentAccount.GamerTag.ToString();
+            externalIdText.text = "Wallet: " + AccountManager.Instance.CurrentAccount.ExternalIdentities[0].userId;
+            finalIdContainer.SetActive(true);
+            await UniTask.Delay(2000);
+            PlayPanelStatus(true);
+        }
         public void PlayPanelStatus(bool status)
         {
             playPanel.SetActive(status);
@@ -79,6 +96,8 @@ namespace MoeBeam.Game.Scripts.UI
                 await AccountManager.Instance.ChangeAlias(changeNameInputField.text);
                 createNewAccountPanel.SetActive(false);
                 chooseWeaponsPanel.SetActive(true);
+                weaponsContainer.SetActive(true);
+                finalIdContainer.SetActive(false);
                 _hasCreatedNewUser = true;
             }
             catch (Exception e)

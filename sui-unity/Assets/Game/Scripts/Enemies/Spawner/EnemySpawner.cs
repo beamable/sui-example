@@ -29,12 +29,19 @@ namespace MoeBeam.Game.Scripts.Enemies.Spawner
         
         private int _enemiesSpawned = 0;
         private int _enemiesAlive = 0;
+        private bool _playerDied = false;
         private List<BaseEnemy> _spawnedEnemies = new();
 
 
         private void Start()
         {
             StartCoroutine(SpawnEnemies());
+            EventCenter.Subscribe(GameData.OnPlayerDiedEvent, OnPlayerDied);
+        }
+
+        private void OnPlayerDied(object obj)
+        {
+            _playerDied = true;
         }
 
         private IEnumerator SpawnEnemies()
@@ -42,6 +49,7 @@ namespace MoeBeam.Game.Scripts.Enemies.Spawner
             yield return new WaitUntil(()=>GameManager.Instance.HasGameStarted);
             while (_enemiesSpawned < totalEnemiesToSpawn)
             {
+                if(_playerDied) yield break;
                 if (_enemiesAlive < maxEnemiesAtOnce)
                 {
                     if (_enemiesSpawned == totalEnemiesToSpawn - 1 && _enemiesAlive == 0) // Last enemy is Boss
