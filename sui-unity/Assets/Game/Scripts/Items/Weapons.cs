@@ -35,7 +35,7 @@ public class WeaponInstance
     public string Description;
     public GameData.AttackType AttackType;
     public WeaponMetaData MetaData;
-    public bool IsOwned = true; // => InstanceId > 0;
+    public bool IsOwned => InstanceId > 0;
     
     public WeaponInstance(Sprite icon, Sprite bulletIcon, long instanceId, string contentId, string displayName, string description,
         GameData.AttackType type, WeaponMetaData metaData)

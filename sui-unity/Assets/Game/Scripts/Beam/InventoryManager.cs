@@ -13,6 +13,8 @@ namespace MoeBeam.Game.Scripts.Beam
     public class InventoryManager : GenericSingleton<InventoryManager>
     {
         #region EXPOSED_VARIABLES
+        
+        [SerializeField] private string weaponContentId = "items.weapon";
 
         #endregion
 
@@ -41,10 +43,10 @@ namespace MoeBeam.Game.Scripts.Beam
         
         public async UniTask AddItemToInventory(WeaponInstance weapon)
         {
-            await BeamManager.BeamContext.Api.InventoryService.AddItem(weapon.ContentId, weapon.MetaData.ToDictionary());
+            await BeamManager.BeamContext.Api.InventoryService.AddItem(weapon.ContentId, weapon.MetaData.ToDictionary(true));
             //await BeamManager.SkullClient.GrantItem(weapon.ContentId, weapon.MetaData.ToDictionary());
         }
-
+        
         #endregion
 
         #region PRIVATE_METHODS
@@ -52,7 +54,7 @@ namespace MoeBeam.Game.Scripts.Beam
         private async void OnRefresh(InventoryView obj)
         {
             var inventoryItems = await _beamContext.Inventory.LoadItems();
-            var weapons = inventoryItems.Where(item => item.ContentId.Contains("items.Weapons")).ToArray();
+            var weapons = inventoryItems.Where(item => item.ContentId.Contains(weaponContentId)).ToArray();
             Debug.LogWarning($"REFRESHING INVENTORY {weapons.Length}");
             if(weapons.Length < 1) return;
             foreach (var item in weapons)

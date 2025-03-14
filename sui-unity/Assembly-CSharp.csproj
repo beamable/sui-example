@@ -57,7 +57,6 @@
     <Compile Include="Assets\Game\Scripts\Helpers\DamageFlasher.cs" />
     <Compile Include="Assets\Game\Scripts\Data\EnemyKilledData.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
-    <Compile Include="Assets\Game\Scripts\Enemies\Spawner\OrcEnemy.cs" />
     <Compile Include="Assets\Game\Scripts\Interfaces\IDamagable.cs" />
     <Compile Include="Assets\Game\Input\BeamInputActions.cs" />
     <Compile Include="Assets\Game\Input\InputReader.cs" />
@@ -105,6 +104,7 @@
     <Compile Include="Assets\Game\Scripts\Enemies\Spawner\EnemySpawner.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
+    <Compile Include="Assets\Game\Scripts\Enemies\OrcEnemy.cs" />
     <Compile Include="Assets\Game\Scripts\Enemies\EnemyAttacker.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />

@@ -26,14 +26,19 @@ namespace MoeBeam.Game.Scripts.Data
             CurrentAttackSpeed = currentAttackSpeed;
         }
 
-        public Dictionary<string, string> ToDictionary()
+        public Dictionary<string, string> ToDictionary(bool firstTime = false)
         {
+            var xp = firstTime ? $"$xp" : $"xp";
+            var level = firstTime ? $"$level" : $"level";
+            var currentDamage = firstTime ? $"$currentDamage" : $"currentDamage";
+            var currentAttackSpeed = firstTime ? $"$currentAttackSpeed" : $"currentAttackSpeed";
+            
             return new Dictionary<string, string>
             {
-                {"xp", Xp.ToString()},
-                {"level", Level.ToString()},
-                {"currentDamage", CurrentDamage.ToString()},
-                {"currentAttackSpeed", CurrentAttackSpeed.ToString()},
+                {xp, Xp.ToString()},
+                {level, Level.ToString()},
+                {currentDamage, CurrentDamage.ToString()},
+                {currentAttackSpeed, CurrentAttackSpeed.ToString()},
             };
         }
     }

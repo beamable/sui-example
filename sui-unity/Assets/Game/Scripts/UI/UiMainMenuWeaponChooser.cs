@@ -98,9 +98,9 @@ namespace MoeBeam.Game.Scripts.UI
             //TODO debug
             try
             {
-                selectButton.SwitchText(false, "Selecting...");
-                //await InventoryManager.Instance.AddItemToInventory(_selectedMeleeCard.CurrentWeapon);
-                //await InventoryManager.Instance.AddItemToInventory(_selectedRangedCard.CurrentWeapon);
+                selectButton.SwitchText(false, "Adding weapons to your inventory...");
+                await InventoryManager.Instance.AddItemToInventory(_selectedMeleeCard.CurrentWeapon);
+                await InventoryManager.Instance.AddItemToInventory(_selectedRangedCard.CurrentWeapon);
                 UiMainMenuManager.Instance.PlayPanelStatus(true);
                 selectButton.ButtonCurrent.interactable = false;
             }

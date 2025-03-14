@@ -20,7 +20,7 @@ MonoBehaviour:
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   clientPermission:
-    writeSelf: 0
+    writeSelf: 1
   federation:
     HasValue: 1
     Value:

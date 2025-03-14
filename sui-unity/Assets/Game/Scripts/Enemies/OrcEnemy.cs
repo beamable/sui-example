@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+﻿using MoeBeam.Game.Scripts.Enemies;
 
-namespace MoeBeam.Game.Scripts.Enemies.Spawner
+namespace Game.Scripts.Enemies
 {
     public class OrcEnemy : BaseEnemy
     {

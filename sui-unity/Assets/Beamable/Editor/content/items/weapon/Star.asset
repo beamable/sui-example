@@ -21,7 +21,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
     m_EditorAssetChanged: 1
   clientPermission:
-    writeSelf: 0
+    writeSelf: 1
   federation:
     HasValue: 1
     Value:

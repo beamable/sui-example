@@ -74,7 +74,7 @@ namespace MoeBeam.Game.Scripts.UI
             try
             {
                 createNewAccountBeamButton.ButtonCurrent.interactable = false;
-                createNewAccountBeamButton.SwitchText(false, "Creating...");
+                createNewAccountBeamButton.SwitchText(false, "Creating External ID...");
                 await AccountManager.Instance.CreateNewAccount();
                 await AccountManager.Instance.ChangeAlias(changeNameInputField.text);
                 createNewAccountPanel.SetActive(false);

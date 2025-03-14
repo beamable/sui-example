@@ -1,8 +1,10 @@
 ﻿using System;
 using Beamable;
 using Beamable.Player;
+using Beamable.Server.Clients;
 using Cysharp.Threading.Tasks;
 using MoeBeam.Game.Scripts.Managers;
+using SuiFederationCommon;
 using UnityEngine;
 
 namespace MoeBeam.Game.Scripts.Beam
@@ -96,7 +98,7 @@ namespace MoeBeam.Game.Scripts.Beam
             {
                 var newAccount = await _beamContext.Accounts.CreateNewAccount();
                 await SwitchAccount(newAccount);
-                CurrentAccount = newAccount;
+                var result = await _beamContext.Accounts.AddExternalIdentity<SuiWeb3Identity, SuiFederationClient>("", (AsyncChallengeHandler) null, newAccount);
                 UpdateCurrentAccount(newAccount);
                 
             }
