@@ -3,6 +3,7 @@ using DG.Tweening;
 using MoeBeam.Game.Scripts.Beam;
 using MoeBeam.Game.Scripts.Data;
 using MoeBeam.Game.Scripts.Managers;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -28,6 +29,9 @@ namespace Game.Scripts.UI
         [Header("Player Icons")]
         [SerializeField] private Image meleeWeapon;
         [SerializeField] private Image rangedWeapon;
+
+        [Header("Other")] 
+        [SerializeField] private TextMeshProUGUI enemiesKilledText;
 
 
         #endregion
@@ -55,7 +59,9 @@ namespace Game.Scripts.UI
             SetPlayerIcons();
             
             EventCenter.Subscribe(GameData.OnPlayerInjuredEvent, UpdateHealthBar);
+            EventCenter.Subscribe(GameData.OnEnemyDiedEvent, UpdateEnemiesKilled);
         }
+        
 
         #endregion
 
@@ -95,6 +101,11 @@ namespace Game.Scripts.UI
             sequence.Append(healthBarTrail.DOFillAmount(ratio, drainSpeed)).SetEase(Ease.InOutSine);
             
             sequence.Play();
+        }
+        
+        private void UpdateEnemiesKilled(object obj)
+        {
+            enemiesKilledText.text = $"{GameManager.Instance.EnemiesKilled}";
         }
 
         #endregion

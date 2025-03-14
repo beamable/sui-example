@@ -19,6 +19,10 @@ namespace MoeBeam.Game.Scripts.Managers
         
         public bool IsGamePaused { get; private set; }
         public bool HasGameStarted { get; private set; }
+        
+        public bool GameEnded { get; private set; }
+        
+        public int EnemiesKilled { get; private set; }
 
         #endregion
 
@@ -32,11 +36,13 @@ namespace MoeBeam.Game.Scripts.Managers
         private void Start()
         {
             EventCenter.Subscribe(GameData.OnDemoLoadingScreenFinished, OnLoadingScreenFinished);
+            EventCenter.Subscribe(GameData.OnEnemyDiedEvent, EnemyKilled);
         }
 
         private void OnDisable()
         {
             EventCenter.Unsubscribe(GameData.OnDemoLoadingScreenFinished, OnLoadingScreenFinished);
+            EventCenter.Unsubscribe(GameData.OnEnemyDiedEvent, EnemyKilled);
         }
 
         #endregion
@@ -51,7 +57,17 @@ namespace MoeBeam.Game.Scripts.Managers
         {
             HasGameStarted = true;
         }
-
+        
+        private void EnemyKilled(object _)
+        {
+            EnemiesKilled++;
+        }
+        
+        private void GameOver(object _)
+        {
+            GameEnded = true;
+        }
+        
         #endregion
 
         
