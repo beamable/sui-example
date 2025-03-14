@@ -81,7 +81,7 @@ namespace MoeBeam.Game.Scripts.Enemies.Spawner
 
             enemyInstance.OnInit();
             _spawnedEnemies.Add(enemyInstance);
-            EventCenter.Subscribe(GameData.EnemyDiedEvent, EnemyDied);
+            EventCenter.Subscribe(GameData.OnEnemyDiedEvent, EnemyDied);
         }
 
         private void SpawnBoss()

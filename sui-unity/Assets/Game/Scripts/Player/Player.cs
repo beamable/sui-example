@@ -1,5 +1,6 @@
 ﻿using System;
 using MoeBeam.Game.Input;
+using MoeBeam.Game.Scripts.Data;
 using MoeBeam.Game.Scripts.Managers;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -10,8 +11,6 @@ namespace MoeBeam.Game.Scripts.Player
     {
         #region EXPOSED_VARIABLES
 
-        [SerializeField] private InputReader inputReader;
-        [SerializeField] private PlayerAttack playerAttack;
         [Header("Move")]
         [SerializeField] private float moveSpeed = 10f;
         
@@ -19,20 +18,28 @@ namespace MoeBeam.Game.Scripts.Player
         [SerializeField] private float rotationSpeed = 180f;
         [SerializeField] private float lookOffset = 0f;
         
+        [Header("Health")]
+        [SerializeField] private int maxHealth = 100;
+        
+        [Header("References")]
+        [SerializeField] private InputReader inputReader;
+        [SerializeField] private PlayerAttack playerAttack;
+        [SerializeField] private Rigidbody2D rb2D;
+        
         #endregion
 
         #region PRIVATE_VARIABLES
 
+        private int _currentHealth;
         private Vector2 _moveDirection = Vector2.zero;
         
         //rotation
+        private float _rotationAngle = 0f;
         private Vector2 _lookDirection = Vector2.zero;
         private Vector3 _worldMousePos = Vector3.zero;
-        private float _rotationAngle = 0f;
         private Quaternion _targetRotation = Quaternion.identity;
 
         private Camera _mainCamera;
-        private Rigidbody2D _rigidbody2D;
         private PlayerAnimationController _playerAnimationController;
 
         #endregion
@@ -59,17 +66,16 @@ namespace MoeBeam.Game.Scripts.Player
             playerAttack.DeInitModules();
         }
         
-
         private void Awake()
         {
             _mainCamera = Camera.main;
-            _rigidbody2D = GetComponent<Rigidbody2D>();
             _playerAnimationController = GetComponent<PlayerAnimationController>();
         }
 
         private void Start()
         {
             playerAttack.Init();
+            _currentHealth = maxHealth;
         }
 
         private void LateUpdate()
@@ -79,7 +85,7 @@ namespace MoeBeam.Game.Scripts.Player
 
         private void FixedUpdate()
         {
-            _rigidbody2D.linearVelocity = _moveDirection * moveSpeed;
+            rb2D.linearVelocity = _moveDirection * moveSpeed;
         }
 
         #endregion
@@ -88,7 +94,13 @@ namespace MoeBeam.Game.Scripts.Player
         
         public void TakeDamage(float damage)
         {
-            Debug.Log($"Player took {damage} damage");
+            _currentHealth -= (int)damage;
+            EventCenter.InvokeEvent(GameData.OnPlayerInjuredEvent, _currentHealth);
+            if (_currentHealth <= 0)
+            {
+                _currentHealth = 0;
+                Die();
+            }
         }
 
         #endregion
@@ -122,8 +134,11 @@ namespace MoeBeam.Game.Scripts.Player
                 rotationSpeed * Time.deltaTime
             );
         }
-        
-        
+
+        private void Die()
+        {
+            EventCenter.InvokeEvent(GameData.OnPlayerDiedEvent);
+        }
         
         #endregion
 

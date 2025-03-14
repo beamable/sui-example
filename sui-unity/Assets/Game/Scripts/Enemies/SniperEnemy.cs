@@ -1,4 +1,5 @@
-﻿using MoeBeam.Game.Scripts.Enemies;
+﻿using System.Collections;
+using MoeBeam.Game.Scripts.Enemies;
 using MoeBeam.Game.Scripts.Managers;
 using UnityEngine;
 
@@ -29,12 +30,27 @@ namespace Game.Scripts.Enemies
 
         protected override void Attack()
         {
-            base.Attack();
+            if(_distanceToPlayer >= enemyData.AttackRange) return;
+            if(_attackCoroutine != null) return;
+            _attackCoroutine = StartCoroutine(AttackRoutine());
+            return;
             
-            var bullet = GenericPoolManager.Instance.Get<SniperBullet>(shootPoint.position);
-            bullet.transform.rotation = shootPoint.rotation;
-            bullet.Launch(enemyData.AttackPower);
-
+            IEnumerator AttackRoutine()
+            {
+                if (_isAttacking || _isInjured || _isDead) yield break;
+                if (Time.time < _nextAttackTime) yield break;
+                _nextAttackTime = Time.time + enemyData.AttackCooldown;
+                
+                var bullet = GenericPoolManager.Instance.Get<SniperBullet>(shootPoint.position);
+                bullet.transform.rotation = shootPoint.rotation;
+                bullet.Launch(enemyData.AttackPower);
+                
+                _isAttacking = true;
+                enemyAnimator.SetTrigger(AttackHash);
+                yield return _attackWait;
+                _isAttacking = false;
+                _attackCoroutine = null;
+            }
             
         }
 

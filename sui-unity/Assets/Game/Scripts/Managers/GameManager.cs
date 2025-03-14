@@ -1,4 +1,6 @@
 ﻿using System;
+using Game.Scripts.UI;
+using MoeBeam.Game.Scripts.Data;
 using UnityEngine;
 
 namespace MoeBeam.Game.Scripts.Managers
@@ -11,8 +13,6 @@ namespace MoeBeam.Game.Scripts.Managers
 
         #region PRIVATE_VARIABLES
         
-        private LoadingScreenController _loadingScreenController;
-
         #endregion
 
         #region PUBLIC_VARIABLES
@@ -27,17 +27,16 @@ namespace MoeBeam.Game.Scripts.Managers
         protected override void Awake()
         {
             base.Awake();
-            _loadingScreenController = FindFirstObjectByType<LoadingScreenController>();
         }
 
         private void Start()
         {
-            _loadingScreenController.OnLoadingScreenFinished += OnLoadingScreenFinished;
+            EventCenter.Subscribe(GameData.OnDemoLoadingScreenFinished, OnLoadingScreenFinished);
         }
 
         private void OnDisable()
         {
-            _loadingScreenController.OnLoadingScreenFinished -= OnLoadingScreenFinished;
+            EventCenter.Unsubscribe(GameData.OnDemoLoadingScreenFinished, OnLoadingScreenFinished);
         }
 
         #endregion
@@ -48,7 +47,7 @@ namespace MoeBeam.Game.Scripts.Managers
 
         #region PRIVATE_METHODS
         
-        private void OnLoadingScreenFinished()
+        private void OnLoadingScreenFinished(object obj)
         {
             HasGameStarted = true;
         }

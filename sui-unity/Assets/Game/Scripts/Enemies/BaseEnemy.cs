@@ -14,8 +14,8 @@ namespace MoeBeam.Game.Scripts.Enemies
 
         [SerializeField] protected EnemyData enemyData;
         [SerializeField] private SpriteRenderer mainRenderer;
-        [SerializeField] private Animator enemyAnimator;
-        [SerializeField] private EnemyAttacker enemyAttacker;
+        [SerializeField] protected Animator enemyAnimator;
+        [SerializeField] protected EnemyAttacker enemyAttacker;
         #endregion
 
         #region PRIVATE_VARIABLES
@@ -23,7 +23,7 @@ namespace MoeBeam.Game.Scripts.Enemies
         private long _lastWeaponInstanceId = 0;
         private float _currentHealth = 0f;
         private float _miniBossMultiplier = 1f;
-        private float _nextAttackTime = 0f;
+        protected float _nextAttackTime = 0f;
         protected float _distanceToPlayer = Mathf.Infinity;
         protected bool _isInjured = false;
         protected bool _isAttacking = false;
@@ -33,6 +33,8 @@ namespace MoeBeam.Game.Scripts.Enemies
         
         private Coroutine _injuredCoroutine;
         private WaitForSeconds _injuredWait = new WaitForSeconds(1f);
+        protected Coroutine _attackCoroutine;
+        protected WaitForSeconds _attackWait = new WaitForSeconds(1f);
         protected EnemyData.EnemyAttackType CurrentAttackType => enemyData.AttackType;
         protected Player.Player CurrentPlayer;
         protected Rigidbody2D Rb2D;
@@ -80,6 +82,7 @@ namespace MoeBeam.Game.Scripts.Enemies
             CalculateDistanceToPlayer();
             CheckCanMove();
             LookAtPlayer();
+            Attack();
             MoveTowardsPlayer();
         }
 
@@ -122,7 +125,7 @@ namespace MoeBeam.Game.Scripts.Enemies
 
         private void CheckCanMove()
         {
-            _canMove = !(_distanceToPlayer <= enemyData.AttackRange) || !_isAttacking || !_isInjured || !_isDead;
+            _canMove = !(_distanceToPlayer <= enemyData.AttackRange) && !_isAttacking && !_isInjured && !_isDead;
             enemyAnimator.SetBool(MoveHash, _canMove);
         }
         
@@ -143,14 +146,44 @@ namespace MoeBeam.Game.Scripts.Enemies
             transform.rotation = Quaternion.Euler(0, 0, angle);
         }
         
+        private void FlipOnYAxis(bool reset = false)
+        {
+            if (reset)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+            transform.localScale = transform.position.y < CurrentPlayer.transform.position.y ? new Vector3(1, -1, 1) : new Vector3(1, 1, 1);
+        }
+        
+        private void FlipOnXAxis(bool reset = false)
+        {
+            if (reset)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+
+            transform.localScale = transform.position.x < CurrentPlayer.transform.position.x ? new Vector3(-1, 1, 1) : new Vector3(1, 1, 1);
+        }
+        
         protected virtual void Attack()
         {
-            if (_isAttacking || _isInjured || _isDead) return;
-            if (Time.time < _nextAttackTime) return;
-            _nextAttackTime = Time.time + enemyData.AttackCooldown;
-            enemyAttacker.CanAttack(enemyData.AttackPower);
-            _isAttacking = true;
-            enemyAnimator.SetTrigger(AttackHash);
+            if(_distanceToPlayer >= enemyData.AttackRange) return;
+            if(_attackCoroutine != null) return;
+            _attackCoroutine = StartCoroutine(AttackRoutine());
+            return;
+            
+            IEnumerator AttackRoutine()
+            {
+                if (_isAttacking || _isInjured || _isDead) yield break;
+                if (Time.time < _nextAttackTime) yield break;
+                _nextAttackTime = Time.time + enemyData.AttackCooldown;
+                _isAttacking = true;
+                enemyAnimator.SetTrigger(AttackHash);
+                enemyAttacker.CanAttack(enemyData.AttackPower);
+                yield return _attackWait;
+                _isAttacking = false;
+                _attackCoroutine = null;
+            }
         }
         
         protected virtual void Die()
@@ -160,7 +193,7 @@ namespace MoeBeam.Game.Scripts.Enemies
             //TODO: Implement death animation
             enemyAnimator.SetTrigger(DeathHash);
             //TODO: Implement death sound
-            EventCenter.InvokeEvent(GameData.EnemyDiedEvent, this);
+            EventCenter.InvokeEvent(GameData.OnEnemyDiedEvent, this);
             //TODO: Implement pooling system
         }
 

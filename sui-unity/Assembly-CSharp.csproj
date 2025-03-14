@@ -52,6 +52,7 @@
     <Compile Include="Assets\Game\Scripts\Player\PlayerMelee.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
+    <Compile Include="Assets\Game\Scripts\UI\UiDemoManager.cs" />
     <Compile Include="Assets\Game\Scripts\Enemies\BatEnemy.cs" />
     <Compile Include="Assets\Game\Scripts\Data\EnemyKilledData.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Assets\Game\Scripts\Player\PlayerAttack.cs" />
     <Compile Include="Assets\Game\Scripts\Enemies\SniperBullet.cs" />
     <Compile Include="Assets\Game\Scripts\Data\XpGainData.cs" />
+    <Compile Include="Assets\Game\Scripts\Enemies\TrollBossEnemy.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
@@ -102,7 +104,6 @@
     <Compile Include="Assets\Game\Scripts\Enemies\Spawner\EnemySpawner.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
-    <Compile Include="Assets\Game\Scripts\Managers\LoadingScreenController.cs" />
     <Compile Include="Assets\Game\Scripts\Enemies\EnemyAttacker.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />

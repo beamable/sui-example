@@ -6,8 +6,15 @@
         
         public const string WeaponContentId = "items.weapon";
         public const string PlayerTag = "Player";
+        
+        //Events
         public const string OnEnemyKillReward = "EnemyReward";
-        public const string EnemyDiedEvent = "EnemyDied";
+        public const string OnEnemyDiedEvent = "EnemyDied";
+        public const string OnBossActivateEvent = "BossActivate";
+        public const string OnBossDiedEvent = "BossDied";
+        public const string OnPlayerDiedEvent = "PlayerDied";
+        public const string OnPlayerInjuredEvent = "PlayerInjured";
+        public const string OnDemoLoadingScreenFinished = "DemoLoadingScreenFinished";
         
         //Weapon Refs 
         public const string DamageKey = "Damage";
