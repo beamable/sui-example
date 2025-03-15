@@ -12,6 +12,10 @@ namespace MoeBeam.Game.Scripts.Managers
         [SerializeField] private AudioSource musicAudioSource;
         [SerializeField] private AudioSource sfxAudioSource;
         
+        [Header("SFX")]
+        [SerializeField] private AudioClip winSfx;
+        [SerializeField] private AudioClip deathSfx;
+        
         [Header("Music")]
         [SerializeField] private AudioClip menuMusic;
         [SerializeField] private AudioClip demoMusic;
@@ -35,6 +39,18 @@ namespace MoeBeam.Game.Scripts.Managers
             PlayMusic(menuMusic);
             
             EventCenter.Subscribe(GameData.OnSceneLoadedEvent, OnSceneLoaded);
+            EventCenter.Subscribe(GameData.OnPlayerDiedEvent, OnPlayerDied);
+            EventCenter.Subscribe(GameData.OnBossDiedEvent, OnPlayerWin);
+        }
+
+        private void OnPlayerWin(object obj)
+        {
+            PlaySfx(winSfx);
+        }
+
+        private void OnPlayerDied(object obj)
+        {
+            PlaySfx(deathSfx);
         }
 
         private void OnSceneLoaded(object scene)

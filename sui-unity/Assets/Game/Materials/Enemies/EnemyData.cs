@@ -23,11 +23,7 @@ namespace MoeBeam.Game.Scripts.Enemies
         [field: SerializeField] public int AttackPower { get; private set; }
         [field: SerializeField] public float AttackRange { get; private set; }
         [field: SerializeField] public float AttackCooldown { get; private set; }
-        [field: SerializeField] public bool IsMiniBoss { get; private set; }
         [field: SerializeField] public EnemyAttackType AttackType { get; private set; }
         
-        public void SetMiniBoss(bool miniBoss){
-            IsMiniBoss = miniBoss;
-        }
     }
 }

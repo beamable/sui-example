@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879d2dfd838446978a5a8e3f242f2385, type: 3}
   m_Name: OrcEnemyData
   m_EditorClassIdentifier: 
-  <MoveSpeed>k__BackingField: 3
+  <MoveSpeed>k__BackingField: 2
   <MaxHealth>k__BackingField: 75
-  <XpValue>k__BackingField: 35
+  <XpValue>k__BackingField: 60
   <AttackPower>k__BackingField: 10
   <AttackRange>k__BackingField: 2
   <AttackCooldown>k__BackingField: 1
-  <IsMiniBoss>k__BackingField: 1
+  <IsMiniBoss>k__BackingField: 0
   <AttackType>k__BackingField: 2

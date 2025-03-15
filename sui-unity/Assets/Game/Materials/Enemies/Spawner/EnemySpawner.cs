@@ -81,13 +81,14 @@ namespace MoeBeam.Game.Scripts.Enemies.Spawner
             _enemiesSpawned++;
             _enemiesAlive++;
 
+            enemyInstance.OnInit();
+            
             // Handle MiniBoss logic after 15th enemy
             if (_enemiesSpawned > miniBossInterval && Random.value < miniBossChance)
             {
-                enemyInstance.EnemyData.SetMiniBoss(true);
+                enemyInstance.SetMiniBoss(true);
             }
 
-            enemyInstance.OnInit();
             _spawnedEnemies.Add(enemyInstance);
             EventCenter.Subscribe(GameData.OnEnemyDiedEvent, EnemyDied);
         }
@@ -102,6 +103,7 @@ namespace MoeBeam.Game.Scripts.Enemies.Spawner
         private void EnemyDied(object obj)
         {
             if(obj is not BaseEnemy enemy) return;
+            enemy.SetMiniBoss(false);
             _enemiesAlive--;
             _spawnedEnemies.Remove(enemy);
             GenericPoolManager.Instance.Return(enemy);

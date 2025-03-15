@@ -59,9 +59,7 @@ namespace MoeBeam.Game.Scripts.Enemies
 
         public virtual void OnInit()
         {
-            _miniBossMultiplier = enemyData.IsMiniBoss ? 2f : 1f;
-            mainRenderer.transform.localScale *= _miniBossMultiplier;
-            _currentHealth = enemyData.MaxHealth * _miniBossMultiplier;
+            _currentHealth = enemyData.MaxHealth;
             CurrentPlayer = FindFirstObjectByType<Player.Player>();
             Rb2D = GetComponent<Rigidbody2D>();
         }
@@ -91,6 +89,13 @@ namespace MoeBeam.Game.Scripts.Enemies
         #endregion
 
         #region PUBLIC_METHODS
+        
+        public void SetMiniBoss(bool miniBoss)
+        {
+            _miniBossMultiplier = miniBoss ? 2f : 1f;
+            mainRenderer.transform.localScale *= _miniBossMultiplier;
+            _currentHealth = enemyData.MaxHealth * _miniBossMultiplier;
+        }
         
         public virtual void TakeDamage(float damage, long instanceId = 0)
         {
@@ -201,6 +206,7 @@ namespace MoeBeam.Game.Scripts.Enemies
         }
 
         #endregion
+
         
     }
 }

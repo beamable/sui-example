@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d09ba3a02fb140eca9a84827c30be736, type: 3}
   m_Name: XpGainData
   m_EditorClassIdentifier: 
-  defaultXpThreshold: 100
+  defaultXpThreshold: 125
   xpDivider: 8
-  damageIncrease: 5
-  attackSpeedDecrease: 0.05
-  minAttackSpeed: 0.1
-  maxDamage: 75
+  damageIncrease: 7
+  attackSpeedDecrease: 0.1
+  minAttackSpeed: 0.25
+  maxDamage: 90
   maxLevel: 10

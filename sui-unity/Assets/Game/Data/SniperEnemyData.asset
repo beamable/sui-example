@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879d2dfd838446978a5a8e3f242f2385, type: 3}
   m_Name: SniperEnemyData
   m_EditorClassIdentifier: 
-  <MoveSpeed>k__BackingField: 3
+  <MoveSpeed>k__BackingField: 2
   <MaxHealth>k__BackingField: 50
-  <XpValue>k__BackingField: 20
+  <XpValue>k__BackingField: 70
   <AttackPower>k__BackingField: 15
   <AttackRange>k__BackingField: 10
   <AttackCooldown>k__BackingField: 1.5
-  <IsMiniBoss>k__BackingField: 1
+  <IsMiniBoss>k__BackingField: 0
   <AttackType>k__BackingField: 3
