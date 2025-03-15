@@ -15,6 +15,7 @@ namespace MoeBeam.Game.Scripts.Player
 
         private static readonly int ThrustHash = Animator.StringToHash("thrust");
         private static readonly int SwingHash = Animator.StringToHash("swing");
+        private static readonly int InjuredHash = Animator.StringToHash("injured");
 
         #endregion
 
@@ -36,6 +37,11 @@ namespace MoeBeam.Game.Scripts.Player
         public void PlaySwingAnimation()
         {
             primaryAnimator.SetTrigger(SwingHash);
+        }
+        
+        public void SetInjuredTrigger()
+        {
+            playerAnimator.SetTrigger(InjuredHash);
         }
 
         #endregion

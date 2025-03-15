@@ -78,7 +78,7 @@ namespace MoeBeam.Game.Scripts.UI
             gamerTagText.text = "Gamer Tag: " + AccountManager.Instance.CurrentAccount.GamerTag.ToString();
             externalIdText.text = "Wallet: " + AccountManager.Instance.CurrentAccount.ExternalIdentities[0].userId;
             finalIdContainer.SetActive(true);
-            await UniTask.Delay(2000);
+            await UniTask.Delay(6000);
             PlayPanelStatus(true);
         }
         public void PlayPanelStatus(bool status)

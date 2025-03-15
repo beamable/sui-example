@@ -16,7 +16,7 @@ MonoBehaviour:
   <MaxHealth>k__BackingField: 50
   <XpValue>k__BackingField: 20
   <AttackPower>k__BackingField: 15
-  <AttackRange>k__BackingField: 7.5
+  <AttackRange>k__BackingField: 10
   <AttackCooldown>k__BackingField: 1.5
-  <IsMiniBoss>k__BackingField: 0
+  <IsMiniBoss>k__BackingField: 1
   <AttackType>k__BackingField: 3

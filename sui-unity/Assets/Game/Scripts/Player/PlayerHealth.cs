@@ -16,15 +16,18 @@ namespace MoeBeam.Game.Scripts.Player
         #endregion
 
         private int _currentHealth;
+        private PlayerAnimationController _playerAnimationController;
 
-        private void Start()
+        public void Init(PlayerAnimationController animController)
         {
             _currentHealth = maxHealth;
+            _playerAnimationController = animController;
         }
         
         public void TakeDamage(float damage)
         {
             _currentHealth -= (int)damage;
+            _playerAnimationController.SetInjuredTrigger();
             EventCenter.InvokeEvent(GameData.OnPlayerInjuredEvent, _currentHealth);
             if (_currentHealth <= 0)
             {

@@ -35,14 +35,14 @@ namespace MoeBeam.Game.Scripts.Managers
 
         private void Start()
         {
-            EventCenter.Subscribe(GameData.OnDemoLoadingScreenFinished, OnLoadingScreenFinished);
+            EventCenter.Subscribe(GameData.OnDemoLoadingScreenFinishedEvent, OnLoadingScreenFinished);
             EventCenter.Subscribe(GameData.OnEnemyDiedEvent, EnemyKilled);
             EventCenter.Subscribe(GameData.OnPlayerDiedEvent, GameOver);
         }
 
         private void OnDisable()
         {
-            EventCenter.Unsubscribe(GameData.OnDemoLoadingScreenFinished, OnLoadingScreenFinished);
+            EventCenter.Unsubscribe(GameData.OnDemoLoadingScreenFinishedEvent, OnLoadingScreenFinished);
             EventCenter.Unsubscribe(GameData.OnEnemyDiedEvent, EnemyKilled);
             EventCenter.Unsubscribe(GameData.OnPlayerDiedEvent, GameOver);
         }

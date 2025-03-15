@@ -28,12 +28,12 @@ namespace MoeBeam.Game.Scripts.Managers
 
         private void OnEnable()
         {
-            EventCenter.Subscribe(GameData.OnEnemyKillReward, OnEnemyKilled);
+            EventCenter.Subscribe(GameData.OnEnemyKillRewardEvent, OnEnemyKilled);
         }
 
         private void OnDisable()
         {
-            EventCenter.Unsubscribe(GameData.OnEnemyKillReward, OnEnemyKilled);
+            EventCenter.Unsubscribe(GameData.OnEnemyKillRewardEvent, OnEnemyKilled);
         }
 
         #endregion
@@ -53,8 +53,8 @@ namespace MoeBeam.Game.Scripts.Managers
             var currentXp = 0;
             var weapon = WeaponContentManager.Instance.GetItemByInstanceId(instanceId);
             if(weapon.MetaData.Level >= xpGainData.maxLevel) return;
-            if(weapon.MetaData.Level > 1)
-                nextThreshold = (int) (xpGainData.defaultXpThreshold * (1 + (weapon.MetaData.Level / xpGainData.xpDivider)));
+            // if(weapon.MetaData.Level > 1)
+            //     nextThreshold = (int) (xpGainData.defaultXpThreshold * (1 + (weapon.MetaData.Level / xpGainData.xpDivider)));
             currentXp = weapon.MetaData.Xp + xpReward;
             weapon.MetaData.Update(currentXp, weapon.MetaData.Level, weapon.MetaData.CurrentDamage, weapon.MetaData.CurrentAttackSpeed);
             
@@ -81,6 +81,8 @@ namespace MoeBeam.Game.Scripts.Managers
                 {
                     newSpeed = weapon.MetaData.CurrentAttackSpeed - xpGainData.attackSpeedDecrease;
                 }
+                EventCenter.InvokeEvent(weapon.AttackType != GameData.AttackType.Shoot ? 
+                    GameData.OnMeleeLeveledUpEvent : GameData.OnRangedLeveledUpEvent, weapon);
             }
             weapon.MetaData.Update(0, nextLevel, newDamage, newSpeed);
             await BeamManager.BeamContext.Api.InventoryService.UpdateItem(weapon.ContentId, weapon.InstanceId, weapon.MetaData.ToDictionary());

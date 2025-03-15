@@ -47,12 +47,26 @@ namespace MoeBeam.Game.Scripts.Beam
 
         public WeaponInstance GetOwnedMeleeWeapon()
         {
-            return WeaponContents.Find(w => (w.AttackType != GameData.AttackType.Shoot && w.IsOwned));
+            try
+            {
+                return WeaponContents.Find(w => (w.AttackType != GameData.AttackType.Shoot && w.IsOwned));
+            }
+            catch (Exception e)
+            {
+                return null;
+            } 
         }
         
         public WeaponInstance GetOwnedRangedWeapon()
         {
-            return WeaponContents.Find(w => (w.AttackType == GameData.AttackType.Shoot && w.IsOwned));
+            try
+            {
+                return WeaponContents.Find(w => (w.AttackType == GameData.AttackType.Shoot && w.IsOwned));
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
         }
 
         #endregion

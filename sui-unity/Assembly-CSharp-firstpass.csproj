@@ -1153,6 +1153,10 @@
       <Project>{a5345e34-0855-5e42-4047-614bf6574206}</Project>
       <Name>Beamable.Installer.SmallerJSON</Name>
     </ProjectReference>
+    <ProjectReference Include="AllIn1SpriteShaderAssembly.csproj">
+      <Project>{1968d274-63b2-3207-f62b-dac4b5436537}</Project>
+      <Name>AllIn1SpriteShaderAssembly</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.Beamable.Customer.MicroserviceClients.csproj">
       <Project>{21b58302-de98-0c06-0dba-c33091f16a4f}</Project>
       <Name>Unity.Beamable.Customer.MicroserviceClients</Name>

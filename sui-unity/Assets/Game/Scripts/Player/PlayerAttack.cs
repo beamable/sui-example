@@ -1,4 +1,6 @@
 ﻿using System;
+using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using MoeBeam.Game.Input;
 using MoeBeam.Game.Scripts.Beam;
 using MoeBeam.Game.Scripts.Data;
@@ -26,6 +28,7 @@ namespace MoeBeam.Game.Scripts.Player
         private float _nextShootTime;
         private WeaponInstance _meleeWeapon;
         private WeaponInstance _rangedWeapon;
+        private Material _rangedWeaponMat;
         private InputReader _inputReader;
         private PlayerAnimationController _playerAnimationController;
 
@@ -42,17 +45,22 @@ namespace MoeBeam.Game.Scripts.Player
             _inputReader = reader;
             _inputReader.PrimaryAttackEvent += PlayPrimaryAttackAnim;
             _inputReader.SecondaryAttackEvent += PlaySecondaryAttack;
+            
+            EventCenter.Subscribe(GameData.OnRangedLeveledUpEvent, OnRangedLeveledUp);
         }
 
-        public void Init()
+        public async UniTask Init()
         {
             _playerAnimationController = GetComponent<PlayerAnimationController>();
             
             //Equip weapons
+            await UniTask.WaitUntil(() => WeaponContentManager.Instance.GetOwnedMeleeWeapon() != null);
+            await UniTask.WaitUntil(() => WeaponContentManager.Instance.GetOwnedRangedWeapon() != null);
             _meleeWeapon = WeaponContentManager.Instance.GetOwnedMeleeWeapon();
             _rangedWeapon = WeaponContentManager.Instance.GetOwnedRangedWeapon();
             rangedWeaponSpriteRenderer.sprite = _rangedWeapon.Icon;
             
+            _rangedWeaponMat = new Material(rangedWeaponSpriteRenderer.material);
             playerMelee.Init(_meleeWeapon);
         }
 
@@ -60,6 +68,7 @@ namespace MoeBeam.Game.Scripts.Player
         {
             _inputReader.PrimaryAttackEvent -= PlayPrimaryAttackAnim;
             _inputReader.SecondaryAttackEvent -= PlaySecondaryAttack;
+            EventCenter.Unsubscribe(GameData.OnRangedLeveledUpEvent, OnRangedLeveledUp);
         }
 
         #endregion
@@ -96,6 +105,17 @@ namespace MoeBeam.Game.Scripts.Player
             var bullet = GenericPoolManager.Instance.Get<Bullet>(shootPoint.position);
             bullet.transform.rotation = shootPoint.rotation;
             bullet.Launch(_rangedWeapon);
+        }
+        
+        private void OnRangedLeveledUp(object _)
+        {
+            var sequence = DOTween.Sequence();
+            sequence.Append(_rangedWeaponMat.DOFloat(1f, "_OutlineAlpha", 0f));
+            sequence.Join(_rangedWeaponMat.DOFloat(7f, "_OutlineGlow", 1f));
+            sequence.AppendInterval(0.5f);
+            sequence.Append(_rangedWeaponMat.DOFloat(0f, "_OutlineAlpha", 1f));
+            sequence.Join(_rangedWeaponMat.DOFloat(0f, "_OutlineGlow", 1f));
+            sequence.Play();
         }
 
         #endregion

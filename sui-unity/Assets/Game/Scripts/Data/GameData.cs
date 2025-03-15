@@ -8,13 +8,16 @@
         public const string PlayerTag = "Player";
         
         //Events
-        public const string OnEnemyKillReward = "EnemyReward";
+        public const string OnEnemyKillRewardEvent = "EnemyReward";
         public const string OnEnemyDiedEvent = "EnemyDied";
         public const string OnBossActivateEvent = "BossActivate";
         public const string OnBossDiedEvent = "BossDied";
         public const string OnPlayerDiedEvent = "PlayerDied";
         public const string OnPlayerInjuredEvent = "PlayerInjured";
-        public const string OnDemoLoadingScreenFinished = "DemoLoadingScreenFinished";
+        public const string OnDemoLoadingScreenFinishedEvent = "DemoLoadingScreenFinished";
+        public const string OnSceneLoadedEvent = "SceneLoaded";
+        public const string OnMeleeLeveledUpEvent = "MeleeLeveledUp";
+        public const string OnRangedLeveledUpEvent = "RangedLeveledUp";
         
         //Weapon Refs 
         public const string DamageKey = "Damage";

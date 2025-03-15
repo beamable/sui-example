@@ -27,9 +27,11 @@ namespace Game.Scripts.UI
         [SerializeField] private float drainSpeed = 0.25f;
         [SerializeField] private float trailDelay = 0.4f;
 
-        [Header("Player Icons")]
+        [Header("Weapons")]
         [SerializeField] private Image meleeWeapon;
         [SerializeField] private Image rangedWeapon;
+        [SerializeField] private TextMeshProUGUI meleeWeaponLevel;
+        [SerializeField] private TextMeshProUGUI rangedWeaponLevel;
 
         [Header("Other")] 
         [SerializeField] private TextMeshProUGUI enemiesKilledText;
@@ -72,8 +74,27 @@ namespace Game.Scripts.UI
             EventCenter.Subscribe(GameData.OnEnemyDiedEvent, UpdateEnemiesKilled);
             EventCenter.Subscribe(GameData.OnPlayerDiedEvent, OnPlayerDied);
             EventCenter.Subscribe(GameData.OnBossDiedEvent, OnBossDied);
+            EventCenter.Subscribe(GameData.OnMeleeLeveledUpEvent, OnWeaponLeveledUp);
+            EventCenter.Subscribe(GameData.OnRangedLeveledUpEvent, OnWeaponLeveledUp);
         }
-        
+
+        private void OnWeaponLeveledUp(object obj)
+        {
+            if(obj is not WeaponInstance weapon) return;
+            if(weapon.AttackType != GameData.AttackType.Shoot)
+                meleeWeaponLevel.text = weapon.MetaData.Level.ToString();
+            else
+                rangedWeaponLevel.text = weapon.MetaData.Level.ToString();
+        }
+
+        private void TextLevelUpAnimation(TextMeshProUGUI tmp, string newText)
+        {
+            var sequence = DOTween.Sequence();
+            tmp.text = newText;
+            sequence.Append(tmp.transform.DOScale(2f, 0.25f)).SetEase(Ease.InElastic);
+            sequence.AppendInterval(0.5f);
+            sequence.Append(tmp.transform.DOScale(1f, 0.25f)).SetEase(Ease.InElastic);
+        } 
 
         #endregion
 
@@ -83,10 +104,10 @@ namespace Game.Scripts.UI
 
         #region PRIVATE_METHODS
         
-        private void OpenExternalLink()
+        public void OpenExternalLink()
         {
             var url = SuiUrl + AccountManager.Instance.CurrentAccount.ExternalIdentities[0].userId;
-            Application.OpenURL("https://www.google.com");
+            Application.OpenURL(url);
         }
 
         private void SetPlayerIcons()
@@ -105,7 +126,8 @@ namespace Game.Scripts.UI
             {
                 loadingCanvasGroup.DOFade(0, fadeTime).OnComplete(() =>
                 {
-                    EventCenter.InvokeEvent(GameData.OnDemoLoadingScreenFinished);
+                    loadingCanvasGroup.gameObject.SetActive(false);
+                    EventCenter.InvokeEvent(GameData.OnDemoLoadingScreenFinishedEvent);
                 });
             });
         }
@@ -129,24 +151,19 @@ namespace Game.Scripts.UI
         private void OnPlayerDied(object _)
         {
             deathScreen.SetActive(true);
-            restartButton.onClick.AddListener(OnRestart);
-            quitButton.onClick.AddListener(OnQuit);
-            deathMarketButton.onClick.AddListener(OpenExternalLink);
         }
         
         private void OnBossDied(object obj)
         {
             winScreen.SetActive(true);
-            winQuitButton.onClick.AddListener(OnQuit);
-            marketButton.onClick.AddListener(OpenExternalLink);
         }
         
-        private void OnRestart()
+        public void OnRestart()
         {
             SceneController.Instance.LoadScene(SceneController.ScenesEnum.Game);
         }
 
-        private void OnQuit()
+        public void OnQuit()
         {
             SceneController.Instance.LoadScene(SceneController.ScenesEnum.MainMenu);
         }

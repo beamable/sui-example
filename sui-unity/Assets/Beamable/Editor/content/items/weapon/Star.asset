@@ -36,6 +36,6 @@ MonoBehaviour:
     - AttackSpeed
     - AttackType
     values:
-    - 20
+    - 25
     - 0.75
     - 2

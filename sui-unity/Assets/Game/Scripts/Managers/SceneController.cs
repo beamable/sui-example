@@ -1,4 +1,5 @@
 ﻿using System;
+using MoeBeam.Game.Scripts.Data;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -21,6 +22,7 @@ namespace MoeBeam.Game.Scripts.Managers
         public void LoadScene(ScenesEnum scene)
         {
             SceneManager.LoadScene((int) scene);
+            EventCenter.InvokeEvent(GameData.OnSceneLoadedEvent, scene);
         }
 
     }

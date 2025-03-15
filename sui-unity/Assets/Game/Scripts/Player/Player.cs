@@ -1,4 +1,5 @@
 ﻿using System;
+using Cysharp.Threading.Tasks;
 using MoeBeam.Game.Input;
 using MoeBeam.Game.Scripts.Data;
 using MoeBeam.Game.Scripts.Managers;
@@ -71,7 +72,8 @@ namespace MoeBeam.Game.Scripts.Player
 
         private void Start()
         {
-            playerAttack.Init();
+            playerAttack.Init().Forget();
+            playerHealth.Init(_playerAnimationController);
         }
 
         private void LateUpdate()

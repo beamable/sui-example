@@ -1,4 +1,6 @@
 ﻿using System;
+using DG.Tweening;
+using MoeBeam.Game.Scripts.Data;
 using MoeBeam.Game.Scripts.Enemies;
 using MoeBeam.Game.Scripts.Interfaces;
 using MoeBeam.Game.Scripts.Managers;
@@ -17,6 +19,7 @@ namespace MoeBeam.Game.Scripts.Player
         #region PRIVATE_VARIABLES
 
         private WeaponInstance _meleeWeapon;
+        private Material _material;
         
         #endregion
 
@@ -30,6 +33,20 @@ namespace MoeBeam.Game.Scripts.Player
         {
             _meleeWeapon = weapon;
             meleeWeaponSpriteRenderer.sprite = _meleeWeapon.Icon;
+            _material = new Material(meleeWeaponSpriteRenderer.material);
+            
+            EventCenter.Subscribe(GameData.OnMeleeLeveledUpEvent, OnMeleeLeveledUp);
+        }
+
+        private void OnMeleeLeveledUp(object _)
+        {
+            var sequence = DOTween.Sequence();
+            sequence.Append(_material.DOFloat(1f, "_OutlineAlpha", 0f));
+            sequence.Join(_material.DOFloat(7f, "_OutlineGlow", 1f));
+            sequence.AppendInterval(0.5f);
+            sequence.Append(_material.DOFloat(0f, "_OutlineAlpha", 1f));
+            sequence.Join(_material.DOFloat(0f, "_OutlineGlow", 1f));
+            sequence.Play();
         }
 
         private void OnTriggerEnter2D(Collider2D other)
