@@ -3,9 +3,6 @@
 .idea
 .DS_Store
 
-node_modules
-js
-
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
