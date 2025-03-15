@@ -1,4 +1,5 @@
 ﻿using System;
+using DG.Tweening;
 using Game.Scripts.UI;
 using MoeBeam.Game.Scripts.Data;
 using UnityEngine;
@@ -8,6 +9,8 @@ namespace MoeBeam.Game.Scripts.Managers
     public class GameManager : GenericSingleton<GameManager>
     {
         #region EXPOSED_VARIABLES
+        
+        [SerializeField] private AudioClip gameOverClip;
 
         #endregion
 
@@ -68,6 +71,19 @@ namespace MoeBeam.Game.Scripts.Managers
         private void GameOver(object _)
         {
             GameEnded = true;
+            var sequence = DOTween.Sequence();
+            sequence.AppendCallback(() =>
+            {
+                AudioManager.Instance.StopMusic();
+                Time.timeScale = 0.5f;
+                AudioManager.Instance.PlaySfx(gameOverClip);
+            });
+            sequence.AppendInterval(2f);
+            sequence.AppendCallback(() =>
+            {
+                Time.timeScale = 1f;
+                EventCenter.InvokeEvent(GameData.OnPlayerDeathSequenceDoneEvent);
+            });
         }
         
         #endregion

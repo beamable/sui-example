@@ -35,12 +35,16 @@ namespace Game.Scripts.UI
 
         [Header("Other")] 
         [SerializeField] private TextMeshProUGUI enemiesKilledText;
+        [SerializeField] private AudioClip deathLoopMusic;
         
         [Header("Death Screen")]
         [SerializeField] private GameObject deathScreen;
         [SerializeField] private Button restartButton;
+        [SerializeField] private CanvasGroup restartCanvasGroup;
         [SerializeField] private Button quitButton;
+        [SerializeField] private CanvasGroup quitCanvasGroup;
         [SerializeField] private Button deathMarketButton;
+        [SerializeField] private CanvasGroup deathMarketCanvasGroup;
         
         [Header("Win Screen")]
         [SerializeField] private GameObject winScreen;
@@ -72,7 +76,7 @@ namespace Game.Scripts.UI
             
             EventCenter.Subscribe(GameData.OnPlayerInjuredEvent, UpdateHealthBar);
             EventCenter.Subscribe(GameData.OnEnemyDiedEvent, UpdateEnemiesKilled);
-            EventCenter.Subscribe(GameData.OnPlayerDiedEvent, OnPlayerDied);
+            EventCenter.Subscribe(GameData.OnPlayerDeathSequenceDoneEvent, OnPlayerDied);
             EventCenter.Subscribe(GameData.OnBossDiedEvent, OnBossDied);
             EventCenter.Subscribe(GameData.OnMeleeLeveledUpEvent, OnWeaponLeveledUp);
             EventCenter.Subscribe(GameData.OnRangedLeveledUpEvent, OnWeaponLeveledUp);
@@ -151,6 +155,34 @@ namespace Game.Scripts.UI
         private void OnPlayerDied(object _)
         {
             deathScreen.SetActive(true);
+            AudioManager.Instance.PlayMusic(deathLoopMusic);
+            var restartY = restartButton.transform.position.y;
+            var quitY = quitButton.transform.position.y;
+            var marketY = deathMarketButton.transform.position.y;
+            var sequence = DOTween.Sequence();
+            sequence.AppendCallback(()=>
+            {
+                restartCanvasGroup.DOFade(0, 1f);
+                quitCanvasGroup.DOFade(0, 1f);
+                deathMarketCanvasGroup.DOFade(0, 1f);
+            });
+            sequence.AppendCallback(()=>
+            {
+                restartButton.transform.DOMoveY(restartY + 50f, 0f);
+                quitButton.transform.DOMoveY(quitY + 50f, 0f);
+                deathMarketButton.transform.DOMoveY(marketY + 50f, 0f);
+            });
+            sequence.AppendInterval(1f);
+            sequence.AppendCallback(()=>
+            {
+                restartCanvasGroup.DOFade(1f, 1f);
+                quitCanvasGroup.DOFade(1f, 1f);
+                deathMarketCanvasGroup.DOFade(1f, 1f);
+            });
+            sequence.Join(restartButton.transform.DOMoveY(restartY, 1f));
+            sequence.Join(quitButton.transform.DOMoveY(quitY, 1f));
+            sequence.Join(deathMarketButton.transform.DOMoveY(marketY, 1f));
+            sequence.Play();
         }
         
         private void OnBossDied(object obj)

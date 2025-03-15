@@ -13,6 +13,7 @@
         public const string OnBossActivateEvent = "BossActivate";
         public const string OnBossDiedEvent = "BossDied";
         public const string OnPlayerDiedEvent = "PlayerDied";
+        public const string OnPlayerDeathSequenceDoneEvent = "PlayerDeathSequenceDone";
         public const string OnPlayerInjuredEvent = "PlayerInjured";
         public const string OnDemoLoadingScreenFinishedEvent = "DemoLoadingScreenFinished";
         public const string OnSceneLoadedEvent = "SceneLoaded";

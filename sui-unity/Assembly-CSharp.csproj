@@ -47,15 +47,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
+    <Compile Include="Assets\Game\Scripts\Enemies\EnemyData.cs" />
     <Compile Include="Assets\Game\Scripts\Managers\GenericSingleton.cs" />
-    <Compile Include="Assets\Game\Materials\Enemies\EnemyData.cs" />
     <Compile Include="Assets\Game\Scripts\Player\PlayerMelee.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Game\Scripts\UI\UiDemoManager.cs" />
-    <Compile Include="Assets\Game\Materials\Enemies\Spawner\EnemySpawner.cs" />
-    <Compile Include="Assets\Game\Materials\Enemies\SniperBullet.cs" />
-    <Compile Include="Assets\Game\Materials\Enemies\BaseEnemy.cs" />
+    <Compile Include="Assets\Game\Scripts\Enemies\BatEnemy.cs" />
     <Compile Include="Assets\Game\Scripts\Helpers\DamageFlasher.cs" />
     <Compile Include="Assets\Game\Scripts\Data\EnemyKilledData.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
@@ -64,10 +62,8 @@
     <Compile Include="Assets\Game\Input\BeamInputActions.cs" />
     <Compile Include="Assets\Game\Input\InputReader.cs" />
     <Compile Include="Assets\Game\Scripts\Data\GameData.cs" />
-    <Compile Include="Assets\Game\Materials\Enemies\BatEnemy.cs" />
     <Compile Include="Assets\Game\Scripts\Managers\GenericPoolManager.cs" />
     <Compile Include="Assets\Game\Scripts\Managers\GameManager.cs" />
-    <Compile Include="Assets\Game\Materials\Enemies\EnemyAttacker.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
@@ -76,7 +72,6 @@
     <Compile Include="Assets\Game\Scripts\Beam\BeamManager.cs" />
     <Compile Include="Assets\Game\Scripts\Beam\CurrentAccountInfo.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
-    <Compile Include="Assets\Game\Materials\Enemies\OrcEnemy.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
@@ -84,7 +79,6 @@
     <Compile Include="Assets\Game\Scripts\Beam\AccountManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
-    <Compile Include="Assets\Game\Materials\Enemies\TrollBossEnemy.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\Game\Scripts\Player\PlayerAnimationController.cs" />
     <Compile Include="Assets\Game\Scripts\UI\UiMainMenuWeaponChooser.cs" />
@@ -93,7 +87,9 @@
     <Compile Include="Assets\Game\Scripts\Data\WeaponMetaData.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\Game\Scripts\Player\PlayerAttack.cs" />
+    <Compile Include="Assets\Game\Scripts\Enemies\SniperBullet.cs" />
     <Compile Include="Assets\Game\Scripts\Data\XpGainData.cs" />
+    <Compile Include="Assets\Game\Scripts\Enemies\TrollBossEnemy.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\Game\Scripts\Managers\AudioManager.cs" />
@@ -104,15 +100,19 @@
     <Compile Include="Assets\Game\Scripts\Items\WeaponCard.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
-    <Compile Include="Assets\Game\Materials\Enemies\SniperEnemy.cs" />
+    <Compile Include="Assets\Game\Scripts\Enemies\BaseEnemy.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
+    <Compile Include="Assets\Game\Scripts\Enemies\Spawner\EnemySpawner.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
+    <Compile Include="Assets\Game\Scripts\Enemies\OrcEnemy.cs" />
+    <Compile Include="Assets\Game\Scripts\Enemies\EnemyAttacker.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
+    <Compile Include="Assets\Game\Scripts\Enemies\SniperEnemy.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Game\Scripts\Items\Weapons.cs" />
     <Compile Include="Assets\Game\Scripts\Helpers\BeamButton.cs" />

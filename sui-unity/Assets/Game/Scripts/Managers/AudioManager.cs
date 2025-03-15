@@ -68,8 +68,12 @@ namespace MoeBeam.Game.Scripts.Managers
 
         #endregion
 
-        
-        private void PlayMusic(AudioClip music)
+        public void StopMusic()
+        {
+            musicAudioSource.Stop();
+        }
+
+        public void PlayMusic(AudioClip music)
         {
             musicAudioSource.clip = music;
             musicAudioSource.Play();

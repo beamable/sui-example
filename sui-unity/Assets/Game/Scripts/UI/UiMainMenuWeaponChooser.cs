@@ -107,6 +107,8 @@ namespace MoeBeam.Game.Scripts.UI
             }
             catch (Exception e)
             {
+                selectButton.SwitchText(true);
+                selectButton.ButtonCurrent.interactable = true;
                 Debug.LogError($"On Select weapons failed: {e.Message}");
             }
         }

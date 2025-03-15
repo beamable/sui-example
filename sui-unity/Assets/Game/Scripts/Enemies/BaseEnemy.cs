@@ -92,7 +92,7 @@ namespace MoeBeam.Game.Scripts.Enemies
         
         public void SetMiniBoss(bool miniBoss)
         {
-            _miniBossMultiplier = miniBoss ? 2f : 1f;
+            _miniBossMultiplier = miniBoss ? 1.5f : 1f;
             mainRenderer.transform.localScale *= _miniBossMultiplier;
             _currentHealth = enemyData.MaxHealth * _miniBossMultiplier;
         }

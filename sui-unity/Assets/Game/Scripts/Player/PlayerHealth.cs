@@ -26,6 +26,7 @@ namespace MoeBeam.Game.Scripts.Player
         
         public void TakeDamage(float damage)
         {
+            if(GameManager.Instance.GameEnded) return;
             _currentHealth -= (int)damage;
             _playerAnimationController.SetInjuredTrigger();
             EventCenter.InvokeEvent(GameData.OnPlayerInjuredEvent, _currentHealth);

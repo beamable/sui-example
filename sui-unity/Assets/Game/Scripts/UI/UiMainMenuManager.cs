@@ -90,6 +90,7 @@ namespace MoeBeam.Game.Scripts.UI
         {
             try
             {
+                _hasCreatedNewUser = true;
                 createNewAccountBeamButton.ButtonCurrent.interactable = false;
                 createNewAccountBeamButton.SwitchText(false, "Creating External ID...");
                 await AccountManager.Instance.CreateNewAccount();
@@ -98,10 +99,12 @@ namespace MoeBeam.Game.Scripts.UI
                 chooseWeaponsPanel.SetActive(true);
                 weaponsContainer.SetActive(true);
                 finalIdContainer.SetActive(false);
-                _hasCreatedNewUser = true;
             }
             catch (Exception e)
             {
+                _hasCreatedNewUser = false;
+                createNewAccountBeamButton.ButtonCurrent.interactable = true;
+                createNewAccountBeamButton.SwitchText(true);
                 Debug.LogError($"Create New Account error: {e.Message}");
             }
         }

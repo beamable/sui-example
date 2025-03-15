@@ -19,6 +19,11 @@ namespace MoeBeam.Game.Scripts.Player
         [Header("Attack Points")] 
         [SerializeField] private SpriteRenderer rangedWeaponSpriteRenderer;
         [SerializeField] private Transform shootPoint;
+        
+        [Header("Clips")]
+        [SerializeField] private AudioClip swingClip;
+        [SerializeField] private AudioClip thrustClip;
+        [SerializeField] private AudioClip secondaryAttackClip;
 
         #endregion
 
@@ -88,9 +93,11 @@ namespace MoeBeam.Game.Scripts.Player
             switch (_meleeWeapon.AttackType)
             {
                 case GameData.AttackType.Thrust:
+                    AudioManager.Instance.PlaySfx(thrustClip);
                     _playerAnimationController.PlayThrustAnimation();
                     break;
                 case GameData.AttackType.Swing:
+                    AudioManager.Instance.PlaySfx(swingClip);
                     _playerAnimationController.PlaySwingAnimation();
                     break;
             }
@@ -105,6 +112,7 @@ namespace MoeBeam.Game.Scripts.Player
             var bullet = GenericPoolManager.Instance.Get<Bullet>(shootPoint.position);
             bullet.transform.rotation = shootPoint.rotation;
             bullet.Launch(_rangedWeapon);
+            AudioManager.Instance.PlaySfx(secondaryAttackClip);
         }
         
         private void OnRangedLeveledUp(object _)
