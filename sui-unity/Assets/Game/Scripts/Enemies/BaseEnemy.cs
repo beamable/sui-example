@@ -29,6 +29,7 @@ namespace MoeBeam.Game.Scripts.Enemies
         protected float _distanceToPlayer = Mathf.Infinity;
         protected bool _isInjured = false;
         protected bool _isAttacking = false;
+        protected bool _introAnimation = false;
         protected bool _canMove = true;
         protected bool _isDead = false;
         private Vector2 _moveDirection = Vector2.zero;
@@ -133,7 +134,8 @@ namespace MoeBeam.Game.Scripts.Enemies
 
         private void CheckCanMove()
         {
-            _canMove = !(_distanceToPlayer <= enemyData.AttackRange) && !_isAttacking && !_isInjured && !_isDead;
+            _canMove = !(_distanceToPlayer <= enemyData.AttackRange) && !_isAttacking && !_isInjured 
+                       && !_isDead && !_introAnimation;
             enemyAnimator.SetBool(MoveHash, _canMove);
         }
         
@@ -175,6 +177,7 @@ namespace MoeBeam.Game.Scripts.Enemies
         
         protected virtual void Attack()
         {
+            Debug.Log("Attack {_distanceToPlayer} vs {enemyData.AttackRange} = {_distanceToPlayer >= enemyData.AttackRange}");
             if(_distanceToPlayer >= enemyData.AttackRange) return;
             if(_attackCoroutine != null) return;
             _attackCoroutine = StartCoroutine(AttackRoutine());

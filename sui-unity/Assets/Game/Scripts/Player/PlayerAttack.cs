@@ -86,7 +86,7 @@ namespace MoeBeam.Game.Scripts.Player
         
         private void PlayPrimaryAttackAnim()
         {
-            if(!GameManager.Instance.HasGameStarted) return;
+            if(!GameManager.Instance.HasGameStarted || GameManager.Instance.GameEnded) return;
             if (Time.time < _nextMeleeAttackTime) return;
             _nextMeleeAttackTime = Time.time + _meleeWeapon.MetaData.CurrentAttackSpeed;
 
@@ -105,7 +105,7 @@ namespace MoeBeam.Game.Scripts.Player
 
         private void PlaySecondaryAttack()
         {
-            if(!GameManager.Instance.HasGameStarted) return;
+            if(!GameManager.Instance.HasGameStarted || GameManager.Instance.GameEnded) return;
             if (Time.time < _nextShootTime) return;
             
             _nextShootTime = Time.time + _rangedWeapon.MetaData.CurrentAttackSpeed;

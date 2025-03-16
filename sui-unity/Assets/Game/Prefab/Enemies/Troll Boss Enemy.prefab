@@ -80,7 +80,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.26
+  m_Radius: 0.35
 --- !u!1 &2258720049466692652
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 7383804628261123267}
   - component: {fileID: 7201931716611977732}
   - component: {fileID: 4267349866784077440}
-  - component: {fileID: 824259428539945847}
+  - component: {fileID: 7947032251472317075}
   - component: {fileID: 3864877465020842112}
   m_Layer: 0
   m_Name: Troll Boss Enemy
@@ -114,7 +114,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.36, y: 4.66, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8282704627264165315}
@@ -273,7 +273,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &824259428539945847
+--- !u!114 &7947032251472317075
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -282,14 +282,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2258720049466692652}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf24dadcfbbd4095aa331094329febf1, type: 3}
+  m_Script: {fileID: 11500000, guid: 52d51864003a4fea81950138e02f6dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: f4fa06e64d6050c49b27258de91e5d71, type: 2}
+  enemyData: {fileID: 11400000, guid: 3bd07e7b0c437a74ea485c2be8b1c29a, type: 2}
   mainRenderer: {fileID: 4267349866784077440}
   enemyAnimator: {fileID: 7201931716611977732}
   enemyAttacker: {fileID: 2621505175279369087}
   damageFlasher: {fileID: 3864877465020842112}
+  trollRoarClip: {fileID: 8300000, guid: a3200a5c8da93bd4babfd31a955dc0c4, type: 3}
 --- !u!114 &3864877465020842112
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -52,7 +52,7 @@ namespace MoeBeam.Game.Scripts.Enemies.Spawner
                 if(_playerDied) yield break;
                 if (_enemiesAlive < maxEnemiesAtOnce)
                 {
-                    if (_enemiesSpawned == totalEnemiesToSpawn - 1 && _enemiesAlive == 0) // Last enemy is Boss
+                    if (_enemiesSpawned == totalEnemiesToSpawn - 1) // Last enemy is Boss
                     {
                         SpawnBoss();
                         yield break;
@@ -97,7 +97,6 @@ namespace MoeBeam.Game.Scripts.Enemies.Spawner
         {
             //TODO: add some sort of effects or animations
             var bossInstance = Instantiate(finalBossPrefab, bossSpawnPoint.position, Quaternion.identity);
-            Debug.Log("Final Boss Spawned!");
         }
 
         private void EnemyDied(object obj)

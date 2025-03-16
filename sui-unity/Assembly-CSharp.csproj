@@ -1084,9 +1084,6 @@
     <Reference Include="Beamable.Endel.NativeWebsocket">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Beamable.Endel.NativeWebsocket.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Beamable.Server.Runtime.Mocks">
-      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.Beamable.Server.Runtime.Mocks.dll</HintPath>
-    </Reference>
     <Reference Include="UniTask.DOTween">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\UniTask.DOTween.dll</HintPath>
     </Reference>
@@ -1096,8 +1093,8 @@
     <Reference Include="Unity.InternalAPIEngineBridge.001">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.InternalAPIEngineBridge.001.dll</HintPath>
     </Reference>
-    <Reference Include="Beamable.Commands">
-      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Beamable.Commands.dll</HintPath>
+    <Reference Include="Unity.Beamable.Server.Runtime.Mocks">
+      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.Beamable.Server.Runtime.Mocks.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll</HintPath>
@@ -1119,6 +1116,9 @@
     </Reference>
     <Reference Include="Unity.2D.Animation.Runtime">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Unity.2D.Animation.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Beamable.Commands">
+      <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Beamable.Commands.dll</HintPath>
     </Reference>
     <Reference Include="Beamable.Config">
       <HintPath>C:\Beamable\Repos\BeamGDCDemo-2025\sui-unity\Library\ScriptAssemblies\Beamable.Config.dll</HintPath>

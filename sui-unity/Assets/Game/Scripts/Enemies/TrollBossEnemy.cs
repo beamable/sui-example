@@ -1,12 +1,15 @@
 ﻿using MoeBeam.Game.Scripts.Data;
 using MoeBeam.Game.Scripts.Enemies;
 using MoeBeam.Game.Scripts.Managers;
+using UnityEngine;
 
 namespace Game.Scripts.Enemies
 {
     public class TrollBossEnemy : BaseEnemy
     {
         #region EXPOSED_VARIABLES
+        
+        [SerializeField] private AudioClip trollRoarClip;
 
         #endregion
 
@@ -19,6 +22,13 @@ namespace Game.Scripts.Enemies
         #endregion
 
         #region UNITY_CALLS
+        
+        private void Start()
+        {
+            _introAnimation = true;
+            AudioManager.Instance.PlaySfx(trollRoarClip);
+            Invoke(nameof(TurnOffIntro), 1.5f);
+        }
 
         #endregion
 
@@ -32,6 +42,11 @@ namespace Game.Scripts.Enemies
         {
             base.Die();
             EventCenter.InvokeEvent(GameData.OnBossDiedEvent);
+        }
+        
+        private void TurnOffIntro()
+        {
+            _introAnimation = false;
         }
 
         #endregion

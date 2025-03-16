@@ -18,7 +18,6 @@ namespace MoeBeam.Game.Scripts.Enemies
         private int _currentDamage;
         private float _currentLifeTime = 0f;
         private bool _isLaunched = false;
-        private WeaponInstance _currentWeapon;
         private Rigidbody2D _rigidbody2D;
 
         #endregion
@@ -52,14 +51,16 @@ namespace MoeBeam.Game.Scripts.Enemies
         private void FixedUpdate()
         {
             if (!_isLaunched) return;
-            _rigidbody2D.linearVelocity = transform.up * speed;
+            var s = transform.right * this.speed;
+            Debug.Log(s);
+            _rigidbody2D.linearVelocity = transform.right * speed;
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (!other.TryGetComponent(out Player.Player enemy)) return;
+            if (!other.TryGetComponent(out Player.PlayerHealth enemy)) return;
             
-            //enemy.TakeDamage(_currentWeapon.MetaData.CurrentDamage, _currentWeapon.InstanceId);
+            enemy.TakeDamage(_currentDamage);
             GenericPoolManager.Instance.Return(this);
         }
 

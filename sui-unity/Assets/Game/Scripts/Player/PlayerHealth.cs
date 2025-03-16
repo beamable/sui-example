@@ -12,6 +12,7 @@ namespace MoeBeam.Game.Scripts.Player
         
         [Header("Health")]
         [SerializeField] private int maxHealth = 100;
+        [SerializeField] private AudioClip injuredClip;
         
         #endregion
 
@@ -30,6 +31,7 @@ namespace MoeBeam.Game.Scripts.Player
             _currentHealth -= (int)damage;
             _playerAnimationController.SetInjuredTrigger();
             EventCenter.InvokeEvent(GameData.OnPlayerInjuredEvent, _currentHealth);
+            AudioManager.Instance.PlaySfx(injuredClip);
             if (_currentHealth <= 0)
             {
                 _currentHealth = 0;

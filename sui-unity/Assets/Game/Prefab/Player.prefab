@@ -379,6 +379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  injuredClip: {fileID: 8300000, guid: ba7dc6aff0ee2804a9866e5ed70b49f4, type: 3}
 --- !u!1 &5183438545581412238
 GameObject:
   m_ObjectHideFlags: 0

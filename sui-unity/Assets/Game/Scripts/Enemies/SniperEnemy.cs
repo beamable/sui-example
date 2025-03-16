@@ -11,6 +11,7 @@ namespace Game.Scripts.Enemies
         
         [Header("Sniper")]
         [SerializeField] private Transform shootPoint;
+        [SerializeField] private float bulletRotationOffset = -90f;
 
         #endregion
 
@@ -42,7 +43,9 @@ namespace Game.Scripts.Enemies
                 _nextAttackTime = Time.time + enemyData.AttackCooldown;
                 
                 var bullet = GenericPoolManager.Instance.Get<SniperBullet>(shootPoint.position);
-                bullet.transform.rotation = shootPoint.rotation;
+                //bullet.transform.rotation = shootPoint.rotation;
+                bullet.transform.rotation = new Quaternion(shootPoint.rotation.x, shootPoint.rotation.y, 
+                    shootPoint.rotation.z + bulletRotationOffset, shootPoint.rotation.w);
                 bullet.Launch(enemyData.AttackPower);
                 
                 _isAttacking = true;

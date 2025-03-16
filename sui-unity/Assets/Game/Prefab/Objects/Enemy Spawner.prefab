@@ -48,12 +48,12 @@ MonoBehaviour:
   - {fileID: 8350735206647267706, guid: c66e6a1ddc7a7244bb6799a8adce486f, type: 3}
   - {fileID: 824259428539945847, guid: 7ebacdba92afd5f43bd3993d129b4f96, type: 3}
   - {fileID: -2140646501972333115, guid: 9d63084f52aee514b8455170d8066a4a, type: 3}
-  finalBossPrefab: {fileID: 824259428539945847, guid: 2a25b55e4f00b1f42913c85f05091579, type: 3}
+  finalBossPrefab: {fileID: 7947032251472317075, guid: 2a25b55e4f00b1f42913c85f05091579, type: 3}
   bossSpawnPoint: {fileID: 0}
   spawnArea1: {fileID: 0}
   spawnArea2: {fileID: 0}
-  totalEnemiesToSpawn: 250
-  maxEnemiesAtOnce: 10
+  totalEnemiesToSpawn: 100
+  maxEnemiesAtOnce: 7
   spawnInterval: 3
   miniBossInterval: 15
   miniBossChance: 10

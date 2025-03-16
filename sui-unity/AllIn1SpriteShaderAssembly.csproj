@@ -53,8 +53,8 @@
     <Compile Include="Assets\Plugins\AllIn1SpriteShader\Scripts\Editor\AllIn1ShaderImporter.cs" />
     <Compile Include="Assets\Plugins\AllIn1SpriteShader\Demo\Scripts\AllIn1AutoRotate.cs" />
     <Compile Include="Assets\Plugins\AllIn1SpriteShader\Scripts\RandomSeed.cs" />
-    <Compile Include="Assets\Plugins\AllIn1SpriteShader\Demo\Scripts\DemoRepositionExpositor.cs" />
     <Compile Include="Assets\Plugins\AllIn1SpriteShader\Scripts\SetAtlasUvs.cs" />
+    <Compile Include="Assets\Plugins\AllIn1SpriteShader\Demo\Scripts\DemoRepositionExpositor.cs" />
     <Compile Include="Assets\Plugins\AllIn1SpriteShader\Demo\Scripts\AllIn1ScrollProperty.cs" />
     <Compile Include="Assets\Plugins\AllIn1SpriteShader\Demo\Scripts\All1TextureOffsetOverTIme.cs" />
     <Compile Include="Assets\Plugins\AllIn1SpriteShader\Scripts\AllIn1ShaderWindow.cs" />

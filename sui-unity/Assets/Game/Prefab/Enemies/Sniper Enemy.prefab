@@ -291,6 +291,7 @@ MonoBehaviour:
   enemyAttacker: {fileID: 2621505175279369087}
   damageFlasher: {fileID: 7455430187661729716}
   shootPoint: {fileID: 8282704627264165315}
+  bulletRotationOffset: 0
 --- !u!114 &7455430187661729716
 MonoBehaviour:
   m_ObjectHideFlags: 0

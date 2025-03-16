@@ -1,10 +1,14 @@
-﻿using MoeBeam.Game.Scripts.Enemies;
+﻿using System;
+using MoeBeam.Game.Scripts.Enemies;
+using MoeBeam.Game.Scripts.Managers;
+using UnityEngine;
 
 namespace Game.Scripts.Enemies
 {
     public class OrcEnemy : BaseEnemy
     {
         #region EXPOSED_VARIABLES
+
 
         #endregion
 
@@ -17,6 +21,7 @@ namespace Game.Scripts.Enemies
         #endregion
 
         #region UNITY_CALLS
+        
 
         #endregion
 
@@ -25,9 +30,10 @@ namespace Game.Scripts.Enemies
         #endregion
 
         #region PRIVATE_METHODS
+        
 
         #endregion
 
-        
+
     }
 }
