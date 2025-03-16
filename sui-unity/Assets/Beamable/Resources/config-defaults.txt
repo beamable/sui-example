@@ -1,7 +1,7 @@
 {
-    "cid": "1488374515021844",
-    "alias": "zdravko-patekar",
-    "pid": "DE_1694803355655168",
+    "cid": "1689160644344843",
+    "alias": "m-hijazi",
+    "pid": "DE_1853642028787714",
     "platform": "",
     "socket": "",
     "containerPrefix": ""
