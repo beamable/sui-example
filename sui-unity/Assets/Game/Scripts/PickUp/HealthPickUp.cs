@@ -10,7 +10,7 @@ namespace Game.Scripts.PickUp
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (!TryGetComponent<PlayerHealth>(out var playerHealth)) return;
+            if (!other.TryGetComponent<PlayerHealth>(out var playerHealth)) return;
             
             playerHealth.AddHealth(healthAmount);
             gameObject.SetActive(false);

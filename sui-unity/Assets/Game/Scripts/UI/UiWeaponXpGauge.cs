@@ -27,8 +27,13 @@ namespace Game.Scripts.UI
         private void OnWeaponGainedXp(object obj)
         {
             if(obj is not WeaponInstance weapon) return;
-            if(forRanged && weapon.AttackType != GameData.AttackType.Shoot) return;
-            
+            switch (forRanged)
+            {
+                case true when weapon.AttackType != GameData.AttackType.Shoot:
+                case false when weapon.AttackType == GameData.AttackType.Shoot:
+                    return;
+            }
+
             var currentXp = weapon.MetaData.Xp;
             var maxXp = XpManager.Instance.XpGainData.defaultXpThreshold;
             var ratio = (float) currentXp / maxXp;
