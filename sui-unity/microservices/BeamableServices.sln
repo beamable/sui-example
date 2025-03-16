@@ -4,12 +4,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{3F74FD99-2975-43D0-9F87-766E68842DE9}"
+	ProjectSection(SolutionItems) = preProject
+		services\SuiNodeServices\SuiFederationServices.csproj = services\SuiNodeServices\SuiFederationServices.csproj
+		services\SuiNodeServices\Node\NodeService.cs = services\SuiNodeServices\Node\NodeService.cs
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuiFederation", "services\SuiFederation\SuiFederation.csproj", "{8FB95423-88B2-46A9-B844-6554F8AFED6C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuiFederationCommon", "services\SuiFederationCommon\SuiFederationCommon.csproj", "{75E91C6C-2940-41C4-82D1-19BF19FFBFDF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuiFederationStorage", "services\SuiFederationStorage\SuiFederationStorage.csproj", "{49C4AB22-0783-457B-B12C-94DA97180648}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuiFederationServices", "services\SuiNodeServices\SuiFederationServices.csproj", "{8E966F30-D398-4008-ACDF-7E868AA26204}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +38,10 @@ Global
 		{49C4AB22-0783-457B-B12C-94DA97180648}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49C4AB22-0783-457B-B12C-94DA97180648}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49C4AB22-0783-457B-B12C-94DA97180648}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E966F30-D398-4008-ACDF-7E868AA26204}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E966F30-D398-4008-ACDF-7E868AA26204}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E966F30-D398-4008-ACDF-7E868AA26204}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E966F30-D398-4008-ACDF-7E868AA26204}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8FB95423-88B2-46A9-B844-6554F8AFED6C} = {3F74FD99-2975-43D0-9F87-766E68842DE9}
