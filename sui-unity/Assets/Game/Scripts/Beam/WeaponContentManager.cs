@@ -40,6 +40,11 @@ namespace MoeBeam.Game.Scripts.Beam
 
         #region PUBLIC_METHODS
         
+        public int GetOwnedWeaponsCount()
+        {
+            return WeaponContents.FindAll(w => w.IsOwned).Count;
+        }
+        
         public WeaponInstance GetItemByInstanceId(long instanceId)
         {
             return WeaponContents.Find(w => w.InstanceId == instanceId);

@@ -24,6 +24,9 @@ namespace MoeBeam.Game.Scripts.UI
         [Header("Create User")]
         [SerializeField] private BeamButton createNewAccountBeamButton;
         [SerializeField] private TMP_InputField changeNameInputField;
+
+        [Header("Weapon Chooser")] 
+        [SerializeField] private TextMeshProUGUI weaponMintingText;
         
         [Header("Final ID")]
         [SerializeField] private GameObject finalIdContainer;
@@ -53,6 +56,7 @@ namespace MoeBeam.Game.Scripts.UI
             mainMenuPanel.SetActive(false);
             chooseWeaponsPanel.SetActive(false);
             beamInitTextObj.SetActive(true);
+            
             await UniTask.WaitUntil(()=> BeamManager.IsReady);
             beamInitTextObj.SetActive(false);
             
@@ -75,10 +79,12 @@ namespace MoeBeam.Game.Scripts.UI
         {
             weaponsContainer.SetActive(false);
             aliasText.text = "Username: " + AccountManager.Instance.CurrentAccount.Alias;
-            gamerTagText.text = "Gamer Tag: " + AccountManager.Instance.CurrentAccount.GamerTag.ToString();
+            gamerTagText.text = "Tag: " + AccountManager.Instance.CurrentAccount.GamerTag.ToString();
             externalIdText.text = "Wallet: " + AccountManager.Instance.CurrentAccount.ExternalIdentities[0].userId;
             finalIdContainer.SetActive(true);
-            await UniTask.Delay(6000);
+            weaponMintingText.gameObject.SetActive(true);
+            await UniTask.WaitUntil(()=> WeaponContentManager.Instance.GetOwnedWeaponsCount() > 1);
+            weaponMintingText.gameObject.SetActive(false);
             PlayPanelStatus(true);
         }
         public void PlayPanelStatus(bool status)

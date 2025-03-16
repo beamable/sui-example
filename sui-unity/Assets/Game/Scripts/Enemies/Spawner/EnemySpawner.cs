@@ -37,6 +37,7 @@ namespace MoeBeam.Game.Scripts.Enemies.Spawner
         {
             StartCoroutine(SpawnEnemies());
             EventCenter.Subscribe(GameData.OnPlayerDiedEvent, OnPlayerDied);
+            EventCenter.Subscribe(GameData.OnEnemyDiedEvent, EnemyDied);
         }
 
         private void OnPlayerDied(object obj)
@@ -90,7 +91,6 @@ namespace MoeBeam.Game.Scripts.Enemies.Spawner
             }
 
             _spawnedEnemies.Add(enemyInstance);
-            EventCenter.Subscribe(GameData.OnEnemyDiedEvent, EnemyDied);
         }
 
         private void SpawnBoss()
@@ -103,6 +103,7 @@ namespace MoeBeam.Game.Scripts.Enemies.Spawner
         {
             if(obj is not BaseEnemy enemy) return;
             enemy.SetMiniBoss(false);
+            Debug.Log("Enemy Died");
             _enemiesAlive--;
             _spawnedEnemies.Remove(enemy);
             GenericPoolManager.Instance.Return(enemy);

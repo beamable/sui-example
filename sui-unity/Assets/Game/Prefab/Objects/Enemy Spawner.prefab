@@ -56,4 +56,4 @@ MonoBehaviour:
   maxEnemiesAtOnce: 7
   spawnInterval: 3
   miniBossInterval: 15
-  miniBossChance: 10
+  miniBossChance: 0.075

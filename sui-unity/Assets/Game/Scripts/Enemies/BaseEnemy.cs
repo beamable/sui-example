@@ -18,13 +18,13 @@ namespace MoeBeam.Game.Scripts.Enemies
         [SerializeField] protected Animator enemyAnimator;
         [SerializeField] protected EnemyAttacker enemyAttacker;
         [SerializeField] protected DamageFlasher damageFlasher;
+        [SerializeField] private float miniBossMultiplier = 1.5f;
         #endregion
 
         #region PRIVATE_VARIABLES
 
         private long _lastWeaponInstanceId = 0;
         private float _currentHealth = 0f;
-        private float _miniBossMultiplier = 1f;
         protected float _nextAttackTime = 0f;
         protected float _distanceToPlayer = Mathf.Infinity;
         protected bool _isInjured = false;
@@ -93,9 +93,10 @@ namespace MoeBeam.Game.Scripts.Enemies
         
         public void SetMiniBoss(bool miniBoss)
         {
-            _miniBossMultiplier = miniBoss ? 1.5f : 1f;
-            mainRenderer.transform.localScale *= _miniBossMultiplier;
-            _currentHealth = enemyData.MaxHealth * _miniBossMultiplier;
+            Vector3 newScale = miniBoss ? Vector3.one * miniBossMultiplier : Vector3.one; 
+            var newHealth = miniBoss ? enemyData.MaxHealth * miniBossMultiplier : enemyData.MaxHealth;
+            mainRenderer.transform.localScale = newScale;
+            _currentHealth = newHealth;
         }
         
         public virtual void TakeDamage(float damage, long instanceId = 0)
@@ -114,10 +115,10 @@ namespace MoeBeam.Game.Scripts.Enemies
                 yield return _injuredWait;
                 _isInjured = false;
                 _injuredCoroutine = null;
-                if (_currentHealth <= 0)
+                if (_currentHealth < 0)
                 {
+                    _currentHealth = 0;
                     _isDead = true;
-                    yield return new WaitForEndOfFrame();
                     Die();
                 }
             }
@@ -199,13 +200,11 @@ namespace MoeBeam.Game.Scripts.Enemies
         
         protected virtual void Die()
         {
+            Debug.Log($"Death {_currentHealth}");
             var deathData = new EnemyKilledData(enemyData.XpValue, _lastWeaponInstanceId);
             EventCenter.InvokeEvent(GameData.OnEnemyKillRewardEvent, deathData);
-            //TODO: Implement death animation
             enemyAnimator.SetTrigger(DeathHash);
-            //TODO: Implement death sound
             EventCenter.InvokeEvent(GameData.OnEnemyDiedEvent, this);
-            //TODO: Implement pooling system
         }
 
         #endregion
