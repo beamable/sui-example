@@ -78,7 +78,7 @@ namespace MoeBeam.Game.Scripts.UI
         public async UniTask SetFinalId()
         {
             weaponsContainer.SetActive(false);
-            aliasText.text = "Username: " + AccountManager.Instance.CurrentAccount.Alias;
+            aliasText.text = "User: " + AccountManager.Instance.CurrentAccount.Alias;
             gamerTagText.text = "Tag: " + AccountManager.Instance.CurrentAccount.GamerTag.ToString();
             externalIdText.text = "Wallet: " + AccountManager.Instance.CurrentAccount.ExternalIdentities[0].userId;
             finalIdContainer.SetActive(true);

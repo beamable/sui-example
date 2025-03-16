@@ -26,6 +26,7 @@ namespace MoeBeam.Game.Scripts.Items
 
         #region PRIVATE_VARIABLES
 
+        private bool _canClick = true;
         private UiMainMenuWeaponChooser _weaponChooser;
 
         #endregion
@@ -49,8 +50,9 @@ namespace MoeBeam.Game.Scripts.Items
 
         #region PUBLIC_METHODS
         
-        public void SetWeaponCard(WeaponInstance weapon, UiMainMenuWeaponChooser weaponChooser)
+        public void SetWeaponCard(WeaponInstance weapon, UiMainMenuWeaponChooser weaponChooser, bool canClick = true)
         {
+            _canClick = canClick;
             _weaponChooser = weaponChooser;
             CurrentWeapon = weapon;
             weaponImage.sprite = weapon.Icon;
@@ -78,6 +80,7 @@ namespace MoeBeam.Game.Scripts.Items
 
         public void OnPointerClick(PointerEventData eventData)
         {
+            if (!_canClick) return;
             if (IsSelected) return;
             if(IsMelee)
             {

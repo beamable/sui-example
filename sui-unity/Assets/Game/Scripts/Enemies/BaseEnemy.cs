@@ -178,7 +178,6 @@ namespace MoeBeam.Game.Scripts.Enemies
         
         protected virtual void Attack()
         {
-            Debug.Log("Attack {_distanceToPlayer} vs {enemyData.AttackRange} = {_distanceToPlayer >= enemyData.AttackRange}");
             if(_distanceToPlayer >= enemyData.AttackRange) return;
             if(_attackCoroutine != null) return;
             _attackCoroutine = StartCoroutine(AttackRoutine());

@@ -54,6 +54,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Game\Scripts\UI\UiDemoManager.cs" />
     <Compile Include="Assets\Game\Scripts\PickUp\PickUpManager.cs" />
+    <Compile Include="Assets\Game\Scripts\UI\UiDemoWeaponShower.cs" />
     <Compile Include="Assets\Game\Scripts\Enemies\BatEnemy.cs" />
     <Compile Include="Assets\Game\Scripts\Helpers\DamageFlasher.cs" />
     <Compile Include="Assets\Game\Scripts\Data\EnemyKilledData.cs" />

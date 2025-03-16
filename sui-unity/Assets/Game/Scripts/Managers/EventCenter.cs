@@ -7,6 +7,11 @@ namespace MoeBeam.Game.Scripts.Managers
     public static class EventCenter
     {
         private static Dictionary<string, Action<object>> eventDictionary = new Dictionary<string, Action<object>>();
+        
+        public static void ResetEventCenter()
+        {
+            eventDictionary.Clear();
+        }
 
         public static void Subscribe(string eventName, Action<object> listener)
         {

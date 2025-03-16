@@ -33,9 +33,6 @@ namespace Game.Scripts.UI
         [SerializeField] private TextMeshProUGUI meleeWeaponLevel;
         [SerializeField] private TextMeshProUGUI rangedWeaponLevel;
 
-        [Header("Other")] 
-        [SerializeField] private TextMeshProUGUI enemiesKilledText;
-        [SerializeField] private AudioClip deathLoopMusic;
         
         [Header("Death Screen")]
         [SerializeField] private GameObject deathScreen;
@@ -50,6 +47,11 @@ namespace Game.Scripts.UI
         [SerializeField] private GameObject winScreen;
         [FormerlySerializedAs("winRestartButton")] [SerializeField] private Button winQuitButton;
         [SerializeField] private Button marketButton;
+        
+        [Header("Other")] 
+        [SerializeField] private TextMeshProUGUI enemiesKilledText;
+        [SerializeField] private AudioClip deathLoopMusic;
+        [SerializeField] private UiDemoWeaponShower uiWeaponShower;
         
         #endregion
 
@@ -151,10 +153,17 @@ namespace Game.Scripts.UI
         {
             enemiesKilledText.text = $"{GameManager.Instance.EnemiesKilled}";
         }
+        
+        private void ActivateUiWeaponCards()
+        {
+            uiWeaponShower.gameObject.SetActive(true);
+            uiWeaponShower.ShowWeaponCard();
+        }
 
         private void OnPlayerDied(object _)
         {
             deathScreen.SetActive(true);
+            ActivateUiWeaponCards();
             AudioManager.Instance.PlayMusic(deathLoopMusic);
             var restartY = restartButton.transform.position.y;
             var quitY = quitButton.transform.position.y;
@@ -188,15 +197,18 @@ namespace Game.Scripts.UI
         private void OnBossDied(object obj)
         {
             winScreen.SetActive(true);
+            ActivateUiWeaponCards();
         }
         
         public void OnRestart()
         {
+            EventCenter.ResetEventCenter();
             SceneController.Instance.LoadScene(SceneController.ScenesEnum.Game);
         }
 
         public void OnQuit()
         {
+            EventCenter.ResetEventCenter();
             SceneController.Instance.LoadScene(SceneController.ScenesEnum.MainMenu);
         }
 

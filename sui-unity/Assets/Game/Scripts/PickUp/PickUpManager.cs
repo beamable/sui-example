@@ -10,7 +10,8 @@ namespace Game.Scripts.PickUp
     {
         #region EXPOSED_VARIABLES
         
-        [SerializeField] private HealthPickUp healthPickUp;
+        [SerializeField] private Transform pickUpLocation;
+        [SerializeField] private HealthPickUp healthPickUpPrefab;
 
         #endregion
 
@@ -26,7 +27,6 @@ namespace Game.Scripts.PickUp
 
         private void Start()
         {
-            healthPickUp.gameObject.SetActive(false);
             EventCenter.Subscribe(GameData.OnTenEnemiesKilledEvent, TurnOnPickUp);
             EventCenter.Subscribe(GameData.OnBossActivateEvent, TurnOnPickUp);
         }
@@ -37,7 +37,7 @@ namespace Game.Scripts.PickUp
         
         private void TurnOnPickUp(object obj)
         {
-            healthPickUp.gameObject.SetActive(true);
+            Instantiate(healthPickUpPrefab, pickUpLocation.position, Quaternion.identity);
         }
 
         #endregion

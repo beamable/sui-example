@@ -16,6 +16,10 @@ namespace MoeBeam.Game.Scripts.Managers
 
         private static Dictionary<Type, PoolData> _pools = new();
 
+        private void Start()
+        {
+            _pools = new Dictionary<Type, PoolData>();
+        }
 
         /// <summary>
         /// Register a script type T with a prefab for pooling.
@@ -83,6 +87,7 @@ namespace MoeBeam.Game.Scripts.Managers
 
             // Dequeue an existing instance
             var pooledObj = data.ObjectQueue.Dequeue() as T;
+            
             pooledObj.transform.position = position;
             pooledObj.gameObject.SetActive(true);
             return pooledObj;

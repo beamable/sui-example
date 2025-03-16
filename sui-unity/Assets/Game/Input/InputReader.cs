@@ -19,6 +19,7 @@ namespace MoeBeam.Game.Input
         public event UnityAction<Vector2> MoveEvent = delegate { };
         public event UnityAction PrimaryAttackEvent = delegate { }; 
         public event UnityAction SecondaryAttackEvent = delegate { }; 
+        public event UnityAction ForceRestartEvent = delegate { }; 
 
         #endregion
 
@@ -74,7 +75,14 @@ namespace MoeBeam.Game.Input
             if(context.performed)
                 SecondaryAttackEvent?.Invoke();
         }
-        
+
+        public void OnForceRestart(InputAction.CallbackContext context)
+        {
+            if(context.performed)
+                ForceRestartEvent?.Invoke();
+
+        }
+
         #endregion
         
     }
