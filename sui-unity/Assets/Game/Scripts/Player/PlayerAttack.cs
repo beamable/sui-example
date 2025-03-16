@@ -31,6 +31,7 @@ namespace MoeBeam.Game.Scripts.Player
 
         private float _nextMeleeAttackTime;
         private float _nextShootTime;
+        private Material _rangedMaterial;
         private WeaponInstance _meleeWeapon;
         private WeaponInstance _rangedWeapon;
         private Material _rangedWeaponMat;
@@ -48,6 +49,7 @@ namespace MoeBeam.Game.Scripts.Player
         public void InitModules(InputReader reader)
         {
             _inputReader = reader;
+            _rangedMaterial = rangedWeaponSpriteRenderer.material;
             _inputReader.PrimaryAttackEvent += PlayPrimaryAttackAnim;
             _inputReader.SecondaryAttackEvent += PlaySecondaryAttack;
             
@@ -119,10 +121,12 @@ namespace MoeBeam.Game.Scripts.Player
         {
             var sequence = DOTween.Sequence();
             sequence.Append(_rangedWeaponMat.DOFloat(1f, "_OutlineAlpha", 0f));
-            sequence.Join(_rangedWeaponMat.DOFloat(7f, "_OutlineGlow", 1f));
-            sequence.AppendInterval(0.5f);
+            sequence.Join(_rangedWeaponMat.DOFloat(7f, "_OutlineGlow", 0f));
+            sequence.Join(_rangedWeaponMat.DOFloat(35f, "_GlowGlobal", 0f));
+            sequence.AppendInterval(1.5f);
             sequence.Append(_rangedWeaponMat.DOFloat(0f, "_OutlineAlpha", 1f));
             sequence.Join(_rangedWeaponMat.DOFloat(0f, "_OutlineGlow", 1f));
+            sequence.Join(_rangedWeaponMat.DOFloat(0f, "_GlowGlobal", 1f));
             sequence.Play();
         }
 

@@ -290,6 +290,7 @@ MonoBehaviour:
   enemyAnimator: {fileID: 7201931716611977732}
   enemyAttacker: {fileID: 2621505175279369087}
   damageFlasher: {fileID: 7455430187661729716}
+  miniBossMultiplier: 1.5
   shootPoint: {fileID: 8282704627264165315}
   bulletRotationOffset: 0
 --- !u!114 &7455430187661729716
@@ -324,7 +325,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8415343048588573819
 Transform:
   m_ObjectHideFlags: 0

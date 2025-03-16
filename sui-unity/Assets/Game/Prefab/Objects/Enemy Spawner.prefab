@@ -52,7 +52,7 @@ MonoBehaviour:
   bossSpawnPoint: {fileID: 0}
   spawnArea1: {fileID: 0}
   spawnArea2: {fileID: 0}
-  totalEnemiesToSpawn: 100
+  totalEnemiesToSpawn: 70
   maxEnemiesAtOnce: 7
   spawnInterval: 3
   miniBossInterval: 15

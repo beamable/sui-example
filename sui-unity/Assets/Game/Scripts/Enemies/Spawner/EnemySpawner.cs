@@ -97,6 +97,7 @@ namespace MoeBeam.Game.Scripts.Enemies.Spawner
         {
             //TODO: add some sort of effects or animations
             var bossInstance = Instantiate(finalBossPrefab, bossSpawnPoint.position, Quaternion.identity);
+            bossInstance.OnInit();
         }
 
         private void EnemyDied(object obj)

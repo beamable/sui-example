@@ -19,12 +19,14 @@
         public const string OnSceneLoadedEvent = "SceneLoaded";
         public const string OnMeleeLeveledUpEvent = "MeleeLeveledUp";
         public const string OnRangedLeveledUpEvent = "RangedLeveledUp";
+        public const string OnWeaponGainedXpEvent = "WeaponGainedXp";
+        public const string  OnTenEnemiesKilledEvent = "TenEnemiesKilled";
         
         //Weapon Refs 
         public const string DamageKey = "Damage";
         public const string AttackSpeedKey = "AttackSpeed";
         public const string AttackTypeKey = "AttackType";
-        
+
         public static AttackType ToAttackType(int type)
         {
             switch (type)

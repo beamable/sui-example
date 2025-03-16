@@ -53,6 +53,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Game\Scripts\UI\UiDemoManager.cs" />
+    <Compile Include="Assets\Game\Scripts\PickUp\PickUpManager.cs" />
     <Compile Include="Assets\Game\Scripts\Enemies\BatEnemy.cs" />
     <Compile Include="Assets\Game\Scripts\Helpers\DamageFlasher.cs" />
     <Compile Include="Assets\Game\Scripts\Data\EnemyKilledData.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\Game\Scripts\UI\UiMainMenuManager.cs" />
     <Compile Include="Assets\Game\Scripts\Beam\WeaponContentManager.cs" />
+    <Compile Include="Assets\Game\Scripts\UI\UiWeaponXpGauge.cs" />
     <Compile Include="Assets\Game\Scripts\Beam\BeamManager.cs" />
     <Compile Include="Assets\Game\Scripts\Beam\CurrentAccountInfo.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
@@ -95,6 +97,7 @@
     <Compile Include="Assets\Game\Scripts\Managers\AudioManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
+    <Compile Include="Assets\Game\Scripts\PickUp\HealthPickUp.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\Game\Scripts\Items\WeaponCard.cs" />

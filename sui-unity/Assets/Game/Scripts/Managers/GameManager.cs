@@ -66,6 +66,12 @@ namespace MoeBeam.Game.Scripts.Managers
         private void EnemyKilled(object _)
         {
             EnemiesKilled++;
+            
+            var tenEnemiesKilled = EnemiesKilled % 10 == 0;
+            if (tenEnemiesKilled)
+            {
+                EventCenter.InvokeEvent(GameData.OnTenEnemiesKilledEvent);
+            }
         }
         
         private void GameOver(object _)

@@ -52,7 +52,6 @@ namespace MoeBeam.Game.Scripts.Enemies
         {
             if (!_isLaunched) return;
             var s = transform.right * this.speed;
-            Debug.Log(s);
             _rigidbody2D.linearVelocity = transform.right * speed;
         }
 

@@ -14,6 +14,7 @@ namespace MoeBeam.Game.Scripts.Managers
         #region EXPOSED_VARIABLES
 
         [SerializeField] private XpGainData xpGainData;
+        [SerializeField] private AudioClip levelUpSfx;
         #endregion
 
         #region PRIVATE_VARIABLES
@@ -21,6 +22,8 @@ namespace MoeBeam.Game.Scripts.Managers
         #endregion
 
         #region PUBLIC_VARIABLES
+        
+        public XpGainData XpGainData => xpGainData;
 
         #endregion
 
@@ -57,7 +60,7 @@ namespace MoeBeam.Game.Scripts.Managers
             //     nextThreshold = (int) (xpGainData.defaultXpThreshold * (1 + (weapon.MetaData.Level / xpGainData.xpDivider)));
             currentXp = weapon.MetaData.Xp + xpReward;
             weapon.MetaData.Update(currentXp, weapon.MetaData.Level, weapon.MetaData.CurrentDamage, weapon.MetaData.CurrentAttackSpeed);
-            
+            EventCenter.InvokeEvent(GameData.OnWeaponGainedXpEvent, weapon);
             if (currentXp >= nextThreshold)
             {
                 LevelUp(weapon).Forget();
@@ -69,6 +72,7 @@ namespace MoeBeam.Game.Scripts.Managers
             var nextLevel = 1;
             var newDamage = 0;
             var newSpeed = 0f;
+            var newXp = 0;
             if(weapon.MetaData.Level < xpGainData.maxLevel)
             {
                 nextLevel = weapon.MetaData.Level + 1;
@@ -81,13 +85,18 @@ namespace MoeBeam.Game.Scripts.Managers
                 {
                     newSpeed = weapon.MetaData.CurrentAttackSpeed - xpGainData.attackSpeedDecrease;
                 }
-                EventCenter.InvokeEvent(weapon.AttackType != GameData.AttackType.Shoot ? 
-                    GameData.OnMeleeLeveledUpEvent : GameData.OnRangedLeveledUpEvent, weapon);
+                AudioManager.Instance.PlaySfx(levelUpSfx);
             }
-            weapon.MetaData.Update(0, nextLevel, newDamage, newSpeed);
+            else
+            {
+                newXp = xpGainData.defaultXpThreshold;
+            }
+            weapon.MetaData.Update(newXp, nextLevel, newDamage, newSpeed);
+            EventCenter.InvokeEvent(weapon.AttackType != GameData.AttackType.Shoot ? 
+                    GameData.OnMeleeLeveledUpEvent : GameData.OnRangedLeveledUpEvent, weapon);
+            EventCenter.InvokeEvent(GameData.OnWeaponGainedXpEvent, weapon);
+            
             await BeamManager.BeamContext.Api.InventoryService.UpdateItem(weapon.ContentId, weapon.InstanceId, weapon.MetaData.ToDictionary());
-            //TODO: Fix updating weapon meta data
-            //await BeamManager.SkullClient.UpdateWeaponMetaData(weapon.ContentId, weapon.InstanceId, weapon.MetaData.ToDictionary());
         }
 
         #endregion
