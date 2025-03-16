@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      mioni_boss_bar_filler x2_0: -4388121259777088571
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

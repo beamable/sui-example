@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Default Local Group
   m_EditorClassIdentifier: 
   m_GroupName: Default Local Group
-  m_GUID: 03aaa47401f3cce41a260c3ce2d5db1d
+  m_GUID: c7ee800bd160f6145983406a107a069f
   m_SerializeEntries:
   - m_GUID: 03da7715b0e5224409e499a9b6a31ced
-    m_Address: Assets/Game/Texture/Weapons/Star.png
+    m_Address: Assets/Game/Texture/Weapons/Star_1.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -26,7 +26,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1d5908bdab09d044b88b3c800313c3db
-    m_Address: Assets/Game/Texture/Weapons/Sword.png
+    m_Address: Assets/Game/Texture/Weapons/Sword_1.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -460,7 +460,20 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Loading Sprite sheet_0: 7928433283606693819
+      Loading Sprite sheet_1: 5710452045464224346
+      Loading Sprite sheet_10: -686724378911074946
+      Loading Sprite sheet_11: -478511400192263082
+      Loading Sprite sheet_12: -820803974218417346
+      Loading Sprite sheet_2: -7114807681528952510
+      Loading Sprite sheet_3: -8573058260641083387
+      Loading Sprite sheet_4: 1353243948196236886
+      Loading Sprite sheet_5: -3179506267452665654
+      Loading Sprite sheet_6: -5201525236331881554
+      Loading Sprite sheet_7: -4210907376254791215
+      Loading Sprite sheet_8: 4975331350074743729
+      Loading Sprite sheet_9: 312014416980586219
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

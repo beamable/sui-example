@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Beamable-Disrupterbeam_0: 996511214523583029
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
