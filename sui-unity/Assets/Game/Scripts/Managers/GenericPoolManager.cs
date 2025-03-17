@@ -16,7 +16,7 @@ namespace MoeBeam.Game.Scripts.Managers
 
         private static Dictionary<Type, PoolData> _pools = new();
 
-        private void Start()
+        public void Init()
         {
             _pools = new Dictionary<Type, PoolData>();
         }
@@ -27,7 +27,7 @@ namespace MoeBeam.Game.Scripts.Managers
         /// - initialSize: how many to pre-instantiate.
         /// - canExpand: whether we can instantiate more if the pool is empty.
         /// </summary>
-        public void Register<T>(T prefab, int initialSize, bool canExpand) where T : MonoBehaviour
+        public void Register<T>(T prefab, int initialSize, bool canExpand, Action callback = null) where T : MonoBehaviour
         {
             var type = typeof(T);
             if (_pools.ContainsKey(type))
@@ -52,6 +52,12 @@ namespace MoeBeam.Game.Scripts.Managers
             }
 
             _pools.Add(type, data);
+            callback?.Invoke();
+        }
+        
+        public bool IsRegistered<T>() where T : MonoBehaviour
+        {
+            return _pools.ContainsKey(typeof(T));
         }
 
         /// <summary>
@@ -64,7 +70,8 @@ namespace MoeBeam.Game.Scripts.Managers
             var type = typeof(T);
             if (!_pools.TryGetValue(type, out var data))
             {
-                Debug.LogWarning($"No pool registered for {type}. Did you forget to call Register()?");
+                Debug.LogError($"No pool registered for {type}. Did you forget to call Register()?");
+                
                 return null;
             }
 

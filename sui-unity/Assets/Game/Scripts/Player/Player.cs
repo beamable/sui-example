@@ -72,7 +72,7 @@ namespace MoeBeam.Game.Scripts.Player
 
         private void Start()
         {
-            playerAttack.Init().Forget();
+            playerAttack.Init();
             playerHealth.Init(_playerAnimationController);
         }
 

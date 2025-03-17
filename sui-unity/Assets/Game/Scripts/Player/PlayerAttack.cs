@@ -56,13 +56,11 @@ namespace MoeBeam.Game.Scripts.Player
             EventCenter.Subscribe(GameData.OnRangedLeveledUpEvent, OnRangedLeveledUp);
         }
 
-        public async UniTask Init()
+        public void Init()
         {
             _playerAnimationController = GetComponent<PlayerAnimationController>();
             
             //Equip weapons
-            await UniTask.WaitUntil(() => WeaponContentManager.Instance.GetOwnedMeleeWeapon() != null);
-            await UniTask.WaitUntil(() => WeaponContentManager.Instance.GetOwnedRangedWeapon() != null);
             _meleeWeapon = WeaponContentManager.Instance.GetOwnedMeleeWeapon();
             _rangedWeapon = WeaponContentManager.Instance.GetOwnedRangedWeapon();
             rangedWeaponSpriteRenderer.sprite = _rangedWeapon.Icon;
@@ -107,7 +105,7 @@ namespace MoeBeam.Game.Scripts.Player
 
         private void PlaySecondaryAttack()
         {
-            if(!GameManager.Instance.HasGameStarted || GameManager.Instance.GameEnded) return;
+            if (!GameManager.Instance.HasGameStarted || GameManager.Instance.GameEnded) return;
             if (Time.time < _nextShootTime) return;
             
             _nextShootTime = Time.time + _rangedWeapon.MetaData.CurrentAttackSpeed;
