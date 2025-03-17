@@ -3,7 +3,6 @@ using System.Reflection;
 using Beamable.Common.Dependencies;
 using Beamable.SuiFederation.Extensions;
 using Beamable.SuiFederation.Features.Transactions;
-using LazyCache;
 
 namespace Beamable.SuiFederation;
 
