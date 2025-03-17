@@ -6,6 +6,7 @@ using Beamable.Common;
 using Beamable.SuiFederation.Features.Accounts;
 using Beamable.SuiFederation.Features.Common;
 using Beamable.SuiFederation.Features.Content.FunctionMessages;
+using Beamable.SuiFederation.Features.Contract;
 using Beamable.SuiFederation.Features.Contract.FunctionMesseges;
 using Beamable.SuiFederation.Features.SuiApi.Exceptions;
 using Beamable.SuiFederation.Features.SuiApi.Models;
@@ -13,10 +14,17 @@ using SuiFederationCommon.Node;
 
 namespace Beamable.SuiFederation.Features.SuiApi;
 
-public class SuiApiService(
-    Configuration configuration,
-    AccountsService accountsService) : IService
+public class SuiApiService : IService
 {
+    private readonly Configuration _configuration;
+    private readonly AccountsService _accountsService;
+
+    public SuiApiService(Configuration configuration, AccountsService accountsService)
+    {
+        _configuration = configuration;
+        _accountsService = accountsService;
+    }
+
     public static async Task<CreateWalletResponse> CreateWallet()
     {
         using (new Measure($"Sui.createWallet"))
@@ -92,8 +100,8 @@ public class SuiApiService(
         {
             try
             {
-                var environment = await configuration.SuiEnvironment;
-                var realmAccount = await accountsService.GetOrCreateRealmAccount();
+                var environment = await _configuration.SuiEnvironment;
+                var realmAccount = await _accountsService.GetOrCreateRealmAccount();
                 var mintRequestJson = JsonSerializer.Serialize(mintMessages);
                 var result = await NodeService.MintRegularCoin(mintRequestJson, realmAccount.PrivateKey, environment);
                 return JsonSerializer.Deserialize<SuiTransactionResult>(result) ?? throw new Exception();
@@ -111,8 +119,8 @@ public class SuiApiService(
         {
             try
             {
-                var environment = await configuration.SuiEnvironment;
-                var realmAccount = await accountsService.GetOrCreateRealmAccount();
+                var environment = await _configuration.SuiEnvironment;
+                var realmAccount = await _accountsService.GetOrCreateRealmAccount();
                 var mintRequestJson = JsonSerializer.Serialize(mintMessages);
                 var result = await NodeService.BurnRegularCoin(mintRequestJson, realmAccount.PrivateKey, environment);
                 return JsonSerializer.Deserialize<SuiTransactionResult>(result) ?? throw new Exception();
@@ -130,8 +138,8 @@ public class SuiApiService(
         {
             try
             {
-                var environment = await configuration.SuiEnvironment;
-                var realmAccount = await accountsService.GetOrCreateRealmAccount();
+                var environment = await _configuration.SuiEnvironment;
+                var realmAccount = await _accountsService.GetOrCreateRealmAccount();
                 var mintRequestJson = JsonSerializer.Serialize(mintMessages);
                 var result = await NodeService.MintGameCoin(mintRequestJson, realmAccount.PrivateKey, environment);
                 return JsonSerializer.Deserialize<SuiTransactionResult>(result) ?? throw new Exception();
@@ -149,8 +157,8 @@ public class SuiApiService(
         {
             try
             {
-                var environment = await configuration.SuiEnvironment;
-                var realmAccount = await accountsService.GetOrCreateRealmAccount();
+                var environment = await _configuration.SuiEnvironment;
+                var realmAccount = await _accountsService.GetOrCreateRealmAccount();
                 var mintRequestJson = JsonSerializer.Serialize(mintMessages);
                 var result = await NodeService.BurnGameCoin(mintRequestJson, realmAccount.PrivateKey, environment);
                 return JsonSerializer.Deserialize<SuiTransactionResult>(result) ?? throw new Exception();
@@ -168,7 +176,7 @@ public class SuiApiService(
         {
             try
             {
-                var environment = await configuration.SuiEnvironment;
+                var environment = await _configuration.SuiEnvironment;
                 var requestJson = JsonSerializer.Serialize(request);
                 var result = await NodeService.CoinBalance(wallet, requestJson, environment);
                 return JsonSerializer.Deserialize<CoinBalanceResponse>(result) ?? throw new Exception();
@@ -186,7 +194,7 @@ public class SuiApiService(
         {
             try
             {
-                var environment = await configuration.SuiEnvironment;
+                var environment = await _configuration.SuiEnvironment;
                 var requestJson = JsonSerializer.Serialize(request);
                 var result = await NodeService.GetGameCoinBalance(wallet, requestJson, environment);
                 return JsonSerializer.Deserialize<GameCoinBalanceResponse>(result) ?? throw new Exception();
@@ -204,8 +212,8 @@ public class SuiApiService(
         {
             try
             {
-                var environment = await configuration.SuiEnvironment;
-                var realmAccount = await accountsService.GetOrCreateRealmAccount();
+                var environment = await _configuration.SuiEnvironment;
+                var realmAccount = await _accountsService.GetOrCreateRealmAccount();
                 var mintRequestJson = JsonSerializer.Serialize(mintMessages);
                 var result = await NodeService.MintNfts(mintRequestJson, realmAccount.PrivateKey, environment);
                 return JsonSerializer.Deserialize<SuiTransactionResult>(result) ?? throw new Exception();
@@ -223,7 +231,7 @@ public class SuiApiService(
         {
             try
             {
-                var environment = await configuration.SuiEnvironment;
+                var environment = await _configuration.SuiEnvironment;
                 var result = await NodeService.GetOwnedObjects(wallet, request.PackageId, environment);
                 return JsonSerializer.Deserialize<IEnumerable<GetOwnedObjectsResponse>>(result) ?? throw new Exception();
             }
@@ -240,8 +248,8 @@ public class SuiApiService(
         {
             try
             {
-                var environment = await configuration.SuiEnvironment;
-                var realmAccount = await accountsService.GetOrCreateRealmAccount();
+                var environment = await _configuration.SuiEnvironment;
+                var realmAccount = await _accountsService.GetOrCreateRealmAccount();
                 var mintRequestJson = JsonSerializer.Serialize(request);
                 var result = await NodeService.UpdateNfts(mintRequestJson, realmAccount.PrivateKey, environment);
                 return JsonSerializer.Deserialize<SuiTransactionResult>(result) ?? throw new Exception();
@@ -259,8 +267,8 @@ public class SuiApiService(
         {
             try
             {
-                var environment = await configuration.SuiEnvironment;
-                var realmAccount = await accountsService.GetOrCreateRealmAccount();
+                var environment = await _configuration.SuiEnvironment;
+                var realmAccount = await _accountsService.GetOrCreateRealmAccount();
                 var mintRequestJson = JsonSerializer.Serialize(message);
                 var result = await NodeService.SetNftContractOwner(mintRequestJson, realmAccount.PrivateKey, environment);
                 return JsonSerializer.Deserialize<SuiTransactionResult>(result) ?? throw new Exception();
@@ -278,7 +286,7 @@ public class SuiApiService(
         {
             try
             {
-                var environment = await configuration.SuiEnvironment;
+                var environment = await _configuration.SuiEnvironment;
                 var result = await NodeService.ObjectExists(objectId, environment);
                 if (bool.TryParse(result, out var exists))
                     return exists;

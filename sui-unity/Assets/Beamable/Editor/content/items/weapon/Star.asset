@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -406860628, guid: 32b87407b979e3f4db5da06355f57a44, type: 3}
-  m_Name: darksaber
+  m_Name: Star
   m_EditorClassIdentifier: 
   _tags: []
   icon:
-    m_AssetGUID: 
-    m_SubObjectName: 
+    m_AssetGUID: 03da7715b0e5224409e499a9b6a31ced
+    m_SubObjectName: Star_1
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   clientPermission:
@@ -25,9 +25,9 @@ MonoBehaviour:
     Value:
       Service: SuiFederation
       Namespace: SuiIdentity
-  name: Darksaber
-  description: An ancient lightsaber created by Tarre Vizsla
-  image: https://cdn.pixabay.com/photo/2012/04/15/20/07/light-35144_1280.png
+  name: Day Star
+  description: Let them see the stars during day light.
+  image: https://cdn.pixabay.com/photo/2019/04/05/15/01/katana-4105189_1280.png
   customProperties:
     keys:
     - Damage
@@ -36,4 +36,4 @@ MonoBehaviour:
     values:
     - 25
     - 0.75
-    - 0
+    - 2
