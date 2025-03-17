@@ -9,7 +9,7 @@ using Beamable.SuiFederation.Features.Content.FunctionMessages;
 using Beamable.SuiFederation.Features.Contract.FunctionMesseges;
 using Beamable.SuiFederation.Features.SuiApi.Exceptions;
 using Beamable.SuiFederation.Features.SuiApi.Models;
-using SuiFederationCommon.Node;
+using SuiFederationServices.Node;
 
 namespace Beamable.SuiFederation.Features.SuiApi;
 

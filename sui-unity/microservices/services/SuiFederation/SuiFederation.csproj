@@ -52,6 +52,7 @@
         <None Include="SuiTools\**\*">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
+        <ProjectReference Include="..\SuiFederationServices\SuiFederationServices.csproj" />
     </ItemGroup>
 
     <Target Name="PreBuild" BeforeTargets="Build">

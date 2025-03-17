@@ -17,9 +17,8 @@ MonoBehaviour:
     m_AssetGUID: 03da7715b0e5224409e499a9b6a31ced
     m_SubObjectName: Star_1
     m_SubObjectGUID: 
-    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    m_EditorAssetChanged: 1
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
   clientPermission:
     writeSelf: 1
   federation:
@@ -29,7 +28,7 @@ MonoBehaviour:
       Namespace: SuiIdentity
   name: Day Star
   description: Let them see the stars during day light.
-  image: https://cdn.pixabay.com/photo/2019/04/05/15/01/katana-4105189_1280.png
+  image: https://content.beamable.com/1689160644344843/DE_1853654318472192/binary/public/star-sui.webp/3ff089434b0167a4a678752073d42974
   customProperties:
     keys:
     - Damage

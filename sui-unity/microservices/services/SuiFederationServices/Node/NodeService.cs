@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using Jering.Javascript.NodeJS;
 
-namespace SuiFederationCommon.Node
+namespace SuiFederationServices.Node
 {
     /// <summary>
     /// Service for calling SUI SDK functions
