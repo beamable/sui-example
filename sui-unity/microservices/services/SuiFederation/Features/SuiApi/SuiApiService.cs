@@ -6,11 +6,10 @@ using Beamable.Common;
 using Beamable.SuiFederation.Features.Accounts;
 using Beamable.SuiFederation.Features.Common;
 using Beamable.SuiFederation.Features.Content.FunctionMessages;
-using Beamable.SuiFederation.Features.Contract;
 using Beamable.SuiFederation.Features.Contract.FunctionMesseges;
 using Beamable.SuiFederation.Features.SuiApi.Exceptions;
 using Beamable.SuiFederation.Features.SuiApi.Models;
-using SuiFederationCommon.Node;
+using SuiNodeServicve;
 
 namespace Beamable.SuiFederation.Features.SuiApi;
 

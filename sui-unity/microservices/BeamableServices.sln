@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuiFederationCommon", "serv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuiFederationStorage", "services\SuiFederationStorage\SuiFederationStorage.csproj", "{49C4AB22-0783-457B-B12C-94DA97180648}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuiNodeService", "services\SuiNodeService\SuiNodeService.csproj", "{8575898F-AC7A-4892-BA4B-8EC5177282D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,10 +34,15 @@ Global
 		{49C4AB22-0783-457B-B12C-94DA97180648}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49C4AB22-0783-457B-B12C-94DA97180648}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49C4AB22-0783-457B-B12C-94DA97180648}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8575898F-AC7A-4892-BA4B-8EC5177282D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8575898F-AC7A-4892-BA4B-8EC5177282D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8575898F-AC7A-4892-BA4B-8EC5177282D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8575898F-AC7A-4892-BA4B-8EC5177282D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8FB95423-88B2-46A9-B844-6554F8AFED6C} = {3F74FD99-2975-43D0-9F87-766E68842DE9}
 		{75E91C6C-2940-41C4-82D1-19BF19FFBFDF} = {3F74FD99-2975-43D0-9F87-766E68842DE9}
 		{49C4AB22-0783-457B-B12C-94DA97180648} = {3F74FD99-2975-43D0-9F87-766E68842DE9}
+		{8575898F-AC7A-4892-BA4B-8EC5177282D3} = {3F74FD99-2975-43D0-9F87-766E68842DE9}
 	EndGlobalSection
 EndGlobal
