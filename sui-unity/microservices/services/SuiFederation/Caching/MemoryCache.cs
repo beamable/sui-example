@@ -69,13 +69,25 @@ public class MemoryCache<T> : IDisposable
         try
         {
             var now = DateTime.UtcNow;
-            while (_expirationKeys.TryPeek(out var oldest) && _cache.TryGetValue(oldest, out var cacheItem) && cacheItem.Expiration <= now)
+            while (_expirationKeys.TryPeek(out var oldest))
             {
-                if (!_expirationKeys.TryDequeue(out var key))
+                // Check if the key exists in the cache BEFORE dequeuing
+                if (!_cache.TryGetValue(oldest, out var cacheItem))
+                {
+                    // If the key is missing from _cache, remove it from the queue as well
+                    _expirationKeys.TryDequeue(out _);
+                    continue;
+                }
+                // If it's not expired, stop the loop (since it's FIFO, all later items are also not expired)
+                if (cacheItem.Expiration > now)
                 {
                     break;
                 }
-                _cache.TryRemove(key, out _);
+                // If expired, remove from both _cache and _expirationKeys
+                if (_expirationKeys.TryDequeue(out var expiredKey))
+                {
+                    _cache.TryRemove(expiredKey, out _);
+                }
             }
         }
         catch (Exception e)
