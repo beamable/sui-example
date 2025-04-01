@@ -30,6 +30,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 28ff441450dfa25448e78720b10ca137
+    m_Address: Assets/Game/Texture/Coins/Star/Silver_21.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2e2e0076e56517e4d8d587dc14815641
     m_Address: Assets/Game/Texture/Weapons/Spear_1.png
     m_ReadOnly: 0
@@ -37,6 +42,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4e7f451284ec95347b9b3dca3c4e79c2
     m_Address: Assets/Game/Texture/Weapons/Shivs_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e3f1a90d2e5ff143b5716655dd83e70
+    m_Address: Assets/Game/Texture/Coins/Beam/Bronze_11.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e867e7f7f1ee8654c8f2a3ece672be35
+    m_Address: Assets/Game/Texture/Coins/Gold/Gold_1.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

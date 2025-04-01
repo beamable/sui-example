@@ -3,6 +3,7 @@
     public class GameData
     {
         public enum AttackType {Swing, Thrust, Shoot}
+        public enum CoinType {Beam, Star, Gold}
         
         public const string WeaponContentId = "items.weapon";
         public const string PlayerTag = "Player";
