@@ -16,6 +16,7 @@ MonoBehaviour:
   icon:
     m_AssetGUID: 
     m_SubObjectName: 
+    m_SubObjectGUID: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   clientPermission:
@@ -32,3 +33,6 @@ MonoBehaviour:
   image: https://cdn.pixabay.com/photo/2013/07/12/12/55/gold-bar-146539_1280.png
   description: In game gold
   initialSupply: 100
+  allowSpending: 1
+  allowBuying: 1
+  allowTransfers: 0

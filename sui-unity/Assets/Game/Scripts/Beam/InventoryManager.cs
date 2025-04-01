@@ -6,6 +6,7 @@ using Beamable.Server.Clients;
 using Cysharp.Threading.Tasks;
 using MoeBeam.Game.Scripts.Data;
 using MoeBeam.Game.Scripts.Managers;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace MoeBeam.Game.Scripts.Beam
@@ -43,7 +44,9 @@ namespace MoeBeam.Game.Scripts.Beam
         
         public async UniTask AddItemToInventory(WeaponInstance weapon)
         {
-            await BeamManager.BeamContext.Api.InventoryService.AddItem(weapon.ContentId, weapon.MetaData.ToDictionary(true));
+            var add =  BeamManager.BeamContext.Api.InventoryService.AddItem(weapon.ContentId,
+                weapon.MetaData.ToDictionary(true)).IsCompleted;
+            Debug.LogWarning($"ADDING ITEM TO INVENTORY {add}");
             //await BeamManager.SkullClient.GrantItem(weapon.ContentId, weapon.MetaData.ToDictionary());
         }
         
