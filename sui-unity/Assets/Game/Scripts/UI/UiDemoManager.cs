@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using DG.Tweening;
 using MoeBeam.Game.Scripts.Beam;
 using MoeBeam.Game.Scripts.Data;
@@ -57,6 +58,7 @@ namespace Game.Scripts.UI
         [SerializeField] private TextMeshProUGUI enemiesKilledText;
         [SerializeField] private AudioClip deathLoopMusic;
         [SerializeField] private UiDemoWeaponShower uiWeaponShower;
+        [SerializeField] private GameObject settingsPanel;
         
         #endregion
 
@@ -92,19 +94,24 @@ namespace Game.Scripts.UI
 
         private void OnCoinCollected(object obj)
         {
-            if (obj is not PlayerCoin coin) return;
+            if (obj is not Dictionary<PlayerCoin, bool> data) return;
 
-            switch (coin.CoinType)
+            foreach (var pair in data)
             {
-                case GameData.CoinType.Star:
-                    TextLevelUpAnimation(starCoinText, coin.Amount.ToString());
-                    break;
-                case GameData.CoinType.Beam:
-                    TextLevelUpAnimation(beamCoinText, coin.Amount.ToString());
-                    break;
-                case GameData.CoinType.Gold:
-                    TextLevelUpAnimation(goldCoinText, coin.Amount.ToString());
-                    break;
+                if(pair.Key.Amount <= 0) continue;
+                var color = pair.Value ? Color.red : Color.green;
+                switch (pair.Key.CoinType)
+                {
+                    case GameData.CoinType.Star:
+                        TextLevelUpAnimation(starCoinText, pair.Key.Amount.ToString(), 1.3f, Ease.Flash, color);
+                        break;
+                    case GameData.CoinType.Beam:
+                        TextLevelUpAnimation(beamCoinText, pair.Key.Amount.ToString(), 1.3f, Ease.Flash, color);
+                        break;
+                    case GameData.CoinType.Gold:
+                        TextLevelUpAnimation(goldCoinText, pair.Key.Amount.ToString(), 1.3f, Ease.Flash, color);
+                        break;
+                }
             }
         }
 
@@ -117,29 +124,51 @@ namespace Game.Scripts.UI
                 rangedWeaponLevel.text = weapon.MetaData.Level.ToString();
         }
 
-        private void TextLevelUpAnimation(TextMeshProUGUI tmp, string newText)
+        private void TextLevelUpAnimation(TextMeshProUGUI tmp, string newText, float endValue = 2f, Ease easeType = Ease.InElastic, Color color = default(Color))
         {
             var sequence = DOTween.Sequence();
             tmp.text = newText;
-            sequence.Append(tmp.transform.DOScale(2f, 0.25f)).SetEase(Ease.InElastic);
+            sequence.Append(tmp.transform.DOScale(endValue, 0.25f)).SetEase(easeType);
+            sequence.Join(tmp.DOColor(color, trailDelay));
             sequence.AppendInterval(0.5f);
-            sequence.Append(tmp.transform.DOScale(1f, 0.25f)).SetEase(Ease.InElastic);
+            sequence.Append(tmp.transform.DOScale(1f, 0.25f)).SetEase(easeType);
+            sequence.Join(tmp.DOColor(Color.white, trailDelay));
+
         } 
 
         #endregion
 
         #region PUBLIC_METHODS
-
-        #endregion
-
-        #region PRIVATE_METHODS
+        
+        public void OnOpenSettings(bool open)
+        {
+            settingsPanel.SetActive(open);
+            Time.timeScale = open ? 0f : 1f;
+            ActivateUiWeaponCards(open);
+        }
         
         public void OpenExternalLink()
         {
             var url = SuiUrl + BeamAccountManager.Instance.CurrentAccount.ExternalIdentities[0].userId;
             Application.OpenURL(url);
         }
+        
+        public void OnRestart()
+        {
+            EventCenter.ResetEventCenter();
+            SceneController.Instance.LoadScene(SceneController.ScenesEnum.Game);
+        }
 
+        public void OnQuit()
+        {
+            EventCenter.ResetEventCenter();
+            SceneController.Instance.LoadScene(SceneController.ScenesEnum.MainMenu);
+        }
+
+        #endregion
+
+        #region PRIVATE_METHODS
+        
         private void SetPlayerIcons()
         {
             var melee = BeamWeaponContentManager.Instance.GetOwnedMeleeWeapon().Icon;
@@ -178,10 +207,10 @@ namespace Game.Scripts.UI
             enemiesKilledText.text = $"{GameManager.Instance.EnemiesKilled}";
         }
         
-        private void ActivateUiWeaponCards()
+        private void ActivateUiWeaponCards(bool active = true)
         {
-            uiWeaponShower.gameObject.SetActive(true);
-            uiWeaponShower.ShowWeaponCard();
+            uiWeaponShower.gameObject.SetActive(active);
+            uiWeaponShower.ShowWeaponCard(active);
         }
 
         private void OnPlayerDied(object _)
@@ -222,18 +251,6 @@ namespace Game.Scripts.UI
         {
             winScreen.SetActive(true);
             ActivateUiWeaponCards();
-        }
-        
-        public void OnRestart()
-        {
-            EventCenter.ResetEventCenter();
-            SceneController.Instance.LoadScene(SceneController.ScenesEnum.Game);
-        }
-
-        public void OnQuit()
-        {
-            EventCenter.ResetEventCenter();
-            SceneController.Instance.LoadScene(SceneController.ScenesEnum.MainMenu);
         }
 
         #endregion

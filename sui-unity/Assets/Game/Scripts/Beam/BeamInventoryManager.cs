@@ -77,13 +77,17 @@ namespace MoeBeam.Game.Scripts.Beam
             //await BeamManager.SkullClient.GrantItem(weapon.ContentId, weapon.MetaData.ToDictionary());
         }
 
-        public async UniTask UpdateCurrency(CoinData coinData)
+        public async UniTask UpdateCurrency(GameData.CoinType coinType, bool deduct = false)
         {
-            foreach (var coin in PlayerCoins.Where(coin => coin.CoinType == coinData.coinType))
+            foreach (var coin in PlayerCoins.Where(coin => coin.CoinType == coinType))
             {
-                coin.Amount += coinData.GetCoinValue();
+                if(deduct && coin.Amount < 0) return;
+                var amount = deduct ? -1 : +1;
+                coin.Amount += amount;
+                if(coin.Amount < 0) coin.Amount = 0;
                 _inventoryUpdateBuilder.CurrencyChange(coin.ContentId, coin.Amount);
-                EventCenter.InvokeEvent(GameData.OnCoinCollectedEvent, coin);
+                Dictionary<PlayerCoin, bool> updated = new Dictionary<PlayerCoin, bool> {{coin, deduct}};
+                EventCenter.InvokeEvent(GameData.OnCoinCollectedEvent, updated);
                 break;
             }
 

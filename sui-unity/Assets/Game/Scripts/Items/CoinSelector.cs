@@ -23,7 +23,7 @@ namespace MoeBeam.Game.Scripts.Items
         {
             if (!other.CompareTag(GameData.PlayerTag)) return;
 
-            BeamInventoryManager.Instance.UpdateCurrency(CurrentCoin).Forget();
+            BeamInventoryManager.Instance.UpdateCurrency(CurrentCoin.coinType).Forget();
             GenericPoolManager.Instance.Return(this);
         }
 

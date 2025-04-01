@@ -68,6 +68,7 @@ namespace MoeBeam.Game.Scripts.Enemies
 
         private void Update()
         {
+            if (_isDead) return;
             OnUpdate();
         }
 
