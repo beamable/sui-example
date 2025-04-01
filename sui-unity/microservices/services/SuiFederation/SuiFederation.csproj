@@ -3,7 +3,6 @@
     <PropertyGroup Label="Beamable Settings">
         <!-- All Microservices must have the value, "service" -->
         <BeamProjectType>service</BeamProjectType>
-        <GenerateClientCode>true</GenerateClientCode>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
@@ -26,12 +25,12 @@
         <PackageReference Include="Beamable.Microservice.Runtime" Version="$(BeamableVersion)" />
         <PackageReference Include="Beamable.Microservice.SourceGen" Version="$(BeamableVersion)" OutputItemType="Analyzer" />
         <PackageReference Include="Handlebars.Net" Version="2.1.6" />
-        <PackageReference Include="LazyCache" Version="2.4.0" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\SuiFederationCommon\SuiFederationCommon.csproj" />
       <ProjectReference Include="..\SuiFederationStorage\SuiFederationStorage.csproj" />
+      <ProjectReference Include="..\SuiNodeService\SuiNodeService.csproj" />
     </ItemGroup>
     <ItemGroup>
         <None Include="js\**\*">

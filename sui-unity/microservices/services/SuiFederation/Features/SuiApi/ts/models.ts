@@ -119,6 +119,16 @@ export interface NftUpdateMessage {
     Attributes: Attribute[]
 }
 
+export interface NftDeleteMessage {
+    ProxyId: string;
+    PackageId: string;
+    Module: string;
+    Function: string;
+    PlayerWalletKey: string;
+    PlayerWalletAddress: string;
+    OwnerObjectId: string;
+}
+
 export class CoinToken {
     Id: string;
     Balance: number;

@@ -21,10 +21,5 @@
     
     <ItemGroup Label="Nuget References">
         <PackageReference Include="Beamable.Common" Version="$(BeamableVersion)"/>
-        <ProjectReference Include="..\SuiFederationServices\SuiFederationServices.csproj" />
-    </ItemGroup>
-    
-    <ItemGroup>
-      <Folder Include="Node\" />
     </ItemGroup>
 </Project>
