@@ -17,7 +17,7 @@ import {
     GameCoinBurnMessage,
     RegularCoinBalanceRequest,
     NftUpdateMessage,
-    SetNftOwnerMessage, CoinToken
+    SetNftOwnerMessage, CoinToken, NftDeleteMessage
 } from './models';
 import { retrievePaginatedData,calculateTotalCost,stringToNumber } from "./utils";
 import {MoveValue} from "@mysten/sui/src/client/types/generated";
@@ -740,6 +740,86 @@ async function updateNft(callback: Callback<string>, request: string, realmKey: 
     }
     callback(error, JSON.stringify(result));
 }
+async function burnNft(callback: Callback<string>, request: string, realmKey: string, environment: Environment) {
+    let error = null;
+    const deleteRequests: NftDeleteMessage[] = JSON.parse(request);
+    let result = new SuiTransactionResult();
+    try {
+        const suiClient = getSuiClientInstance(environment);
+        const gameKeypair = Ed25519Keypair.fromSecretKey(realmKey);
+        const playerKeypair = Ed25519Keypair.fromSecretKey(deleteRequests[0].PlayerWalletKey);
+        const gameWallet = gameKeypair.toSuiAddress();
+        const txb = new Transaction();
+        const currentTime = Date.now();
+
+        for (const request of deleteRequests) {
+            const nftIdBytes = bcs.Address.serialize(request.ProxyId).toBytes();
+            const timestampBytes = bcs.u64().serialize(currentTime).toBytes();
+
+            // Combine all serialized bytes into a single Uint8Array
+            const messageBytes = new Uint8Array([
+                ...nftIdBytes,
+                ...timestampBytes,
+            ]);
+
+            const signature = await gameKeypair.sign(messageBytes);
+            const coinTarget: `${string}::${string}::${string}` = `${request.PackageId}::${request.Module}::${request.Function}`;
+            txb.moveCall({
+                target: coinTarget,
+                arguments: [
+                    txb.object(request.ProxyId),
+                    txb.object(request.OwnerObjectId),
+                    txb.object(SUI_CLOCK_OBJECT_ID),
+                    txb.pure.vector("u8", signature),
+                    txb.pure.u64(currentTime),
+                ],
+            });
+        }
+
+        let payment: SuiObjectRef[] = [];
+        const coins = await suiClient.getCoins({ owner: gameWallet, limit: 1 });
+        if (coins.data.length > 0) {
+            payment = coins.data.map((coin) => ({
+                objectId: coin.coinObjectId,
+                version: coin.version,
+                digest: coin.digest,
+            }));
+        } else {
+            throw new Error(`Can't find gas coins from sponsor ${gameWallet}.`);
+        }
+
+        const kindBytes = await txb.build({ onlyTransactionKind: true, client: suiClient });
+        const sponsoredTxb = Transaction.fromKind(kindBytes);
+        sponsoredTxb.setSender(playerKeypair.toSuiAddress());
+        sponsoredTxb.setGasOwner(gameWallet);
+        sponsoredTxb.setGasPayment(payment);
+        const sponsoredBytes = await sponsoredTxb.build({ client: suiClient });
+        const developerSignature = await gameKeypair!.signTransaction(sponsoredBytes);
+        const playerSignature = await playerKeypair!.signTransaction(sponsoredBytes);
+
+        const response = await suiClient.executeTransactionBlock({
+            transactionBlock: sponsoredBytes,
+            signature: [developerSignature.signature, playerSignature.signature],
+            options: {
+                showEffects: true,
+                showEvents: true,
+                showObjectChanges: true,
+            },
+        });
+
+        if (response.effects != null) {
+            result.status = response.effects.status.status;
+            result.gasUsed = calculateTotalCost(response.effects.gasUsed);
+            result.digest = response.effects.transactionDigest;
+            result.objectIds = response.effects.created?.map(o => o.reference.objectId);
+            result.error = response.effects.status.error;
+        }
+
+    } catch (ex) {
+        error = ex;
+    }
+    callback(error, JSON.stringify(result));
+}
 async function objectExists(callback: Callback<string>, itemId: string, environment: Environment) {
     let error = null;
     let result = true;
@@ -773,5 +853,6 @@ module.exports = {
     getGameCoinBalance,
     setNftContractOwner,
     updateNft,
-    objectExists
+    objectExists,
+    burnNft
 };

@@ -58,6 +58,24 @@ public class InventoryService : IService
         }
     }
 
+    public async Task DeleteItems(string transaction, string wallet, IEnumerable<InventoryRequestDelete> deleteItemsRequest)
+    {
+        var messageRequests = await deleteItemsRequest.ParallelGroupByAsync(
+            async request =>
+            {
+                var contentObject = await _contentService.GetContent(request.ContentId);
+                var handler = _contentHandlerFactory.GetHandler(contentObject);
+                var messages = await handler.ConstructMessage(transaction, wallet, request, contentObject);
+                return (key: handler, value: messages);
+            }
+        );
+
+        foreach (var request in messageRequests)
+        {
+            await request.Key.SendMessages(transaction, request.Value);
+        }
+    }
+
     public async Task<FederatedInventoryProxyState> GetLastKnownState(string id)
     {
         var lastKnownState = await _inventoryStateCollection.Get(id.ToLower());

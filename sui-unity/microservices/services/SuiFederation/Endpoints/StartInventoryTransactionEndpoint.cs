@@ -45,6 +45,11 @@ public class StartInventoryTransactionEndpoint : IEndpoint
                     .ToDictionary(kvp => kvp.Key, kvp => kvp.Value)));
             await _inventoryService.UpdateItems(transactionId.ToString(), id, updateItemsRequest);
 
+            // DELETE ITEMS
+            var deleteItemsRequest = deleteItems.Select(i => new InventoryRequestDelete(_requestContext.UserId,
+                i.contentId, i.proxyId));
+            await _inventoryService.DeleteItems(transactionId.ToString(), id, deleteItemsRequest);
+
             await _updatePlayerStateService.Update(new InventoryTransactionNotification
             {
                 InventoryTransactionId = transaction

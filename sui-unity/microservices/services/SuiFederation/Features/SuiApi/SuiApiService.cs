@@ -241,6 +241,25 @@ public class SuiApiService : IService
         }
     }
 
+    public async Task<SuiTransactionResult> DeleteNft(List<NftDeleteMessage> request)
+    {
+        using (new Measure($"Sui.DeleteNft"))
+        {
+            try
+            {
+                var environment = await _configuration.SuiEnvironment;
+                var realmAccount = await _accountsService.GetOrCreateRealmAccount();
+                var mintRequestJson = JsonSerializer.Serialize(request);
+                var result = await NodeService.DeleteNfts(mintRequestJson, realmAccount.PrivateKey, environment);
+                return JsonSerializer.Deserialize<SuiTransactionResult>(result) ?? throw new Exception();
+            }
+            catch (Exception ex)
+            {
+                throw new SuiApiException($"DeleteNft: {ex.Message}");
+            }
+        }
+    }
+
     public async Task<SuiTransactionResult> UpdateNft(List<NftUpdateMessage> request)
     {
         using (new Measure($"Sui.UpdateNft"))

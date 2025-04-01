@@ -181,6 +181,21 @@ namespace SuiNodeServicve
         }
 
         /// <summary>
+        /// DeleteNfts
+        /// </summary>
+        /// <param name="deleteRequestJson"></param>
+        /// <param name="realmAccountPrivateKey"></param>
+        /// <param name="environment"></param>
+        /// <returns></returns>
+        public static async Task<string> DeleteNfts(string deleteRequestJson, string realmAccountPrivateKey, string environment)
+        {
+            return await StaticNodeJSService.InvokeFromFileAsync<string>(
+                BridgeModulePath,
+                "burnNft",
+                new object[] { deleteRequestJson, realmAccountPrivateKey, environment }) ?? "";
+        }
+
+        /// <summary>
         /// SetNftContractOwner
         /// </summary>
         /// <param name="requestJson"></param>
