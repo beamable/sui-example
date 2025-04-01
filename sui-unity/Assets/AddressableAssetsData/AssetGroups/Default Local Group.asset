@@ -13,13 +13,36 @@ MonoBehaviour:
   m_Name: Default Local Group
   m_EditorClassIdentifier: 
   m_GroupName: Default Local Group
-  m_Data:
-    m_SerializedData: []
-  m_GUID: 03aaa47401f3cce41a260c3ce2d5db1d
-  m_SerializeEntries: []
+  m_GUID: c7ee800bd160f6145983406a107a069f
+  m_SerializeEntries:
+  - m_GUID: 03da7715b0e5224409e499a9b6a31ced
+    m_Address: Assets/Game/Texture/Weapons/Star_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 10ecbb552394de84790ae267c0257d58
+    m_Address: Assets/Game/Texture/Weapons/Hammer_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1d5908bdab09d044b88b3c800313c3db
+    m_Address: Assets/Game/Texture/Weapons/Sword_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e2e0076e56517e4d8d587dc14815641
+    m_Address: Assets/Game/Texture/Weapons/Spear_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e7f451284ec95347b9b3dca3c4e79c2
+    m_Address: Assets/Game/Texture/Weapons/Shivs_1.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a986661620ef8c04e9aa01eeac7ba114, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 8f4c21903c6b50143a151f9f6fe361e3, type: 2}
     - {fileID: 11400000, guid: 3afebf2d1f1178b489305bb7a38a1b33, type: 2}
+    - {fileID: 11400000, guid: 8f4c21903c6b50143a151f9f6fe361e3, type: 2}

@@ -1,0 +1,1235 @@
+fileFormatVersion: 2
+guid: e810383e5befb5d489d3057f8697b64b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1076702129705427718
+    second: chara_spider_0
+  - first:
+      213: 257065890648430047
+    second: chara_spider_1
+  - first:
+      213: 7520269969922501926
+    second: chara_spider_2
+  - first:
+      213: -5986022317382778082
+    second: chara_spider_3
+  - first:
+      213: 3761428991860649964
+    second: chara_spider_4
+  - first:
+      213: -4088062601134793819
+    second: chara_spider_5
+  - first:
+      213: -2506724770055675070
+    second: chara_spider_6
+  - first:
+      213: -3761754956100285717
+    second: chara_spider_7
+  - first:
+      213: -6472214163741646697
+    second: chara_spider_8
+  - first:
+      213: 3550581604325224107
+    second: chara_spider_9
+  - first:
+      213: -4236887294250283341
+    second: chara_spider_10
+  - first:
+      213: 2595514370393083624
+    second: chara_spider_11
+  - first:
+      213: 7500802446533632808
+    second: chara_spider_12
+  - first:
+      213: -5164784018283632352
+    second: chara_spider_13
+  - first:
+      213: 7864052932554043826
+    second: chara_spider_14
+  - first:
+      213: -3586390549535695601
+    second: chara_spider_15
+  - first:
+      213: 509720295989450273
+    second: chara_spider_16
+  - first:
+      213: 5894012807037563530
+    second: chara_spider_17
+  - first:
+      213: -2225360395644593184
+    second: chara_spider_18
+  - first:
+      213: -4868224565312246740
+    second: chara_spider_19
+  - first:
+      213: -5631060290326876357
+    second: chara_spider_20
+  - first:
+      213: -6475796298877758878
+    second: chara_spider_21
+  - first:
+      213: 7555686737391022714
+    second: chara_spider_22
+  - first:
+      213: 6236314126752302898
+    second: chara_spider_23
+  - first:
+      213: 4670137564566791828
+    second: chara_spider_24
+  - first:
+      213: -957763867963781621
+    second: chara_spider_25
+  - first:
+      213: 2955673820864307273
+    second: chara_spider_26
+  - first:
+      213: 4149658774226547802
+    second: chara_spider_27
+  - first:
+      213: 8746698100869687632
+    second: chara_spider_28
+  - first:
+      213: 3962477359747525929
+    second: chara_spider_29
+  - first:
+      213: -4411484034876415950
+    second: chara_spider_30
+  - first:
+      213: -924763657212877731
+    second: chara_spider_31
+  - first:
+      213: -8221856388917009023
+    second: chara_spider_32
+  - first:
+      213: -4619391253818354658
+    second: chara_spider_33
+  - first:
+      213: -3385537214803498727
+    second: chara_spider_34
+  - first:
+      213: 7624782262251997250
+    second: chara_spider_35
+  - first:
+      213: 751381260279857715
+    second: chara_spider_36
+  - first:
+      213: 1524691903944644854
+    second: chara_spider_37
+  - first:
+      213: -6243242244013681811
+    second: chara_spider_38
+  - first:
+      213: -2773082734337991438
+    second: chara_spider_39
+  - first:
+      213: 1220846503343027155
+    second: chara_spider_40
+  - first:
+      213: 2142985349656711219
+    second: chara_spider_41
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: chara_spider_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 495
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afc500e1e19ce01f0800000000000000
+      internalID: -1076702129705427718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_1
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 495
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd518f7c018419300800000000000000
+      internalID: 257065890648430047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_2
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 495
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62da44c81bd5d5860800000000000000
+      internalID: 7520269969922501926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_3
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 448
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e13c6daea606deca0800000000000000
+      internalID: -5986022317382778082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_4
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 447
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cefa5bb3db7433430800000000000000
+      internalID: 3761428991860649964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_5
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 447
+        width: 22
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ab1dc749b84447c0800000000000000
+      internalID: -4088062601134793819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_6
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 398
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 243a8235a13563dd0800000000000000
+      internalID: -2506724770055675070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_7
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 399
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: beac39d4ccf8bcbc0800000000000000
+      internalID: -3761754956100285717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_8
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 398
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7906de362831e26a0800000000000000
+      internalID: -6472214163741646697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_9
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 399
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bae67d74823364130800000000000000
+      internalID: 3550581604325224107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_10
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 350
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3be88d0347d8335c0800000000000000
+      internalID: -4236887294250283341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_11
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 350
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ee83b8719e150420800000000000000
+      internalID: 2595514370393083624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_12
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 350
+        width: 22
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 823a40c8514381860800000000000000
+      internalID: 7500802446533632808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_13
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 350
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 029e690bc400358b0800000000000000
+      internalID: -5164784018283632352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_14
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 303
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b1b0c30a7ab22d60800000000000000
+      internalID: 7864052932554043826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_15
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 304
+        width: 22
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0d5b15fbc49a3ec0800000000000000
+      internalID: -3586390549535695601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_16
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 303
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 126124998e3e21700800000000000000
+      internalID: 509720295989450273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_17
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 304
+        width: 22
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a82b3119b6dbbc150800000000000000
+      internalID: 5894012807037563530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_18
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 257
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0eb9168b28eed11e0800000000000000
+      internalID: -2225360395644593184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_19
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 248
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2cabb10d87907cb0800000000000000
+      internalID: -4868224565312246740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_20
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 248
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3f224620847ad1b0800000000000000
+      internalID: -5631060290326876357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_21
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 250
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2621a9f83995126a0800000000000000
+      internalID: -6475796298877758878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_22
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 207
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7272505e013bd860800000000000000
+      internalID: 7555686737391022714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_23
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 207
+        width: 23
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23742d828a6db8650800000000000000
+      internalID: 6236314126752302898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_24
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 207
+        width: 23
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 496263c1f59afc040800000000000000
+      internalID: 4670137564566791828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_25
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 207
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0e805726d655b2f0800000000000000
+      internalID: -957763867963781621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_26
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 157
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 940e9842ea9a40920800000000000000
+      internalID: 2955673820864307273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_27
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 161
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a543bd85bac869930800000000000000
+      internalID: 4149658774226547802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_28
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 162
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 059ebeba493826970800000000000000
+      internalID: 8746698100869687632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_29
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 162
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92d67422a2c8df630800000000000000
+      internalID: 3962477359747525929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_30
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 110
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23062e0b4a247c2c0800000000000000
+      internalID: -4411484034876415950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_31
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 113
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d54a2a67a549a23f0800000000000000
+      internalID: -924763657212877731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_32
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 113
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1856350fc2916ed80800000000000000
+      internalID: -8221856388917009023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_33
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 111
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e145c951120a4efb0800000000000000
+      internalID: -4619391253818354658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_34
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 63
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 919a5c927d72401d0800000000000000
+      internalID: -3385537214803498727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_35
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 63
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 248ca37d11ba0d960800000000000000
+      internalID: 7624782262251997250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_36
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 63
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 332cdd576417d6a00800000000000000
+      internalID: 751381260279857715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_37
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 63
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f8d88e553bc82510800000000000000
+      internalID: 1524691903944644854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_38
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 13
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d631ad6d14c8b59a0800000000000000
+      internalID: -6243242244013681811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_39
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 13
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fcd30f02f70489d0800000000000000
+      internalID: -2773082734337991438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_40
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 13
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d3f90d2d6151f010800000000000000
+      internalID: 1220846503343027155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_spider_41
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 15
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 330972d42d96dbd10800000000000000
+      internalID: 2142985349656711219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      chara_spider_0: -1076702129705427718
+      chara_spider_1: 257065890648430047
+      chara_spider_10: -4236887294250283341
+      chara_spider_11: 2595514370393083624
+      chara_spider_12: 7500802446533632808
+      chara_spider_13: -5164784018283632352
+      chara_spider_14: 7864052932554043826
+      chara_spider_15: -3586390549535695601
+      chara_spider_16: 509720295989450273
+      chara_spider_17: 5894012807037563530
+      chara_spider_18: -2225360395644593184
+      chara_spider_19: -4868224565312246740
+      chara_spider_2: 7520269969922501926
+      chara_spider_20: -5631060290326876357
+      chara_spider_21: -6475796298877758878
+      chara_spider_22: 7555686737391022714
+      chara_spider_23: 6236314126752302898
+      chara_spider_24: 4670137564566791828
+      chara_spider_25: -957763867963781621
+      chara_spider_26: 2955673820864307273
+      chara_spider_27: 4149658774226547802
+      chara_spider_28: 8746698100869687632
+      chara_spider_29: 3962477359747525929
+      chara_spider_3: -5986022317382778082
+      chara_spider_30: -4411484034876415950
+      chara_spider_31: -924763657212877731
+      chara_spider_32: -8221856388917009023
+      chara_spider_33: -4619391253818354658
+      chara_spider_34: -3385537214803498727
+      chara_spider_35: 7624782262251997250
+      chara_spider_36: 751381260279857715
+      chara_spider_37: 1524691903944644854
+      chara_spider_38: -6243242244013681811
+      chara_spider_39: -2773082734337991438
+      chara_spider_4: 3761428991860649964
+      chara_spider_40: 1220846503343027155
+      chara_spider_41: 2142985349656711219
+      chara_spider_5: -4088062601134793819
+      chara_spider_6: -2506724770055675070
+      chara_spider_7: -3761754956100285717
+      chara_spider_8: -6472214163741646697
+      chara_spider_9: 3550581604325224107
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

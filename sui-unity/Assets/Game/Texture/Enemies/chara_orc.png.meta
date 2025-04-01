@@ -1,0 +1,1235 @@
+fileFormatVersion: 2
+guid: bbab71dcea4c54541b4d741552a98ef7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8128332906091745300
+    second: chara_orc_0
+  - first:
+      213: -2086670146494573493
+    second: chara_orc_1
+  - first:
+      213: 2358029714113662756
+    second: chara_orc_2
+  - first:
+      213: 6077748579478723433
+    second: chara_orc_3
+  - first:
+      213: 2083811462700924655
+    second: chara_orc_4
+  - first:
+      213: -7647880909179190140
+    second: chara_orc_5
+  - first:
+      213: 1648180480872632153
+    second: chara_orc_6
+  - first:
+      213: 7678875041034370497
+    second: chara_orc_7
+  - first:
+      213: 2233259538363697868
+    second: chara_orc_8
+  - first:
+      213: 7070033271478954515
+    second: chara_orc_9
+  - first:
+      213: -3121480175775408091
+    second: chara_orc_10
+  - first:
+      213: -650303251938834558
+    second: chara_orc_11
+  - first:
+      213: 972338861412812315
+    second: chara_orc_12
+  - first:
+      213: 145721681120365156
+    second: chara_orc_13
+  - first:
+      213: -2757018368474254069
+    second: chara_orc_14
+  - first:
+      213: 8160545263173687849
+    second: chara_orc_15
+  - first:
+      213: 495544408497030434
+    second: chara_orc_16
+  - first:
+      213: -7106377250910815866
+    second: chara_orc_17
+  - first:
+      213: -5739634101903565831
+    second: chara_orc_18
+  - first:
+      213: -6344709082366983514
+    second: chara_orc_19
+  - first:
+      213: -4050211602725950701
+    second: chara_orc_20
+  - first:
+      213: 7817695870714034562
+    second: chara_orc_21
+  - first:
+      213: -8296493151355113552
+    second: chara_orc_22
+  - first:
+      213: -4060460597594104431
+    second: chara_orc_23
+  - first:
+      213: -1330536205315326549
+    second: chara_orc_24
+  - first:
+      213: 4427377743097314788
+    second: chara_orc_25
+  - first:
+      213: -6516918441857327790
+    second: chara_orc_26
+  - first:
+      213: -4334671969430264227
+    second: chara_orc_27
+  - first:
+      213: 7450106298943114988
+    second: chara_orc_28
+  - first:
+      213: -7891371246599922157
+    second: chara_orc_29
+  - first:
+      213: -8469964300719527015
+    second: chara_orc_30
+  - first:
+      213: 5492581762990098867
+    second: chara_orc_31
+  - first:
+      213: -6928460297392800198
+    second: chara_orc_32
+  - first:
+      213: 3883907378078227763
+    second: chara_orc_33
+  - first:
+      213: 2511025894363781465
+    second: chara_orc_34
+  - first:
+      213: 6957095945720681163
+    second: chara_orc_35
+  - first:
+      213: -5551567382813435061
+    second: chara_orc_36
+  - first:
+      213: -6116215736995796974
+    second: chara_orc_37
+  - first:
+      213: -1838275138236292379
+    second: chara_orc_38
+  - first:
+      213: -3668259239464493764
+    second: chara_orc_39
+  - first:
+      213: 3898338795152037984
+    second: chara_orc_40
+  - first:
+      213: 4311621869292627217
+    second: chara_orc_41
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 12
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: chara_orc_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 495
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41097bb56b3adc070800000000000000
+      internalID: 8128332906091745300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_1
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 495
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4457c2be88aa03e0800000000000000
+      internalID: -2086670146494573493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_2
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 495
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42f8f87188769b020800000000000000
+      internalID: 2358029714113662756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_3
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 447
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96bd6f9b120885450800000000000000
+      internalID: 6077748579478723433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_4
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 447
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: feefc2d1c7f2bec10800000000000000
+      internalID: 2083811462700924655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_5
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 447
+        width: 21
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48402e355d44dd590800000000000000
+      internalID: -7647880909179190140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_6
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 399
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95f45283a638fd610800000000000000
+      internalID: 1648180480872632153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_7
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 399
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cd77775a28d09a60800000000000000
+      internalID: 7678875041034370497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_8
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 399
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccacb63c7b12efe10800000000000000
+      internalID: 2233259538363697868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_9
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 399
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31a22b04dcdcd1260800000000000000
+      internalID: 7070033271478954515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_10
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 351
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 520ab7581564ea4d0800000000000000
+      internalID: -3121480175775408091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_11
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 351
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28787e743a8a9f6f0800000000000000
+      internalID: -650303251938834558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_12
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 351
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1681d3fa017e7d00800000000000000
+      internalID: 972338861412812315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_13
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 351
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46a804fc815b50200800000000000000
+      internalID: 145721681120365156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_14
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 303
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b057dd3b66a1db9d0800000000000000
+      internalID: -2757018368474254069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_15
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 303
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92ad6f03ea4104170800000000000000
+      internalID: 8160545263173687849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_16
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 303
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22585e6930780e600800000000000000
+      internalID: 495544408497030434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_17
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 303
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6893b8f9a83116d90800000000000000
+      internalID: -7106377250910815866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_18
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 255
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fbd157b139b850b0800000000000000
+      internalID: -5739634101903565831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_19
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 242
+        width: 19
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a2425e84b013f7a0800000000000000
+      internalID: -6344709082366983514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_20
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 242
+        width: 19
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31baa5a9102cac7c0800000000000000
+      internalID: -4050211602725950701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_21
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 247
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 289b2f779f80e7c60800000000000000
+      internalID: 7817695870714034562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_22
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 207
+        width: 22
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bf64008f6fecdc80800000000000000
+      internalID: -8296493151355113552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_23
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 207
+        width: 28
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19ddee7899856a7c0800000000000000
+      internalID: -4060460597594104431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_24
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 207
+        width: 28
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bad3269ee5cf88de0800000000000000
+      internalID: -1330536205315326549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_25
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 207
+        width: 28
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ed39cf9994317d30800000000000000
+      internalID: 4427377743097314788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_26
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 156
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25dd6ea84314f85a0800000000000000
+      internalID: -6516918441857327790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_27
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 154
+        width: 17
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5624445fc628d3c0800000000000000
+      internalID: -4334671969430264227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_28
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 159
+        width: 17
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cee876fd438146760800000000000000
+      internalID: 7450106298943114988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_29
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 159
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31e1ea759a73c7290800000000000000
+      internalID: -7891371246599922157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_30
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 111
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99b6f532854a47a80800000000000000
+      internalID: -8469964300719527015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_31
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 112
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b940d23302993c40800000000000000
+      internalID: 5492581762990098867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_32
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 111
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3e318d611a29df90800000000000000
+      internalID: -6928460297392800198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_33
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 111
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33d1fdabe2966e530800000000000000
+      internalID: 3883907378078227763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_34
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 63
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9595c573fb4f8d220800000000000000
+      internalID: 2511025894363781465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_35
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 63
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc2ddf007e19c8060800000000000000
+      internalID: 6957095945720681163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_36
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 63
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4b92c8f0eed4f2b0800000000000000
+      internalID: -5551567382813435061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_37
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 63
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21826ba3136de1ba0800000000000000
+      internalID: -6116215736995796974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_38
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 15
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e26ef950822d76e0800000000000000
+      internalID: -1838275138236292379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_39
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 14
+        width: 19
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3d9caf28a9b71dc0800000000000000
+      internalID: -3668259239464493764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_40
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 15
+        width: 19
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 068592bda7ea91630800000000000000
+      internalID: 3898338795152037984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_orc_41
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 15
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1152ef40f35f5db30800000000000000
+      internalID: 4311621869292627217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      chara_orc_0: 8128332906091745300
+      chara_orc_1: -2086670146494573493
+      chara_orc_10: -3121480175775408091
+      chara_orc_11: -650303251938834558
+      chara_orc_12: 972338861412812315
+      chara_orc_13: 145721681120365156
+      chara_orc_14: -2757018368474254069
+      chara_orc_15: 8160545263173687849
+      chara_orc_16: 495544408497030434
+      chara_orc_17: -7106377250910815866
+      chara_orc_18: -5739634101903565831
+      chara_orc_19: -6344709082366983514
+      chara_orc_2: 2358029714113662756
+      chara_orc_20: -4050211602725950701
+      chara_orc_21: 7817695870714034562
+      chara_orc_22: -8296493151355113552
+      chara_orc_23: -4060460597594104431
+      chara_orc_24: -1330536205315326549
+      chara_orc_25: 4427377743097314788
+      chara_orc_26: -6516918441857327790
+      chara_orc_27: -4334671969430264227
+      chara_orc_28: 7450106298943114988
+      chara_orc_29: -7891371246599922157
+      chara_orc_3: 6077748579478723433
+      chara_orc_30: -8469964300719527015
+      chara_orc_31: 5492581762990098867
+      chara_orc_32: -6928460297392800198
+      chara_orc_33: 3883907378078227763
+      chara_orc_34: 2511025894363781465
+      chara_orc_35: 6957095945720681163
+      chara_orc_36: -5551567382813435061
+      chara_orc_37: -6116215736995796974
+      chara_orc_38: -1838275138236292379
+      chara_orc_39: -3668259239464493764
+      chara_orc_4: 2083811462700924655
+      chara_orc_40: 3898338795152037984
+      chara_orc_41: 4311621869292627217
+      chara_orc_5: -7647880909179190140
+      chara_orc_6: 1648180480872632153
+      chara_orc_7: 7678875041034370497
+      chara_orc_8: 2233259538363697868
+      chara_orc_9: 7070033271478954515
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

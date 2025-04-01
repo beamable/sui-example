@@ -16,6 +16,7 @@ MonoBehaviour:
   icon:
     m_AssetGUID: 10ecbb552394de84790ae267c0257d58
     m_SubObjectName: Hammer_1
+    m_SubObjectGUID: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   clientPermission:
@@ -27,7 +28,7 @@ MonoBehaviour:
       Namespace: SuiIdentity
   name: Hammer of Might
   description: Mjollnir is no match for its might.
-  image: https://cdn.pixabay.com/photo/2012/04/15/20/07/light-35144_1280.png
+  image: https://content.beamable.com/1689160644344843/DE_1853654318472192/binary/public/hammer-sui.webp/54d15a355ace8c8921dd002b59b500ae
   customProperties:
     keys:
     - Damage

@@ -16,6 +16,7 @@ MonoBehaviour:
   icon:
     m_AssetGUID: 4e7f451284ec95347b9b3dca3c4e79c2
     m_SubObjectName: Shivs_1
+    m_SubObjectGUID: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   clientPermission:
@@ -27,7 +28,7 @@ MonoBehaviour:
       Namespace: SuiIdentity
   name: Shiv
   description: 'Basic but deadly. '
-  image: https://cdn.pixabay.com/photo/2012/04/15/20/07/light-35144_1280.png
+  image: https://content.beamable.com/1689160644344843/DE_1853654318472192/binary/public/shiv-sui.webp/6617f6d55920ee4b93a6af11dcdd72aa
   customProperties:
     keys:
     - Damage

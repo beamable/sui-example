@@ -1,7 +1,11 @@
 using System.Threading.Tasks;
 using Jering.Javascript.NodeJS;
 
+<<<<<<<< HEAD:sui-unity/microservices/services/SuiFederationServices/Node/NodeService.cs
+namespace SuiFederationServices.Node
+========
 namespace SuiNodeServicve
+>>>>>>>> 85dd83fcc83fa5118bc2a38d331feda53014be4e:sui-unity/microservices/services/SuiNodeService/NodeService.cs
 {
     /// <summary>
     /// Service for calling SUI SDK functions

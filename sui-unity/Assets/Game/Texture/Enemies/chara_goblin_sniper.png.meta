@@ -1,0 +1,1235 @@
+fileFormatVersion: 2
+guid: 4967633059a54ed408ccf162269034a4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 88669602436066072
+    second: chara_goblin_sniper_0
+  - first:
+      213: -6799039933663954384
+    second: chara_goblin_sniper_1
+  - first:
+      213: 7390555321244711290
+    second: chara_goblin_sniper_2
+  - first:
+      213: 8931969567082724023
+    second: chara_goblin_sniper_3
+  - first:
+      213: 624775592168249674
+    second: chara_goblin_sniper_4
+  - first:
+      213: -5041836950365975642
+    second: chara_goblin_sniper_5
+  - first:
+      213: 1092334859871396621
+    second: chara_goblin_sniper_6
+  - first:
+      213: -5989707506840454625
+    second: chara_goblin_sniper_7
+  - first:
+      213: 863969824479301555
+    second: chara_goblin_sniper_8
+  - first:
+      213: -1977537149119456604
+    second: chara_goblin_sniper_9
+  - first:
+      213: 993441771238555681
+    second: chara_goblin_sniper_10
+  - first:
+      213: -6197425071804339370
+    second: chara_goblin_sniper_11
+  - first:
+      213: -5310710924121222607
+    second: chara_goblin_sniper_12
+  - first:
+      213: 6394271917036068111
+    second: chara_goblin_sniper_13
+  - first:
+      213: -7660083675047233821
+    second: chara_goblin_sniper_14
+  - first:
+      213: -9047093101367847526
+    second: chara_goblin_sniper_15
+  - first:
+      213: 747574584346010971
+    second: chara_goblin_sniper_16
+  - first:
+      213: -3048041264300048055
+    second: chara_goblin_sniper_17
+  - first:
+      213: -2687023568762245124
+    second: chara_goblin_sniper_18
+  - first:
+      213: 7397867399564853195
+    second: chara_goblin_sniper_19
+  - first:
+      213: -7982670310034774711
+    second: chara_goblin_sniper_20
+  - first:
+      213: -2275416905546505384
+    second: chara_goblin_sniper_21
+  - first:
+      213: -2291284191752083244
+    second: chara_goblin_sniper_22
+  - first:
+      213: 2280781411899562350
+    second: chara_goblin_sniper_23
+  - first:
+      213: 5840916195184452808
+    second: chara_goblin_sniper_24
+  - first:
+      213: 1641645656706375827
+    second: chara_goblin_sniper_25
+  - first:
+      213: 1115245476840250788
+    second: chara_goblin_sniper_26
+  - first:
+      213: 7776258910968348753
+    second: chara_goblin_sniper_27
+  - first:
+      213: -3139433795229411611
+    second: chara_goblin_sniper_28
+  - first:
+      213: -6566462950389972762
+    second: chara_goblin_sniper_29
+  - first:
+      213: 5056262549310145310
+    second: chara_goblin_sniper_30
+  - first:
+      213: 5762067433111214359
+    second: chara_goblin_sniper_31
+  - first:
+      213: 7889707784937718442
+    second: chara_goblin_sniper_32
+  - first:
+      213: 5629291191328956223
+    second: chara_goblin_sniper_33
+  - first:
+      213: 7301990349359056715
+    second: chara_goblin_sniper_34
+  - first:
+      213: 2484802722655044617
+    second: chara_goblin_sniper_35
+  - first:
+      213: -275550708059847546
+    second: chara_goblin_sniper_36
+  - first:
+      213: -196938715265286695
+    second: chara_goblin_sniper_37
+  - first:
+      213: 8197537674616188362
+    second: chara_goblin_sniper_38
+  - first:
+      213: 1332423388565682919
+    second: chara_goblin_sniper_39
+  - first:
+      213: -4734100832445103619
+    second: chara_goblin_sniper_40
+  - first:
+      213: 8791268927270731972
+    second: chara_goblin_sniper_41
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 12
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: chara_goblin_sniper_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 495
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81ba39b98840b3100800000000000000
+      internalID: 88669602436066072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_1
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 495
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03ab3440435f4a1a0800000000000000
+      internalID: -6799039933663954384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_2
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 495
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a79f9a768e6809660800000000000000
+      internalID: 7390555321244711290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_3
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 447
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bab0966ffab4fb70800000000000000
+      internalID: 8931969567082724023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_4
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 447
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a49d5834716aba800800000000000000
+      internalID: 624775592168249674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_5
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 447
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ab4ff5a10cc70ab0800000000000000
+      internalID: -5041836950365975642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_6
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 397
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d03296284c0c82f00800000000000000
+      internalID: 1092334859871396621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_7
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 397
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1ab842e1c840eca0800000000000000
+      internalID: -5989707506840454625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_8
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 397
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bfceb45aff6dfb00800000000000000
+      internalID: 863969824479301555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_9
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 397
+        width: 22
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4aa9898b0706e84e0800000000000000
+      internalID: -1977537149119456604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_10
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 351
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12085b7070a69cd00800000000000000
+      internalID: 993441771238555681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_11
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 351
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65ba0098bb25ef9a0800000000000000
+      internalID: -6197425071804339370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_12
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 351
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 132d7f64d809c46b0800000000000000
+      internalID: -5310710924121222607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_13
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 351
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0dd0342e640db850800000000000000
+      internalID: 6394271917036068111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_14
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 303
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e67a0f7b7ae1b590800000000000000
+      internalID: -7660083675047233821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_15
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 303
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a95151302c4427280800000000000000
+      internalID: -9047093101367847526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_16
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 303
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b55ed07af1bef5a00800000000000000
+      internalID: 747574584346010971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_17
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 303
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 941c9ac8e9e23b5d0800000000000000
+      internalID: -3048041264300048055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_18
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 254
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cffe2d8fc46c5bad0800000000000000
+      internalID: -2687023568762245124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_19
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 255
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcf718e44318aa660800000000000000
+      internalID: 7397867399564853195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_20
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 253
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 945e153a5abd73190800000000000000
+      internalID: -7982670310034774711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_21
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 254
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8536bfc41681c60e0800000000000000
+      internalID: -2275416905546505384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_22
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 207
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d82627da29b330e0800000000000000
+      internalID: -2291284191752083244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_23
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 207
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e69569a2c96f6af10800000000000000
+      internalID: 2280781411899562350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_24
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 207
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c4abc0455a1f0150800000000000000
+      internalID: 5840916195184452808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_25
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 207
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 390eb07e60c48c610800000000000000
+      internalID: 1641645656706375827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_26
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 159
+        width: 15
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ad9c643ad52a7f00800000000000000
+      internalID: 1115245476840250788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_27
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 158
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1500cb57742daeb60800000000000000
+      internalID: 7776258910968348753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_28
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 159
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e69e7fb89d7e64d0800000000000000
+      internalID: -3139433795229411611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_29
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 159
+        width: 15
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e00e3bbcbc3fd4a0800000000000000
+      internalID: -6566462950389972762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_30
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 111
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e130eb6dff37b2640800000000000000
+      internalID: 5056262549310145310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_31
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 111
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 719d07a3dc9f6ff40800000000000000
+      internalID: 5762067433111214359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_32
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 111
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa2c8decd6fdd7d60800000000000000
+      internalID: 7889707784937718442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_33
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 111
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3fd56463824f1e40800000000000000
+      internalID: 5629291191328956223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_34
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 63
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4780eef881e55560800000000000000
+      internalID: 7301990349359056715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_35
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 63
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90407c449eacb7220800000000000000
+      internalID: 2484802722655044617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_36
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 63
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6844c78471c0d2cf0800000000000000
+      internalID: -275550708059847546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_37
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 63
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9dd371a2845544df0800000000000000
+      internalID: -196938715265286695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_38
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 15
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acd2168251183c170800000000000000
+      internalID: 8197537674616188362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_39
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 14
+        width: 21
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ea31ed2308bd7210800000000000000
+      internalID: 1332423388565682919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_40
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 15
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df18a3f00681d4eb0800000000000000
+      internalID: -4734100832445103619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_goblin_sniper_41
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 15
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c0c6eed28cd00a70800000000000000
+      internalID: 8791268927270731972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      chara_goblin_sniper_0: 88669602436066072
+      chara_goblin_sniper_1: -6799039933663954384
+      chara_goblin_sniper_10: 993441771238555681
+      chara_goblin_sniper_11: -6197425071804339370
+      chara_goblin_sniper_12: -5310710924121222607
+      chara_goblin_sniper_13: 6394271917036068111
+      chara_goblin_sniper_14: -7660083675047233821
+      chara_goblin_sniper_15: -9047093101367847526
+      chara_goblin_sniper_16: 747574584346010971
+      chara_goblin_sniper_17: -3048041264300048055
+      chara_goblin_sniper_18: -2687023568762245124
+      chara_goblin_sniper_19: 7397867399564853195
+      chara_goblin_sniper_2: 7390555321244711290
+      chara_goblin_sniper_20: -7982670310034774711
+      chara_goblin_sniper_21: -2275416905546505384
+      chara_goblin_sniper_22: -2291284191752083244
+      chara_goblin_sniper_23: 2280781411899562350
+      chara_goblin_sniper_24: 5840916195184452808
+      chara_goblin_sniper_25: 1641645656706375827
+      chara_goblin_sniper_26: 1115245476840250788
+      chara_goblin_sniper_27: 7776258910968348753
+      chara_goblin_sniper_28: -3139433795229411611
+      chara_goblin_sniper_29: -6566462950389972762
+      chara_goblin_sniper_3: 8931969567082724023
+      chara_goblin_sniper_30: 5056262549310145310
+      chara_goblin_sniper_31: 5762067433111214359
+      chara_goblin_sniper_32: 7889707784937718442
+      chara_goblin_sniper_33: 5629291191328956223
+      chara_goblin_sniper_34: 7301990349359056715
+      chara_goblin_sniper_35: 2484802722655044617
+      chara_goblin_sniper_36: -275550708059847546
+      chara_goblin_sniper_37: -196938715265286695
+      chara_goblin_sniper_38: 8197537674616188362
+      chara_goblin_sniper_39: 1332423388565682919
+      chara_goblin_sniper_4: 624775592168249674
+      chara_goblin_sniper_40: -4734100832445103619
+      chara_goblin_sniper_41: 8791268927270731972
+      chara_goblin_sniper_5: -5041836950365975642
+      chara_goblin_sniper_6: 1092334859871396621
+      chara_goblin_sniper_7: -5989707506840454625
+      chara_goblin_sniper_8: 863969824479301555
+      chara_goblin_sniper_9: -1977537149119456604
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
