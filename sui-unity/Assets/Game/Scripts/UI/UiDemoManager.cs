@@ -58,6 +58,7 @@ namespace Game.Scripts.UI
         [SerializeField] private TextMeshProUGUI enemiesKilledText;
         [SerializeField] private AudioClip deathLoopMusic;
         [SerializeField] private UiDemoWeaponShower uiWeaponShower;
+        [SerializeField] private GameObject settingsPanel;
         
         #endregion
 
@@ -112,7 +113,6 @@ namespace Game.Scripts.UI
                         break;
                 }
             }
-            
         }
 
         private void OnWeaponLeveledUp(object obj)
@@ -139,17 +139,36 @@ namespace Game.Scripts.UI
         #endregion
 
         #region PUBLIC_METHODS
-
-        #endregion
-
-        #region PRIVATE_METHODS
+        
+        public void OnOpenSettings(bool open)
+        {
+            settingsPanel.SetActive(open);
+            Time.timeScale = open ? 0f : 1f;
+            ActivateUiWeaponCards(open);
+        }
         
         public void OpenExternalLink()
         {
             var url = SuiUrl + BeamAccountManager.Instance.CurrentAccount.ExternalIdentities[0].userId;
             Application.OpenURL(url);
         }
+        
+        public void OnRestart()
+        {
+            EventCenter.ResetEventCenter();
+            SceneController.Instance.LoadScene(SceneController.ScenesEnum.Game);
+        }
 
+        public void OnQuit()
+        {
+            EventCenter.ResetEventCenter();
+            SceneController.Instance.LoadScene(SceneController.ScenesEnum.MainMenu);
+        }
+
+        #endregion
+
+        #region PRIVATE_METHODS
+        
         private void SetPlayerIcons()
         {
             var melee = BeamWeaponContentManager.Instance.GetOwnedMeleeWeapon().Icon;
@@ -188,10 +207,10 @@ namespace Game.Scripts.UI
             enemiesKilledText.text = $"{GameManager.Instance.EnemiesKilled}";
         }
         
-        private void ActivateUiWeaponCards()
+        private void ActivateUiWeaponCards(bool active = true)
         {
-            uiWeaponShower.gameObject.SetActive(true);
-            uiWeaponShower.ShowWeaponCard();
+            uiWeaponShower.gameObject.SetActive(active);
+            uiWeaponShower.ShowWeaponCard(active);
         }
 
         private void OnPlayerDied(object _)
@@ -232,18 +251,6 @@ namespace Game.Scripts.UI
         {
             winScreen.SetActive(true);
             ActivateUiWeaponCards();
-        }
-        
-        public void OnRestart()
-        {
-            EventCenter.ResetEventCenter();
-            SceneController.Instance.LoadScene(SceneController.ScenesEnum.Game);
-        }
-
-        public void OnQuit()
-        {
-            EventCenter.ResetEventCenter();
-            SceneController.Instance.LoadScene(SceneController.ScenesEnum.MainMenu);
         }
 
         #endregion
