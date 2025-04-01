@@ -27,7 +27,7 @@
     
     <ItemGroup Label="Nuget References">
       <PackageReference Include="Beamable.Microservice.Runtime" Version="$(BeamableVersion)" />
-      <PackageReference Include="MongoDB.Driver" Version="2.19.1" />
+      <PackageReference Include="MongoDB.Driver" Version="2.19.2" />
     </ItemGroup>
 
 </Project>

@@ -22,41 +22,39 @@ public class InventoryService : IService
         _contentService = contentService;
     }
 
-    public async Task NewItems(string transaction, string id, IEnumerable<InventoryRequest> mintRequests)
+    public async Task NewItems(string transaction, string wallet, IEnumerable<InventoryRequest> mintRequests)
     {
-        var messageRequests = await mintRequests.GroupByAsync(
+        var messageRequests = await mintRequests.ParallelGroupByAsync(
             async request =>
             {
                 var contentObject = await _contentService.GetContent(request.ContentId);
                 var handler = _contentHandlerFactory.GetHandler(contentObject);
-                return await handler.ConstructMessage(transaction, id, request, contentObject);
-            },
-            message => message.GetType()
+                var messages = await handler.ConstructMessage(transaction, wallet, request, contentObject);
+                return (key: handler, value: messages);
+            }
         );
 
         foreach (var request in messageRequests)
         {
-            var handler = _contentHandlerFactory.GetHandler(request.Key);
-            await handler.SendMessages(transaction, request.Value);
+            await request.Key.SendMessages(transaction, request.Value);
         }
     }
 
-    public async Task UpdateItems(string transaction, string id, IEnumerable<InventoryRequestUpdate> updateItemsRequest)
+    public async Task UpdateItems(string transaction, string wallet, IEnumerable<InventoryRequestUpdate> updateItemsRequest)
     {
-        var messageRequests = await updateItemsRequest.GroupByAsync(
+        var messageRequests = await updateItemsRequest.ParallelGroupByAsync(
             async request =>
             {
                 var contentObject = await _contentService.GetContent(request.ContentId);
                 var handler = _contentHandlerFactory.GetHandler(contentObject);
-                return await handler.ConstructMessage(transaction, id, request, contentObject);
-            },
-            message => message.GetType()
+                var messages = await handler.ConstructMessage(transaction, wallet, request, contentObject);
+                return (key: handler, value: messages);
+            }
         );
 
         foreach (var request in messageRequests)
         {
-            var handler = _contentHandlerFactory.GetHandler(request.Key);
-            await handler.SendMessages(transaction, request.Value);
+            await request.Key.SendMessages(transaction, request.Value);
         }
     }
 

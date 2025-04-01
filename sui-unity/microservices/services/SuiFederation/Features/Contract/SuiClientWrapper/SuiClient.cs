@@ -76,6 +76,7 @@ public class SuiClient : IService
         try
         {
             BeamableLogger.Log($"Compiling smart contract for {moduleName}...");
+            await Execute(SuiExecutable, "--version");
             await Execute(SuiExecutable, $"move new -p move/{moduleName}_package {moduleName}_package", ignoreOutput: true);
             await ExecuteShell($"rm -r move/{moduleName}_package/tests");
             await ExecuteShell($"rm move/{moduleName}_package/sources/{moduleName}_package.move");

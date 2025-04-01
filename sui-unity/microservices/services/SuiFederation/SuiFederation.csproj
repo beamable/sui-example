@@ -3,7 +3,6 @@
     <PropertyGroup Label="Beamable Settings">
         <!-- All Microservices must have the value, "service" -->
         <BeamProjectType>service</BeamProjectType>
-        <GenerateClientCode>true</GenerateClientCode>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
