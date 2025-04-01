@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using DG.Tweening;
 using MoeBeam.Game.Scripts.Beam;
 using MoeBeam.Game.Scripts.Data;
@@ -92,20 +93,26 @@ namespace Game.Scripts.UI
 
         private void OnCoinCollected(object obj)
         {
-            if (obj is not PlayerCoin coin) return;
+            if (obj is not Dictionary<PlayerCoin, bool> data) return;
 
-            switch (coin.CoinType)
+            foreach (var pair in data)
             {
-                case GameData.CoinType.Star:
-                    TextLevelUpAnimation(starCoinText, coin.Amount.ToString());
-                    break;
-                case GameData.CoinType.Beam:
-                    TextLevelUpAnimation(beamCoinText, coin.Amount.ToString());
-                    break;
-                case GameData.CoinType.Gold:
-                    TextLevelUpAnimation(goldCoinText, coin.Amount.ToString());
-                    break;
+                if(pair.Key.Amount <= 0) continue;
+                var color = pair.Value ? Color.red : Color.green;
+                switch (pair.Key.CoinType)
+                {
+                    case GameData.CoinType.Star:
+                        TextLevelUpAnimation(starCoinText, pair.Key.Amount.ToString(), 1.3f, Ease.Flash, color);
+                        break;
+                    case GameData.CoinType.Beam:
+                        TextLevelUpAnimation(beamCoinText, pair.Key.Amount.ToString(), 1.3f, Ease.Flash, color);
+                        break;
+                    case GameData.CoinType.Gold:
+                        TextLevelUpAnimation(goldCoinText, pair.Key.Amount.ToString(), 1.3f, Ease.Flash, color);
+                        break;
+                }
             }
+            
         }
 
         private void OnWeaponLeveledUp(object obj)
@@ -117,13 +124,16 @@ namespace Game.Scripts.UI
                 rangedWeaponLevel.text = weapon.MetaData.Level.ToString();
         }
 
-        private void TextLevelUpAnimation(TextMeshProUGUI tmp, string newText)
+        private void TextLevelUpAnimation(TextMeshProUGUI tmp, string newText, float endValue = 2f, Ease easeType = Ease.InElastic, Color color = default(Color))
         {
             var sequence = DOTween.Sequence();
             tmp.text = newText;
-            sequence.Append(tmp.transform.DOScale(2f, 0.25f)).SetEase(Ease.InElastic);
+            sequence.Append(tmp.transform.DOScale(endValue, 0.25f)).SetEase(easeType);
+            sequence.Join(tmp.DOColor(color, trailDelay));
             sequence.AppendInterval(0.5f);
-            sequence.Append(tmp.transform.DOScale(1f, 0.25f)).SetEase(Ease.InElastic);
+            sequence.Append(tmp.transform.DOScale(1f, 0.25f)).SetEase(easeType);
+            sequence.Join(tmp.DOColor(Color.white, trailDelay));
+
         } 
 
         #endregion

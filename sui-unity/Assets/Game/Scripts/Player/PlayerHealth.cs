@@ -1,4 +1,6 @@
 ﻿using System;
+using Cysharp.Threading.Tasks;
+using MoeBeam.Game.Scripts.Beam;
 using MoeBeam.Game.Scripts.Data;
 using MoeBeam.Game.Scripts.Managers;
 using UnityEngine;
@@ -32,6 +34,11 @@ namespace MoeBeam.Game.Scripts.Player
             _playerAnimationController.SetInjuredTrigger();
             EventCenter.InvokeEvent(GameData.OnPlayerInjuredEvent, _currentHealth);
             AudioManager.Instance.PlaySfx(injuredClip);
+            
+            //choose a random coinType
+            var coinType = (GameData.CoinType)UnityEngine.Random.Range(0, 3);
+            BeamInventoryManager.Instance.UpdateCurrency(coinType, true).Forget();
+            
             if (_currentHealth <= 0)
             {
                 _currentHealth = 0;
