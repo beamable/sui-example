@@ -1,5 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
-    
+
     <PropertyGroup Label="Beamable Settings">
         <!-- All Microservices must have the value, "service" -->
         <BeamProjectType>service</BeamProjectType>
@@ -15,7 +15,7 @@
         <BeamableVersion Condition="'$(BeamableVersion)' == ''">$([System.Text.RegularExpressions.Regex]::Match("$(DotNetConfig)", "beamable.*?\"([0-9]+\.[0-9]+\.[0-9]+.*?)\",", RegexOptions.Singleline | RegexOptions.IgnorePatternWhitespace).Groups[1].Value)</BeamableVersion>
         <!-- When running from inside docker, this gets injected via the Dockerfile at build-time. -->
     </PropertyGroup>
-    
+
     <PropertyGroup Label="Dotnet Settings">
         <!-- net8.0 is the LTS version until 2026. To update your net version, update the <TargetFramework> when Beamable announces support. -->
         <TargetFramework>net8.0</TargetFramework>
@@ -28,9 +28,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\SuiFederationCommon\SuiFederationCommon.csproj" />
-      <ProjectReference Include="..\SuiFederationStorage\SuiFederationStorage.csproj" />
-      <ProjectReference Include="..\SuiNodeService\SuiNodeService.csproj" />
+        <ProjectReference Include="..\SuiFederationCommon\SuiFederationCommon.csproj" />
+        <ProjectReference Include="..\SuiFederationStorage\SuiFederationStorage.csproj" />
+        <ProjectReference Include="..\SuiNodeService\SuiNodeService.csproj" />
     </ItemGroup>
     <ItemGroup>
         <None Include="js\**\*">
@@ -43,15 +43,14 @@
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
         <None Update="Features\SuiApi\sui_config\move_setup.sh">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </None>        
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
     </ItemGroup>
     <ItemGroup>
         <Folder Include="SuiTools\" />
         <None Include="SuiTools\**\*">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
-        <ProjectReference Include="..\SuiFederationServices\SuiFederationServices.csproj" />
     </ItemGroup>
 
     <Target Name="PreBuild" BeforeTargets="Build">
