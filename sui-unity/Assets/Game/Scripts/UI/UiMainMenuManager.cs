@@ -78,12 +78,12 @@ namespace MoeBeam.Game.Scripts.UI
         public async UniTask SetFinalId()
         {
             weaponsContainer.SetActive(false);
-            aliasText.text = "User: " + AccountManager.Instance.CurrentAccount.Alias;
-            gamerTagText.text = "Tag: " + AccountManager.Instance.CurrentAccount.GamerTag.ToString();
-            externalIdText.text = "Wallet: " + AccountManager.Instance.CurrentAccount.ExternalIdentities[0].userId;
+            aliasText.text = "User: " + BeamAccountManager.Instance.CurrentAccount.Alias;
+            gamerTagText.text = "Tag: " + BeamAccountManager.Instance.CurrentAccount.GamerTag.ToString();
+            externalIdText.text = "Wallet: " + BeamAccountManager.Instance.CurrentAccount.ExternalIdentities[0].userId;
             finalIdContainer.SetActive(true);
             weaponMintingText.gameObject.SetActive(true);
-            await UniTask.WaitUntil(()=> WeaponContentManager.Instance.GetOwnedWeaponsCount() > 1);
+            await UniTask.WaitUntil(()=> BeamWeaponContentManager.Instance.GetOwnedWeaponsCount() > 1);
             weaponMintingText.gameObject.SetActive(false);
             PlayPanelStatus(true);
         }
@@ -99,8 +99,8 @@ namespace MoeBeam.Game.Scripts.UI
                 _hasCreatedNewUser = true;
                 createNewAccountBeamButton.ButtonCurrent.interactable = false;
                 createNewAccountBeamButton.SwitchText(false, "Creating External ID...");
-                await AccountManager.Instance.CreateNewAccount();
-                await AccountManager.Instance.ChangeAlias(changeNameInputField.text);
+                await BeamAccountManager.Instance.CreateNewAccount();
+                await BeamAccountManager.Instance.ChangeAlias(changeNameInputField.text);
                 createNewAccountPanel.SetActive(false);
                 chooseWeaponsPanel.SetActive(true);
                 weaponsContainer.SetActive(true);

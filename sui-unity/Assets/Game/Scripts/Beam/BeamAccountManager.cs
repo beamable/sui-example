@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace MoeBeam.Game.Scripts.Beam
 {
-    public class AccountManager : GenericSingleton<AccountManager>
+    public class BeamAccountManager : GenericSingleton<BeamAccountManager>
     {
         #region EXPOSED_VARIABLES
 

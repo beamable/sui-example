@@ -10,7 +10,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace MoeBeam.Game.Scripts.Beam
 {
-    public class WeaponContentManager : GenericSingleton<WeaponContentManager>
+    public class BeamWeaponContentManager : GenericSingleton<BeamWeaponContentManager>
     {
         #region EXPOSED_VARIABLES
         

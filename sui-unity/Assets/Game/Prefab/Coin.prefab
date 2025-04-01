@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7254880860359581057}
   - component: {fileID: 4528497296153896864}
+  - component: {fileID: 5013301278274526040}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -46,9 +47,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinAnimator: {fileID: 6580370705403555149}
-  goldController: {fileID: 9100000, guid: 0d0824aca4925934ba6ae81e8fb33cda, type: 2}
-  starController: {fileID: 9100000, guid: f9d726ad2928a8e4eb1eb3bbb6064fab, type: 2}
-  beamController: {fileID: 9100000, guid: 593d29c1ba71abf48984164c3fa7f974, type: 2}
+  coinCollider: {fileID: 5013301278274526040}
+  goldData: {fileID: 11400000, guid: 11422151e77845a4c92ddd7c39e59aa3, type: 2}
+  starData: {fileID: 11400000, guid: 583c8d3610f0b344c97f476230235514, type: 2}
+  beamData: {fileID: 11400000, guid: 3f99789811d810440bb8077bc60cdb2d, type: 2}
+--- !u!58 &5013301278274526040
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985953724168377467}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.35
 --- !u!1 &3400904661842939895
 GameObject:
   m_ObjectHideFlags: 0
@@ -77,8 +115,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7254880860359581057}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -123,9 +161,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1609969865
+  m_SortingLayer: 2
+  m_SortingOrder: 2
   m_Sprite: {fileID: -8771841201794246337, guid: 7e3f1a90d2e5ff143b5716655dd83e70, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

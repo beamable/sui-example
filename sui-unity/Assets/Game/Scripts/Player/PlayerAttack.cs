@@ -61,8 +61,8 @@ namespace MoeBeam.Game.Scripts.Player
             _playerAnimationController = GetComponent<PlayerAnimationController>();
             
             //Equip weapons
-            _meleeWeapon = WeaponContentManager.Instance.GetOwnedMeleeWeapon();
-            _rangedWeapon = WeaponContentManager.Instance.GetOwnedRangedWeapon();
+            _meleeWeapon = BeamWeaponContentManager.Instance.GetOwnedMeleeWeapon();
+            _rangedWeapon = BeamWeaponContentManager.Instance.GetOwnedRangedWeapon();
             rangedWeaponSpriteRenderer.sprite = _rangedWeapon.Icon;
             
             _rangedWeaponMat = new Material(rangedWeaponSpriteRenderer.material);

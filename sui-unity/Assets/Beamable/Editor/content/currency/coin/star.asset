@@ -14,13 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tags: []
   icon:
-    m_AssetGUID: 
-    m_SubObjectName: 
+    m_AssetGUID: 28ff441450dfa25448e78720b10ca137
+    m_SubObjectName: Silver_21_0
     m_SubObjectGUID: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1
   clientPermission:
-    writeSelf: 0
+    writeSelf: 1
   startingAmount: 0
   federation:
     HasValue: 1
@@ -30,6 +31,6 @@ MonoBehaviour:
   name: Star coin
   symbol: STR
   decimals: 0
-  image: https://cdn.pixabay.com/photo/2016/03/31/17/33/icons-1293736_1280.png
+  image: https://content.beamable.com/1689160644344843/DE_1853654318472192/binary/public/silver_1.png/cfddf47dd78c1f45dd1388f71ce4a12b
   description: Star game coin
   initialSupply: 0

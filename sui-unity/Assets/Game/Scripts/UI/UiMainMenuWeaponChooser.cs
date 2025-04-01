@@ -39,7 +39,7 @@ namespace MoeBeam.Game.Scripts.UI
         {
             selectButton.AddListener(OnSelectWeapons);
             selectButton.gameObject.SetActive(false);
-            foreach (var weapon in WeaponContentManager.Instance.WeaponContents)
+            foreach (var weapon in BeamWeaponContentManager.Instance.WeaponContents)
             {
                 var weaponCard = Instantiate(weaponCardPrefab, weapon.AttackType == GameData.AttackType.Shoot ? rangedTransform : meleeTransform);
                 weaponCard.SetWeaponCard(weapon, this);
@@ -100,8 +100,8 @@ namespace MoeBeam.Game.Scripts.UI
             try
             {
                 selectButton.SwitchText(false, "Adding weapons to your inventory...");
-                await InventoryManager.Instance.AddItemToInventory(_selectedMeleeCard.CurrentWeapon);
-                await InventoryManager.Instance.AddItemToInventory(_selectedRangedCard.CurrentWeapon);
+                await BeamInventoryManager.Instance.AddItemToInventory(_selectedMeleeCard.CurrentWeapon);
+                await BeamInventoryManager.Instance.AddItemToInventory(_selectedRangedCard.CurrentWeapon);
                 UiMainMenuManager.Instance.SetFinalId().Forget();
                 selectButton.ButtonCurrent.interactable = false;
             }

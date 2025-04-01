@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace MoeBeam.Game.Scripts.Beam
 {
-    public class CurrentAccountInfo : MonoBehaviour
+    public class BeamCurrentAccountInfo : MonoBehaviour
     {
         #region EXPOSED_VARIABLES
 
@@ -29,12 +29,12 @@ namespace MoeBeam.Game.Scripts.Beam
 
         private void OnEnable()
         {
-            AccountManager.OnSetCurrentAccount += SetAccountInfo;
+            BeamAccountManager.OnSetCurrentAccount += SetAccountInfo;
         }
 
         private void OnDisable()
         {
-            AccountManager.OnSetCurrentAccount -= SetAccountInfo;
+            BeamAccountManager.OnSetCurrentAccount -= SetAccountInfo;
         }
 
         #endregion

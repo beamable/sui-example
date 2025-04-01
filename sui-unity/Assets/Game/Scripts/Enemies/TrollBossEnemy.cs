@@ -38,9 +38,9 @@ namespace Game.Scripts.Enemies
 
         #region PRIVATE_METHODS
 
-        protected override void Die()
+        protected override void Die(int cointAmount = 1)
         {
-            base.Die();
+            base.Die(3);
             EventCenter.InvokeEvent(GameData.OnBossDiedEvent);
         }
         

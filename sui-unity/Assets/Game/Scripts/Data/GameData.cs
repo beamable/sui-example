@@ -21,7 +21,8 @@
         public const string OnMeleeLeveledUpEvent = "MeleeLeveledUp";
         public const string OnRangedLeveledUpEvent = "RangedLeveledUp";
         public const string OnWeaponGainedXpEvent = "WeaponGainedXp";
-        public const string  OnTenEnemiesKilledEvent = "TenEnemiesKilled";
+        public const string OnTenEnemiesKilledEvent = "TenEnemiesKilled";
+        public const string OnCoinCollectedEvent = "CoinCollected";
         
         //Weapon Refs 
         public const string DamageKey = "Damage";

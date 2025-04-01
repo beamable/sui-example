@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Game.Scripts.Enemies;
 using MoeBeam.Game.Scripts.Enemies;
+using MoeBeam.Game.Scripts.Items;
 using MoeBeam.Game.Scripts.Player;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -19,8 +20,9 @@ namespace MoeBeam.Game.Scripts.Managers
         [SerializeField] private OrcEnemy orcEnemy;
         [SerializeField] private SniperEnemy sniperEnemy;
         [SerializeField] private SniperBullet sniperBullet;
+        [SerializeField] private CoinSelector coinSelector;
         
-        private async void Start()
+        private void Start()
         {
             poolManager.Init();
             
@@ -29,6 +31,7 @@ namespace MoeBeam.Game.Scripts.Managers
             Register(orcEnemy, 5);
             Register(sniperEnemy, 5);
             Register(sniperBullet, 10);
+            Register(coinSelector, 10);
         }
         
         private void Register<T>(T prefab, int amount, Action registerSuccess = null) where T : MonoBehaviour

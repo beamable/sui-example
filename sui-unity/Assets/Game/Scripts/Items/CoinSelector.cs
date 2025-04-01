@@ -1,31 +1,59 @@
-﻿using MoeBeam.Game.Scripts.Data;
+﻿using System;
+using Cysharp.Threading.Tasks;
+using MoeBeam.Game.Scripts.Beam;
+using MoeBeam.Game.Scripts.Data;
+using MoeBeam.Game.Scripts.Managers;
 using UnityEditor.Animations;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace MoeBeam.Game.Scripts.Items
 {
     public class CoinSelector : MonoBehaviour
     {
         [SerializeField] private Animator coinAnimator;
-        [SerializeField] private AnimatorController goldController;
-        [SerializeField] private AnimatorController starController;
-        [SerializeField] private AnimatorController beamController;
+        [SerializeField] private Collider2D coinCollider;
+        [SerializeField] private CoinData goldData;
+        [SerializeField] private CoinData starData;
+        [SerializeField] private CoinData beamData;
         
-        public void SelectCoinType(GameData.CoinType coinType)
+        public CoinData CurrentCoin { get; private set; }
+
+        private void OnTriggerEnter2D(Collider2D other)
         {
+            if (!other.CompareTag(GameData.PlayerTag)) return;
+
+            BeamInventoryManager.Instance.UpdateCurrency(CurrentCoin).Forget();
+            GenericPoolManager.Instance.Return(this);
+        }
+
+        public void SelectCoinType()
+        {
+            //Choose a random coin type
+            var coinType = (GameData.CoinType) Random.Range(0, 3);
+            coinCollider.enabled = false;
+            Invoke(nameof(EnableCoinCollider), 0.5f);
             switch (coinType)
             {
                 case GameData.CoinType.Beam:
-                    coinAnimator.runtimeAnimatorController = beamController;
+                    CurrentCoin = beamData;
+                    coinAnimator.runtimeAnimatorController = goldData.coinAnimatorController;
                     break;
                 case GameData.CoinType.Star:
-                    coinAnimator.runtimeAnimatorController = starController;
+                    CurrentCoin = starData;
+                    coinAnimator.runtimeAnimatorController = starData.coinAnimatorController;
                     break;
                 case GameData.CoinType.Gold:
-                    coinAnimator.runtimeAnimatorController = goldController;
+                    CurrentCoin = goldData;
+                    coinAnimator.runtimeAnimatorController = beamData.coinAnimatorController;
                     break;
+                
             }
         }
 
+        private void EnableCoinCollider()
+        {
+            coinCollider.enabled = true;
+        }
     }
 }

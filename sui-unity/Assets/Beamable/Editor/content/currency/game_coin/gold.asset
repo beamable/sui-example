@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tags: []
   icon:
-    m_AssetGUID: 
+    m_AssetGUID: e867e7f7f1ee8654c8f2a3ece672be35
     m_SubObjectName: 
     m_SubObjectGUID: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   clientPermission:
-    writeSelf: 0
+    writeSelf: 1
   startingAmount: 0
   federation:
     HasValue: 1
@@ -30,7 +30,7 @@ MonoBehaviour:
   name: Gold
   symbol: GLD
   decimals: 0
-  image: https://cdn.pixabay.com/photo/2013/07/12/12/55/gold-bar-146539_1280.png
+  image: https://content.beamable.com/1689160644344843/DE_1853654318472192/binary/public/gold_1.png/de452d8f3c6764f9fbb40348bd93aa12
   description: In game gold
   initialSupply: 100
   allowSpending: 1

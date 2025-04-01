@@ -14,8 +14,8 @@ namespace Game.Scripts.UI
 
         public void ShowWeaponCard()
         {
-            meleeWeaponCard.SetWeaponCard(WeaponContentManager.Instance.GetOwnedMeleeWeapon(), null, false);
-            rangedWeaponCard.SetWeaponCard(WeaponContentManager.Instance.GetOwnedRangedWeapon(), null, false);
+            meleeWeaponCard.SetWeaponCard(BeamWeaponContentManager.Instance.GetOwnedMeleeWeapon(), null, false);
+            rangedWeaponCard.SetWeaponCard(BeamWeaponContentManager.Instance.GetOwnedRangedWeapon(), null, false);
             
             var sequence = DOTween.Sequence();
             sequence.Append(meleeGroup.DOFade(1, 2f));

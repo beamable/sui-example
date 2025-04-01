@@ -54,7 +54,7 @@ namespace MoeBeam.Game.Scripts.Managers
         {
             var nextThreshold = xpGainData.defaultXpThreshold;
             var currentXp = 0;
-            var weapon = WeaponContentManager.Instance.GetItemByInstanceId(instanceId);
+            var weapon = BeamWeaponContentManager.Instance.GetItemByInstanceId(instanceId);
             if(weapon.MetaData.Level >= xpGainData.maxLevel) return;
             // if(weapon.MetaData.Level > 1)
             //     nextThreshold = (int) (xpGainData.defaultXpThreshold * (1 + (weapon.MetaData.Level / xpGainData.xpDivider)));

@@ -2,6 +2,7 @@
 using DG.Tweening;
 using MoeBeam.Game.Scripts.Beam;
 using MoeBeam.Game.Scripts.Data;
+using MoeBeam.Game.Scripts.Items;
 using MoeBeam.Game.Scripts.Managers;
 using TMPro;
 using UnityEngine;
@@ -32,7 +33,6 @@ namespace Game.Scripts.UI
         [SerializeField] private Image rangedWeapon;
         [SerializeField] private TextMeshProUGUI meleeWeaponLevel;
         [SerializeField] private TextMeshProUGUI rangedWeaponLevel;
-
         
         [Header("Death Screen")]
         [SerializeField] private GameObject deathScreen;
@@ -47,6 +47,11 @@ namespace Game.Scripts.UI
         [SerializeField] private GameObject winScreen;
         [FormerlySerializedAs("winRestartButton")] [SerializeField] private Button winQuitButton;
         [SerializeField] private Button marketButton;
+
+        [Header("Coins")] 
+        [SerializeField] private TextMeshProUGUI beamCoinText;
+        [SerializeField] private TextMeshProUGUI starCoinText;
+        [SerializeField] private TextMeshProUGUI goldCoinText;
         
         [Header("Other")] 
         [SerializeField] private TextMeshProUGUI enemiesKilledText;
@@ -82,6 +87,25 @@ namespace Game.Scripts.UI
             EventCenter.Subscribe(GameData.OnBossDiedEvent, OnBossDied);
             EventCenter.Subscribe(GameData.OnMeleeLeveledUpEvent, OnWeaponLeveledUp);
             EventCenter.Subscribe(GameData.OnRangedLeveledUpEvent, OnWeaponLeveledUp);
+            EventCenter.Subscribe(GameData.OnCoinCollectedEvent, OnCoinCollected);
+        }
+
+        private void OnCoinCollected(object obj)
+        {
+            if (obj is not PlayerCoin coin) return;
+
+            switch (coin.CoinType)
+            {
+                case GameData.CoinType.Star:
+                    TextLevelUpAnimation(starCoinText, coin.Amount.ToString());
+                    break;
+                case GameData.CoinType.Beam:
+                    TextLevelUpAnimation(beamCoinText, coin.Amount.ToString());
+                    break;
+                case GameData.CoinType.Gold:
+                    TextLevelUpAnimation(goldCoinText, coin.Amount.ToString());
+                    break;
+            }
         }
 
         private void OnWeaponLeveledUp(object obj)
@@ -112,14 +136,14 @@ namespace Game.Scripts.UI
         
         public void OpenExternalLink()
         {
-            var url = SuiUrl + AccountManager.Instance.CurrentAccount.ExternalIdentities[0].userId;
+            var url = SuiUrl + BeamAccountManager.Instance.CurrentAccount.ExternalIdentities[0].userId;
             Application.OpenURL(url);
         }
 
         private void SetPlayerIcons()
         {
-            var melee = WeaponContentManager.Instance.GetOwnedMeleeWeapon().Icon;
-            var ranged = WeaponContentManager.Instance.GetOwnedRangedWeapon().Icon;
+            var melee = BeamWeaponContentManager.Instance.GetOwnedMeleeWeapon().Icon;
+            var ranged = BeamWeaponContentManager.Instance.GetOwnedRangedWeapon().Icon;
             meleeWeapon.sprite = melee;
             rangedWeapon.sprite = ranged;
         }

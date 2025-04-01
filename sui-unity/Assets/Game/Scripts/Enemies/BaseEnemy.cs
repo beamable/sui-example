@@ -3,6 +3,7 @@ using System.Collections;
 using MoeBeam.Game.Scripts.Data;
 using MoeBeam.Game.Scripts.Helpers;
 using MoeBeam.Game.Scripts.Interfaces;
+using MoeBeam.Game.Scripts.Items;
 using MoeBeam.Game.Scripts.Managers;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -197,13 +198,27 @@ namespace MoeBeam.Game.Scripts.Enemies
             }
         }
         
-        protected virtual void Die()
+        protected virtual void Die(int coinAmount = 1)
         {
             Debug.Log($"Death {_currentHealth}");
             var deathData = new EnemyKilledData(enemyData.XpValue, _lastWeaponInstanceId);
-            EventCenter.InvokeEvent(GameData.OnEnemyKillRewardEvent, deathData);
             enemyAnimator.SetTrigger(DeathHash);
+            SpawnRandomCoin(coinAmount);
+
+            EventCenter.InvokeEvent(GameData.OnEnemyKillRewardEvent, deathData);
             EventCenter.InvokeEvent(GameData.OnEnemyDiedEvent, this);
+        }
+
+        private void SpawnRandomCoin(int coinAmount)
+        {
+            for (int i = 0; i < coinAmount; i++)
+            {
+                var randomOffset = UnityEngine.Random.insideUnitCircle;
+                var randomPosOffset = new Vector3(randomOffset.x + transform.position.x,
+                    randomOffset.y + transform.position.y, 0);
+                var coin = GenericPoolManager.Instance.Get<CoinSelector>(randomPosOffset);
+                coin.SelectCoinType();
+            }
         }
 
         #endregion
