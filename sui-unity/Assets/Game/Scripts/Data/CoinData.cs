@@ -1,6 +1,4 @@
-﻿using UnityEditor.Animations;
-using UnityEngine;
-using UnityEngine.Serialization;
+﻿using UnityEngine;
 
 namespace MoeBeam.Game.Scripts.Data
 {
@@ -9,7 +7,7 @@ namespace MoeBeam.Game.Scripts.Data
     {
         [SerializeField] private int maxCoinValue = 5;
         [field: SerializeField] public GameData.CoinType coinType = GameData.CoinType.Gold;
-        [field: SerializeField] public AnimatorController coinAnimatorController;
+        [field: SerializeField] public AnimatorOverrideController coinAnimatorController;
 
         public int GetCoinValue()
         {
