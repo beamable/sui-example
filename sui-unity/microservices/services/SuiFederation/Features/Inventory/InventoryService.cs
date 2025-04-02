@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Beamable.Common;
+using Beamable.Server;
 using Beamable.Server.Content;
 using Beamable.SuiFederation.Extensions;
 using Beamable.SuiFederation.Features.Content;
@@ -22,7 +23,7 @@ public class InventoryService : IService
         _contentService = contentService;
     }
 
-    public async Task NewItems(string transaction, string wallet, IEnumerable<InventoryRequest> mintRequests)
+    public async Task NewItems(string transaction, string wallet, IEnumerable<InventoryRequest> mintRequests, UserRequestDataHandler user)
     {
         var messageRequests = await mintRequests.ParallelGroupByAsync(
             async request =>
@@ -40,7 +41,7 @@ public class InventoryService : IService
         }
     }
 
-    public async Task UpdateItems(string transaction, string wallet, IEnumerable<InventoryRequestUpdate> updateItemsRequest)
+    public async Task UpdateItems(string transaction, string wallet, IEnumerable<InventoryRequestUpdate> updateItemsRequest, UserRequestDataHandler user)
     {
         var messageRequests = await updateItemsRequest.ParallelGroupByAsync(
             async request =>
@@ -58,7 +59,7 @@ public class InventoryService : IService
         }
     }
 
-    public async Task DeleteItems(string transaction, string wallet, IEnumerable<InventoryRequestDelete> deleteItemsRequest)
+    public async Task DeleteItems(string transaction, string wallet, IEnumerable<InventoryRequestDelete> deleteItemsRequest, UserRequestDataHandler user)
     {
         var messageRequests = await deleteItemsRequest.ParallelGroupByAsync(
             async request =>

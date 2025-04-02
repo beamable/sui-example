@@ -7,6 +7,7 @@ using Beamable.Server;
 using Beamable.SuiFederation.Endpoints;
 using Beamable.SuiFederation.Extensions;
 using Beamable.SuiFederation.Features.Accounts;
+using Beamable.SuiFederation.Features.ChannelProcessor;
 using SuiFederationCommon;
 
 namespace Beamable.SuiFederation
@@ -41,6 +42,8 @@ namespace Beamable.SuiFederation
 #if !DEBUG
 				await initializer.GetService<Features.Contract.ContractService>().InitializeContentContracts();
 #endif
+				//Start ChannelService queue processor
+				ChannelService.Start();
 			}
 			catch (Exception ex)
 			{
@@ -107,8 +110,9 @@ namespace Beamable.SuiFederation
 		async Promise<FederatedInventoryProxyState> IFederatedInventory<SuiWeb3Identity>.StartInventoryTransaction(string id, string transaction, Dictionary<string, long> currencies, List<FederatedItemCreateRequest> newItems, List<FederatedItemDeleteRequest> deleteItems,
 			List<FederatedItemUpdateRequest> updateItems)
 		{
+			var user = AssumeNewUser(Context.UserId, null, false);
 			return await Provider.GetService<StartInventoryTransactionEndpoint>()
-				.StartInventoryTransaction(id, transaction, currencies, newItems, deleteItems, updateItems);
+				.StartInventoryTransaction(id, transaction, currencies, newItems, deleteItems, updateItems, user);
 		}
 
 		[Callable]

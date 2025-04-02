@@ -1,4 +1,3 @@
-using System;
 using Beamable.Common.Dependencies;
 using Microsoft.Extensions.DependencyInjection;
 
