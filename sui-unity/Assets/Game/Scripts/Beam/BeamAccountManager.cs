@@ -107,6 +107,21 @@ namespace MoeBeam.Game.Scripts.Beam
                 Debug.LogError($"Create New Account error: {e.Message}");
             }
         }
+        
+        public async UniTask<RegistrationResult> AddStashedExternalIdentity(string token)
+        {
+            try
+            {
+                var result = await _beamContext.Accounts.AddExternalIdentity<SuiWeb3ExternalIdentity, SuiFederationClient>
+                    (token, (AsyncChallengeHandler) null, CurrentAccount);
+                return result;
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"AddStashedExternalIdentity error: {e.Message}");
+                return null;
+            }
+        }
 
         #endregion
 
