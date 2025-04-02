@@ -79,23 +79,19 @@ namespace MoeBeam.Game.Scripts.Beam
 
         public async UniTask UpdateCurrency(GameData.CoinType coinType, bool deduct = false)
         {
+            //var inventoryBuilder = new InventoryUpdateBuilder();
             foreach (var coin in PlayerCoins.Where(coin => coin.CoinType == coinType))
             {
-                if(deduct && coin.Amount < 0) return;
+                if(deduct && coin.Amount == 0) {return;}
+                Debug.Log($"updating Currency for {coin.ContentId} with deduct = {deduct}");
                 var amount = deduct ? -1 : +1;
                 coin.Amount += amount;
-                if(coin.Amount < 0) coin.Amount = 0;
-                _inventoryUpdateBuilder.CurrencyChange(coin.ContentId, coin.Amount);
+                _inventoryUpdateBuilder.CurrencyChange(coin.ContentId, amount);
                 Dictionary<PlayerCoin, bool> updated = new Dictionary<PlayerCoin, bool> {{coin, deduct}};
                 EventCenter.InvokeEvent(GameData.OnCoinCollectedEvent, updated);
                 break;
             }
-
-            if (_nextCoinUpdate < Time.time)
-            {
-                _nextCoinUpdate = Time.time + coinUpdateInterval;
-                await _beamContext.Inventory.Update(_inventoryUpdateBuilder);
-            }
+            await _beamContext.Inventory.Update(_inventoryUpdateBuilder);
         }
         
         #endregion
@@ -116,7 +112,6 @@ namespace MoeBeam.Game.Scripts.Beam
 
         private static void RefreshWeapons(PlayerItem[] weapons)
         {
-            Debug.LogWarning($"REFRESHING INVENTORY {weapons.Length}");
             if(weapons.Length < 1) return;
             foreach (var item in weapons)
             {

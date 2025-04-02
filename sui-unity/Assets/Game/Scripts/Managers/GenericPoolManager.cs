@@ -106,7 +106,7 @@ namespace MoeBeam.Game.Scripts.Managers
             var type = typeof(T);
             if (!_pools.TryGetValue(type, out var data))
             {
-                Debug.LogWarning($"No pool registered for {type}. Did you forget to call Register()?");
+                //Debug.LogWarning($"No pool registered for {type}. Did you forget to call Register()?");
                 return Instantiate(prefab, position, Quaternion.identity, transform);
             }
 

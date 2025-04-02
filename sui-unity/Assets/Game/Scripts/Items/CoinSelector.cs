@@ -37,7 +37,7 @@ namespace MoeBeam.Game.Scripts.Items
             {
                 case GameData.CoinType.Beam:
                     CurrentCoin = beamData;
-                    coinAnimator.runtimeAnimatorController = goldData.coinAnimatorController;
+                    coinAnimator.runtimeAnimatorController = beamData.coinAnimatorController;
                     break;
                 case GameData.CoinType.Star:
                     CurrentCoin = starData;
@@ -45,7 +45,7 @@ namespace MoeBeam.Game.Scripts.Items
                     break;
                 case GameData.CoinType.Gold:
                     CurrentCoin = goldData;
-                    coinAnimator.runtimeAnimatorController = beamData.coinAnimatorController;
+                    coinAnimator.runtimeAnimatorController = goldData.coinAnimatorController;
                     break;
                 
             }

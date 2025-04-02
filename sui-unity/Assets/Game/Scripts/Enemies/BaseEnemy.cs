@@ -201,7 +201,6 @@ namespace MoeBeam.Game.Scripts.Enemies
         
         protected virtual void Die(int coinAmount = 1)
         {
-            Debug.Log($"Death {_currentHealth}");
             var deathData = new EnemyKilledData(enemyData.XpValue, _lastWeaponInstanceId);
             enemyAnimator.SetTrigger(DeathHash);
             SpawnRandomCoin(coinAmount);

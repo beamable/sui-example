@@ -104,7 +104,6 @@ namespace MoeBeam.Game.Scripts.Enemies.Spawner
         {
             if(obj is not BaseEnemy enemy) return;
             enemy.SetMiniBoss(false);
-            Debug.Log("Enemy Died");
             _enemiesAlive--;
             _spawnedEnemies.Remove(enemy);
             GenericPoolManager.Instance.Return(enemy);
