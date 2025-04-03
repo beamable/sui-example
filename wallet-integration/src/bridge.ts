@@ -43,6 +43,20 @@ async function connectAccount(name: string): Promise<WalletAccount | undefined> 
     }
 }
 
+export async function openWallet(name: string) {
+    try {
+        const wallet = await getSelectedWallet(name);
+        const connectFeature = wallet!.features[StandardConnect] as StandardConnectFeature[typeof StandardConnect];
+        await connectFeature.connect();
+        if (name == "Stashed") {
+            window.open("https://getstashed.com", "_blank");
+        }
+
+    } catch (error) {
+        console.error("Connection failed:", error);
+    }
+}
+
 export async function loadWallets(): Promise<string[]> {
     try {
         return (await getStoredWallets()).map(w => w.name);

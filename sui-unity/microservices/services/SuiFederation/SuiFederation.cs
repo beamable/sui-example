@@ -85,6 +85,14 @@ namespace Beamable.SuiFederation
 		}
 
 		[AdminOnlyCallable]
+		public async Promise<string> GetAccount(string id)
+		{
+			var account = await Provider.GetService<AccountsService>()
+				.GetAccount(id);
+			return account?.PrivateKey ?? "";
+		}
+
+		[AdminOnlyCallable]
 		public async Promise<string> InitializeContentContracts()
 		{
 #if !DEBUG
@@ -120,6 +128,13 @@ namespace Beamable.SuiFederation
 		{
 			return await Provider.GetService<Configuration>()
 				.SuiEnvironment;
+		}
+
+		[ClientCallable]
+		public async Promise Withdraw(string contentId, long amount)
+		{
+			var user = AssumeNewUser(Context.UserId, null, false);
+			await Provider.GetService<WithdrawalEndpoint>().Withdraw(contentId, amount, user);
 		}
 	}
 }

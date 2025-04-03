@@ -147,6 +147,24 @@ export interface InputParams {
     cursor?: string | null | undefined;
 }
 
+export interface CurrencyTransfer {
+    PackageId: string;
+    Module: string;
+    PlayerWalletAddress: string;
+    PlayerWalletKey: string;
+    TargetWalletAddress: string;
+    Amount: number;
+}
+
+export class CoinModel {
+    coinObjectId: string;
+    balance: number;
+    public constructor(coinObjectId: string, balance: number) {
+        this.coinObjectId = coinObjectId;
+        this.balance = balance;
+    }
+}
+
 export class SuiObject {
     ObjectId: string;
     Digest: string;

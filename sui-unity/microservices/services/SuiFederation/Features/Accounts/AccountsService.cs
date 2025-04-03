@@ -121,7 +121,7 @@ public class AccountsService : IService
         return await ImportAccount(id, privateKey);
     }
 
-    private async Task<Account?> GetAccount(string accountName)
+    public async Task<Account?> GetAccount(string accountName)
     {
         return await _accountsCache.GetOrAddAsync(accountName, async () =>
         {

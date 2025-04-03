@@ -11,6 +11,7 @@
     <select id="wallets"></select>
     <button id="connectWallet">Connect Wallet</button>
     <button id="disconnectWallet">Disconnect Wallet</button>
+    <button id="openWallet">Open Wallet</button>
     <p id="walletAddress"></p>
     <p id="walletBalance"></p>
 
@@ -23,7 +24,8 @@
             loadWallets,
             connectWallet,
             disconnectWallet,
-            signMessage
+            signMessage,
+            openWallet
             } from './dist/bridge.js';
 
             async function updateWalletList() {
@@ -66,12 +68,19 @@
                 document.getElementById("signedMessage").textContent = signedMessage;
             }
 
+            async function openSelectedWallet() {
+                const walletSelect = document.getElementById("wallets");
+                const selectedWalletName = walletSelect.value;
+                const signedMessage = await openWallet(selectedWalletName);
+            }
+
             
             document.addEventListener("DOMContentLoaded", () => {
                 updateWalletList();
                 document.getElementById("connectWallet").addEventListener("click", connectSelectedWallet);
                 document.getElementById("disconnectWallet").addEventListener("click", disconnectSelectedWallet);
                 document.getElementById("signMessage").addEventListener("click", signWithSelectedWallet);
+                document.getElementById("openWallet").addEventListener("click", openSelectedWallet);
             });
     </script>
 </body>

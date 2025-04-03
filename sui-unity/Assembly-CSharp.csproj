@@ -144,7 +144,6 @@
     <None Include="Assets\Beamable\Resources\config-defaults.txt" />
     <None Include="Assets\Game\Texture\UI\Lisence.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
-    <None Include="Assets\AddressableAssetsData\link.xml" />
     <None Include="Assets\Beamable\Resources\AddressablesLinker\link.xml" />
     <None Include="Assets\TextMesh Pro\Shaders\SDFFunctions.hlsl" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />

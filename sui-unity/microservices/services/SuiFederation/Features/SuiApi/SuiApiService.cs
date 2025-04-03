@@ -316,4 +316,23 @@ public class SuiApiService : IService
             }
         }
     }
+
+    public async Task<SuiTransactionResult> WithdrawCurrency(GameCoinTransferMessage transferMessage)
+    {
+        using (new Measure($"Sui.WithdrawCurrency"))
+        {
+            try
+            {
+                var environment = await _configuration.SuiEnvironment;
+                var realmAccount = await _accountsService.GetOrCreateRealmAccount();
+                var requestJson = JsonSerializer.Serialize(transferMessage);
+                var result = await NodeService.WithdrawCurrency(requestJson, realmAccount.PrivateKey, environment);
+                return JsonSerializer.Deserialize<SuiTransactionResult>(result) ?? throw new Exception();
+            }
+            catch (Exception ex)
+            {
+                throw new SuiApiException($"WithdrawCurrency: {ex.Message}");
+            }
+        }
+    }
 }
