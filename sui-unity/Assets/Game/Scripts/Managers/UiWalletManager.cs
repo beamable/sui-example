@@ -1,89 +1,80 @@
 ﻿using System;
-using Cysharp.Threading.Tasks;
-using MoeBeam.Game.Scripts.Beam;
+using System.Runtime.InteropServices;
+using Beamable.Common;
+using Beamable.Player;
 using TMPro;
 using UnityEngine;
+using Cysharp.Threading.Tasks;
+using MoeBeam.Game.Scripts.Beam;
 
 namespace MoeBeam.Game.Scripts.Managers
 {
     public class UiWalletManager : MonoBehaviour
     {
-        // public void OnWalletConnected(string address)
-        // {
-        //     Debug.Log("Wallet connected: " + address);
-        // }
-        //
-        // public void OnWalletDisconnected()
-        // {
-        //     Debug.Log("Wallet disconnected");
-        // }
-        //
-        // public void OnMessageSigned(string signedMessage)
-        // {
-        //     Debug.Log("Signed Message: " + signedMessage);
-        // }
-        
         [SerializeField] private TextMeshProUGUI walletAddressText;
         [SerializeField] private TMP_InputField messageInput;
 
+        private string _walletAddress;
+        private string _challenge;
+
 #if UNITY_WEBGL && !UNITY_EDITOR
-    [DllImport("__Internal")]
-    private static extern void ConnectWallet();
+        [DllImport("__Internal")]
+        private static extern void ConnectWallet(string callbackMethod);
 
-    [DllImport("__Internal")]
-    private static extern void DisconnectWallet();
+        [DllImport("__Internal")]
+        private static extern void DisconnectWallet(string callbackMethod);
 
-    [DllImport("__Internal")]
-    private static extern void SignMessage(string message);
+        [DllImport("__Internal")]
+        private static extern void SignMessage(string message, string callbackMethod);
 #else
-        private static void ConnectWallet() => Debug.Log("ConnectWallet() - Editor stub");
-        private static void DisconnectWallet() => Debug.Log("DisconnectWallet() - Editor stub");
-        private static void SignMessage(string message) => Debug.Log("SignMessage() - Editor stub");
+        private static void ConnectWallet(string callbackMethod)
+        {
+            Debug.Log($"[Editor Stub] ConnectWallet({callbackMethod})");
+        }
+
+        private static void DisconnectWallet(string callbackMethod)
+        {
+            Debug.Log($"[Editor Stub] DisconnectWallet({callbackMethod})");
+        }
+
+        private static void SignMessage(string message, string callbackMethod)
+        {
+            Debug.Log($"[Editor Stub] SignMessage({message}, {callbackMethod})");
+        }
 #endif
 
-        //1
+        private const string WalletName = "Stashed";
+
         public void OnClickConnectWallet()
         {
             try
             {
-                ConnectWallet();
+                ConnectWallet(nameof(OnWalletConnected));
             }
             catch (Exception e)
             {
                 Debug.LogError($"Error connecting wallet: {e.Message}");
             }
         }
-        
-        // These will be called from JS via SendMessage
-        public void OnWalletConnected(string address)
-        {
-            walletAddressText.text = $"Wallet: {address}";
-            Debug.Log($"Wallet connected: {address}");
-            //messageInput.text = address;
-            try
-            {
-                BeamAccountManager.Instance.AddStashedExternalIdentity(address).ContinueWith(result =>
-                {
-                    messageInput.text = result.ToString();
-                    Debug.Log($"Stashed external identity {result.ToString()}");
-                });
-            }
-            catch (Exception e)
-            {
-                Debug.LogError($"Error adding stashed external identity: {e.Message}");
-            }
-        }
 
         public void OnClickDisconnectWallet()
         {
-            DisconnectWallet();
+            try
+            {
+                DisconnectWallet(nameof(OnWalletDisconnected));
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"Error disconnecting wallet: {e.Message}");
+            }
         }
 
         public void OnClickSignMessage()
         {
             try
             {
-                SignMessage(messageInput.text);
+                var msg = messageInput.text;
+                SignMessage(msg, nameof(OnMessageSigned));
             }
             catch (Exception e)
             {
@@ -91,9 +82,40 @@ namespace MoeBeam.Game.Scripts.Managers
             }
         }
 
-        
+        // Called by JS
+        public void OnWalletConnected(string address)
+        {
+            walletAddressText.text = $"Wallet: {address}";
+            Debug.Log($"Wallet connected: {address}");
 
-        public void OnWalletDisconnected()
+            if (!string.IsNullOrEmpty(address))
+            {
+                _walletAddress = address;
+
+                try
+                {
+                    AsyncChallengeHandler challengeHandler = new AsyncChallengeHandler(e =>
+                    {
+                        Debug.Log($"Challenge = {e}");
+                        return Promise<string>.Successful(e);
+                    });
+                    messageInput.text = address;
+
+                    // BeamAccountManager.Instance.AddStashedExternalIdentity(address, challengeHandler).ContinueWith(
+                    //     result =>
+                    //     {
+                    //         Debug.Log($"Stashed external identity done");
+                    //         //messageInput.text = result.account.token;
+                    //     });
+                }
+                catch (Exception e)
+                {
+                    Debug.LogError($"Error connecting to wallet: {e.Message}");
+                }
+            }
+        }
+
+        public void OnWalletDisconnected(string _ = null)
         {
             walletAddressText.text = "Disconnected";
             Debug.Log("Wallet disconnected");
@@ -101,6 +123,24 @@ namespace MoeBeam.Game.Scripts.Managers
 
         public void OnMessageSigned(string signed)
         {
+            try
+            {
+                AsyncChallengeHandler challengeHandler = new AsyncChallengeHandler(e =>
+                {
+                    Debug.Log($"Challenge = {signed}");
+                    return Promise<string>.Successful(signed);
+                });
+                BeamAccountManager.Instance.AddStashedExternalIdentity(signed, null).ContinueWith(
+                    result =>
+                    {
+                        messageInput.text = result.account.ExternalIdentities[0].userId;
+                        Debug.Log($"Stashed external identity {messageInput.text}");
+                    });
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"Error connecting to wallet: {e.Message}");
+            }
             Debug.Log($"Signed Message: {signed}");
         }
     }

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>{{{ PRODUCT_NAME }}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="Build/{{{ LOADER_FILENAME }}}"></script>
+    <script src="bridge.js" type="module"></script>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100%;
+            width: 100%;
+            background: #000;
+        }
+
+        #unity-container {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        #unity-canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+            background: #000;
+        }
+
+        #unity-loading-bar {
+            width: 100%;
+            position: absolute;
+            bottom: 10px;
+            text-align: center;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        #unity-loading-bar.fade-out {
+            opacity: 0;
+        }
+
+        #unity-progress-bar-empty {
+            width: 50%;
+            height: 20px;
+            background: #555;
+            margin: 0 auto;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        #unity-progress-bar-full {
+            width: 0%;
+            height: 100%;
+            background: #4af;
+            transition: width 0.2s;
+        }
+    </style>
+</head>
+
+<body>
+<div id="unity-container" class="unity-desktop">
+    <canvas id="unity-canvas"></canvas>
+    <div id="unity-loading-bar">
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+            <div id="unity-progress-bar-full"></div>
+        </div>
+    </div>
+</div>
+
+<script type="module">
+    import * as bridge from "./bridge.js";
+
+    window.addEventListener("load", async () => {
+        const unityCanvas = document.querySelector("#unity-canvas");
+        const loadingBar = document.querySelector("#unity-loading-bar");
+        const progressBarFull = document.querySelector("#unity-progress-bar-full");
+
+        const config = {
+            dataUrl: "Build/{{{ DATA_FILENAME }}}",
+            frameworkUrl: "Build/{{{ FRAMEWORK_FILENAME }}}",
+            codeUrl: "Build/{{{ CODE_FILENAME }}}",
+            streamingAssetsUrl: "StreamingAssets",
+            companyName: "{{{ COMPANY_NAME }}}",
+            productName: "{{{ PRODUCT_NAME }}}",
+            productVersion: "{{{ PRODUCT_VERSION }}}",
+        };
+
+        try {
+            const unityInstance = await createUnityInstance(unityCanvas, config, (progress) => {
+                progressBarFull.style.width = `${100 * progress}%`;
+
+                if (progress >= 1) {
+                    // Fade out the loading bar
+                    loadingBar.classList.add("fade-out");
+                    // Remove from layout after fade finishes
+                    setTimeout(() => {
+                        loadingBar.style.display = "none";
+                    }, 500);
+                }
+            });
+
+            window.unityInstance = unityInstance;
+            window.WalletBridge = bridge;
+        } catch (e) {
+            console.error("Unity failed to initialize:", e);
+        }
+    });
+</script>
+</body>
+</html>

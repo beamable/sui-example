@@ -108,12 +108,12 @@ namespace MoeBeam.Game.Scripts.Beam
             }
         }
         
-        public async UniTask<RegistrationResult> AddStashedExternalIdentity(string token)
+        public async UniTask<RegistrationResult> AddStashedExternalIdentity(string token, AsyncChallengeHandler challengeHandler)
         {
             try
             {
                 var result = await _beamContext.Accounts.AddExternalIdentity<SuiWeb3ExternalIdentity, SuiFederationClient>
-                    (token, (AsyncChallengeHandler) null, CurrentAccount);
+                    (token, challengeHandler, CurrentAccount);
                 return result;
             }
             catch (Exception e)
