@@ -223,5 +223,20 @@ namespace SuiNodeServicve
                 "objectExists",
                 new object[] { objectId, environment }) ?? "";
         }
+
+        /// <summary>
+        /// WithdrawCurrency
+        /// </summary>
+        /// <param name="requestJson"></param>
+        /// <param name="realmAccountPrivateKey"></param>
+        /// <param name="environment"></param>
+        /// <returns></returns>
+        public static async Task<string> WithdrawCurrency(string requestJson, string realmAccountPrivateKey, string environment)
+        {
+            return await StaticNodeJSService.InvokeFromFileAsync<string>(
+                BridgeModulePath,
+                "withdrawCurrency",
+                new object[] { requestJson, realmAccountPrivateKey, environment }) ?? "";
+        }
     }
 }

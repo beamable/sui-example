@@ -17,7 +17,7 @@ import {
     GameCoinBurnMessage,
     RegularCoinBalanceRequest,
     NftUpdateMessage,
-    SetNftOwnerMessage, CoinToken, NftDeleteMessage
+    SetNftOwnerMessage, CoinToken, NftDeleteMessage, CurrencyTransfer, CoinModel
 } from './models';
 import { retrievePaginatedData,calculateTotalCost,stringToNumber } from "./utils";
 import {MoveValue} from "@mysten/sui/src/client/types/generated";
@@ -839,6 +839,139 @@ async function objectExists(callback: Callback<string>, itemId: string, environm
     callback(error, JSON.stringify(result));
 }
 
+async function getTargetCoins(owner: string, packageId: string, coin: string, target: number, suiClient: SuiClient) {
+    const coinsFromClient: CoinModel[] = [];
+    let coins_resp;
+    let cursor = null;
+    let targetFound = false;
+    let sum = 0;
+    do {
+        coins_resp = await suiClient.getCoins({
+            coinType: `${packageId}::${coin.toLowerCase()}::${coin.toUpperCase()}`,
+            owner : owner,
+            cursor: cursor,
+            limit : 10
+        });
+        for (const coin of coins_resp.data) {
+            coinsFromClient.push(new CoinModel(coin.coinObjectId, Number(coin.balance)))
+            sum += Number(coin.balance);
+        }
+
+        if (sum >= target) {
+            targetFound = true;
+            break;
+        }
+        cursor = coins_resp?.nextCursor;
+    } while (coins_resp.hasNextPage);
+
+    if (!targetFound) {
+        return [];
+    }
+    // Sort the array in ascending order based on the balance
+    coinsFromClient.sort((a, b) => a.balance - b.balance);
+
+    // Reduce sorted array to include only coins needed for transaction
+    let accumulatedBalance = 0;
+    return coinsFromClient.reduce((acc: CoinModel[], coin: CoinModel) => {
+        if (accumulatedBalance < target) {
+            acc.push(coin);
+            accumulatedBalance += coin.balance;
+        }
+        return acc;
+    }, []);
+}
+
+async function withdrawCurrency(callback: Callback<string>, request: string, developerKey: string, environment: Environment) {
+    let error = null;
+    const result = new SuiTransactionResult();
+    try {
+        const suiClient = getSuiClientInstance(environment);
+        const currencyTransfer: CurrencyTransfer = JSON.parse(request);
+        const playerKeypair = Ed25519Keypair.fromSecretKey(decodeSuiPrivateKey(currencyTransfer.PlayerWalletKey));
+        const developerKeypair = Ed25519Keypair.fromSecretKey(decodeSuiPrivateKey(developerKey));
+        const developerWallet = developerKeypair.toSuiAddress();
+        const sourceWallet = playerKeypair.toSuiAddress();
+
+        if (currencyTransfer != null) {
+            currencyTransfer.Amount = Math.abs(currencyTransfer.Amount);
+            const senetCoins= await getTargetCoins(sourceWallet, currencyTransfer.PackageId, currencyTransfer.Module, currencyTransfer.Amount, suiClient);
+            if (!Array.isArray(senetCoins) || (Array.isArray(senetCoins) && senetCoins.length === 0)) {
+                throw new Error(`Can't find target amount (${currencyTransfer.Amount}) of coins from address ${sourceWallet}.`);
+            }
+            const tx = new Transaction();
+
+            if (senetCoins.length === 1) {
+                const coin = senetCoins[0];
+                if (coin.balance === currencyTransfer.Amount) {
+                    tx.transferObjects([tx.object(coin.coinObjectId)], tx.pure.address(currencyTransfer.TargetWalletAddress));
+                } else if (coin.balance > currencyTransfer.Amount) {
+                    const [targetCoin] = tx.splitCoins(tx.object(coin.coinObjectId), [tx.pure.u64(currencyTransfer.Amount)]);
+                    tx.transferObjects([targetCoin], tx.pure.address(currencyTransfer.TargetWalletAddress));
+                }
+            } else if (senetCoins.length > 1) {
+                const totalBalance = senetCoins.reduce((sum, coin) => sum + coin.balance, 0);
+                if (totalBalance === currencyTransfer.Amount) {
+                    const coinsToTransfer = senetCoins.map(coin => tx.object(coin.coinObjectId));
+                    tx.transferObjects(coinsToTransfer, tx.pure.address(currencyTransfer.TargetWalletAddress));
+                } else {
+                    senetCoins.sort((a, b) => a.balance - b.balance);
+                    const balanceExceptLargest = senetCoins.slice(0, -1).reduce((sum, coin) => sum + coin.balance, 0);
+                    const [targetCoinFromLargest] = tx.splitCoins(tx.object(senetCoins[senetCoins.length - 1].coinObjectId), [tx.pure.u64(currencyTransfer.Amount - balanceExceptLargest)]);
+                    tx.transferObjects([targetCoinFromLargest], tx.pure.address(currencyTransfer.TargetWalletAddress));
+                    const remainingCoinsToTransfer = senetCoins.slice(0, -1).map(coin => tx.object(coin.coinObjectId));
+                    tx.transferObjects(remainingCoinsToTransfer, tx.pure.address(currencyTransfer.TargetWalletAddress));
+                }
+            }
+
+            let payment: SuiObjectRef[] = [];
+            const coins = await suiClient.getCoins({ owner: developerWallet, limit: 1 });
+            if (coins.data.length > 0) {
+                payment = coins.data.map((coin) => ({
+                    objectId: coin.coinObjectId,
+                    version: coin.version,
+                    digest: coin.digest,
+                }));
+            } else {
+                throw new Error(`Can't find gas coins from sponsor ${developerWallet}.`);
+            }
+
+            const kindBytes = await tx.build({ onlyTransactionKind: true, client: suiClient });
+            const sponsoredTxb = Transaction.fromKind(kindBytes);
+            sponsoredTxb.setSender(playerKeypair.toSuiAddress());
+            sponsoredTxb.setGasOwner(developerWallet);
+            sponsoredTxb.setGasPayment(payment);
+            const sponsoredBytes = await sponsoredTxb.build({ client: suiClient });
+            const developerSignature = await developerKeypair!.signTransaction(sponsoredBytes);
+            const playerSignature = await playerKeypair!.signTransaction(sponsoredBytes);
+
+            const response = await suiClient.executeTransactionBlock({
+                transactionBlock: sponsoredBytes,
+                signature: [developerSignature.signature, playerSignature.signature],
+                options: {
+                    showEffects: true,
+                    showEvents: true,
+                    showObjectChanges: true,
+                },
+            });
+
+            if (response.effects != null) {
+                result.status = response.effects.status.status;
+                result.gasUsed = calculateTotalCost(response.effects.gasUsed);
+                result.digest = response.effects.transactionDigest;
+                result.objectIds = response.effects.created?.map(o => o.reference.objectId);
+                result.error = response.effects.status.error;
+            }
+
+        } else {
+            throw new Error(`Can't deserialize CurrencyTransfer object.`);
+        }
+
+    } catch (ex) {
+        error = ex;
+    }
+    callback(error, JSON.stringify(result));
+}
+
 module.exports = {
     createWallet,
     importWallet,
@@ -854,5 +987,6 @@ module.exports = {
     setNftContractOwner,
     updateNft,
     objectExists,
-    burnNft
+    burnNft,
+    withdrawCurrency
 };
