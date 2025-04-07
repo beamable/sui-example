@@ -94,6 +94,11 @@ namespace MoeBeam.Game.Scripts.Beam
             await _beamContext.Inventory.Update(_inventoryUpdateBuilder);
         }
         
+        public PlayerCoin GetCoinByType(GameData.CoinType coinType)
+        {
+            return PlayerCoins.FirstOrDefault(coin => coin.CoinType == coinType);
+        }
+        
         #endregion
 
         #region PRIVATE_METHODS

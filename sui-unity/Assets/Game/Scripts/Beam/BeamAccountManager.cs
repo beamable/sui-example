@@ -100,7 +100,7 @@ namespace MoeBeam.Game.Scripts.Beam
                 await SwitchAccount(newAccount);
                 var result = await _beamContext.Accounts.AddExternalIdentity<SuiWeb3Identity, SuiFederationClient>("", (AsyncChallengeHandler) null, newAccount);
                 UpdateCurrentAccount(newAccount);
-                
+                Debug.Log($"New account {newAccount.GamerTag} has been created.");
             }
             catch (Exception e)
             {

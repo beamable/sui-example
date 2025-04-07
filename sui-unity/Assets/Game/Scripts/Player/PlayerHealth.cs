@@ -15,10 +15,14 @@ namespace MoeBeam.Game.Scripts.Player
         [Header("Health")]
         [SerializeField] private int maxHealth = 100;
         [SerializeField] private AudioClip injuredClip;
+
+        [Header("Sui Deduction")] 
+        [SerializeField] private int deductionThreshold = 20;
         
         #endregion
 
         private int _currentHealth;
+        private int _currentDeduction;
         private PlayerAnimationController _playerAnimationController;
 
         public void Init(PlayerAnimationController animController)
@@ -37,15 +41,16 @@ namespace MoeBeam.Game.Scripts.Player
             
             //choose a random coinType
             var coinType = (GameData.CoinType)UnityEngine.Random.Range(0, 3);
-            BeamInventoryManager.Instance.UpdateCurrency(coinType, true).Forget();
             
-            if (_currentHealth <= 0)
-            {
-                _currentHealth = 0;
-                Die();
-            }
+            DeductSuiCoin(damage, coinType);
+
+            //Die
+            if (_currentHealth > 0) return;
+            _currentHealth = 0;
+            Die();
         }
         
+
         public void AddHealth(int health)
         {
             _currentHealth += health;
@@ -54,6 +59,20 @@ namespace MoeBeam.Game.Scripts.Player
                 _currentHealth = maxHealth;
             }
             EventCenter.InvokeEvent(GameData.OnPlayerInjuredEvent, _currentHealth);
+        }
+        
+        private void DeductSuiCoin(float damage, GameData.CoinType coinType)
+        {
+            //if the player loses more than the threshold, deduct coins
+            if (_currentDeduction >= deductionThreshold)
+            {
+                _currentDeduction = 0;
+                BeamInventoryManager.Instance.UpdateCurrency(coinType, true).Forget();
+            }
+            else
+            {
+                _currentDeduction += (int)damage;
+            }
         }
         
         private void Die()
