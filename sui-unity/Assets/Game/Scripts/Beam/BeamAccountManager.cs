@@ -100,11 +100,26 @@ namespace MoeBeam.Game.Scripts.Beam
                 await SwitchAccount(newAccount);
                 var result = await _beamContext.Accounts.AddExternalIdentity<SuiWeb3Identity, SuiFederationClient>("", (AsyncChallengeHandler) null, newAccount);
                 UpdateCurrentAccount(newAccount);
-                
+                Debug.Log($"New account {newAccount.GamerTag} has been created.");
             }
             catch (Exception e)
             {
                 Debug.LogError($"Create New Account error: {e.Message}");
+            }
+        }
+        
+        public async UniTask<RegistrationResult> AddStashedExternalIdentity(string token, AsyncChallengeHandler challengeHandler)
+        {
+            try
+            {
+                var result = await _beamContext.Accounts.AddExternalIdentity<SuiWeb3ExternalIdentity, SuiFederationClient>
+                    (token, challengeHandler, CurrentAccount);
+                return result;
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"AddStashedExternalIdentity error: {e.Message}");
+                return null;
             }
         }
 

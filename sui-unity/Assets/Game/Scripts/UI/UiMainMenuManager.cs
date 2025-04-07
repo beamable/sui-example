@@ -17,6 +17,7 @@ namespace MoeBeam.Game.Scripts.UI
         [SerializeField] private GameObject beamInitTextObj;
         [SerializeField] private GameObject mainMenuPanel;
         [SerializeField] private GameObject createNewAccountPanel;
+        [SerializeField] private GameObject stashedWalletPanel;
         [SerializeField] private GameObject chooseWeaponsPanel;
         [SerializeField] private GameObject weaponsContainer;
         [SerializeField] private GameObject playPanel;
@@ -55,6 +56,7 @@ namespace MoeBeam.Game.Scripts.UI
             createNewAccountPanel.SetActive(false);
             mainMenuPanel.SetActive(false);
             chooseWeaponsPanel.SetActive(false);
+            stashedWalletPanel.SetActive(false);
             beamInitTextObj.SetActive(true);
             
             await UniTask.WaitUntil(()=> BeamManager.IsReady);
@@ -102,7 +104,8 @@ namespace MoeBeam.Game.Scripts.UI
                 await BeamAccountManager.Instance.CreateNewAccount();
                 await BeamAccountManager.Instance.ChangeAlias(changeNameInputField.text);
                 createNewAccountPanel.SetActive(false);
-                chooseWeaponsPanel.SetActive(true);
+                stashedWalletPanel.SetActive(true);
+               //chooseWeaponsPanel.SetActive(true);
                 weaponsContainer.SetActive(true);
                 finalIdContainer.SetActive(false);
             }

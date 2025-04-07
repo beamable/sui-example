@@ -1,9 +1,7 @@
-﻿using System;
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 using MoeBeam.Game.Scripts.Beam;
 using MoeBeam.Game.Scripts.Data;
 using MoeBeam.Game.Scripts.Managers;
-using UnityEditor.Animations;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -37,7 +35,7 @@ namespace MoeBeam.Game.Scripts.Items
             {
                 case GameData.CoinType.Beam:
                     CurrentCoin = beamData;
-                    coinAnimator.runtimeAnimatorController = goldData.coinAnimatorController;
+                    coinAnimator.runtimeAnimatorController = beamData.coinAnimatorController;
                     break;
                 case GameData.CoinType.Star:
                     CurrentCoin = starData;
@@ -45,7 +43,7 @@ namespace MoeBeam.Game.Scripts.Items
                     break;
                 case GameData.CoinType.Gold:
                     CurrentCoin = goldData;
-                    coinAnimator.runtimeAnimatorController = beamData.coinAnimatorController;
+                    coinAnimator.runtimeAnimatorController = goldData.coinAnimatorController;
                     break;
                 
             }

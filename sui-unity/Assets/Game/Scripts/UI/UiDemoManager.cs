@@ -82,6 +82,23 @@ namespace Game.Scripts.UI
             healthBarTrail.fillAmount = 1f;
             
             SetPlayerIcons();
+
+            //Set the player coins texts
+            foreach (var coin in BeamInventoryManager.Instance.PlayerCoins)
+            {
+                switch (coin.CoinType)
+                {
+                    case GameData.CoinType.Beam:
+                        beamCoinText.text = coin.Amount.ToString();
+                        break;
+                    case GameData.CoinType.Star:
+                        starCoinText.text = coin.Amount.ToString();
+                        break;
+                    case GameData.CoinType.Gold:
+                        goldCoinText.text = coin.Amount.ToString();
+                        break;
+                }
+            }
             
             EventCenter.Subscribe(GameData.OnPlayerInjuredEvent, UpdateHealthBar);
             EventCenter.Subscribe(GameData.OnEnemyDiedEvent, UpdateEnemiesKilled);
@@ -98,7 +115,6 @@ namespace Game.Scripts.UI
 
             foreach (var pair in data)
             {
-                if(pair.Key.Amount <= 0) continue;
                 var color = pair.Value ? Color.red : Color.green;
                 switch (pair.Key.CoinType)
                 {
@@ -133,7 +149,7 @@ namespace Game.Scripts.UI
             sequence.AppendInterval(0.5f);
             sequence.Append(tmp.transform.DOScale(1f, 0.25f)).SetEase(easeType);
             sequence.Join(tmp.DOColor(Color.white, trailDelay));
-
+            sequence.Play();
         } 
 
         #endregion

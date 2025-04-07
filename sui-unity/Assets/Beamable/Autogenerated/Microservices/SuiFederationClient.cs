@@ -15,7 +15,7 @@ namespace Beamable.Server.Clients
     
     
     /// <summary> A generated client for <see cref="Beamable.SuiFederation.SuiFederation"/> </summary
-    public sealed class SuiFederationClient : MicroserviceClient, Beamable.Common.IHaveServiceName, Beamable.Common.ISupportsFederatedLogin<SuiFederationCommon.SuiWeb3Identity>, Beamable.Common.ISupportsFederatedInventory<SuiFederationCommon.SuiWeb3Identity>
+    public sealed class SuiFederationClient : MicroserviceClient, Beamable.Common.IHaveServiceName, Beamable.Common.ISupportsFederatedLogin<SuiFederationCommon.SuiWeb3Identity>, Beamable.Common.ISupportsFederatedLogin<SuiFederationCommon.SuiWeb3ExternalIdentity>, Beamable.Common.ISupportsFederatedInventory<SuiFederationCommon.SuiWeb3Identity>, Beamable.Common.ISupportsFederatedInventory<SuiFederationCommon.SuiWeb3ExternalIdentity>
     {
         
         public SuiFederationClient(BeamContext context = null) : 
@@ -78,6 +78,18 @@ namespace Beamable.Server.Clients
         }
         
         /// <summary>
+        /// Call the GetAccount method on the SuiFederation microservice
+        /// <see cref="Beamable.SuiFederation.SuiFederation.GetAccount"/>
+        /// </summary>
+        public Beamable.Common.Promise<string> GetAccount(string id)
+        {
+            object raw_id = id;
+            System.Collections.Generic.Dictionary<string, object> serializedFields = new System.Collections.Generic.Dictionary<string, object>();
+            serializedFields.Add("id", raw_id);
+            return this.Request<string>("SuiFederation", "GetAccount", serializedFields);
+        }
+        
+        /// <summary>
         /// Call the InitializeContentContracts method on the SuiFederation microservice
         /// <see cref="Beamable.SuiFederation.SuiFederation.InitializeContentContracts"/>
         /// </summary>
@@ -96,6 +108,20 @@ namespace Beamable.Server.Clients
             System.Collections.Generic.Dictionary<string, object> serializedFields = new System.Collections.Generic.Dictionary<string, object>();
             return this.Request<string>("SuiFederation", "GetSuiEnvironment", serializedFields);
         }
+        
+        /// <summary>
+        /// Call the Withdraw method on the SuiFederation microservice
+        /// <see cref="Beamable.SuiFederation.SuiFederation.Withdraw"/>
+        /// </summary>
+        public Beamable.Common.Promise<Beamable.Common.Unit> Withdraw(string contentId, long amount)
+        {
+            object raw_contentId = contentId;
+            object raw_amount = amount;
+            System.Collections.Generic.Dictionary<string, object> serializedFields = new System.Collections.Generic.Dictionary<string, object>();
+            serializedFields.Add("contentId", raw_contentId);
+            serializedFields.Add("amount", raw_amount);
+            return this.Request<Beamable.Common.Unit>("SuiFederation", "Withdraw", serializedFields);
+        }
     }
     
     internal sealed class MicroserviceParametersSuiFederationClient
@@ -103,6 +129,11 @@ namespace Beamable.Server.Clients
         
         [System.SerializableAttribute()]
         internal sealed class ParameterSystem_String : MicroserviceClientDataWrapper<string>
+        {
+        }
+        
+        [System.SerializableAttribute()]
+        internal sealed class ParameterSystem_Int64 : MicroserviceClientDataWrapper<long>
         {
         }
     }
