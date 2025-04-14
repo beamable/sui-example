@@ -23,7 +23,7 @@ namespace MoeBeam.Game.Scripts.Beam
 
         #region PUBLIC_VARIABLES
 
-        public bool NewAccountCreated { get; private set; } = false;
+        public bool IsReady { get; private set; } = false;
         public long PlayerId { get; private set; }
         public PlayerAccount CurrentAccount { get; private set; }
 
@@ -44,6 +44,8 @@ namespace MoeBeam.Game.Scripts.Beam
                 await UniTask.WaitUntil(() => BeamManager.IsReady);
                 _beamContext = BeamManager.BeamContext;
                 await _beamContext.Accounts.OnReady;
+                CurrentAccount = _beamContext.Accounts.Current;
+                IsReady = true;
             }
             catch (Exception e)
             {
@@ -84,7 +86,7 @@ namespace MoeBeam.Game.Scripts.Beam
             {
                 await _beamContext.Accounts.SetAlias(alias, CurrentAccount);
                 UpdateCurrentAccount(CurrentAccount);
-                NewAccountCreated = true;
+                IsReady = true;
             }
             catch (Exception e)
             {

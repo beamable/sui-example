@@ -45,6 +45,8 @@ namespace MoeBeam.Game.Scripts.UI
         #endregion
 
         #region PUBLIC_VARIABLES
+        
+        public bool PlayerHasWallet { get; private set; }
 
         #endregion
 
@@ -59,12 +61,14 @@ namespace MoeBeam.Game.Scripts.UI
             stashedWalletPanel.SetActive(false);
             beamInitTextObj.SetActive(true);
             
-            await UniTask.WaitUntil(()=> BeamManager.IsReady);
+            await UniTask.WaitUntil(()=> BeamAccountManager.Instance.IsReady);
             beamInitTextObj.SetActive(false);
             
             mainMenuPanel.SetActive(true);
-            createNewAccountPanel.SetActive(true);
-            
+            PlayerHasWallet = BeamAccountManager.Instance.CurrentAccount.ExternalIdentities != null;
+            createNewAccountPanel.SetActive(!PlayerHasWallet);
+            stashedWalletPanel.SetActive(PlayerHasWallet);
+
         }
         
         private void Update()

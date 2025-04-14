@@ -15,6 +15,9 @@ namespace MoeBeam.Game.Scripts.Managers
 {
     public class UiWalletManager : MonoBehaviour
     {
+        [Header("Account Info")] 
+        [SerializeField] private TextMeshProUGUI aliasText;
+        [SerializeField] private TextMeshProUGUI normalWalletText;
         [SerializeField] private TextMeshProUGUI walletAddressText;
         
         [Header("Buttons")] 
@@ -40,8 +43,9 @@ namespace MoeBeam.Game.Scripts.Managers
         [SerializeField] private Vector2 continueBtnYOffsets = new Vector2(0, 0);
         [SerializeField] private string btnSkipText = "Skip To Game";
         [SerializeField] private string btnContinueText = "Continue Game";
-        
-        
+
+
+        private bool _stashedWalletConnected = false;
         private string _walletAddress;
         private string messageToSign;
         private const string WalletName = "Stashed";
@@ -89,7 +93,17 @@ namespace MoeBeam.Game.Scripts.Managers
 
         private void Start()
         {
-            PromptForPopupAndConnect();
+            //PromptForPopupAndConnect();
+            Init();
+        }
+
+        private void OnEnable()
+        {
+            Init();
+        }
+
+        private void Init()
+        {
             getAddressBtn.interactable = true;
             attachBtn.interactable = false;
             openWalletBtn.interactable = false;
@@ -102,6 +116,19 @@ namespace MoeBeam.Game.Scripts.Managers
             continueDemoBtnRect.DOAnchorPosY(continueBtnYOffsets.x, 0f);
             continueDemoBtnText.text = btnSkipText;
             currencyDemoObject.SetActive(false);
+            
+            //Setup Account and buttons stats
+            SetupAccount();
+        }
+
+        private void SetupAccount()
+        {
+            aliasText.text = "Alias: " + BeamAccountManager.Instance.CurrentAccount.Alias;
+            normalWalletText.text = "Sui Wallet: " + BeamAccountManager.Instance.CurrentAccount.ExternalIdentities[0].userId;
+            _stashedWalletConnected = BeamAccountManager.Instance.CurrentAccount.ExternalIdentities.Length > 1;
+            if(!_stashedWalletConnected) return;
+            walletAddressText.text = "Stashed Wallet: " + BeamAccountManager.Instance.CurrentAccount.ExternalIdentities[1].userId;
+            StashedWalletSuccessSequence();
         }
 
         #region BTN_Clicks
@@ -152,19 +179,24 @@ namespace MoeBeam.Game.Scripts.Managers
                         walletAddressText.text = $"Stashed Wallet: {_walletAddress}";
                         Debug.Log($"Wallet connected: {_walletAddress}");
                         
-                        getAddressBtn.interactable = false;
-                        attachBtn.interactable = false;
-                        openWalletBtn.interactable = true;
-                        suiScanBtn.interactable = true;
-                        suiScanStashedBtn.interactable = true;
-                        
-                        ExpandDemoFrame();
+                        StashedWalletSuccessSequence();
                     });
             }
             catch (Exception e)
             {
                 Debug.LogError($"Error connecting to wallet: {e.Message}");
             }
+        }
+
+        private void StashedWalletSuccessSequence()
+        {
+            getAddressBtn.interactable = false;
+            attachBtn.interactable = false;
+            openWalletBtn.interactable = true;
+            suiScanBtn.interactable = true;
+            suiScanStashedBtn.interactable = true;
+                        
+            ExpandDemoFrame();
         }
 
         public async void OnClickAddToBeam()

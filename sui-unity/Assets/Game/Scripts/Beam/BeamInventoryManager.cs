@@ -58,7 +58,7 @@ namespace MoeBeam.Game.Scripts.Beam
 
         private async void Start()
         {
-            await UniTask.WaitUntil(() => BeamAccountManager.Instance.NewAccountCreated);
+            await UniTask.WaitUntil(() => BeamAccountManager.Instance.IsReady);
             _beamContext = BeamManager.BeamContext;
             _inventoryUpdateBuilder = new InventoryUpdateBuilder();
             SetupCoins();
@@ -71,10 +71,17 @@ namespace MoeBeam.Game.Scripts.Beam
         
         public async UniTask AddItemToInventory(WeaponInstance weapon)
         {
-            var add =  BeamManager.BeamContext.Api.InventoryService.AddItem(weapon.ContentId,
-                weapon.MetaData.ToDictionary(true)).IsCompleted;
-            Debug.LogWarning($"ADDING ITEM TO INVENTORY {add}");
-            //await BeamManager.SkullClient.GrantItem(weapon.ContentId, weapon.MetaData.ToDictionary());
+            try
+            {
+                var add = BeamManager.BeamContext.Api.InventoryService.AddItem(weapon.ContentId,
+                    weapon.MetaData.ToDictionary(true)).IsCompleted;
+                Debug.LogWarning($"ADDING ITEM TO INVENTORY {add}");
+                //await BeamManager.SkullClient.GrantItem(weapon.ContentId, weapon.MetaData.ToDictionary());
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"Failed to add ITEM to INVENTORY: {e}");
+            }
         }
 
         public async UniTask UpdateCurrency(GameData.CoinType coinType, bool deduct = false)
@@ -103,12 +110,17 @@ namespace MoeBeam.Game.Scripts.Beam
 
         #region PRIVATE_METHODS
         
+        [ContextMenu("Refresh")]
+        private void OnRefreshing()
+        {
+            RefreshInventory().Forget();
+        }
         private void OnRefresh(InventoryView obj)
         {
-            RefreshInventory(obj).Forget();
+            RefreshInventory().Forget();
         }
 
-        private async UniTask RefreshInventory(InventoryView obj)
+        private async UniTask RefreshInventory()
         {
             var inventoryItems = await _beamContext.Inventory.LoadItems();
             var weapons = inventoryItems.Where(item => item.ContentId.Contains(weaponContentId)).ToArray();
