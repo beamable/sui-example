@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using DG.Tweening;
+using MoeBeam.Game.Input;
 using MoeBeam.Game.Scripts.Beam;
 using MoeBeam.Game.Scripts.Data;
 using MoeBeam.Game.Scripts.Items;
@@ -59,11 +60,13 @@ namespace Game.Scripts.UI
         [SerializeField] private AudioClip deathLoopMusic;
         [SerializeField] private UiDemoWeaponShower uiWeaponShower;
         [SerializeField] private GameObject settingsPanel;
+        [SerializeField] private InputReader inputReader;
         
         #endregion
 
         #region PRIVATE_VARIABLES
-        
+
+        private bool _settingPanelOpened = false;
         private float _trailTimer;
         private const string SuiUrl = "https://suiscan.xyz/devnet/account/";
 
@@ -99,58 +102,26 @@ namespace Game.Scripts.UI
                         break;
                 }
             }
-            
-            EventCenter.Subscribe(GameData.OnPlayerInjuredEvent, UpdateHealthBar);
-            EventCenter.Subscribe(GameData.OnEnemyDiedEvent, UpdateEnemiesKilled);
-            EventCenter.Subscribe(GameData.OnPlayerDeathSequenceDoneEvent, OnPlayerDied);
-            EventCenter.Subscribe(GameData.OnBossDiedEvent, OnBossDied);
-            EventCenter.Subscribe(GameData.OnMeleeLeveledUpEvent, OnWeaponLeveledUp);
-            EventCenter.Subscribe(GameData.OnRangedLeveledUpEvent, OnWeaponLeveledUp);
-            EventCenter.Subscribe(GameData.OnCoinCollectedEvent, OnCoinCollected);
+
+            inputReader.EscapePressedEvent += OnEscapeKeyPressed;
+
         }
 
-        private void OnCoinCollected(object obj)
+        private void OnEnable()
         {
-            if (obj is not Dictionary<PlayerCoin, bool> data) return;
-
-            foreach (var pair in data)
-            {
-                var color = pair.Value ? Color.red : Color.green;
-                switch (pair.Key.CoinType)
-                {
-                    case GameData.CoinType.Star:
-                        TextLevelUpAnimation(starCoinText, pair.Key.Amount.ToString(), 1.3f, Ease.Flash, color);
-                        break;
-                    case GameData.CoinType.Beam:
-                        TextLevelUpAnimation(beamCoinText, pair.Key.Amount.ToString(), 1.3f, Ease.Flash, color);
-                        break;
-                    case GameData.CoinType.Gold:
-                        TextLevelUpAnimation(goldCoinText, pair.Key.Amount.ToString(), 1.3f, Ease.Flash, color);
-                        break;
-                }
-            }
+            SubscribeToEvents();
         }
 
-        private void OnWeaponLeveledUp(object obj)
+        private void OnDisable()
         {
-            if(obj is not WeaponInstance weapon) return;
-            if(weapon.AttackType != GameData.AttackType.Shoot)
-                meleeWeaponLevel.text = weapon.MetaData.Level.ToString();
-            else
-                rangedWeaponLevel.text = weapon.MetaData.Level.ToString();
+            EventCenter.Unsubscribe(GameData.OnPlayerInjuredEvent, UpdateHealthBar);
+            EventCenter.Unsubscribe(GameData.OnEnemyDiedEvent, UpdateEnemiesKilled);
+            EventCenter.Unsubscribe(GameData.OnPlayerDeathSequenceDoneEvent, OnPlayerDied);
+            EventCenter.Unsubscribe(GameData.OnBossDiedEvent, OnBossDied);
+            EventCenter.Unsubscribe(GameData.OnMeleeLeveledUpEvent, OnWeaponLeveledUp);
+            EventCenter.Unsubscribe(GameData.OnRangedLeveledUpEvent, OnWeaponLeveledUp);
+            EventCenter.Unsubscribe(GameData.OnCoinCollectedEvent, OnCoinCollected);
         }
-
-        private void TextLevelUpAnimation(TextMeshProUGUI tmp, string newText, float endValue = 2f, Ease easeType = Ease.InElastic, Color color = default(Color))
-        {
-            var sequence = DOTween.Sequence();
-            tmp.text = newText;
-            sequence.Append(tmp.transform.DOScale(endValue, 0.25f)).SetEase(easeType);
-            sequence.Join(tmp.DOColor(color, trailDelay));
-            sequence.AppendInterval(0.5f);
-            sequence.Append(tmp.transform.DOScale(1f, 0.25f)).SetEase(easeType);
-            sequence.Join(tmp.DOColor(Color.white, trailDelay));
-            sequence.Play();
-        } 
 
         #endregion
 
@@ -158,6 +129,7 @@ namespace Game.Scripts.UI
         
         public void OnOpenSettings(bool open)
         {
+            _settingPanelOpened = open;
             settingsPanel.SetActive(open);
             Time.timeScale = open ? 0f : 1f;
             ActivateUiWeaponCards(open);
@@ -228,6 +200,61 @@ namespace Game.Scripts.UI
             uiWeaponShower.gameObject.SetActive(active);
             uiWeaponShower.ShowWeaponCard(active);
         }
+        
+        private void SubscribeToEvents()
+        {
+            EventCenter.Subscribe(GameData.OnPlayerInjuredEvent, UpdateHealthBar);
+            EventCenter.Subscribe(GameData.OnEnemyDiedEvent, UpdateEnemiesKilled);
+            EventCenter.Subscribe(GameData.OnPlayerDeathSequenceDoneEvent, OnPlayerDied);
+            EventCenter.Subscribe(GameData.OnBossDiedEvent, OnBossDied);
+            EventCenter.Subscribe(GameData.OnMeleeLeveledUpEvent, OnWeaponLeveledUp);
+            EventCenter.Subscribe(GameData.OnRangedLeveledUpEvent, OnWeaponLeveledUp);
+            EventCenter.Subscribe(GameData.OnCoinCollectedEvent, OnCoinCollected);
+        }
+
+        private void OnCoinCollected(object obj)
+        {
+            if (obj is not Dictionary<PlayerCoin, bool> data) return;
+
+            foreach (var pair in data)
+            {
+                var color = pair.Value ? Color.red : Color.green;
+                switch (pair.Key.CoinType)
+                {
+                    case GameData.CoinType.Star:
+                        TextLevelUpAnimation(starCoinText, pair.Key.Amount.ToString(), 1.3f, Ease.Flash, color);
+                        break;
+                    case GameData.CoinType.Beam:
+                        TextLevelUpAnimation(beamCoinText, pair.Key.Amount.ToString(), 1.3f, Ease.Flash, color);
+                        break;
+                    case GameData.CoinType.Gold:
+                        TextLevelUpAnimation(goldCoinText, pair.Key.Amount.ToString(), 1.3f, Ease.Flash, color);
+                        break;
+                }
+            }
+        }
+
+        private void OnWeaponLeveledUp(object obj)
+        {
+            if(obj is not WeaponInstance weapon) return;
+            if(weapon.AttackType != GameData.AttackType.Shoot)
+                meleeWeaponLevel.text = weapon.MetaData.Level.ToString();
+            else
+                rangedWeaponLevel.text = weapon.MetaData.Level.ToString();
+        }
+
+        private void TextLevelUpAnimation(TextMeshProUGUI tmp, string newText, float endValue = 2f, Ease easeType = Ease.InElastic, Color color = default(Color))
+        {
+            var sequence = DOTween.Sequence();
+            tmp.text = newText;
+            sequence.Append(tmp.transform.DOScale(endValue, 0.25f)).SetEase(easeType);
+            sequence.Join(tmp.DOColor(color, trailDelay));
+            sequence.AppendInterval(0.5f);
+            sequence.Append(tmp.transform.DOScale(1f, 0.25f)).SetEase(easeType);
+            sequence.Join(tmp.DOColor(Color.white, trailDelay));
+            sequence.Play();
+        } 
+
 
         private void OnPlayerDied(object _)
         {
@@ -267,6 +294,11 @@ namespace Game.Scripts.UI
         {
             winScreen.SetActive(true);
             ActivateUiWeaponCards();
+        }
+        
+        private void OnEscapeKeyPressed()
+        {
+            OnOpenSettings(!_settingPanelOpened);
         }
 
         #endregion
