@@ -26,6 +26,9 @@ namespace MoeBeam.Game.Scripts.Managers
 
         private void RestartGame()
         {
+            //check current scene is not MainMenu
+            if (SceneManager.GetActiveScene().buildIndex == 0) return;
+            
             SceneManager.LoadScene(0); 
             EventCenter.ResetEventCenter();
         }

@@ -20,6 +20,7 @@ namespace MoeBeam.Game.Input
         public event UnityAction PrimaryAttackEvent = delegate { }; 
         public event UnityAction SecondaryAttackEvent = delegate { }; 
         public event UnityAction ForceRestartEvent = delegate { }; 
+        public event UnityAction EscapePressedEvent = delegate { }; 
 
         #endregion
 
@@ -81,6 +82,12 @@ namespace MoeBeam.Game.Input
             if(context.performed)
                 ForceRestartEvent?.Invoke();
 
+        }
+
+        public void OnEscape(InputAction.CallbackContext context)
+        {
+            if(context.performed)
+                EscapePressedEvent?.Invoke();
         }
 
         #endregion

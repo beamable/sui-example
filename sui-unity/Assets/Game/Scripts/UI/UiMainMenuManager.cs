@@ -65,7 +65,7 @@ namespace MoeBeam.Game.Scripts.UI
             beamInitTextObj.SetActive(false);
             
             mainMenuPanel.SetActive(true);
-            PlayerHasWallet = BeamAccountManager.Instance.CurrentAccount.ExternalIdentities != null;
+            PlayerHasWallet = BeamAccountManager.Instance.CurrentAccount.ExternalIdentities.Length > 0;
             createNewAccountPanel.SetActive(!PlayerHasWallet);
             stashedWalletPanel.SetActive(PlayerHasWallet);
 
