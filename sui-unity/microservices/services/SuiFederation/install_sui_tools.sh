@@ -21,6 +21,7 @@ echo "Extracting $target_file from $container_name..."
 docker cp "$container_name:$target_file" "$destination_path"
 
 # Step 3: ZIP the SUI executable and delete
+rm -f "$destinationPath/sui.zip"
 zip "$destinationPath/sui.zip" "$destinationPath/sui"
 rm -f "$destinationPath/sui"
 
