@@ -894,31 +894,31 @@ async function withdrawCurrency(callback: Callback<string>, request: string, dev
 
         if (currencyTransfer != null) {
             currencyTransfer.Amount = Math.abs(currencyTransfer.Amount);
-            const senetCoins= await getTargetCoins(sourceWallet, currencyTransfer.PackageId, currencyTransfer.Module, currencyTransfer.Amount, suiClient);
-            if (!Array.isArray(senetCoins) || (Array.isArray(senetCoins) && senetCoins.length === 0)) {
+            const targetCoins= await getTargetCoins(sourceWallet, currencyTransfer.PackageId, currencyTransfer.Module, currencyTransfer.Amount, suiClient);
+            if (!Array.isArray(targetCoins) || (Array.isArray(targetCoins) && targetCoins.length === 0)) {
                 throw new Error(`Can't find target amount (${currencyTransfer.Amount}) of coins from address ${sourceWallet}.`);
             }
             const tx = new Transaction();
 
-            if (senetCoins.length === 1) {
-                const coin = senetCoins[0];
+            if (targetCoins.length === 1) {
+                const coin = targetCoins[0];
                 if (coin.balance === currencyTransfer.Amount) {
                     tx.transferObjects([tx.object(coin.coinObjectId)], tx.pure.address(currencyTransfer.TargetWalletAddress));
                 } else if (coin.balance > currencyTransfer.Amount) {
                     const [targetCoin] = tx.splitCoins(tx.object(coin.coinObjectId), [tx.pure.u64(currencyTransfer.Amount)]);
                     tx.transferObjects([targetCoin], tx.pure.address(currencyTransfer.TargetWalletAddress));
                 }
-            } else if (senetCoins.length > 1) {
-                const totalBalance = senetCoins.reduce((sum, coin) => sum + coin.balance, 0);
+            } else if (targetCoins.length > 1) {
+                const totalBalance = targetCoins.reduce((sum, coin) => sum + coin.balance, 0);
                 if (totalBalance === currencyTransfer.Amount) {
-                    const coinsToTransfer = senetCoins.map(coin => tx.object(coin.coinObjectId));
+                    const coinsToTransfer = targetCoins.map(coin => tx.object(coin.coinObjectId));
                     tx.transferObjects(coinsToTransfer, tx.pure.address(currencyTransfer.TargetWalletAddress));
                 } else {
-                    senetCoins.sort((a, b) => a.balance - b.balance);
-                    const balanceExceptLargest = senetCoins.slice(0, -1).reduce((sum, coin) => sum + coin.balance, 0);
-                    const [targetCoinFromLargest] = tx.splitCoins(tx.object(senetCoins[senetCoins.length - 1].coinObjectId), [tx.pure.u64(currencyTransfer.Amount - balanceExceptLargest)]);
+                    targetCoins.sort((a, b) => a.balance - b.balance);
+                    const balanceExceptLargest = targetCoins.slice(0, -1).reduce((sum, coin) => sum + coin.balance, 0);
+                    const [targetCoinFromLargest] = tx.splitCoins(tx.object(targetCoins[targetCoins.length - 1].coinObjectId), [tx.pure.u64(currencyTransfer.Amount - balanceExceptLargest)]);
                     tx.transferObjects([targetCoinFromLargest], tx.pure.address(currencyTransfer.TargetWalletAddress));
-                    const remainingCoinsToTransfer = senetCoins.slice(0, -1).map(coin => tx.object(coin.coinObjectId));
+                    const remainingCoinsToTransfer = targetCoins.slice(0, -1).map(coin => tx.object(coin.coinObjectId));
                     tx.transferObjects(remainingCoinsToTransfer, tx.pure.address(currencyTransfer.TargetWalletAddress));
                 }
             }
