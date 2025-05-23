@@ -1,5 +1,5 @@
 import { getWallets, Wallet, WalletAccount, StandardConnect, StandardDisconnect, StandardDisconnectFeature, StandardConnectFeature, SuiSignPersonalMessageFeature  } from "@mysten/wallet-standard";
-import { registerSlushWallet } from '@mysten/slush-wallet';
+import { registerSlushWallet, SLUSH_WALLET_NAME } from '@mysten/slush-wallet';
 
 registerSlushWallet("Beam Stashed");
 
@@ -47,9 +47,9 @@ export async function openWallet(name: string) {
     try {
         const wallet = await getSelectedWallet(name);
         const connectFeature = wallet!.features[StandardConnect] as StandardConnectFeature[typeof StandardConnect];
-        await connectFeature.connect();
-        if (name == "Stashed") {
-            window.open("https://getstashed.com", "_blank");
+        await connectFeature.connect();        
+        if (name == SLUSH_WALLET_NAME) {
+            window.open("https://my.slush.app", "_blank");
         }
 
     } catch (error) {
