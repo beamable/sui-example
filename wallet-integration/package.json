@@ -12,9 +12,8 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "@mysten/dapp-kit": "^0.14.50",
-    "@mysten/wallet-standard": "^0.13.26",
-    "@mysten/zksend": "^0.12.16",
+    "@mysten/slush-wallet": "^0.1.4",
+    "@mysten/wallet-standard": "^0.15.1",
     "http-server": "^14.1.1",
     "eslint": "^9.19.0",
     "ts-loader": "^9.5.2",
