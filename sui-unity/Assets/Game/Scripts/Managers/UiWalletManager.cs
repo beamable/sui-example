@@ -49,7 +49,7 @@ namespace MoeBeam.Game.Scripts.Managers
         private string _walletAddress;
         private string messageToSign;
         private const string WalletName = "Stashed";
-        private const string WalletUrl = "https://getstashed.com";
+        private const string WalletUrl = "https://my.slush.app";
         private const string SuiScanUrl = "https://suiscan.xyz/devnet/account/";
         private int stashedCoins = 0;
         
