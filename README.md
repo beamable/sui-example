@@ -24,6 +24,7 @@ You should have the following tools installed on your development machine.
 - /sui-unity/microservices - Beamable standalone microservice that implements federation features and communicates with
   SUI.
 - /sui-unity - Unity project with Beamable SDK and basic UI to showcase the E2E flow.
+- /wallet-integration - Slush wallet web sample project, generates JavaScript API for wallet interaction
 
 ## Getting Started
 Navigate into the ```/SuiFederationService``` directory and run this commands to initialize the Beamable CLI and
@@ -42,7 +43,7 @@ You can override the values using the realm configuration.
 **Default values:**  
 | **Namespace** | **Key**          |**Default value** |**Description**                                         |
 |---------------|------------------|------------------|--------------------------------------------------------|
-| sui           | SuiEnvironment   | devnet           | SUI network name (mainnet, testnet, devnet, localnet)  |
+| sui-federation| SuiEnvironment   | devnet           | SUI network name (mainnet, testnet, devnet, localnet)  |
 
 
 ## Running Locally
@@ -92,28 +93,50 @@ dotnet beam deploy release --latest-plan
 
 # Features  
 The example project implements following SUI features:
-- Automatic contract deployment from Beamable content system
-- Support for following contract types:
+- creating a custodial SUI wallet for the player account
+- attaching a Slush wallet to the player account
+- automatic smart contract deployment
+- support for following contract types:
   - Non-fungible token/NFT
   - Fungible token/Regular currency token
   - Fungible token/Closed loop token
-- Stashed Wallet
+- transfer currency from a custodial to external wallet
 
-## Non-fungible token/NFT
-The example project contains an example of NFT game token item called "weapon", which is defined in `sui-unity\microservices\services\SuiFederationCommon\FederationContent\WeaponItem`  
-Other custom NFT definition can be added by defining a new type which implements `INftBase` interface. Custom NFT type can be used within a Beamable content system to crete a set of possible NFTs that can be minted.  
-Each NFT item can be minted, burned or updated trough inventory service update operations in a game authoritative process trough sponsored transactions.  
-Microservice will deploy contracts for each custom `INftBase` interface implementation.  
+## Custodial SUI wallet
+Using Beamable's [federated authentication feature](https://github.com/beamable/FederatedAuthentication) the microservice can create a custodial SUI wallet for the player.
+The implementation can be seen [here.](https://github.com/beamable/sui-example/blob/main/sui-unity/microservices/services/SuiFederation/Endpoints/AuthenticateEndpoint.cs)
+
+## Attaching a Slush wallet
+Using Beamable's [federated authentication feature](https://github.com/beamable/FederatedAuthentication) the microservice can attach an external wallet the the player's account. Initiating the attach flow is specific for the platform (Unity or Unreal) but the backend implementation is the same. It works in a 2FA fashion, first by generating a message to sign, and then verifying the signature.
+The implementation can be seen [here.](https://github.com/beamable/sui-example/blob/main/sui-unity/microservices/services/SuiFederation/Endpoints/AuthenticateExternalEndpoint.cs)
+
+## Non-fungible token/NFT  
+NFT support in the microservice implements the following functionalities:  
+- dynamic smart contract creation
+- NFT minting and burning
+- Dynamic NFTs (updating NFT attributes)  
+
+Each NFT item can be minted, burned or updated trough inventory service update operations in a game authoritative fashion trough sponsored transactions. Beamable's federated inventory process is explained [here.](https://github.com/beamable/FederatedInventory)  
+The example project contains an example of NFT game token item called "weapon", which is defined in [`here.`](https://github.com/beamable/sui-example/blob/main/sui-unity/microservices/services/SuiFederationCommon/FederationContent/WeaponItem.cs)
+Other custom NFT definition can be added by defining a new type which implements [`INftBase`](https://github.com/beamable/sui-example/blob/main/sui-unity/microservices/services/SuiFederationCommon/Models/NftBase.cs) interface. Custom NFT type can be used within a Beamable content system to crete a set of possible NFTs that can be minted.    
+Microservice will deploy smart contracts for each Beamable content item created based on the `INftBase` interface implementation.  
 Content item definition supports following properties:
 - name
 - image
 - description
 - attributes: key-value pairs
 
+Smart contract readme can be found [here.](https://github.com/beamable/sui-example/blob/main/sui-unity/microservices/services/SuiFederation/Features/Contract/Templates/nft.MD)
+
 ## Fungible token/Regular currency token
-The example project contains an example of regular coin item called "coin", which is defined in `sui-unity\microservices\services\SuiFederationCommon\FederationContent\CoinCurrency`  
-Beamable content system can be used to add new regular coins for which contract will be automatically deployed.  
-Microservice implementation supports minting and burning coins in a game authoritative process trough sponsored transactions.  
+Regular currency token support in the microservice implements the following functionalities:  
+- dynamic smart contract creation
+- defining coin initial supply 
+- minting and burning
+
+Each FT supports minting and burning coins trough sponsored transactions.
+The example project contains an example of regular coin item called "coin", which is defined [here.](https://github.com/beamable/sui-example/blob/main/sui-unity/microservices/services/SuiFederationCommon/FederationContent/CoinCurrency.cs)  
+Beamable content system can be used to add new regular coins for which contract will be automatically deployed.    
 Content item definition supports following properties:
 - name
 - symbol
@@ -122,10 +145,17 @@ Content item definition supports following properties:
 - description
 - initial supply
 
+Smart contract readme can be found [here.](https://github.com/beamable/sui-example/blob/main/sui-unity/microservices/services/SuiFederation/Features/Contract/Templates/ft-rc.MD)
+
 ## Fungible token/Closed loop token
-The example project contains an example of closed loop token item called "game_coin", which is defined in `sui-unity\microservices\services\SuiFederationCommon\FederationContent\InGameCurrency`  
-Beamable content system can be used to add new closed loop tokens for which contract will be automatically deployed.
-Microservice implementation supports minting and burning coins in a game authoritative process trough sponsored transactions.  
+Closed loop token support in the microservice implements the following functionalities:  
+- dynamic smart contract creation
+- defining coin initial supply and allowed actions
+- minting and burning
+
+Each FT supports minting and burning coins trough sponsored transactions.
+The example project contains an example of regular coin item called "coin", which is defined [here.](https://github.com/beamable/sui-example/blob/main/sui-unity/microservices/services/SuiFederationCommon/FederationContent/InGameCurrency.cs)  
+Beamable content system can be used to add new regular coins for which contract will be automatically deployed.    
 Content item definition supports following properties:
 - name
 - symbol
@@ -134,3 +164,8 @@ Content item definition supports following properties:
 - description
 - initial supply
 - optional token actions: spending, buying, transfers
+
+Smart contract readme can be found [here.](https://github.com/beamable/sui-example/blob/main/sui-unity/microservices/services/SuiFederation/Features/Contract/Templates/ft-cl.MD)
+
+## Transfer currency
+After a player’s custodial wallet is created and funded with fungible tokens, they can link an external (Slush) wallet and transfer tokens to it. The microservice exposes an [endpoint](https://github.com/beamable/sui-example/blob/main/sui-unity/microservices/services/SuiFederation/SuiFederation.cs#L134) to initiate such a request. SUI SDK [function](https://github.com/beamable/sui-example/blob/main/sui-unity/microservices/services/SuiFederation/Features/SuiApi/ts/bridge.ts#L884) handles coin fragmentation and execute appropriate transfers using sponsored transactions.
