@@ -373,7 +373,16 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Glow-Highlight_0: 1217966856898651963
+      Glow-Highlight_1: -3738086528837881730
+      Glow-Highlight_2: 5481433748274736721
+      Glow-Highlight_3: -8568111401184228855
+      Glow-Highlight_4: 7687322754653664461
+      Glow-Highlight_5: -7031456584244607611
+      Glow-Highlight_6: 1484781275554643809
+      Glow-Highlight_7: -4000006792866244839
+      Glow-Highlight_8: -6356304967476392219
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

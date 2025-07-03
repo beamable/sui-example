@@ -20,7 +20,6 @@ module.exports = {
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist'),
-
         library: 'WalletBridge',
         libraryTarget: 'window',
         //globalObject: 'this'     

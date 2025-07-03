@@ -5,7 +5,7 @@
     <title>{{{ PRODUCT_NAME }}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="Build/{{{ LOADER_FILENAME }}}"></script>
-    <script src="bridge.js" type="module"></script>
+    <script src="WalletBridge.js" type="module"></script>
     <style>
         html, body {
             margin: 0;
@@ -75,7 +75,7 @@
 
 
 <script type="module">
-    import * as bridge from "./bridge.js";
+    import * as bridge from "./WalletBridge.js";
 
     window.addEventListener("load", async () => {
         const unityCanvas = document.querySelector("#unity-canvas");
@@ -107,7 +107,7 @@
             });
 
             window.unityInstance = unityInstance;
-            window.WalletBridge = bridge;
+            window.bridge = bridge;
         } catch (e) {
             console.error("Unity failed to initialize:", e);
         }
