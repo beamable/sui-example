@@ -48,7 +48,7 @@ namespace MoeBeam.Game.Scripts.Managers
         private bool _stashedWalletConnected = false;
         private string _walletAddress;
         private string messageToSign;
-        private const string WalletName = "Stashed";
+        private const string WalletName = "Slush";
         private const string WalletUrl = "https://my.slush.app";
         private const string SuiScanUrl = "https://suiscan.xyz/devnet/account/";
         private int stashedCoins = 0;
@@ -91,9 +91,10 @@ namespace MoeBeam.Game.Scripts.Managers
 
         #endregion
 
-        private void Start()
+        private async void Start()
         {
             //PromptForPopupAndConnect();
+            await UniTask.WaitUntil(() => BeamAccountManager.Instance.IsReady);
             Init();
         }
 
@@ -245,7 +246,7 @@ namespace MoeBeam.Game.Scripts.Managers
 
         #region Privat_Methods
 
-         private async Promise<string> SolveChallenge(string challengeToken)
+        private async Promise<string> SolveChallenge(string challengeToken)
         {
             try
             {
@@ -306,7 +307,7 @@ namespace MoeBeam.Game.Scripts.Managers
         // Called by JS
         public void OnWalletConnected(string address)
         {
-            walletAddressText.text = $"Stashed: {address}";
+            walletAddressText.text = $"Slush: {address}";
             Debug.Log($"Wallet connected: {address}");
 
             if (!string.IsNullOrEmpty(address))
@@ -329,6 +330,11 @@ namespace MoeBeam.Game.Scripts.Managers
         {
             _challengePromise?.CompleteSuccess(signed);
             Debug.Log($"Message signed: {signed}");
+        }
+
+        public void OnPopupResult(string message)
+        {
+            Debug.LogWarning($"Result from popup: {message}");
         }
         
         #endregion

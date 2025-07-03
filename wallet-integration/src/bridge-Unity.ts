@@ -1,7 +1,7 @@
 import { getWallets, Wallet, WalletAccount, StandardConnect, StandardDisconnect, StandardDisconnectFeature, StandardConnectFeature, SuiSignPersonalMessageFeature  } from "@mysten/wallet-standard";
 import { registerSlushWallet } from '@mysten/slush-wallet';
 
-registerSlushWallet("Beam Stashed");
+registerSlushWallet("Slush");
 
 let cachedWallets: Wallet[] = [];
 let connectedAccount: WalletAccount | undefined;

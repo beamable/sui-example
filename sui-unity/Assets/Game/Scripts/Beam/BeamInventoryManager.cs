@@ -76,7 +76,6 @@ namespace MoeBeam.Game.Scripts.Beam
                 var add = BeamManager.BeamContext.Api.InventoryService.AddItem(weapon.ContentId,
                     weapon.MetaData.ToDictionary(true)).IsCompleted;
                 Debug.LogWarning($"ADDING ITEM TO INVENTORY {add}");
-                //await BeamManager.SkullClient.GrantItem(weapon.ContentId, weapon.MetaData.ToDictionary());
             }
             catch (Exception e)
             {

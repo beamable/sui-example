@@ -16,8 +16,8 @@ MonoBehaviour:
   icon:
     m_AssetGUID: 03da7715b0e5224409e499a9b6a31ced
     m_SubObjectName: Star_1
-    m_SubObjectGUID: 
     m_SubObjectType: 
+    m_SubObjectGUID: 
     m_EditorAssetChanged: 0
   clientPermission:
     writeSelf: 1
