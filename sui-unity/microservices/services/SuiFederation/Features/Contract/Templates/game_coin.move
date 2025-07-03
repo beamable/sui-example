@@ -90,20 +90,6 @@ module {{toLowerCase Name}}_package::{{toLowerCase Name}} {
         token::confirm_with_treasury_cap(&mut store.{{toLowerCase Name}}_treasury, req, ctx);
     }
 
-    /// Burn a token
-    // public fun burn(
-    //     tokens: &mut vector<Token<{{toUpperCase Name}}>>,
-    //     store: &mut {{toStructName Name}}Store,
-    //     ctx: &mut TxContext):() {
-    //     let len = vec::length(tokens);
-    //     let mut i = 0;
-    //     while (i < len) {
-    //         let token = vector::pop_back(tokens);
-    //         token::burn(&mut store.{{toLowerCase Name}}_treasury, token);
-    //         i = i + 1;
-    //     };
-    // }
-
     public fun burn(token: Token<{{toUpperCase Name}}>, store: &mut {{toStructName Name}}Store, ctx: &mut TxContext) {
         token::burn(&mut store.{{toLowerCase Name}}_treasury, token);
     }
